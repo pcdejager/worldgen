@@ -1,0 +1,16 @@
+*.suo
+*.db
+*.db-shm
+*.idb
+*.pch
+*.FileListAbsolute.txt
+*.opendb
+*.db-wal
+*.recipe
+*.log
+*.exe
+*.ilk
+*.ipch
+*.tlog
+*.obj
+*.pdb
