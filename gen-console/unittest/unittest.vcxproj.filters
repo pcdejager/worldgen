@@ -6,6 +6,13 @@
     <ClCompile Include="..\WorldTime.cpp">
       <Filter>External</Filter>
     </ClCompile>
+    <ClCompile Include="WorldPropertiesTest.cpp" />
+    <ClCompile Include="..\WorldBuilder.cpp">
+      <Filter>External</Filter>
+    </ClCompile>
+    <ClCompile Include="..\WorldProperties.cpp">
+      <Filter>External</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h" />
