@@ -1,6 +1,11 @@
 *.suo
 *.db
 *.db-shm
+*.testlog
+*.CopyComplete
+*.manifest
+*.testdurations
+*.p7s
 *.idb
 *.pch
 *.FileListAbsolute.txt
@@ -14,3 +19,4 @@
 *.tlog
 *.obj
 *.pdb
+**\packages
