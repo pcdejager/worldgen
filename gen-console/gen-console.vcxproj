@@ -160,6 +160,7 @@
     <ClCompile Include="WorldBuilder.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="WorldConstants.h" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="WorldProperties.h" />
     <ClInclude Include="WorldTime.h" />
