@@ -13,6 +13,10 @@
     <ClCompile Include="..\WorldProperties.cpp">
       <Filter>External</Filter>
     </ClCompile>
+    <ClCompile Include="TimeSpanTest.cpp" />
+    <ClCompile Include="..\TimeSpan.cpp">
+      <Filter>External</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h" />
@@ -21,5 +25,8 @@
     <Filter Include="External">
       <UniqueIdentifier>{7cd0ad73-c689-4ae6-b0e5-3d385cb0c8f5}</UniqueIdentifier>
     </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
 </Project>

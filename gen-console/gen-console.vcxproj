@@ -155,11 +155,13 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="TimeSpan.cpp" />
     <ClCompile Include="WorldProperties.cpp" />
     <ClCompile Include="WorldTime.cpp" />
     <ClCompile Include="WorldBuilder.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="TimeSpan.h" />
     <ClInclude Include="WorldConstants.h" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="WorldProperties.h" />

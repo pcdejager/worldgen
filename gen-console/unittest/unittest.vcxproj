@@ -36,9 +36,11 @@
     <ClInclude Include="pch.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\TimeSpan.cpp" />
     <ClCompile Include="..\WorldBuilder.cpp" />
     <ClCompile Include="..\WorldProperties.cpp" />
     <ClCompile Include="..\WorldTime.cpp" />
+    <ClCompile Include="TimeSpanTest.cpp" />
     <ClCompile Include="WorldPropertiesTest.cpp" />
     <ClCompile Include="WorldTimeTest.cpp" />
     <ClCompile Include="pch.cpp">
