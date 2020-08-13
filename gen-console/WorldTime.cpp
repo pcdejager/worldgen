@@ -135,3 +135,33 @@ WorldTime WorldTime::operator-(const TimeSpan& span) const
 	}
 	return WorldTime(static_cast<unsigned __int64>(newTime));
 }
+
+bool WorldTime::operator==(const WorldTime& rhs) const
+{
+	return ticks == rhs.ticks;
+}
+
+bool WorldTime::operator!=(const WorldTime& rhs) const
+{
+	return ticks != rhs.ticks;
+}
+
+bool WorldTime::operator<(const WorldTime& rhs) const
+{
+	return ticks < rhs.ticks;
+}
+
+bool WorldTime::operator<=(const WorldTime& rhs) const
+{
+	return ticks <= rhs.ticks;
+}
+
+bool WorldTime::operator>(const WorldTime& rhs) const
+{
+	return ticks > rhs.ticks;
+}
+
+bool WorldTime::operator>=(const WorldTime& rhs) const
+{
+	return ticks >= rhs.ticks;
+}

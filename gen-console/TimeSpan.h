@@ -36,6 +36,15 @@ public:
 	TimeSpan& operator-=(const TimeSpan& rhs);
 	TimeSpan& operator*=(__int64 value);
 	TimeSpan& operator/=(__int64 value);
+
+public:
+	bool operator==(const TimeSpan& rhs) const;
+	bool operator!=(const TimeSpan& rhs) const;
+	bool operator<(const TimeSpan& rhs) const;
+	bool operator<=(const TimeSpan& rhs) const;
+	bool operator>(const TimeSpan& rhs) const;
+	bool operator>=(const TimeSpan& rhs) const;
+
 private:
 	__int64 span;
 };

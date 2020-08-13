@@ -36,10 +36,12 @@
     <ClInclude Include="pch.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\Individual.cpp" />
     <ClCompile Include="..\TimeSpan.cpp" />
     <ClCompile Include="..\WorldBuilder.cpp" />
     <ClCompile Include="..\WorldProperties.cpp" />
     <ClCompile Include="..\WorldTime.cpp" />
+    <ClCompile Include="IndividualTest.cpp" />
     <ClCompile Include="TimeSpanTest.cpp" />
     <ClCompile Include="WorldPropertiesTest.cpp" />
     <ClCompile Include="WorldTimeTest.cpp" />

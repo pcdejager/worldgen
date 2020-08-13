@@ -41,6 +41,14 @@ public:
 	WorldTime& operator-=(const TimeSpan& span);
 	WorldTime operator-(const TimeSpan& span) const;
 
+public:
+	bool operator==(const WorldTime& rhs) const;
+	bool operator!=(const WorldTime& rhs) const;
+	bool operator<(const WorldTime& rhs) const;
+	bool operator<=(const WorldTime& rhs) const;
+	bool operator>(const WorldTime& rhs) const;
+	bool operator>=(const WorldTime& rhs) const;
+
 private:
 	unsigned __int64 ticks;
 };

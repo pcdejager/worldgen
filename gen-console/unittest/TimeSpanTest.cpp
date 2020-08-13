@@ -408,3 +408,90 @@ TEST(TimeSpanTest, OperatorDivideEQ)
 	EXPECT_EQ(value.Ticks(), -1234L);
 }
 
+TEST(TimeSpanTest, OperatorEQ)
+{
+	TimeSpan base(1030507090L);
+	TimeSpan same(1030507090L);
+	TimeSpan diff(1234567890L);
+	EXPECT_TRUE(base == same);
+	EXPECT_FALSE(base == diff);
+}
+
+TEST(TimeSpanTest, OperatorNEQ)
+{
+	TimeSpan base(1030507090L);
+	TimeSpan same(1030507090L);
+	TimeSpan diff(1234567890L);
+	EXPECT_FALSE(base != same);
+	EXPECT_TRUE(base != diff);
+}
+
+TEST(TimeSpanTest, OperatorLT)
+{
+	TimeSpan base(1030507090L);
+	TimeSpan same(1030507090L);
+	TimeSpan less(234567890L);
+	TimeSpan more(1234567890L);
+	EXPECT_FALSE(base < same);
+	EXPECT_FALSE(base < less);
+
+	EXPECT_FALSE(more < base);
+	EXPECT_FALSE(more < less);
+
+	EXPECT_TRUE(base < more);
+	EXPECT_TRUE(less < base);
+	EXPECT_TRUE(less < more);
+}
+
+TEST(TimeSpanTest, OperatorLTEQ)
+{
+	TimeSpan base(1030507090L);
+	TimeSpan same(1030507090L);
+	TimeSpan less(234567890L);
+	TimeSpan more(1234567890L);
+	EXPECT_TRUE(base <= same);
+
+	EXPECT_FALSE(base <= less);
+
+	EXPECT_FALSE(more <= base);
+	EXPECT_FALSE(more <= less);
+
+	EXPECT_TRUE(base <= more);
+	EXPECT_TRUE(less <= base);
+	EXPECT_TRUE(less <= more);
+}
+
+TEST(TimeSpanTest, OperatorGT)
+{
+	TimeSpan base(1030507090L);
+	TimeSpan same(1030507090L);
+	TimeSpan less(234567890L);
+	TimeSpan more(1234567890L);
+	EXPECT_FALSE(base > same);
+	EXPECT_FALSE(base > more);
+
+	EXPECT_TRUE(more > base);
+	EXPECT_TRUE(more > less);
+	EXPECT_TRUE(base > less);
+
+	EXPECT_FALSE(less > base);
+	EXPECT_FALSE(less > more);
+}
+
+TEST(TimeSpanTest, OperatorGTEQ)
+{
+	TimeSpan base(1030507090L);
+	TimeSpan same(1030507090L);
+	TimeSpan less(234567890L);
+	TimeSpan more(1234567890L);
+	EXPECT_TRUE(base >= same);
+
+	EXPECT_FALSE(base >= more);
+
+	EXPECT_TRUE(more >= base);
+	EXPECT_TRUE(more >= less);
+	EXPECT_TRUE(base >= less);
+
+	EXPECT_FALSE(less >= base);
+	EXPECT_FALSE(less >= more);
+}

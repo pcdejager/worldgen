@@ -258,3 +258,92 @@ TEST(WorldTimeTest, OperatorMinusTimeSpan_negative)
 	EXPECT_EQ(one.Ticks(), 1030507090UL);
 	EXPECT_EQ(span.Ticks(), 10204060800L);
 }
+
+TEST(WorldTimeTest, OperatorEQ)
+{
+	WorldTime base(1030507090UL);
+	WorldTime same(1030507090UL);
+	WorldTime diff(1234567890UL);
+	EXPECT_TRUE(base == same);
+	EXPECT_FALSE(base == diff);
+}
+
+TEST(WorldTimeTest, OperatorNEQ)
+{
+	WorldTime base(1030507090UL);
+	WorldTime same(1030507090UL);
+	WorldTime diff(1234567890UL);
+	EXPECT_FALSE(base != same);
+	EXPECT_TRUE(base != diff);
+}
+
+TEST(WorldTimeTest, OperatorLT)
+{
+	WorldTime base(1030507090UL);
+	WorldTime same(1030507090UL);
+	WorldTime less(234567890UL);
+	WorldTime more(1234567890UL);
+	EXPECT_FALSE(base < same);
+	EXPECT_FALSE(base < less);
+
+	EXPECT_FALSE(more < base);
+	EXPECT_FALSE(more < less);
+
+	EXPECT_TRUE(base < more);
+	EXPECT_TRUE(less < base);
+	EXPECT_TRUE(less < more);
+}
+
+TEST(WorldTimeTest, OperatorLTEQ)
+{
+	WorldTime base(1030507090UL);
+	WorldTime same(1030507090UL);
+	WorldTime less(234567890UL);
+	WorldTime more(1234567890UL);
+	EXPECT_TRUE(base <= same);
+
+	EXPECT_FALSE(base <= less);
+
+	EXPECT_FALSE(more <= base);
+	EXPECT_FALSE(more <= less);
+
+	EXPECT_TRUE(base <= more);
+	EXPECT_TRUE(less <= base);
+	EXPECT_TRUE(less <= more);
+}
+
+TEST(WorldTimeTest, OperatorGT)
+{
+	WorldTime base(1030507090UL);
+	WorldTime same(1030507090UL);
+	WorldTime less(234567890UL);
+	WorldTime more(1234567890UL);
+	EXPECT_FALSE(base > same);
+	EXPECT_FALSE(base > more);
+
+	EXPECT_TRUE(more > base);
+	EXPECT_TRUE(more > less);
+	EXPECT_TRUE(base > less);
+
+	EXPECT_FALSE(less > base);
+	EXPECT_FALSE(less > more);
+}
+
+TEST(WorldTimeTest, OperatorGTEQ)
+{
+	WorldTime base(1030507090UL);
+	WorldTime same(1030507090UL);
+	WorldTime less(234567890UL);
+	WorldTime more(1234567890UL);
+
+	EXPECT_TRUE(base >= same);
+
+	EXPECT_FALSE(base >= more);
+
+	EXPECT_TRUE(more >= base);
+	EXPECT_TRUE(more >= less);
+	EXPECT_TRUE(base >= less);
+
+	EXPECT_FALSE(less >= base);
+	EXPECT_FALSE(less >= more);
+}

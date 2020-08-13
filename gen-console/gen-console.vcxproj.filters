@@ -39,6 +39,9 @@
     <ClCompile Include="TimeSpan.cpp">
       <Filter>Source Files\DateTime</Filter>
     </ClCompile>
+    <ClCompile Include="Individual.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="WorldBuilder.h">
@@ -58,6 +61,9 @@
     </ClInclude>
     <ClInclude Include="TimeSpan.h">
       <Filter>Header Files\DateTime</Filter>
+    </ClInclude>
+    <ClInclude Include="Individual.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

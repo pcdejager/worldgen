@@ -17,6 +17,10 @@
     <ClCompile Include="..\TimeSpan.cpp">
       <Filter>External</Filter>
     </ClCompile>
+    <ClCompile Include="IndividualTest.cpp" />
+    <ClCompile Include="..\Individual.cpp">
+      <Filter>External</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h" />

@@ -126,3 +126,32 @@ TimeSpan& TimeSpan::operator/=(__int64 value)
 	return *this;
 }
 
+bool TimeSpan::operator==(const TimeSpan& rhs) const
+{
+	return span == rhs.span;
+}
+
+bool TimeSpan::operator!=(const TimeSpan& rhs) const
+{
+	return span != rhs.span;
+}
+
+bool TimeSpan::operator<(const TimeSpan& rhs) const
+{
+	return span < rhs.span;
+}
+
+bool TimeSpan::operator<=(const TimeSpan& rhs) const
+{
+	return span <= rhs.span;
+}
+
+bool TimeSpan::operator>(const TimeSpan& rhs) const
+{
+	return span > rhs.span;
+}
+
+bool TimeSpan::operator>=(const TimeSpan& rhs) const
+{
+	return span >= rhs.span;
+}
