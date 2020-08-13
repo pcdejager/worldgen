@@ -142,3 +142,119 @@ TEST(WorldTimeTest, TotalYears)
 	WorldTime test(years, days, hour, minute, second);
 	EXPECT_EQ(test.TotalYears(), years);
 }
+
+TEST(WorldTimeTest, OperatorSubractWorldTimes)
+{
+	WorldTime one(1234567890UL);
+	WorldTime two(1030507090UL);
+	TimeSpan result = one - two;
+	EXPECT_EQ(result.Ticks(), 204060800L);
+	EXPECT_EQ(one.Ticks(), 1234567890UL);
+	EXPECT_EQ(two.Ticks(), 1030507090UL);
+	result = two - one;
+	EXPECT_EQ(result.Ticks(), -204060800L);
+	EXPECT_EQ(one.Ticks(), 1234567890UL);
+	EXPECT_EQ(two.Ticks(), 1030507090UL);
+}
+
+TEST(WorldTimeTest, OperatorPlusEQTimeSpan)
+{
+	WorldTime one(1030507090UL);
+	TimeSpan span1(204060800L);
+	TimeSpan span2(-204060800L);
+	one += span1;
+	EXPECT_EQ(one.Ticks(), 1234567890UL);
+	EXPECT_EQ(span1.Ticks(), 204060800L);
+	EXPECT_EQ(span2.Ticks(), -204060800L);
+	one += span2;
+	EXPECT_EQ(one.Ticks(), 1030507090UL);
+	EXPECT_EQ(span1.Ticks(), 204060800L);
+	EXPECT_EQ(span2.Ticks(), -204060800L);
+}
+
+TEST(WorldTimeTest, OperatorPlusEQTimeSpan_negative)
+{
+	WorldTime one(1030507090UL);
+	TimeSpan span(-10204060800L);
+	one += span;
+	EXPECT_EQ(one.Ticks(), 0UL);
+	EXPECT_EQ(span.Ticks(), -10204060800L);
+}
+
+TEST(WorldTimeTest, OperatorPlusTimeSpan)
+{
+	WorldTime one(1030507090UL);
+	TimeSpan span1(204060800L);
+	TimeSpan span2(-204060800L);
+	WorldTime result = one + span1;
+	EXPECT_EQ(result.Ticks(), 1234567890UL);
+	EXPECT_EQ(one.Ticks(), 1030507090UL);
+	EXPECT_EQ(span1.Ticks(), 204060800L);
+	EXPECT_EQ(span2.Ticks(), -204060800L);
+	result = result + span2;
+	EXPECT_EQ(result.Ticks(), 1030507090UL);
+	EXPECT_EQ(one.Ticks(), 1030507090UL);
+	EXPECT_EQ(span1.Ticks(), 204060800L);
+	EXPECT_EQ(span2.Ticks(), -204060800L);
+}
+
+TEST(WorldTimeTest, OperatorPlusTimeSpan_negative)
+{
+	WorldTime one(1030507090UL);
+	TimeSpan span(-10204060800L);
+	WorldTime result = one + span;
+	EXPECT_EQ(result.Ticks(), 0UL);
+	EXPECT_EQ(one.Ticks(), 1030507090UL);
+	EXPECT_EQ(span.Ticks(), -10204060800L);
+}
+
+TEST(WorldTimeTest, OperatorMinusEQTimeSpan)
+{
+	WorldTime one(1030507090UL);
+	TimeSpan span1(-204060800L);
+	TimeSpan span2(204060800L);
+	one -= span1;
+	EXPECT_EQ(one.Ticks(), 1234567890UL);
+	EXPECT_EQ(span1.Ticks(), -204060800L);
+	EXPECT_EQ(span2.Ticks(), 204060800L);
+	one -= span2;
+	EXPECT_EQ(one.Ticks(), 1030507090UL);
+	EXPECT_EQ(span1.Ticks(), -204060800L);
+	EXPECT_EQ(span2.Ticks(), 204060800L);
+}
+
+TEST(WorldTimeTest, OperatorMinusEQTimeSpan_negative)
+{
+	WorldTime one(1030507090UL);
+	TimeSpan span(10204060800L);
+	one -= span;
+	EXPECT_EQ(one.Ticks(), 0UL);
+	EXPECT_EQ(span.Ticks(), 10204060800L);
+}
+
+TEST(WorldTimeTest, OperatorMinusTimeSpan)
+{
+	WorldTime one(1030507090UL);
+	TimeSpan span1(-204060800L);
+	TimeSpan span2(204060800L);
+	WorldTime result = one - span1;
+	EXPECT_EQ(result.Ticks(), 1234567890UL);
+	EXPECT_EQ(one.Ticks(), 1030507090UL);
+	EXPECT_EQ(span1.Ticks(), -204060800L);
+	EXPECT_EQ(span2.Ticks(), 204060800L);
+	result = result - span2;
+	EXPECT_EQ(result.Ticks(), 1030507090UL);
+	EXPECT_EQ(one.Ticks(), 1030507090UL);
+	EXPECT_EQ(span1.Ticks(), -204060800L);
+	EXPECT_EQ(span2.Ticks(), 204060800L);
+}
+
+TEST(WorldTimeTest, OperatorMinusTimeSpan_negative)
+{
+	WorldTime one(1030507090UL);
+	TimeSpan span(10204060800L);
+	WorldTime result = one - span;
+	EXPECT_EQ(result.Ticks(), 0UL);
+	EXPECT_EQ(one.Ticks(), 1030507090UL);
+	EXPECT_EQ(span.Ticks(), 10204060800L);
+}

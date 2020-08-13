@@ -1,5 +1,7 @@
 #pragma once
 
+#include "TimeSpan.h"
+
 /// <summary>
 /// WorldTime class for the time used in the world
 /// </summary>
@@ -19,20 +21,26 @@ public:
 	WorldTime& operator=(const WorldTime&&) noexcept;
 
 public:
-	unsigned __int64 Ticks() { return ticks; }
+	unsigned __int64 Ticks() const { return ticks; }
 
-	unsigned __int64 Seconds();
-	unsigned __int64 Minutes();
-	unsigned __int64 Hours();
-	unsigned __int64 Days();
+	unsigned __int64 Seconds() const;
+	unsigned __int64 Minutes() const;
+	unsigned __int64 Hours() const;
+	unsigned __int64 Days() const;
 
-	unsigned __int64 TotalSeconds();
-	unsigned __int64 TotalMinutes();
-	unsigned __int64 TotalHours();
-	unsigned __int64 TotalDays();
-	unsigned __int64 TotalYears();
+	unsigned __int64 TotalSeconds() const;
+	unsigned __int64 TotalMinutes() const;
+	unsigned __int64 TotalHours() const;
+	unsigned __int64 TotalDays() const;
+	unsigned __int64 TotalYears() const;
+
+public:
+	TimeSpan operator-(const WorldTime& rhs) const;
+	WorldTime& operator+=(const TimeSpan& span);
+	WorldTime operator+(const TimeSpan& span) const;
+	WorldTime& operator-=(const TimeSpan& span);
+	WorldTime operator-(const TimeSpan& span) const;
 
 private:
 	unsigned __int64 ticks;
 };
-

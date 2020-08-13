@@ -44,49 +44,94 @@ WorldTime& WorldTime::operator=(const WorldTime&& rhs) noexcept
 	return *this;
 }
 
-unsigned __int64 WorldTime::Seconds()
+unsigned __int64 WorldTime::Seconds() const
 {
 	return (ticks / WORLD_TIME_TICKSPERSECOND) % WORLD_TIME_SECONDSPERMINUTE;
 }
 
-unsigned __int64 WorldTime::Minutes()
+unsigned __int64 WorldTime::Minutes() const
 {
 	return (ticks / (WORLD_TIME_TICKSPERSECOND * WORLD_TIME_SECONDSPERMINUTE)) % WORLD_TIME_MINUTESPERHOUR;
 }
 
-unsigned __int64 WorldTime::Hours()
+unsigned __int64 WorldTime::Hours() const
 {
 	return (ticks / (WORLD_TIME_TICKSPERSECOND * WORLD_TIME_SECONDSPERMINUTE * WORLD_TIME_MINUTESPERHOUR)) % WORLD_TIME_HOURSPERDAY;
 }
 
-unsigned __int64 WorldTime::Days()
+unsigned __int64 WorldTime::Days() const
 {
 	return (ticks / (WORLD_TIME_HOURSPERDAY * WORLD_TIME_MINUTESPERHOUR * WORLD_TIME_SECONDSPERMINUTE * WORLD_TIME_TICKSPERSECOND)) % WORLD_TIME_DAYSPERYEAR;
 }
 
-
-unsigned __int64 WorldTime::TotalSeconds()
+unsigned __int64 WorldTime::TotalSeconds() const
 {
 	return ticks / WORLD_TIME_TICKSPERSECOND;
 }
 
-unsigned __int64 WorldTime::TotalMinutes()
+unsigned __int64 WorldTime::TotalMinutes() const
 {
 	return ticks / (WORLD_TIME_SECONDSPERMINUTE * WORLD_TIME_TICKSPERSECOND);
 }
 
-unsigned __int64 WorldTime::TotalHours()
+unsigned __int64 WorldTime::TotalHours() const
 {
 	return ticks / (WORLD_TIME_MINUTESPERHOUR * WORLD_TIME_SECONDSPERMINUTE * WORLD_TIME_TICKSPERSECOND);
 }
 
-unsigned __int64 WorldTime::TotalDays()
+unsigned __int64 WorldTime::TotalDays() const
 {
 	return ticks / (WORLD_TIME_HOURSPERDAY * WORLD_TIME_MINUTESPERHOUR * WORLD_TIME_SECONDSPERMINUTE * WORLD_TIME_TICKSPERSECOND);
 }
 
-unsigned __int64 WorldTime::TotalYears()
+unsigned __int64 WorldTime::TotalYears() const
 {
 	return ticks / (WORLD_TIME_DAYSPERYEAR * WORLD_TIME_HOURSPERDAY * WORLD_TIME_MINUTESPERHOUR * WORLD_TIME_SECONDSPERMINUTE * WORLD_TIME_TICKSPERSECOND);
 }
 
+TimeSpan WorldTime::operator-(const WorldTime& rhs) const
+{
+	return TimeSpan(static_cast<__int64>(ticks) - static_cast<__int64>(rhs.ticks));
+}
+
+WorldTime& WorldTime::operator+=(const TimeSpan& span) 
+{
+	__int64 newTime = static_cast<__int64>(ticks) + span.Ticks();
+	if (newTime < 0L)
+	{
+		newTime = 0L;
+	}
+	ticks = static_cast<unsigned __int64>(newTime);
+	return *this;
+}
+
+WorldTime WorldTime::operator+(const TimeSpan& span) const
+{
+	__int64 newTime = static_cast<__int64>(ticks) + span.Ticks();
+	if (newTime < 0L)
+	{
+		newTime = 0L;
+	}
+	return WorldTime(static_cast<unsigned __int64>(newTime));
+}
+
+WorldTime& WorldTime::operator-=(const TimeSpan& span) 
+{
+	__int64 newTime = static_cast<__int64>(ticks) - span.Ticks();
+	if (newTime < 0L)
+	{
+		newTime = 0L;
+	}
+	ticks = static_cast<unsigned __int64>(newTime);
+	return *this;
+}
+
+WorldTime WorldTime::operator-(const TimeSpan& span) const
+{
+	__int64 newTime = static_cast<__int64>(ticks) - span.Ticks();
+	if (newTime < 0L)
+	{
+		newTime = 0L;
+	}
+	return WorldTime(static_cast<unsigned __int64>(newTime));
+}

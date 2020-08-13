@@ -18,3 +18,22 @@ int main()
 //   4. Use the Error List window to view errors
 //   5. Go to Project > Add New Item to create new code files, or Project > Add Existing Item to add existing code files to the project
 //   6. In the future, to open this project again, go to File > Open > Project and select the .sln file
+
+
+/*
+
+
+Character
+- Age (birth date, death date, isalive?)
+- parents (mother, father)
+- children
+- Sex/Gender (can father? can bear? sex[not binary]? attaction[not binary]?)
+- Height (?? Race have impact)
+- Weight (?? Race have impact)
+
+- Attribs (strength[body, mind], IQ, charisma)
+
+- Race (?? adjustments to certain attribs and other parts)
+
+
+*/

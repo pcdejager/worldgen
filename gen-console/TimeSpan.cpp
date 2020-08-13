@@ -47,57 +47,57 @@ TimeSpan& TimeSpan::operator=(const TimeSpan&& rhs) noexcept
 	return *this;
 }
 
-__int64 TimeSpan::Seconds()
+__int64 TimeSpan::Seconds() const
 {
 	return (((span < 0) ? -span : span) / WORLD_TIME_TICKSPERSECOND) % WORLD_TIME_SECONDSPERMINUTE;
 }
 
-__int64 TimeSpan::Minutes()
+__int64 TimeSpan::Minutes() const
 {
 	return (((span < 0) ? -span : span) / (WORLD_TIME_SECONDSPERMINUTE * WORLD_TIME_TICKSPERSECOND)) % WORLD_TIME_MINUTESPERHOUR;
 }
 
-__int64 TimeSpan::Hours()
+__int64 TimeSpan::Hours() const
 {
 	return (((span < 0) ? -span : span) / (WORLD_TIME_MINUTESPERHOUR * WORLD_TIME_SECONDSPERMINUTE * WORLD_TIME_TICKSPERSECOND)) % WORLD_TIME_HOURSPERDAY;
 }
 
-__int64 TimeSpan::Days()
+__int64 TimeSpan::Days() const
 {
 	return (((span < 0) ? -span : span) / (WORLD_TIME_HOURSPERDAY * WORLD_TIME_MINUTESPERHOUR * WORLD_TIME_SECONDSPERMINUTE * WORLD_TIME_TICKSPERSECOND)) % WORLD_TIME_DAYSPERYEAR;
 }
 
-__int64 TimeSpan::Years()
+__int64 TimeSpan::Years() const
 {
 	return ((span < 0) ? -span : span) / static_cast<__int64>(WORLD_TIME_DAYSPERYEAR * WORLD_TIME_HOURSPERDAY * WORLD_TIME_MINUTESPERHOUR * WORLD_TIME_SECONDSPERMINUTE * WORLD_TIME_TICKSPERSECOND);
 }
 
-bool TimeSpan::Negative()
+bool TimeSpan::Negative() const
 {
 	return span < 0L;
 }
 
-__int64 TimeSpan::TotalSeconds()
+__int64 TimeSpan::TotalSeconds() const
 {
 	return span / static_cast<__int64>(WORLD_TIME_TICKSPERSECOND);
 }
 
-__int64 TimeSpan::TotalMinutes()
+__int64 TimeSpan::TotalMinutes() const
 {
 	return span / static_cast<__int64>(WORLD_TIME_SECONDSPERMINUTE * WORLD_TIME_TICKSPERSECOND);
 }
 
-__int64 TimeSpan::TotalHours()
+__int64 TimeSpan::TotalHours() const
 {
 	return span / static_cast<__int64>(WORLD_TIME_MINUTESPERHOUR * WORLD_TIME_SECONDSPERMINUTE * WORLD_TIME_TICKSPERSECOND);
 }
 
-__int64 TimeSpan::TotalDays()
+__int64 TimeSpan::TotalDays() const
 {
 	return span / static_cast<__int64>(WORLD_TIME_HOURSPERDAY * WORLD_TIME_MINUTESPERHOUR * WORLD_TIME_SECONDSPERMINUTE * WORLD_TIME_TICKSPERSECOND);
 }
 
-__int64 TimeSpan::TotalYears()
+__int64 TimeSpan::TotalYears() const
 {
 	return span / static_cast<__int64>(WORLD_TIME_DAYSPERYEAR * WORLD_TIME_HOURSPERDAY * WORLD_TIME_MINUTESPERHOUR * WORLD_TIME_SECONDSPERMINUTE * WORLD_TIME_TICKSPERSECOND);
 }
@@ -125,3 +125,4 @@ TimeSpan& TimeSpan::operator/=(__int64 value)
 	span /= value;
 	return *this;
 }
+

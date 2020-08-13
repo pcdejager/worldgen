@@ -16,20 +16,20 @@ public:
 	TimeSpan& operator=(const TimeSpan&&) noexcept;
 
 public:
-	__int64 Ticks() { return span; }
+	__int64 Ticks() const { return span; }
 
-	__int64 Seconds();
-	__int64 Minutes();
-	__int64 Hours();
-	__int64 Days();
-	__int64 Years();
-	bool Negative();
+	__int64 Seconds() const;
+	__int64 Minutes() const;
+	__int64 Hours() const;
+	__int64 Days() const;
+	__int64 Years() const;
+	bool Negative() const;
 
-	__int64 TotalSeconds();
-	__int64 TotalMinutes();
-	__int64 TotalHours();
-	__int64 TotalDays();
-	__int64 TotalYears();
+	__int64 TotalSeconds() const;
+	__int64 TotalMinutes() const;
+	__int64 TotalHours() const;
+	__int64 TotalDays() const;
+	__int64 TotalYears() const;
 
 public:
 	TimeSpan& operator+=(const TimeSpan& rhs);
