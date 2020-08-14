@@ -21,6 +21,10 @@
     <ClCompile Include="..\Individual.cpp">
       <Filter>External</Filter>
     </ClCompile>
+    <ClCompile Include="..\Parents.cpp">
+      <Filter>External</Filter>
+    </ClCompile>
+    <ClCompile Include="ParentsTest.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h" />

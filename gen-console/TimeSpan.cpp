@@ -108,10 +108,24 @@ TimeSpan& TimeSpan::operator+=(const TimeSpan& rhs)
 	return *this;
 }
 
+TimeSpan TimeSpan::operator+(const TimeSpan& rhs)
+{
+	TimeSpan result(*this);
+	result += rhs;
+	return result;
+}
+
 TimeSpan& TimeSpan::operator-=(const TimeSpan& rhs)
 {
 	span -= rhs.span;
 	return *this;
+}
+
+TimeSpan TimeSpan::operator-(const TimeSpan& rhs)
+{
+	TimeSpan result(*this);
+	result -= rhs;
+	return result;
 }
 
 TimeSpan& TimeSpan::operator*=(__int64 value)
@@ -120,10 +134,24 @@ TimeSpan& TimeSpan::operator*=(__int64 value)
 	return *this;
 }
 
+TimeSpan TimeSpan::operator*(__int64 value)
+{
+	TimeSpan result(*this);
+	result *= value;
+	return result;
+}
+
 TimeSpan& TimeSpan::operator/=(__int64 value)
 {
 	span /= value;
 	return *this;
+}
+
+TimeSpan TimeSpan::operator/(__int64 value)
+{
+	TimeSpan result(*this);
+	result /= value;
+	return result;
 }
 
 bool TimeSpan::operator==(const TimeSpan& rhs) const

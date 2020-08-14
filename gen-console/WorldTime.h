@@ -8,6 +8,9 @@
 class WorldTime
 {
 public:
+	/// <summary>
+	/// Default constructor setting the ticks to 0, which is considered undefined.
+	/// </summary>
 	WorldTime();
 	WorldTime(unsigned __int64 totalTicks);
 	WorldTime(unsigned __int64 hour, unsigned __int64 minute, unsigned __int64 second);
@@ -21,6 +24,17 @@ public:
 	WorldTime& operator=(const WorldTime&&) noexcept;
 
 public:
+	/// <summary>
+	/// Returns a WorldTime that is undefined
+	/// </summary>
+	/// <returns>Undefined WorldTime</returns>
+	static WorldTime Undefined() { return WorldTime(); }
+
+public:
+	/// <summary>
+	/// Gets the number of ticks since start of time
+	/// </summary>
+	/// <returns>Number of ticks</returns>
 	unsigned __int64 Ticks() const { return ticks; }
 
 	unsigned __int64 Seconds() const;

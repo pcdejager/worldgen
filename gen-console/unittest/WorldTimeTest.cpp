@@ -44,6 +44,12 @@ TEST(WorldTimeTest, Constructor_ydhmd)
 	EXPECT_EQ(test.Ticks(), (((((((((years * WORLD_TIME_DAYSPERYEAR) + days) * WORLD_TIME_HOURSPERDAY) + hour) * WORLD_TIME_MINUTESPERHOUR) + minute) * WORLD_TIME_SECONDSPERMINUTE) + second) * WORLD_TIME_TICKSPERSECOND));
 }
 
+TEST(WorldTimeTest, Undefined)
+{
+	WorldTime test = WorldTime::Undefined();
+	EXPECT_EQ(test.Ticks(), 0UL);
+}
+
 TEST(WorldTimeTest, Seconds)
 {
 	unsigned __int64 years = 8UL;

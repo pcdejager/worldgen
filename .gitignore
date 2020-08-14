@@ -1,5 +1,7 @@
 *.suo
 *.db
+*.iobj
+*.ipdb
 *.db-shm
 *.testlog
 *.CopyComplete

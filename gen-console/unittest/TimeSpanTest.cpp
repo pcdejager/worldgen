@@ -378,6 +378,24 @@ TEST(TimeSpanTest, OperatorPlusEQ)
 	EXPECT_EQ(value2.Ticks(), 766L);
 }
 
+TEST(TimeSpanTest, OperatorPlus)
+{
+	TimeSpan value1(1234L);
+	TimeSpan value2(-234L);
+	TimeSpan result = value1 + value2;
+	EXPECT_EQ(result.Ticks(), 1000L);
+	EXPECT_EQ(value1.Ticks(), 1234L);
+	EXPECT_EQ(value2.Ticks(), -234L);
+	result = result + value1;
+	EXPECT_EQ(result.Ticks(), 2234L);
+	EXPECT_EQ(value1.Ticks(), 1234L);
+	EXPECT_EQ(value2.Ticks(), -234L);
+	result = result + value2;
+	EXPECT_EQ(result.Ticks(), 2000L);
+	EXPECT_EQ(value1.Ticks(), 1234L);
+	EXPECT_EQ(value2.Ticks(), -234L);
+}
+
 TEST(TimeSpanTest, OperatorMinusEQ)
 {
 	TimeSpan value1(1234L);
@@ -390,6 +408,24 @@ TEST(TimeSpanTest, OperatorMinusEQ)
 	EXPECT_EQ(value2.Ticks(), -766L);
 }
 
+TEST(TimeSpanTest, OperatorMinus)
+{
+	TimeSpan value1(1234L);
+	TimeSpan value2(234L);
+	TimeSpan result = value1 - value2;
+	EXPECT_EQ(result.Ticks(), 1000L);
+	EXPECT_EQ(value1.Ticks(), 1234L);
+	EXPECT_EQ(value2.Ticks(), 234L);
+	result = result - value1;
+	EXPECT_EQ(result.Ticks(), -234L);
+	EXPECT_EQ(value1.Ticks(), 1234L);
+	EXPECT_EQ(value2.Ticks(), 234L);
+	result = result - value2;
+	EXPECT_EQ(result.Ticks(), -468L);
+	EXPECT_EQ(value1.Ticks(), 1234L);
+	EXPECT_EQ(value2.Ticks(), 234L);
+}
+
 TEST(TimeSpanTest, OperatorMultiplyEQ)
 {
 	TimeSpan value(1234L);
@@ -399,6 +435,17 @@ TEST(TimeSpanTest, OperatorMultiplyEQ)
 	EXPECT_EQ(value.Ticks(), -7404L);
 }
 
+TEST(TimeSpanTest, OperatorMultiply)
+{
+	TimeSpan value(1234L);
+	TimeSpan result = value * 2L;
+	EXPECT_EQ(result.Ticks(), 2468L);
+	EXPECT_EQ(value.Ticks(), 1234L);
+	result = result * -3L;
+	EXPECT_EQ(result.Ticks(), -7404L);
+	EXPECT_EQ(value.Ticks(), 1234L);
+}
+
 TEST(TimeSpanTest, OperatorDivideEQ)
 {
 	TimeSpan value(7404L);
@@ -406,6 +453,17 @@ TEST(TimeSpanTest, OperatorDivideEQ)
 	EXPECT_EQ(value.Ticks(), 2468L);
 	value /= -2L;
 	EXPECT_EQ(value.Ticks(), -1234L);
+}
+
+TEST(TimeSpanTest, OperatorDivide)
+{
+	TimeSpan value(7404L);
+	TimeSpan result = value / 3L;
+	EXPECT_EQ(result.Ticks(), 2468L);
+	EXPECT_EQ(value.Ticks(), 7404L);
+	result = result / -2L;
+	EXPECT_EQ(result.Ticks(), -1234L);
+	EXPECT_EQ(value.Ticks(), 7404L);
 }
 
 TEST(TimeSpanTest, OperatorEQ)
