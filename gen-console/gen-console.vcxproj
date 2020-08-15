@@ -158,6 +158,7 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="Population.cpp" />
     <ClCompile Include="TimeSpan.cpp" />
     <ClCompile Include="WorldProperties.cpp" />
     <ClCompile Include="WorldTime.cpp" />
@@ -168,6 +169,7 @@
     <ClInclude Include="Individual.h" />
     <ClInclude Include="NumberNameGenerator.h" />
     <ClInclude Include="Parents.h" />
+    <ClInclude Include="Population.h" />
     <ClInclude Include="TimeSpan.h" />
     <ClInclude Include="Types.h" />
     <ClInclude Include="WorldConstants.h" />

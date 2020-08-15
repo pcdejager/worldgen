@@ -6,6 +6,7 @@
 Individual::Individual()
     : parents(nullptr)
     , born(WorldTime())
+    , died(WorldTime())
 {
     ;
 }
@@ -13,6 +14,7 @@ Individual::Individual()
 Individual::Individual(const ParentsPtr& parentsObject, const WorldTime& bornDate)
     : parents(parentsObject)
     , born(bornDate)
+    , died(WorldTime())
 {
     ;
 }
@@ -31,6 +33,15 @@ bool Individual::IsValid() const
     return (born > WorldTime::Undefined());
 }
 
+bool Individual::IsAlive() const
+{
+    if (!IsValid())
+    {
+        return false;
+    }
+    return (died == WorldTime::Undefined());
+}
+
 TimeSpan Individual::Age(const WorldTime& now)
 {
     if (now < born) 
@@ -38,4 +49,9 @@ TimeSpan Individual::Age(const WorldTime& now)
         return TimeSpan();
     }
     return now - born;
+}
+
+void Individual::Died(const WorldTime& date)
+{
+    died = date;
 }

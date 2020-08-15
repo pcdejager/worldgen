@@ -21,10 +21,27 @@ public:
     static IndividualPtr GetNullIndividual();
 
 public:
+    /// <summary>
+    /// Check to see if the individual is valid (born date is set)
+    /// Note: The NullIndividual is considered invalid
+    /// </summary>
+    /// <returns>True if valid, else false</returns>
     bool IsValid() const;
+
+    /// <summary>
+    /// Check to see if the individual is alive
+    /// Note: If the individual is invalid, it is not considered alive
+    /// </summary>
+    /// <returns>True if alive, else false</returns>
+    bool IsAlive() const;
+
     ParentsPtr Parents() const { return parents; }
     WorldTime Born() { return born; }
     TimeSpan Age(const WorldTime& now);
+
+private:
+    friend class Population;
+    void Died(const WorldTime& date);
 
 private:
     static IndividualPtr NullIndividual;
@@ -32,7 +49,7 @@ private:
 private:
     ParentsPtr parents;
     WorldTime born;
-
+    WorldTime died;
 /*
 * parents - mother, father (step parents over time?)
 * siblings - full (dna), half mother/father side (1/2 dna), step (no dna)

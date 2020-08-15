@@ -7,4 +7,6 @@
 
 #include <string>
 #include <sstream>
+#include <vector>
+#include <set>
 #include <memory>
