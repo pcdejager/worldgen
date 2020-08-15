@@ -25,6 +25,10 @@
       <Filter>External</Filter>
     </ClCompile>
     <ClCompile Include="ParentsTest.cpp" />
+    <ClCompile Include="..\NumberNameGenerator.cpp">
+      <Filter>External</Filter>
+    </ClCompile>
+    <ClCompile Include="NumberNameGeneratorTest.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h" />

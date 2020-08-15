@@ -5,4 +5,6 @@
 
 #pragma once
 
+#include <string>
+#include <sstream>
 #include <memory>

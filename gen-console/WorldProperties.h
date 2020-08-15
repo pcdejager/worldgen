@@ -1,5 +1,7 @@
 #pragma once
 
+#include "Types.h"
+
 class WorldProperties
 {
 private:
@@ -13,13 +15,16 @@ public:
 public:
 	static std::shared_ptr<WorldProperties> Properties();
 
+private:
+	void Initialize(INameGeneratorPtr newNameGenerator);
+
 public:
-	unsigned __int64 TicksPerSecond();
-	unsigned __int64 TicksPerMinute();
-	unsigned __int64 TicksPerHour();
-	unsigned __int64 TicksPerDay();
+	INameGenerator* NameGenerator() { return nameGenerator.get(); }
 
 private:
 	static std::shared_ptr<WorldProperties> properties;
+	
+private:
+	INameGeneratorPtr nameGenerator;
 };
 

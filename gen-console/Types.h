@@ -2,6 +2,9 @@
 
 #include <memory>
 
+class INameGenerator;
+typedef std::shared_ptr<INameGenerator> INameGeneratorPtr;
+
 class Individual;
 class Parents;
 

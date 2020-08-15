@@ -150,6 +150,7 @@
   <ItemGroup>
     <ClCompile Include="gen-console.cpp" />
     <ClCompile Include="Individual.cpp" />
+    <ClCompile Include="NumberNameGenerator.cpp" />
     <ClCompile Include="Parents.cpp" />
     <ClCompile Include="pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
@@ -163,7 +164,9 @@
     <ClCompile Include="WorldBuilder.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="INameGenerator.h" />
     <ClInclude Include="Individual.h" />
+    <ClInclude Include="NumberNameGenerator.h" />
     <ClInclude Include="Parents.h" />
     <ClInclude Include="TimeSpan.h" />
     <ClInclude Include="Types.h" />

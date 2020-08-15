@@ -19,6 +19,12 @@
     <Filter Include="Source Files\DateTime">
       <UniqueIdentifier>{8fc6bf00-dfbe-4141-9fef-724ed486e719}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Naming">
+      <UniqueIdentifier>{05db4385-e19c-4b2a-9ba6-213cb083335d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Naming">
+      <UniqueIdentifier>{3ba2c2c6-6ec1-423f-9219-aeade4c50423}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="gen-console.cpp">
@@ -44,6 +50,9 @@
     </ClCompile>
     <ClCompile Include="Parents.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="NumberNameGenerator.cpp">
+      <Filter>Source Files\Naming</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -73,6 +82,12 @@
     </ClInclude>
     <ClInclude Include="Types.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="NumberNameGenerator.h">
+      <Filter>Header Files\Naming</Filter>
+    </ClInclude>
+    <ClInclude Include="INameGenerator.h">
+      <Filter>Header Files\Naming</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

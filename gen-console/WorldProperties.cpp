@@ -1,6 +1,7 @@
 #include "pch.h"
 #include "WorldProperties.h"
 #include "WorldConstants.h"
+#include "NumberNameGenerator.h"
 
 /*static*/ std::shared_ptr<WorldProperties> WorldProperties::properties(nullptr);
 
@@ -14,26 +15,13 @@ WorldProperties::WorldProperties()
 	if (properties == nullptr)
 	{
 		properties = std::shared_ptr<WorldProperties>(new WorldProperties());
+		INameGeneratorPtr nameGenerator = INameGeneratorPtr(new NumberNameGenerator());
+		properties->Initialize(nameGenerator);
 	}
 	return properties;
 }
 
-unsigned __int64 WorldProperties::TicksPerSecond() 
-{ 
-	return WORLD_TIME_TICKSPERSECOND; 
-}
-
-unsigned __int64 WorldProperties::TicksPerMinute() 
-{ 
-	return WORLD_TIME_SECONDSPERMINUTE * WORLD_TIME_TICKSPERSECOND; 
-}
-
-unsigned __int64 WorldProperties::TicksPerHour() 
-{ 
-	return WORLD_TIME_MINUTESPERHOUR * WORLD_TIME_SECONDSPERMINUTE * WORLD_TIME_TICKSPERSECOND; 
-}
-
-unsigned __int64 WorldProperties::TicksPerDay() 
-{ 
-	return WORLD_TIME_HOURSPERDAY * WORLD_TIME_MINUTESPERHOUR * WORLD_TIME_SECONDSPERMINUTE * WORLD_TIME_TICKSPERSECOND; 
+void WorldProperties::Initialize(INameGeneratorPtr newNameGenerator)
+{
+	nameGenerator = newNameGenerator;
 }

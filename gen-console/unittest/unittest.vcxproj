@@ -37,12 +37,14 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\Individual.cpp" />
+    <ClCompile Include="..\NumberNameGenerator.cpp" />
     <ClCompile Include="..\Parents.cpp" />
     <ClCompile Include="..\TimeSpan.cpp" />
     <ClCompile Include="..\WorldBuilder.cpp" />
     <ClCompile Include="..\WorldProperties.cpp" />
     <ClCompile Include="..\WorldTime.cpp" />
     <ClCompile Include="IndividualTest.cpp" />
+    <ClCompile Include="NumberNameGeneratorTest.cpp" />
     <ClCompile Include="ParentsTest.cpp" />
     <ClCompile Include="TimeSpanTest.cpp" />
     <ClCompile Include="WorldPropertiesTest.cpp" />
