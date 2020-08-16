@@ -32,13 +32,13 @@ TimeSpan::TimeSpan(__int64 years, __int64 days, __int64 hours, __int64 minutes, 
 	span = (negative) ? -span : span;
 }
 
-TimeSpan::TimeSpan(const TimeSpan&& rhs) noexcept
+TimeSpan::TimeSpan(TimeSpan&& rhs) noexcept
 	: span(rhs.span)
 {
 	;
 }
 
-TimeSpan& TimeSpan::operator=(const TimeSpan&& rhs) noexcept
+TimeSpan& TimeSpan::operator=(TimeSpan&& rhs) noexcept
 {
 	if (&rhs != this)
 	{

@@ -55,7 +55,7 @@ public:
 	/// </summary>
 	/// <param name="rhs">The TimeSpan to move</param>
 	/// <returns></returns>
-	TimeSpan(const TimeSpan&& rhs) noexcept;
+	TimeSpan(TimeSpan&& rhs) noexcept;
 
 	~TimeSpan() = default;
 
@@ -71,7 +71,7 @@ public:
 	/// </summary>
 	/// <param name="rhs">The TimeSpan to move to this one</param>
 	/// <returns>The new TimeSpan</returns>
-	TimeSpan& operator=(const TimeSpan&& rhs) noexcept;
+	TimeSpan& operator=(TimeSpan&& rhs) noexcept;
 
 public:
 	/// <summary>

@@ -57,6 +57,9 @@
     <ClCompile Include="Population.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="IndividualName.cpp">
+      <Filter>Source Files\Naming</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="WorldBuilder.h">
@@ -94,6 +97,9 @@
     </ClInclude>
     <ClInclude Include="Population.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="IndividualName.h">
+      <Filter>Header Files\Naming</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

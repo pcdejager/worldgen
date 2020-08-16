@@ -2,6 +2,7 @@
 #include "..\Individual.h"
 #include "..\Parents.h"
 #include "..\Population.h"
+#include "..\WorldTime.h"
 
 TEST(IndividualTest, Constructor)
 {
@@ -60,6 +61,38 @@ TEST(IndividualTest, Parents)
     EXPECT_FALSE(parents->BiologicalFather()->IsValid());
     EXPECT_FALSE(parents->BiologicalMother()->IsValid());
 }
+
+TEST(IndividualTest, Name)
+{
+    auto test1 = Individual::GetNullIndividual();
+    ASSERT_TRUE(test1 != nullptr);
+    EXPECT_FALSE(test1->Name().IsValid());
+
+    Individual test2(Parents::CreateNoParents(), WorldTime(123UL));
+    EXPECT_TRUE(test2.Name().IsValid());
+}
+
+TEST(IndividualTest, Born)
+{
+    Individual test(Parents::CreateNoParents(), WorldTime(123UL));
+    EXPECT_EQ(WorldTime(123L), test.Born());
+}
+
+TEST(IndividualTest, Died)
+{
+    WorldTime died(234UL);
+
+    Individual test1(Parents::CreateNoParents(), WorldTime(123UL));
+    EXPECT_EQ(WorldTime::Undefined(), test1.Died());
+
+    Population pop;
+    IndividualPtr test2 = std::make_shared<Individual>(Parents::CreateNoParents(), WorldTime(123UL));
+    pop.Add(test2);
+    pop.Died(test2, died);
+
+    EXPECT_EQ(died, test2->Died());
+}
+
 TEST(IndividualTest, Age)
 {
     Individual test(Parents::CreateNoParents(), WorldTime(123UL));

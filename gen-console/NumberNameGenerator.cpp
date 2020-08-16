@@ -7,10 +7,10 @@ NumberNameGenerator::NumberNameGenerator()
     ;
 }
 
-/*virtual*/ std::wstring NumberNameGenerator::GenerateName()
+/*virtual*/ IndividualName NumberNameGenerator::GenerateName()
 {
     ++counter;
     std::wstringstream stream;
-    stream << L"Name_" << counter;
-    return stream.str();
+    stream << counter;
+    return IndividualName(L"First_" + stream.str(), L"Last_" + stream.str());
 }

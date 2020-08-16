@@ -23,7 +23,7 @@ void Population::Died(const IndividualPtr& individual, const WorldTime& date)
     if (findIter != population.end())
     {
         population.erase(findIter);
-        individual->Died(date);
+        individual->IndividualDied(date);
         dead.insert(individual);
     }
 }

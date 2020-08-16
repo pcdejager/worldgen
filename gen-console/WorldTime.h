@@ -17,11 +17,11 @@ public:
 	WorldTime(unsigned __int64 days, unsigned __int64 hour, unsigned __int64 minute, unsigned __int64 second);
 	WorldTime(unsigned __int64 years, unsigned __int64 days, unsigned __int64 hour, unsigned __int64 minute, unsigned __int64 second);
 	WorldTime(const WorldTime&) = default;
-	WorldTime(const WorldTime&& rhs) noexcept;
+	WorldTime(WorldTime&& rhs) noexcept;
 	~WorldTime() { ; }
 
 	WorldTime& operator=(const WorldTime&) = default;
-	WorldTime& operator=(const WorldTime&&) noexcept;
+	WorldTime& operator=(WorldTime&&) noexcept;
 
 public:
 	/// <summary>

@@ -2,7 +2,6 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <ClCompile Include="pch.cpp" />
-    <ClCompile Include="WorldTimeTest.cpp" />
     <ClCompile Include="..\WorldTime.cpp">
       <Filter>External</Filter>
     </ClCompile>
@@ -13,7 +12,6 @@
     <ClCompile Include="..\WorldProperties.cpp">
       <Filter>External</Filter>
     </ClCompile>
-    <ClCompile Include="TimeSpanTest.cpp" />
     <ClCompile Include="..\TimeSpan.cpp">
       <Filter>External</Filter>
     </ClCompile>
@@ -28,11 +26,25 @@
     <ClCompile Include="..\NumberNameGenerator.cpp">
       <Filter>External</Filter>
     </ClCompile>
-    <ClCompile Include="NumberNameGeneratorTest.cpp" />
     <ClCompile Include="..\Population.cpp">
       <Filter>External</Filter>
     </ClCompile>
     <ClCompile Include="PopulationTest.cpp" />
+    <ClCompile Include="..\IndividualName.cpp">
+      <Filter>External</Filter>
+    </ClCompile>
+    <ClCompile Include="TimeSpanTest.cpp">
+      <Filter>DateTime</Filter>
+    </ClCompile>
+    <ClCompile Include="WorldTimeTest.cpp">
+      <Filter>DateTime</Filter>
+    </ClCompile>
+    <ClCompile Include="NumberNameGeneratorTest.cpp">
+      <Filter>Naming</Filter>
+    </ClCompile>
+    <ClCompile Include="IndividualNameTest.cpp">
+      <Filter>Naming</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h" />
@@ -40,6 +52,12 @@
   <ItemGroup>
     <Filter Include="External">
       <UniqueIdentifier>{7cd0ad73-c689-4ae6-b0e5-3d385cb0c8f5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="DateTime">
+      <UniqueIdentifier>{84823495-a969-45ee-a8af-f70c76fe0e5e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Naming">
+      <UniqueIdentifier>{227a32b3-3dbf-4bc4-b985-2f7aaabda194}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>

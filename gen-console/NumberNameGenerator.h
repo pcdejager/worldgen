@@ -10,7 +10,7 @@ public:
     virtual ~NumberNameGenerator() = default;
 
 public:
-    virtual std::wstring GenerateName();
+    virtual IndividualName GenerateName();
 
 private:
     __int64 counter;

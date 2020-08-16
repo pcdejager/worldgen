@@ -29,13 +29,13 @@ WorldTime::WorldTime(unsigned __int64 years, unsigned __int64 days, unsigned __i
 	ticks = ((((((((years * WORLD_TIME_DAYSPERYEAR) + days) * WORLD_TIME_HOURSPERDAY) + hour) * WORLD_TIME_MINUTESPERHOUR) + minute) * WORLD_TIME_SECONDSPERMINUTE) + second) * WORLD_TIME_TICKSPERSECOND;
 }
 
-WorldTime::WorldTime(const WorldTime&& rhs) noexcept
+WorldTime::WorldTime(WorldTime&& rhs) noexcept
 	: ticks(rhs.ticks)
 {
 	;
 }
 
-WorldTime& WorldTime::operator=(const WorldTime&& rhs) noexcept
+WorldTime& WorldTime::operator=(WorldTime&& rhs) noexcept
 {
 	if (&rhs != this)
 	{

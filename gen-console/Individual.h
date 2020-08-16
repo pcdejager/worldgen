@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Types.h"
+#include "IndividualName.h"
 #include "WorldTime.h"
 
 class Individual
@@ -36,18 +37,21 @@ public:
     bool IsAlive() const;
 
     ParentsPtr Parents() const { return parents; }
+    IndividualName Name() const { return name; }
     WorldTime Born() { return born; }
+    WorldTime Died() { return died; }
     TimeSpan Age(const WorldTime& now);
 
 private:
     friend class Population;
-    void Died(const WorldTime& date);
+    void IndividualDied(const WorldTime& date);
 
 private:
     static IndividualPtr NullIndividual;
 
 private:
     ParentsPtr parents;
+    IndividualName name;
     WorldTime born;
     WorldTime died;
 /*

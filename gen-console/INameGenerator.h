@@ -1,5 +1,7 @@
 #pragma once
 
+#include "IndividualName.h"
+
 class INameGenerator
 {
 protected:
@@ -12,5 +14,5 @@ private:
     INameGenerator& operator=(const INameGenerator&) = delete;
 
 public:
-    virtual std::wstring GenerateName() = 0;
+    virtual IndividualName GenerateName() = 0;
 };

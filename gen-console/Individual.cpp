@@ -1,10 +1,13 @@
 #include "pch.h"
 #include "Individual.h"
+#include "WorldProperties.h"
+#include "INameGenerator.h"
 
 /*static*/ IndividualPtr Individual::NullIndividual = nullptr;
 
 Individual::Individual()
     : parents(nullptr)
+    , name()
     , born(WorldTime())
     , died(WorldTime())
 {
@@ -16,7 +19,7 @@ Individual::Individual(const ParentsPtr& parentsObject, const WorldTime& bornDat
     , born(bornDate)
     , died(WorldTime())
 {
-    ;
+    name = WorldProperties::Properties()->NameGenerator()->GenerateName();
 }
 
 /*static*/ IndividualPtr Individual::GetNullIndividual()
@@ -51,7 +54,7 @@ TimeSpan Individual::Age(const WorldTime& now)
     return now - born;
 }
 
-void Individual::Died(const WorldTime& date)
+void Individual::IndividualDied(const WorldTime& date)
 {
     died = date;
 }
