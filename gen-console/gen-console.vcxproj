@@ -160,6 +160,7 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="Population.cpp" />
+    <ClCompile Include="Races.cpp" />
     <ClCompile Include="TimeSpan.cpp" />
     <ClCompile Include="WorldProperties.cpp" />
     <ClCompile Include="WorldTime.cpp" />
@@ -172,6 +173,7 @@
     <ClInclude Include="NumberNameGenerator.h" />
     <ClInclude Include="Parents.h" />
     <ClInclude Include="Population.h" />
+    <ClInclude Include="Races.h" />
     <ClInclude Include="TimeSpan.h" />
     <ClInclude Include="Types.h" />
     <ClInclude Include="WorldConstants.h" />
@@ -179,6 +181,9 @@
     <ClInclude Include="WorldProperties.h" />
     <ClInclude Include="WorldTime.h" />
     <ClInclude Include="WorldBuilder.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="Config\Races.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -1,11 +1,16 @@
 // gen-console.cpp : This file contains the 'main' function. Program execution begins and ends there.
 //
 #include "pch.h"
-#include <iostream>
+#include "Races.h"
 
 int main()
 {
     std::cout << "World Builder\n";
+    Races r;
+    r.Initialize();
+
+    int i;
+    std::cin >> i;
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu

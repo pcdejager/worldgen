@@ -9,4 +9,7 @@
 #include <sstream>
 #include <vector>
 #include <set>
+#include <map>
 #include <memory>
+#include <fstream>
+#include <iostream>

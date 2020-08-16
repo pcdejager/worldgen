@@ -25,6 +25,9 @@
     <Filter Include="Source Files\Naming">
       <UniqueIdentifier>{3ba2c2c6-6ec1-423f-9219-aeade4c50423}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Config">
+      <UniqueIdentifier>{1b074e60-36d8-4f8a-84a3-9930215177a8}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="gen-console.cpp">
@@ -59,6 +62,9 @@
     </ClCompile>
     <ClCompile Include="IndividualName.cpp">
       <Filter>Source Files\Naming</Filter>
+    </ClCompile>
+    <ClCompile Include="Races.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -101,5 +107,13 @@
     <ClInclude Include="IndividualName.h">
       <Filter>Header Files\Naming</Filter>
     </ClInclude>
+    <ClInclude Include="Races.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="Config\Races.txt">
+      <Filter>Config</Filter>
+    </Text>
   </ItemGroup>
 </Project>
