@@ -14,12 +14,12 @@ Individual::Individual()
     ;
 }
 
-Individual::Individual(const ParentsPtr& parentsObject, const WorldTime& bornDate)
+Individual::Individual(const ParentsPtr& parentsObject)
     : parents(parentsObject)
-    , born(bornDate)
     , died(WorldTime())
 {
     name = WorldProperties::Properties()->NameGenerator()->GenerateName();
+    born = WorldProperties::Properties()->Now();
 }
 
 /*static*/ IndividualPtr Individual::GetNullIndividual()
@@ -45,8 +45,15 @@ bool Individual::IsAlive() const
     return (died == WorldTime::Undefined());
 }
 
-TimeSpan Individual::Age(const WorldTime& now)
+TimeSpan Individual::Age()
 {
+    // If diead
+    if (died != WorldTime::Undefined())
+    {
+        return died - born;
+    }
+    // Else alive
+    WorldTime now = WorldProperties::Properties()->Now();
     if (now < born) 
     {
         return TimeSpan();
@@ -54,7 +61,7 @@ TimeSpan Individual::Age(const WorldTime& now)
     return now - born;
 }
 
-void Individual::IndividualDied(const WorldTime& date)
+void Individual::IndividualDied()
 {
-    died = date;
+    died = WorldProperties::Properties()->Now();
 }

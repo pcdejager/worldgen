@@ -30,6 +30,12 @@ public:
 	/// <returns>Undefined WorldTime</returns>
 	static WorldTime Undefined() { return WorldTime(); }
 
+	/// <summary>
+	/// Returns the first valid time point (year 1, day 1 at 00:00:00)
+	/// </summary>
+	/// <returns>Minimum valid WorldTime</returns>
+	static WorldTime Minimum();
+
 public:
 	/// <summary>
 	/// Gets the number of ticks since start of time

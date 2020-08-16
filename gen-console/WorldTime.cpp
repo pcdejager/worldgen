@@ -44,6 +44,11 @@ WorldTime& WorldTime::operator=(WorldTime&& rhs) noexcept
 	return *this;
 }
 
+/*static*/ WorldTime WorldTime::Minimum()
+{
+	return WorldTime(1UL, 1UL, 0UL, 0UL, 0UL);
+}
+
 unsigned __int64 WorldTime::Seconds() const
 {
 	return (ticks / WORLD_TIME_TICKSPERSECOND) % WORLD_TIME_SECONDSPERMINUTE;

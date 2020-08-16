@@ -14,7 +14,7 @@ public:
     void Add(const IndividualPtr& newIndividual);
 
     std::size_t DeadSize() const;
-    void Died(const IndividualPtr& individual, const WorldTime& date);
+    void Died(const IndividualPtr& individual);
 
 private:
     std::set<IndividualPtr> population;

@@ -14,6 +14,7 @@ TEST(WorldTimeTest, Constructor_t)
 	WorldTime test(value);
 	EXPECT_EQ(test.Ticks(), value);
 }
+
 TEST(WorldTimeTest, Constructor_hmd)
 {
 	unsigned __int64 hour = 10UL;
@@ -48,6 +49,12 @@ TEST(WorldTimeTest, Undefined)
 {
 	WorldTime test = WorldTime::Undefined();
 	EXPECT_EQ(test.Ticks(), 0UL);
+}
+
+TEST(WorldTimeTest, Minimum)
+{
+	WorldTime minimum = WorldTime::Minimum();
+	EXPECT_EQ(minimum.Ticks(), ((WORLD_TIME_DAYSPERYEAR + 1UL) * WORLD_TIME_HOURSPERDAY * WORLD_TIME_MINUTESPERHOUR * WORLD_TIME_SECONDSPERMINUTE * WORLD_TIME_TICKSPERSECOND));
 }
 
 TEST(WorldTimeTest, Seconds)

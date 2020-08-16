@@ -17,13 +17,13 @@ std::size_t Population::DeadSize() const
     return dead.size();
 }
 
-void Population::Died(const IndividualPtr& individual, const WorldTime& date)
+void Population::Died(const IndividualPtr& individual)
 {
     auto findIter = population.find(individual);
     if (findIter != population.end())
     {
         population.erase(findIter);
-        individual->IndividualDied(date);
+        individual->IndividualDied();
         dead.insert(individual);
     }
 }

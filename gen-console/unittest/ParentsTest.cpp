@@ -17,8 +17,8 @@ TEST(ParentsTest, CreateNoParents)
 
 TEST(ParentsTest, BiologicalFather)
 {
-    IndividualPtr father = std::make_shared<Individual>(Parents::CreateNoParents(), WorldTime(123UL));
-    IndividualPtr mother = std::make_shared<Individual>(Parents::CreateNoParents(), WorldTime(321UL));
+    IndividualPtr father = std::make_shared<Individual>(Parents::CreateNoParents());
+    IndividualPtr mother = std::make_shared<Individual>(Parents::CreateNoParents());
     ASSERT_TRUE(father != mother);
     auto test = std::make_shared<Parents>(father, mother);
     EXPECT_TRUE(test->BiologicalFather() == father);
@@ -27,8 +27,8 @@ TEST(ParentsTest, BiologicalFather)
 
 TEST(ParentsTest, BiologicalMother)
 {
-    IndividualPtr father = std::make_shared<Individual>(Parents::CreateNoParents(), WorldTime(123UL));
-    IndividualPtr mother = std::make_shared<Individual>(Parents::CreateNoParents(), WorldTime(321UL));
+    IndividualPtr father = std::make_shared<Individual>(Parents::CreateNoParents());
+    IndividualPtr mother = std::make_shared<Individual>(Parents::CreateNoParents());
     ASSERT_TRUE(father != mother);
     auto test = std::make_shared<Parents>(father, mother);
     EXPECT_TRUE(test->BiologicalMother() != father);

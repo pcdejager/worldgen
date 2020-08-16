@@ -9,7 +9,7 @@ class Individual
 private:
     Individual();
 public:
-    Individual(const ParentsPtr& parentsObject, const WorldTime& bornDate);
+    Individual(const ParentsPtr& parentsObject);
     Individual(const Individual&) = delete;
     ~Individual() = default;
     Individual& operator=(const Individual&) = delete;
@@ -40,11 +40,18 @@ public:
     IndividualName Name() const { return name; }
     WorldTime Born() { return born; }
     WorldTime Died() { return died; }
-    TimeSpan Age(const WorldTime& now);
+
+    /// <summary>
+    /// Returns the age of the individual
+    /// Note: If the individual is dead, the age at death will be returned
+    /// Note: If born date is in the future, an age of 0 will be returned
+    /// </summary>
+    /// <returns>Age of the individual</returns>
+    TimeSpan Age();
 
 private:
     friend class Population;
-    void IndividualDied(const WorldTime& date);
+    void IndividualDied();
 
 private:
     static IndividualPtr NullIndividual;

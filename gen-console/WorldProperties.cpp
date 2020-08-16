@@ -5,7 +5,9 @@
 
 /*static*/ std::shared_ptr<WorldProperties> WorldProperties::properties(nullptr);
 
-WorldProperties::WorldProperties() 
+WorldProperties::WorldProperties()
+	: nameGenerator(nullptr)
+	, now(WorldTime::Minimum())
 {
 	; 
 }
@@ -24,4 +26,21 @@ WorldProperties::WorldProperties()
 void WorldProperties::Initialize(INameGeneratorPtr newNameGenerator)
 {
 	nameGenerator = newNameGenerator;
+}
+
+void WorldProperties::ResetTime()
+{
+	now = WorldTime::Minimum();
+}
+
+void WorldProperties::AdvanceTime(const TimeSpan& span)
+{
+	if (span.Negative())
+	{
+		now -= span;
+	}
+	else
+	{
+		now += span;
+	}
 }
