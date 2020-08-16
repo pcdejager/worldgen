@@ -66,6 +66,9 @@
     <ClCompile Include="Races.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="ConfigLoader.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="WorldBuilder.h">
@@ -108,6 +111,9 @@
       <Filter>Header Files\Naming</Filter>
     </ClInclude>
     <ClInclude Include="Races.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ConfigLoader.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

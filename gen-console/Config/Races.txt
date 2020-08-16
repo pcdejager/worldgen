@@ -1,10 +1,21 @@
-3
-Human
-240
-270
-Elf
-300
-360
-Half-elf
-250
-290
+# File containing all races that can be used and their associated racial traits
+
+# Humans
+Race:Human
+MinPreg:240
+AvgPreg:270
+MaxPreg:280
+
+# Elves
+Race:Elf
+MinPreg:300
+AvgPreg:320
+MaxPreg:360
+
+# Half-elves
+Race:Half-elf
+MaxPreg:290
+AvgPreg:270
+MinPreg:250
+
+# End of definition

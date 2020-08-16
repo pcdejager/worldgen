@@ -148,6 +148,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="ConfigLoader.cpp" />
     <ClCompile Include="gen-console.cpp" />
     <ClCompile Include="Individual.cpp" />
     <ClCompile Include="IndividualName.cpp" />
@@ -167,6 +168,7 @@
     <ClCompile Include="WorldBuilder.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="ConfigLoader.h" />
     <ClInclude Include="INameGenerator.h" />
     <ClInclude Include="Individual.h" />
     <ClInclude Include="IndividualName.h" />
