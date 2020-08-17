@@ -25,23 +25,14 @@ void Races::Initialize()
         std::wcout << L"    Name: " << value << std::endl;
 
         RacialTraits traits;
-        std::tie(found, traits.minPregnancyDays) = loader.ReadInt(L"MinPreg");
-        if (!found)
-        {
-            traits.minPregnancyDays = 0;
-        }
-        std::tie(found, traits.avgPregnancyDays) = loader.ReadInt(L"AvgPreg");
-        if (!found)
-        {
-            traits.avgPregnancyDays = 0;
-        }
-        std::tie(found, traits.maxPregnancyDays) = loader.ReadInt(L"MaxPreg");
-        if (!found)
-        {
-            traits.maxPregnancyDays = 0;
-        }
+        std::tie(found, traits.pregnancy) = loader.ReadMultiPointValue(L"Pregnancy");
 
-        std::wcout << L"    Pregnancy = [" << traits.minPregnancyDays << L" .. " << traits.avgPregnancyDays << L" .. " << traits.maxPregnancyDays << L"]" << std::endl;
+        std::wcout << L"    Pregnancy = [";
+        for (std::size_t count = 0; count < traits.pregnancy.Count(); ++count)
+        {
+            std::wcout << traits.pregnancy.Value(count) << L" ";
+        }
+        std::wcout << L"]" << std::endl;
 
         loader.MoveOn();
         ok = loader.MoveTo(L"Race");

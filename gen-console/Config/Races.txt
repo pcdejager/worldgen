@@ -2,20 +2,14 @@
 
 # Humans
 Race:Human
-MinPreg:240
-AvgPreg:270
-MaxPreg:280
+Pregnancy:240,270,280
 
 # Elves
 Race:Elf
-MinPreg:300
-AvgPreg:320
-MaxPreg:360
+Pregnancy:300,320,360
 
 # Half-elves
 Race:Half-elf
-MaxPreg:290
-AvgPreg:270
-MinPreg:250
+Pregnancy:250,270,290
 
 # End of definition

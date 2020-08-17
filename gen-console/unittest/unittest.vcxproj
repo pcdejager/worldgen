@@ -38,6 +38,7 @@
   <ItemGroup>
     <ClCompile Include="..\Individual.cpp" />
     <ClCompile Include="..\IndividualName.cpp" />
+    <ClCompile Include="..\MultiPointValue.cpp" />
     <ClCompile Include="..\NumberNameGenerator.cpp" />
     <ClCompile Include="..\Parents.cpp" />
     <ClCompile Include="..\Population.cpp" />
@@ -47,6 +48,7 @@
     <ClCompile Include="..\WorldTime.cpp" />
     <ClCompile Include="IndividualTest.cpp" />
     <ClCompile Include="IndividualNameTest.cpp" />
+    <ClCompile Include="MultiPointValueTest.cpp" />
     <ClCompile Include="NumberNameGeneratorTest.cpp" />
     <ClCompile Include="ParentsTest.cpp" />
     <ClCompile Include="PopulationTest.cpp" />

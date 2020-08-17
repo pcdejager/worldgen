@@ -45,6 +45,10 @@
     <ClCompile Include="IndividualNameTest.cpp">
       <Filter>Naming</Filter>
     </ClCompile>
+    <ClCompile Include="MultiPointValueTest.cpp" />
+    <ClCompile Include="..\MultiPointValue.cpp">
+      <Filter>External</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h" />

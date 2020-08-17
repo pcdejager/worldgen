@@ -1,12 +1,12 @@
 #pragma once
 
+#include "MultiPointValue.h"
+
 class Races
 {
     struct RacialTraits
     {
-        __int64 minPregnancyDays;
-        __int64 avgPregnancyDays;
-        __int64 maxPregnancyDays;
+        MultiPointValue pregnancy;
     };
 
     class Race

@@ -94,3 +94,23 @@ std::tuple<bool, __int64> ConfigLoader::ReadInt(const std::wstring& propertyName
     __int64 intValue = std::stoll(value);
     return std::make_tuple(true, intValue);
 }
+
+std::tuple<bool, MultiPointValue> ConfigLoader::ReadMultiPointValue(const std::wstring& propertyName)
+{
+    auto [found, value] = ReadString(propertyName);
+    if (!found)
+    {
+        return std::make_tuple(found, MultiPointValue());
+    }
+    std::vector<__int64> values;
+    auto find = value.find(L',');
+    while (find != std::wstring::npos)
+    {
+        std::wstring first = value.substr(0, find);
+        values.push_back(std::stoll(first));
+        value = value.substr(find + 1);
+        find = value.find(L',');
+    }
+    values.push_back(std::stoll(value));
+    return std::make_tuple(true, MultiPointValue(values));
+}
