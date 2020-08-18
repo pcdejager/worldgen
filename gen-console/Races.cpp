@@ -25,6 +25,16 @@ void Races::Initialize()
         std::wcout << L"    Name: " << value << std::endl;
 
         RacialTraits traits;
+        MultiPointValue ages;
+        std::tie(found, ages) = loader.ReadMultiPointValue(L"AgeRanges");
+        std::wcout << L"    AgeRanges = [";
+        for (std::size_t count = 0; count < ages.Count(); ++count)
+        {
+            std::wcout << ages.Value(count) << L" ";
+        }
+        std::wcout << L"]" << std::endl;
+        traits.ageRanges = std::make_shared<AgeTraits>(ages);
+
         std::tie(found, traits.pregnancy) = loader.ReadMultiPointValue(L"Pregnancy");
 
         std::wcout << L"    Pregnancy = [";

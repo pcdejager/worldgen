@@ -49,6 +49,10 @@
     <ClCompile Include="..\MultiPointValue.cpp">
       <Filter>External</Filter>
     </ClCompile>
+    <ClCompile Include="AgeTraitsTest.cpp" />
+    <ClCompile Include="..\AgeTraits.cpp">
+      <Filter>External</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h" />

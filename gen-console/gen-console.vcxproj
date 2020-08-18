@@ -148,6 +148,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="AgeTraits.cpp" />
     <ClCompile Include="ConfigLoader.cpp" />
     <ClCompile Include="gen-console.cpp" />
     <ClCompile Include="Individual.cpp" />
@@ -169,6 +170,7 @@
     <ClCompile Include="WorldBuilder.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="AgeTraits.h" />
     <ClInclude Include="ConfigLoader.h" />
     <ClInclude Include="INameGenerator.h" />
     <ClInclude Include="Individual.h" />

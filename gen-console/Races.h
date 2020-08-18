@@ -1,11 +1,13 @@
 #pragma once
 
 #include "MultiPointValue.h"
+#include "AgeTraits.h"
 
 class Races
 {
     struct RacialTraits
     {
+        AgeTraitsPtr ageRanges;
         MultiPointValue pregnancy;
     };
 
