@@ -102,6 +102,16 @@ __int64 TimeSpan::TotalYears() const
 	return span / static_cast<__int64>(WORLD_TIME_DAYSPERYEAR * WORLD_TIME_HOURSPERDAY * WORLD_TIME_MINUTESPERHOUR * WORLD_TIME_SECONDSPERMINUTE * WORLD_TIME_TICKSPERSECOND);
 }
 
+std::wstring TimeSpan::ToString() const
+{
+	std::wstringstream stream;
+	if (Negative())
+	{
+		stream << L"-";
+	}
+	stream << Years() << L"Y" << Days() << L"D" << Hours() << L"H" << Minutes() << L"M" << Seconds() << L"S";
+	return stream.str();
+}
 TimeSpan& TimeSpan::operator+=(const TimeSpan& rhs)
 {
 	span += rhs.span;

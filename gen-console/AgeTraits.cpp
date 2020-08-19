@@ -1,5 +1,6 @@
 #include "pch.h"
 #include "AgeTraits.h"
+#include "AgeCategory.h"
 
 AgeTraits::AgeTraits(const MultiPointValue& ranges)
 {
@@ -52,10 +53,14 @@ __int64 AgeTraits::AgeStart(AgeCategory age) const
 
 __int64 AgeTraits::AgeEnd(AgeCategory age) const
 {
-    AgeCategory test = AgeCategoryAfter(age);
+    if (age == AgeCategory::Dead)
+    {
+        return -1L;
+    }
+    AgeCategory test = AgeCategoryUtils::CategoryAfter(age);
     for (auto iter = ages.begin(); iter < ages.end(); ++iter)
     {
-        if (iter->first == age)
+        if (iter->first == test)
         {
             return (iter->second - 1L);
         }
@@ -63,19 +68,3 @@ __int64 AgeTraits::AgeEnd(AgeCategory age) const
     return -1L;
 }
 
-/*static*/ AgeCategory AgeTraits::AgeCategoryAfter(AgeCategory age)
-{
-    switch (age)
-    {
-    case AgeCategory::NewBorn: return AgeCategory::Toddler;
-    case AgeCategory::Toddler: return AgeCategory::Child;
-    case AgeCategory::Child: return AgeCategory::Teenager;
-    case AgeCategory::Teenager: return AgeCategory::YoungAdult;
-    case AgeCategory::YoungAdult: return AgeCategory::Adult;
-    case AgeCategory::Adult: return AgeCategory::OldAdult;
-    case AgeCategory::OldAdult: return AgeCategory::Elder;
-    case AgeCategory::Elder: return AgeCategory::Dead;
-    default:
-        return AgeCategory::Dead;
-    }
-}

@@ -14,5 +14,3 @@ typedef std::shared_ptr<Parents> ParentsPtr;
 class AgeTraits;
 typedef std::shared_ptr<AgeTraits> AgeTraitsPtr;
 
-// Enums
-enum class AgeCategory { NewBorn, Toddler, Child, Teenager, YoungAdult, Adult, OldAdult, Elder, Dead };

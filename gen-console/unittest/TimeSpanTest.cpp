@@ -366,6 +366,18 @@ TEST(TimeSpanTest, TotalYears_negative)
 	EXPECT_EQ(test.TotalYears(), -years);
 }
 
+TEST(TimeSpanTest, ToString_positive)
+{
+	TimeSpan test(1L, 2L, 3L, 4L, 5L, false);
+	EXPECT_EQ(L"1Y2D3H4M5S", test.ToString());
+}
+
+TEST(TimeSpanTest, ToString_negative)
+{
+	TimeSpan test(1L, 2L, 3L, 4L, 5L, true);
+	EXPECT_EQ(L"-1Y2D3H4M5S", test.ToString());
+}
+
 TEST(TimeSpanTest, OperatorPlusEQ)
 {
 	TimeSpan value1(1234L);

@@ -2,7 +2,7 @@
 
 #include "MultiPointValue.h"
 #include "TimeSpan.h"
-#include "Types.h"
+#include "AgeCategory.h"
 
 class AgeTraits
 {
@@ -19,7 +19,6 @@ public:
     __int64 AgeStart(AgeCategory age) const;
     __int64 AgeEnd(AgeCategory age) const;
 
-    static AgeCategory AgeCategoryAfter(AgeCategory age);
 private:
     std::vector<std::pair<AgeCategory, __int64>> ages;
 };

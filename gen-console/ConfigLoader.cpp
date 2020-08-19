@@ -1,10 +1,23 @@
 #include "pch.h"
 #include "ConfigLoader.h"
+#include "TimeSpan.h"
+
+#ifdef UNITTEST
+ConfigLoader::ConfigLoader(const std::vector<std::wstring>& inputLines) 
+    : filename()
+    , initialized(true)
+    , lines(inputLines)
+    , position(0)
+{
+    ;
+}
+#endif
 
 ConfigLoader::ConfigLoader(const std::string& file)
     : filename(file)
     , initialized(false)
     , lines()
+    , position(0)
 {
     ;
 }
@@ -91,7 +104,7 @@ std::tuple<bool, __int64> ConfigLoader::ReadInt(const std::wstring& propertyName
     {
         return std::make_tuple(found, 0L);
     }
-    __int64 intValue = std::stoll(value);
+    __int64 intValue = ConvertToInt(value);
     return std::make_tuple(true, intValue);
 }
 
@@ -107,10 +120,70 @@ std::tuple<bool, MultiPointValue> ConfigLoader::ReadMultiPointValue(const std::w
     while (find != std::wstring::npos)
     {
         std::wstring first = value.substr(0, find);
-        values.push_back(std::stoll(first));
+        values.push_back(ConvertToInt(first));
         value = value.substr(find + 1);
         find = value.find(L',');
     }
-    values.push_back(std::stoll(value));
+    values.push_back(ConvertToInt(value));
     return std::make_tuple(true, MultiPointValue(values));
+}
+
+__int64 ConfigLoader::ConvertToInt(const std::wstring& value) const
+{
+    std::wstring work = value;
+    if (work.empty())
+    {
+        return 0L;
+    }
+    if (work[0] == L'D')
+    {
+        // Duration
+        work = work.substr(1);
+        __int64 year = 0L;
+        std::size_t index = work.find(L"Y");
+        if (index != std::wstring::npos)
+        {
+            auto yearString = work.substr(0, index);
+            year = std::stoll(yearString);
+            work = work.substr(index + 1);
+        }
+        __int64 day = 0L;
+        index = work.find(L"D");
+        if (index != std::wstring::npos)
+        {
+            auto dayString = work.substr(0, index);
+            day = std::stoll(dayString);
+            work = work.substr(index + 1);
+        }
+        __int64 hour = 0L;
+        index = work.find(L"H");
+        if (index != std::wstring::npos)
+        {
+            auto hourString = work.substr(0, index);
+            hour = std::stoll(hourString);
+            work = work.substr(index + 1);
+        }
+        __int64 minute = 0L;
+        index = work.find(L"M");
+        if (index != std::wstring::npos)
+        {
+            auto minuteString = work.substr(0, index);
+            minute = std::stoll(minuteString);
+            work = work.substr(index + 1);
+        }
+        __int64 second = 0L;
+        index = work.find(L"S");
+        if (index != std::wstring::npos)
+        {
+            auto secondString = work.substr(0, index);
+            second = std::stoll(secondString);
+            work = work.substr(index + 1);
+        }
+        TimeSpan span(year, day, hour, minute, second);
+        return span.Ticks();
+    }
+    else
+    {
+        return std::stoll(work);
+    }
 }

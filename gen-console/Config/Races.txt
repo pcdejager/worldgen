@@ -3,18 +3,17 @@
 # Humans
 Race:Human
 # Age ranges start times for Toddler, Child, Teenager, YoungAdult, Adult, OldAdult, Elder, Dead
-AgeRanges:3,6,11,18,30,45,60,120
-
-Pregnancy:240,270,280
+AgeRanges:D3Y,D6Y,D11Y,D18Y,D30Y,D45Y,D60Y,D120Y
+Pregnancy:D240D,D270D,D280D
 
 # Elves
 Race:Elf
-Pregnancy:300,320,360
-AgeRanges:13,26,41,78,100,150,200,350
+Pregnancy:D300D,D320D,D360D
+AgeRanges:D13Y,D26Y,D41Y,D78Y,D100Y,D150Y,D200Y,D350Y
 
 # Half-elves
 Race:Half-elf
-Pregnancy:250,270,290
-AgeRanges:4,8,14,22,35,55,80,160
+Pregnancy:D250D,D270D,D290D
+AgeRanges:D4Y,D8Y,D14Y,D22Y,D35Y,D55Y,D80Y,D160Y
 
 # End of definition

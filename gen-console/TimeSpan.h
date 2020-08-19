@@ -146,6 +146,7 @@ public:
 	/// <returns>Number of years</returns>
 	__int64 TotalYears() const;
 
+	std::wstring ToString() const;
 public:
 	TimeSpan& operator+=(const TimeSpan& rhs);
 	TimeSpan operator+(const TimeSpan& rhs);

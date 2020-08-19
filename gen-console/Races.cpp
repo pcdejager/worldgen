@@ -1,6 +1,7 @@
 #include "pch.h"
 #include "Races.h"
 #include "ConfigLoader.h"
+#include "AgeTraits.h"
 
 void Races::Initialize()
 {
@@ -30,7 +31,7 @@ void Races::Initialize()
         std::wcout << L"    AgeRanges = [";
         for (std::size_t count = 0; count < ages.Count(); ++count)
         {
-            std::wcout << ages.Value(count) << L" ";
+            std::wcout << TimeSpan(ages.Value(count)).ToString() << L" ";
         }
         std::wcout << L"]" << std::endl;
         traits.ageRanges = std::make_shared<AgeTraits>(ages);
@@ -40,7 +41,7 @@ void Races::Initialize()
         std::wcout << L"    Pregnancy = [";
         for (std::size_t count = 0; count < traits.pregnancy.Count(); ++count)
         {
-            std::wcout << traits.pregnancy.Value(count) << L" ";
+            std::wcout << TimeSpan(traits.pregnancy.Value(count)).ToString() << L" ";
         }
         std::wcout << L"]" << std::endl;
 

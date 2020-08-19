@@ -53,6 +53,14 @@
     <ClCompile Include="..\AgeTraits.cpp">
       <Filter>External</Filter>
     </ClCompile>
+    <ClCompile Include="..\AgeCategory.cpp">
+      <Filter>External</Filter>
+    </ClCompile>
+    <ClCompile Include="AgeCategoryTest.cpp" />
+    <ClCompile Include="ConfigLoaderTest.cpp" />
+    <ClCompile Include="..\ConfigLoader.cpp">
+      <Filter>External</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h" />

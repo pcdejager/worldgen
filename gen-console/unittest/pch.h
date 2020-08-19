@@ -7,3 +7,6 @@
 
 #include "gtest/gtest.h"
 #include <memory>
+#include <fstream>
+#include <string>
+#include <vector>

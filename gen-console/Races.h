@@ -1,7 +1,7 @@
 #pragma once
 
 #include "MultiPointValue.h"
-#include "AgeTraits.h"
+#include "Types.h"
 
 class Races
 {
