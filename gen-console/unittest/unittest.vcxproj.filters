@@ -61,6 +61,10 @@
     <ClCompile Include="..\ConfigLoader.cpp">
       <Filter>External</Filter>
     </ClCompile>
+    <ClCompile Include="GenesTest.cpp" />
+    <ClCompile Include="..\Genes.cpp">
+      <Filter>External</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h" />

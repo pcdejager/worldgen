@@ -78,6 +78,9 @@
     <ClCompile Include="AgeCategory.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Genes.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="WorldBuilder.h">
@@ -132,6 +135,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="AgeCategory.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Genes.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

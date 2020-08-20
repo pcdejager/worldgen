@@ -152,6 +152,7 @@
     <ClCompile Include="AgeTraits.cpp" />
     <ClCompile Include="ConfigLoader.cpp" />
     <ClCompile Include="gen-console.cpp" />
+    <ClCompile Include="Genes.cpp" />
     <ClCompile Include="Individual.cpp" />
     <ClCompile Include="IndividualName.cpp" />
     <ClCompile Include="MultiPointValue.cpp" />
@@ -174,6 +175,7 @@
     <ClInclude Include="AgeCategory.h" />
     <ClInclude Include="AgeTraits.h" />
     <ClInclude Include="ConfigLoader.h" />
+    <ClInclude Include="Genes.h" />
     <ClInclude Include="INameGenerator.h" />
     <ClInclude Include="Individual.h" />
     <ClInclude Include="IndividualName.h" />
