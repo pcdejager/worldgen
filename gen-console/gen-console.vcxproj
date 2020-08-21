@@ -153,6 +153,7 @@
     <ClCompile Include="ConfigLoader.cpp" />
     <ClCompile Include="gen-console.cpp" />
     <ClCompile Include="Genes.cpp" />
+    <ClCompile Include="Genome.cpp" />
     <ClCompile Include="Individual.cpp" />
     <ClCompile Include="IndividualName.cpp" />
     <ClCompile Include="MultiPointValue.cpp" />
@@ -166,6 +167,7 @@
     </ClCompile>
     <ClCompile Include="Population.cpp" />
     <ClCompile Include="Races.cpp" />
+    <ClCompile Include="Sex.cpp" />
     <ClCompile Include="TimeSpan.cpp" />
     <ClCompile Include="WorldProperties.cpp" />
     <ClCompile Include="WorldTime.cpp" />
@@ -175,7 +177,9 @@
     <ClInclude Include="AgeCategory.h" />
     <ClInclude Include="AgeTraits.h" />
     <ClInclude Include="ConfigLoader.h" />
+    <ClInclude Include="GenePositions.h" />
     <ClInclude Include="Genes.h" />
+    <ClInclude Include="Genome.h" />
     <ClInclude Include="INameGenerator.h" />
     <ClInclude Include="Individual.h" />
     <ClInclude Include="IndividualName.h" />
@@ -184,6 +188,7 @@
     <ClInclude Include="Parents.h" />
     <ClInclude Include="Population.h" />
     <ClInclude Include="Races.h" />
+    <ClInclude Include="Sex.h" />
     <ClInclude Include="TimeSpan.h" />
     <ClInclude Include="Types.h" />
     <ClInclude Include="WorldConstants.h" />

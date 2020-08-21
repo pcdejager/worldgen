@@ -1,5 +1,6 @@
 #include "pch.h"
 #include "../Genes.h"
+#include "../GenePositions.h"
 
 TEST(GenesTest, Constructor)
 {
@@ -54,4 +55,32 @@ TEST(GenesTest, ReadDouble)
 
     test.SetBool(0, true);
     EXPECT_EQ(test.ReadDouble(0, 10), 1023.0 / 1023.0);
+}
+
+TEST(GenesTest, SetBool)
+{
+    Genes test;
+    
+    for (int count = 0; count < NumberOfBits; ++count)
+    {
+        EXPECT_FALSE(test.ReadBool(count));
+        if (count > 0)
+        {
+            EXPECT_TRUE(test.ReadBool(count - 1));
+        }
+        if (count < (NumberOfBits - 1))
+        {
+            EXPECT_FALSE(test.ReadBool(count + 1));
+        }
+        test.SetBool(count, true);
+        EXPECT_TRUE(test.ReadBool(count));
+        if (count > 0)
+        {
+            EXPECT_TRUE(test.ReadBool(count - 1));
+        }
+        if (count < (NumberOfBits - 1))
+        {
+            EXPECT_FALSE(test.ReadBool(count + 1));
+        }
+    }
 }

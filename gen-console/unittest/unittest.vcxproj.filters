@@ -65,6 +65,14 @@
     <ClCompile Include="..\Genes.cpp">
       <Filter>External</Filter>
     </ClCompile>
+    <ClCompile Include="..\Genome.cpp">
+      <Filter>External</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Sex.cpp">
+      <Filter>External</Filter>
+    </ClCompile>
+    <ClCompile Include="SexTest.cpp" />
+    <ClCompile Include="GenomeTest.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h" />

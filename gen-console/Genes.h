@@ -14,6 +14,7 @@ public:
     double ReadDouble(std::size_t from, std::size_t to) const;
 
     void SetBool(std::size_t index, bool value);
+    void SetGenes(std::size_t from, std::size_t to, __int64 value);
 private:
     void Initialize() noexcept;
 

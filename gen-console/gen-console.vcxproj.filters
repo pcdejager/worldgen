@@ -28,6 +28,12 @@
     <Filter Include="Config">
       <UniqueIdentifier>{1b074e60-36d8-4f8a-84a3-9930215177a8}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Genes">
+      <UniqueIdentifier>{1303c4af-4a84-461c-a9ea-b39a6ef1e806}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Genes">
+      <UniqueIdentifier>{c2af3923-3434-4dd9-8f01-22765d5cd3f4}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="gen-console.cpp">
@@ -78,8 +84,14 @@
     <ClCompile Include="AgeCategory.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Genes.cpp">
+    <ClCompile Include="Sex.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Genome.cpp">
+      <Filter>Source Files\Genes</Filter>
+    </ClCompile>
+    <ClCompile Include="Genes.cpp">
+      <Filter>Source Files\Genes</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -137,8 +149,17 @@
     <ClInclude Include="AgeCategory.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Genes.h">
+    <ClInclude Include="Sex.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Genes.h">
+      <Filter>Header Files\Genes</Filter>
+    </ClInclude>
+    <ClInclude Include="Genome.h">
+      <Filter>Header Files\Genes</Filter>
+    </ClInclude>
+    <ClInclude Include="GenePositions.h">
+      <Filter>Header Files\Genes</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

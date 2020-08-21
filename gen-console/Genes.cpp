@@ -1,8 +1,6 @@
 #include "pch.h"
 #include "Genes.h"
-
-constexpr std::size_t NumberOfBits = 128;
-constexpr std::size_t NumberOfBytes = 128 / 8;
+#include "GenePositions.h"
 
 Genes::Genes()
 {
@@ -77,7 +75,21 @@ void Genes::SetBool(std::size_t index, bool value)
         }
         else
         {
-            genes[byte] &= (!mask);
+            mask = ~mask;
+            genes[byte] &= mask;
         }
+    }
+}
+
+void Genes::SetGenes(std::size_t from, std::size_t to, __int64 value)
+{
+    std::size_t index = to;
+    __int64 work = value;
+    while (index != from)
+    {
+        --index;
+        bool enable = (work % 2) == 1;
+        SetBool(index, enable);
+        work /= 2;
     }
 }
