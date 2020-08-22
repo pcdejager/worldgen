@@ -1,6 +1,7 @@
 #include "pch.h"
 #include "Genes.h"
 #include "GenePositions.h"
+#include "GrayCode.h"
 
 Genes::Genes()
 {
@@ -57,6 +58,7 @@ double Genes::ReadDouble(std::size_t from, std::size_t to) const
             ++byte;
         }
     }
+    value = GrayCode::GrayToBinary(value);
     double max = std::pow(2.0, static_cast<double>(length)) - 1.0;
     double result = static_cast<double>(value) / max;
     return result;
@@ -84,7 +86,7 @@ void Genes::SetBool(std::size_t index, bool value)
 void Genes::SetGenes(std::size_t from, std::size_t to, __int64 value)
 {
     std::size_t index = to;
-    __int64 work = value;
+    __int64 work = GrayCode::BinaryToGray(value);
     while (index != from)
     {
         --index;

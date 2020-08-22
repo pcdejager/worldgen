@@ -2,6 +2,7 @@
 #include "..\Genome.h"
 #include "..\Genes.h"
 #include "..\GenePositions.h"
+#include "..\GrayCode.h"
 
 // Sex uses 8 bits
 constexpr __int64 GeneTest_Male = 0L;     // all bits disabled

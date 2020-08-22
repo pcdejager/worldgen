@@ -107,6 +107,7 @@
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+      <LanguageStandard>stdcpplatest</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -123,6 +124,7 @@
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+      <LanguageStandard>stdcpplatest</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -139,6 +141,7 @@
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+      <LanguageStandard>stdcpplatest</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -154,6 +157,7 @@
     <ClCompile Include="gen-console.cpp" />
     <ClCompile Include="Genes.cpp" />
     <ClCompile Include="Genome.cpp" />
+    <ClCompile Include="GrayCode.cpp" />
     <ClCompile Include="Individual.cpp" />
     <ClCompile Include="IndividualName.cpp" />
     <ClCompile Include="MultiPointValue.cpp" />
@@ -180,6 +184,7 @@
     <ClInclude Include="GenePositions.h" />
     <ClInclude Include="Genes.h" />
     <ClInclude Include="Genome.h" />
+    <ClInclude Include="GrayCode.h" />
     <ClInclude Include="INameGenerator.h" />
     <ClInclude Include="Individual.h" />
     <ClInclude Include="IndividualName.h" />

@@ -2,17 +2,11 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <ClCompile Include="pch.cpp" />
-    <ClCompile Include="..\WorldTime.cpp">
-      <Filter>External</Filter>
-    </ClCompile>
     <ClCompile Include="WorldPropertiesTest.cpp" />
     <ClCompile Include="..\WorldBuilder.cpp">
       <Filter>External</Filter>
     </ClCompile>
     <ClCompile Include="..\WorldProperties.cpp">
-      <Filter>External</Filter>
-    </ClCompile>
-    <ClCompile Include="..\TimeSpan.cpp">
       <Filter>External</Filter>
     </ClCompile>
     <ClCompile Include="IndividualTest.cpp" />
@@ -23,16 +17,10 @@
       <Filter>External</Filter>
     </ClCompile>
     <ClCompile Include="ParentsTest.cpp" />
-    <ClCompile Include="..\NumberNameGenerator.cpp">
-      <Filter>External</Filter>
-    </ClCompile>
     <ClCompile Include="..\Population.cpp">
       <Filter>External</Filter>
     </ClCompile>
     <ClCompile Include="PopulationTest.cpp" />
-    <ClCompile Include="..\IndividualName.cpp">
-      <Filter>External</Filter>
-    </ClCompile>
     <ClCompile Include="TimeSpanTest.cpp">
       <Filter>DateTime</Filter>
     </ClCompile>
@@ -61,18 +49,40 @@
     <ClCompile Include="..\ConfigLoader.cpp">
       <Filter>External</Filter>
     </ClCompile>
-    <ClCompile Include="GenesTest.cpp" />
-    <ClCompile Include="..\Genes.cpp">
-      <Filter>External</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Genome.cpp">
-      <Filter>External</Filter>
-    </ClCompile>
     <ClCompile Include="..\Sex.cpp">
       <Filter>External</Filter>
     </ClCompile>
     <ClCompile Include="SexTest.cpp" />
-    <ClCompile Include="GenomeTest.cpp" />
+    <ClCompile Include="..\TimeSpan.cpp">
+      <Filter>External\DateTime</Filter>
+    </ClCompile>
+    <ClCompile Include="..\WorldTime.cpp">
+      <Filter>External\DateTime</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Genes.cpp">
+      <Filter>External\Genes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Genome.cpp">
+      <Filter>External\Genes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\GrayCode.cpp">
+      <Filter>External\Genes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\IndividualName.cpp">
+      <Filter>External\Naming</Filter>
+    </ClCompile>
+    <ClCompile Include="..\NumberNameGenerator.cpp">
+      <Filter>External\Naming</Filter>
+    </ClCompile>
+    <ClCompile Include="GenesTest.cpp">
+      <Filter>Genes</Filter>
+    </ClCompile>
+    <ClCompile Include="GenomeTest.cpp">
+      <Filter>Genes</Filter>
+    </ClCompile>
+    <ClCompile Include="GrayCodeTest.cpp">
+      <Filter>Genes</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h" />
@@ -86,6 +96,18 @@
     </Filter>
     <Filter Include="Naming">
       <UniqueIdentifier>{227a32b3-3dbf-4bc4-b985-2f7aaabda194}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="External\DateTime">
+      <UniqueIdentifier>{6158eb5b-c4d4-4d02-8e43-f165af214b3d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="External\Genes">
+      <UniqueIdentifier>{65a1fe63-d494-4553-a608-e7c2837bc235}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="External\Naming">
+      <UniqueIdentifier>{efdebccc-0e4e-4ac7-bf60-27b3e075b56e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Genes">
+      <UniqueIdentifier>{8ce61a5a-3579-416e-8780-b2694ed43eb2}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>

@@ -41,6 +41,7 @@
     <ClCompile Include="..\ConfigLoader.cpp" />
     <ClCompile Include="..\Genes.cpp" />
     <ClCompile Include="..\Genome.cpp" />
+    <ClCompile Include="..\GrayCode.cpp" />
     <ClCompile Include="..\Individual.cpp" />
     <ClCompile Include="..\IndividualName.cpp" />
     <ClCompile Include="..\MultiPointValue.cpp" />
@@ -57,6 +58,7 @@
     <ClCompile Include="ConfigLoaderTest.cpp" />
     <ClCompile Include="GenesTest.cpp" />
     <ClCompile Include="GenomeTest.cpp" />
+    <ClCompile Include="GrayCodeTest.cpp" />
     <ClCompile Include="IndividualTest.cpp" />
     <ClCompile Include="IndividualNameTest.cpp" />
     <ClCompile Include="MultiPointValueTest.cpp" />
