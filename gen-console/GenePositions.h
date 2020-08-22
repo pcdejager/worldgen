@@ -1,6 +1,8 @@
 #pragma once
 
 // Genome positions
+
+// Sex
 constexpr std::size_t SexGenesStart = 0;
 constexpr std::size_t SexGenesSize = 8;
 constexpr std::size_t SexGenesEnd = SexGenesStart + SexGenesSize;
