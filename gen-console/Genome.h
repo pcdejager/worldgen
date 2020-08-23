@@ -1,5 +1,6 @@
 #pragma once
 
+#include "Types.h"
 #include "Genes.h"
 #include "Sex.h"
 
@@ -15,6 +16,7 @@ public:
     Genome& operator=(const Genome& rhs) = default;
 
 public:
+    RacePtr GetRace() const;
     Sex GetSex() const;
 
 #ifdef UNITTEST
@@ -23,6 +25,16 @@ public:
 #endif
     
 private:
+    void InitializeRaces() const;
+
+private:
     Genes genes;
+
+#ifdef UNITTEST
+public:
+#else
+private:
+#endif
+    static std::map<__int64, std::wstring> genomeRaces;
 };
 

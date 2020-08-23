@@ -6,6 +6,18 @@
 #include "TimeSpan.h"
 #include "AgeTraits.h"
 
+/*static*/ RacesPtr Races::instance = nullptr;
+
+/*static*/ RacesPtr Races::GetRaces()
+{
+    if (instance == nullptr)
+    {
+        instance = RacesPtr(new Races());
+        instance->Initialize();
+    }
+    return instance;
+}
+
 void Races::Initialize()
 {
     std::string filename = "E:\\Dev\\worldgen\\gen-console\\Config\\Races.txt";
@@ -49,7 +61,7 @@ void Races::Initialize()
         std::wcout << L"]" << std::endl;
 
         RacePtr newRace = RacePtr(new Race(name, traits));
-        races.push_back(newRace);
+        races.insert(std::make_pair(name, newRace));
 
         loader.MoveOn();
         ok = loader.MoveTo(L"Race");
@@ -72,26 +84,31 @@ void Races::Initialize()
     //}
 }
 
-bool Races::HasRace(const std::wstring& name) const
+std::vector<std::wstring> Races::AllRaces() const
 {
+    std::vector<std::wstring> result;
     for (auto item : races)
     {
-        if (item->Name() == name)
-        {
-            return true;
-        }
+        result.push_back(item.first);
+    }
+    return result;
+}
+
+bool Races::HasRace(const std::wstring& name) const
+{
+    if (races.find(name) != races.end())
+    {
+        return true;
     }
     return false;
 }
 
 RacePtr Races::FindRace(const std::wstring& name) const
 {
-    for (auto item : races)
+    auto find = races.find(name);
+    if (find != races.end())
     {
-        if (item->Name() == name)
-        {
-            return item;
-        }
+        return find->second;
     }
     return nullptr;
 }

@@ -6,8 +6,7 @@
 int main()
 {
     std::cout << "World Builder\n";
-    Races r;
-    r.Initialize();
+    RacesPtr races = Races::GetRaces();
 
     int i;
     std::cin >> i;

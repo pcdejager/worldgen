@@ -13,6 +13,8 @@ typedef std::shared_ptr<Parents> ParentsPtr;
 
 class Race;
 typedef std::shared_ptr<Race> RacePtr;
+class Races;
+typedef std::shared_ptr<Races> RacesPtr;
 
 class AgeTraits;
 typedef std::shared_ptr<AgeTraits> AgeTraitsPtr;

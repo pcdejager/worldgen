@@ -2,10 +2,13 @@
 
 // Genome positions
 
+// Race
+constexpr std::size_t RaceGenesStart = 0;
+constexpr std::size_t RaceGenesSize = 2;
+
 // Sex
-constexpr std::size_t SexGenesStart = 0;
+constexpr std::size_t SexGenesStart = RaceGenesStart + RaceGenesSize;
 constexpr std::size_t SexGenesSize = 8;
-constexpr std::size_t SexGenesEnd = SexGenesStart + SexGenesSize;
 
 // Final result
 constexpr std::size_t NumberOfBits = 128;

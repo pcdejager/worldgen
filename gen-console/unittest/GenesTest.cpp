@@ -21,6 +21,16 @@ TEST(GenesTest, ReadBool)
     }
 }
 
+TEST(GenesTest, ReadInt)
+{
+    Genes test;
+    for (__int64 value = 0L; value < 1024L; ++value)
+    {
+        test.SetGenes(0, 10, value);
+        EXPECT_EQ(test.ReadInt(0, 10), value);
+    }
+}
+
 TEST(GenesTest, ReadDouble)
 {
     Genes test;

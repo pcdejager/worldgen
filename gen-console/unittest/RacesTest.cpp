@@ -2,38 +2,41 @@
 #include "..\Races.h"
 #include "..\Race.h"
 
-TEST(RacesTest, Initialize)
+TEST(RacesTest, GetRaces)
 {
-    Races test;
-    test.Initialize();
-    EXPECT_EQ(test.NumberOfRaces(), 3);
+    auto test = Races::GetRaces();
+    EXPECT_TRUE(test != nullptr);
 }
 
 TEST(RacesTest, NumberOfRaces)
 {
-    Races test;
-    test.Initialize();
-    EXPECT_EQ(test.NumberOfRaces(), 3);
+    EXPECT_EQ(Races::GetRaces()->NumberOfRaces(), 3);
 }
 
+TEST(RacesTest, AllRaces)
+{
+    auto test = Races::GetRaces()->AllRaces();
+    EXPECT_EQ(test.size(), 3u);
+    for (std::size_t count = 0; count < test.size(); ++count)
+    {
+        EXPECT_TRUE(Races::GetRaces()->HasRace(test[count]));
+    }
+}
 TEST(RacesTest, HasRace)
 {
-    Races test;
-    test.Initialize();
-    EXPECT_TRUE(test.HasRace(L"Human"));
-    EXPECT_TRUE(test.HasRace(L"Elf"));
-    EXPECT_TRUE(test.HasRace(L"Half-elf"));
-    EXPECT_FALSE(test.HasRace(L"Unknown"));
+    auto test = Races::GetRaces();
+    EXPECT_TRUE(test->HasRace(L"Human"));
+    EXPECT_TRUE(test->HasRace(L"Elf"));
+    EXPECT_TRUE(test->HasRace(L"Half-elf"));
+    EXPECT_FALSE(test->HasRace(L"Unknown"));
 }
 
 TEST(RacesTest, FindRace)
 {
-    Races test;
-    test.Initialize();
+    auto test = Races::GetRaces();
+    EXPECT_EQ(test->FindRace(L"Human")->Name(), L"Human");
+    EXPECT_EQ(test->FindRace(L"Elf")->Name(), L"Elf");
+    EXPECT_EQ(test->FindRace(L"Half-elf")->Name(), L"Half-elf");
 
-    EXPECT_EQ(test.FindRace(L"Human")->Name(), L"Human");
-    EXPECT_EQ(test.FindRace(L"Elf")->Name(), L"Elf");
-    EXPECT_EQ(test.FindRace(L"Half-elf")->Name(), L"Half-elf");
-
-    EXPECT_EQ(test.FindRace(L"Unknown"), nullptr);
+    EXPECT_EQ(test->FindRace(L"Unknown"), nullptr);
 }
