@@ -41,6 +41,8 @@ void Races::Initialize()
         std::wcout << L"    Name: " << name << std::endl;
 
         RacialTraits traits;
+
+        // AgeRanges
         MultiPointValueInt ages;
         std::tie(found, ages) = loader.ReadMultiPointValueInt(L"AgeRanges");
         std::wcout << L"    AgeRanges = [";
@@ -51,12 +53,30 @@ void Races::Initialize()
         std::wcout << L"]" << std::endl;
         traits.ageRanges = std::make_shared<AgeTraits>(ages);
 
+        // Pregnancy
         std::tie(found, traits.pregnancy) = loader.ReadMultiPointValueInt(L"Pregnancy");
 
         std::wcout << L"    Pregnancy = [";
         for (std::size_t count = 0; count < traits.pregnancy.Count(); ++count)
         {
             std::wcout << TimeSpan(traits.pregnancy.Value(count)).ToString() << L" ";
+        }
+        std::wcout << L"]" << std::endl;
+
+        // Height
+        std::tie(found, traits.heightMale) = loader.ReadMultiPointValueRange(L"HeightMale");
+        std::tie(found, traits.heightFemale) = loader.ReadMultiPointValueRange(L"HeightMale");
+
+        std::wcout << L"    Height =   Male [";
+        for (std::size_t count = 0; count < traits.heightMale.Count(); ++count)
+        {
+            std::wcout << traits.heightMale.Value(count).ToString() << L" ";
+        }
+        std::wcout << L"]" << std::endl;
+        std::wcout << L"    Height = Female [";
+        for (std::size_t count = 0; count < traits.heightMale.Count(); ++count)
+        {
+            std::wcout << traits.heightFemale.Value(count).ToString() << L" ";
         }
         std::wcout << L"]" << std::endl;
 

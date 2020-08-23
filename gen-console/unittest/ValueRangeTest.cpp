@@ -17,6 +17,12 @@ TEST(ValueRangeTest, Constructor_values)
     EXPECT_EQ(range.Maximum(), 40L);
 }
 
+TEST(ValueRangeTest, ToString)
+{
+    ValueRange range(20L, 30L, 40L);
+    EXPECT_EQ(range.ToString(), L"[20-30-40]");
+}
+
 TEST(ValueRangeTest, OperatorEQ)
 {
     ValueRange range0(20L, 30L, 40L);

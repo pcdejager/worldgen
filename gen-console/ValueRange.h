@@ -18,6 +18,8 @@ public:
     __int64 Average() { return average; }
     __int64 Maximum() { return maximum; }
 
+    std::wstring ToString() const;
+
 public:
     bool operator==(const ValueRange& rhs) const;
     bool operator!=(const ValueRange& rhs) const;

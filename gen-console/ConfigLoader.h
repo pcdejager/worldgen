@@ -30,6 +30,7 @@ public:
     std::tuple<bool, __int64> ReadInt(const std::wstring& propertyName);
     std::tuple<bool, ValueRange> ReadValueRange(const std::wstring& propertyName);
     std::tuple<bool, MultiPointValueInt> ReadMultiPointValueInt(const std::wstring& propertyName);
+    std::tuple<bool, MultiPointValueRange> ReadMultiPointValueRange(const std::wstring& propertyName);
     bool End() { return (position >= lines.size()); }
 
 #ifdef UNITTEST

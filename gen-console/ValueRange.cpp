@@ -25,6 +25,13 @@ ValueRange::ValueRange(__int64 min, __int64 avg, __int64 max)
     ;
 }
 
+std::wstring ValueRange::ToString() const
+{
+    std::wstringstream stream;
+    stream << L"[" << minimum << L"-" << average << L"-" << maximum << L"]";
+    return stream.str();
+}
+
 bool ValueRange::operator==(const ValueRange& rhs) const
 {
     return (minimum == rhs.minimum) &&

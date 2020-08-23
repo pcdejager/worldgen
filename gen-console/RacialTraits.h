@@ -7,4 +7,6 @@ struct RacialTraits
 {
     AgeTraitsPtr ageRanges;
     MultiPointValueInt pregnancy;
+    MultiPointValueRange heightMale;
+    MultiPointValueRange heightFemale;
 };
