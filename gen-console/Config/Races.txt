@@ -5,6 +5,8 @@ Race:Human
 # Age ranges start times for Toddler, Child, Teenager, YoungAdult, Adult, OldAdult, Elder, Dead
 AgeRanges:D3Y,D6Y,D11Y,D18Y,D30Y,D45Y,D60Y,D120Y
 Pregnancy:D240D,D270D,D280D
+# Height ranges for NewBorn, Toddler, Child, Teenager, YoungAdult, Adult, OldAdult, Elder
+Height:[28-35-42],[55-65-70],[88-95-102],[105-120-130],[140-180-210],[140-180-210],[135-175-205],[130-170-200]
 
 # Elves
 Race:Elf

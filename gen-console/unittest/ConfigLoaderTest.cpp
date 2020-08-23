@@ -1,6 +1,7 @@
 #include "pch.h"
 #include "../ConfigLoader.h"
 #include "../TimeSpan.h"
+
 TEST(ConfigLoaderTest, ConvertToInt_int)
 {
     std::vector<std::wstring> empty;
@@ -168,4 +169,31 @@ TEST(ConfigLoaderTest, ConvertToInt_duration)
     value = L"D1S";
     span = TimeSpan(0L, 0L, 0L, 0L, 1L, false);
     EXPECT_EQ(span.Ticks(), loader.ConvertToInt(value));
+}
+
+TEST(ConfigLoaderTest, ConvertToValueRange)
+{
+    std::vector<std::wstring> empty;
+    ConfigLoader loader(empty);
+
+    std::wstring value = L"";
+    ValueRange test;
+    EXPECT_EQ(test, loader.ConvertToValueRange(value));
+
+    value = L"[";
+    EXPECT_EQ(test, loader.ConvertToValueRange(value));
+    value = L"[2";
+    EXPECT_EQ(test, loader.ConvertToValueRange(value));
+    value = L"[1-";
+    EXPECT_EQ(test, loader.ConvertToValueRange(value));
+    value = L"[1-2";
+    EXPECT_EQ(test, loader.ConvertToValueRange(value));
+    value = L"[1-2-";
+    EXPECT_EQ(test, loader.ConvertToValueRange(value));
+    value = L"[1-2-3";
+    EXPECT_EQ(test, loader.ConvertToValueRange(value));
+
+    value = L"[1-2-3]";
+    test = ValueRange(1L, 2L, 3L);
+    EXPECT_EQ(test, loader.ConvertToValueRange(value));
 }

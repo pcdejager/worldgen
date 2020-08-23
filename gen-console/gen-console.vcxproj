@@ -174,6 +174,7 @@
     <ClCompile Include="Races.cpp" />
     <ClCompile Include="Sex.cpp" />
     <ClCompile Include="TimeSpan.cpp" />
+    <ClCompile Include="ValueRange.cpp" />
     <ClCompile Include="WorldProperties.cpp" />
     <ClCompile Include="WorldTime.cpp" />
     <ClCompile Include="WorldBuilder.cpp" />
@@ -199,6 +200,7 @@
     <ClInclude Include="Sex.h" />
     <ClInclude Include="TimeSpan.h" />
     <ClInclude Include="Types.h" />
+    <ClInclude Include="ValueRange.h" />
     <ClInclude Include="WorldConstants.h" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="WorldProperties.h" />

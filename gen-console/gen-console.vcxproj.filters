@@ -105,6 +105,9 @@
     <ClCompile Include="Race.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="ValueRange.cpp">
+      <Filter>Source Files\Types</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="WorldBuilder.h">
@@ -181,6 +184,9 @@
     </ClInclude>
     <ClInclude Include="RacialTraits.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ValueRange.h">
+      <Filter>Header Files\Types</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

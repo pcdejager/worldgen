@@ -1,6 +1,7 @@
 #pragma once
 
 #include "MultiPointValue.h"
+#include "ValueRange.h"
 
 class ConfigLoader
 {
@@ -27,6 +28,7 @@ public:
     void MoveOn() { ++position; }
     std::tuple<bool, std::wstring> ReadString(const std::wstring& propertyName);
     std::tuple<bool, __int64> ReadInt(const std::wstring& propertyName);
+    std::tuple<bool, ValueRange> ReadValueRange(const std::wstring& propertyName);
     std::tuple<bool, MultiPointValue> ReadMultiPointValue(const std::wstring& propertyName);
     bool End() { return (position >= lines.size()); }
 
@@ -36,6 +38,7 @@ public:
 private:
 #endif
     __int64 ConvertToInt(const std::wstring& value) const;
+    ValueRange ConvertToValueRange(const std::wstring& value) const;
 
 private:
     std::string filename;

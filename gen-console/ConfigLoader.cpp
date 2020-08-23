@@ -108,6 +108,17 @@ std::tuple<bool, __int64> ConfigLoader::ReadInt(const std::wstring& propertyName
     return std::make_tuple(true, intValue);
 }
 
+std::tuple<bool, ValueRange> ConfigLoader::ReadValueRange(const std::wstring& propertyName)
+{
+    auto [found, value] = ReadString(propertyName);
+    if (!found)
+    {
+        return std::make_tuple(found, ValueRange());
+    }
+    ValueRange rangeValue = ConvertToValueRange(value);
+    return std::make_tuple(true, rangeValue);
+}
+
 std::tuple<bool, MultiPointValue> ConfigLoader::ReadMultiPointValue(const std::wstring& propertyName)
 {
     auto [found, value] = ReadString(propertyName);
@@ -186,4 +197,31 @@ __int64 ConfigLoader::ConvertToInt(const std::wstring& value) const
     {
         return std::stoll(work);
     }
+}
+
+ValueRange ConfigLoader::ConvertToValueRange(const std::wstring& value) const
+{
+    std::wstring work = value;
+    if (work.empty())
+    {
+        return ValueRange();
+    }
+    if (work[0] == L'[')
+    {
+        std::size_t index1 = work.find(L"-");
+        std::size_t index2 = work.find(L"-", index1 + 1);
+        std::size_t index3 = work.find(L"]", index2 + 1);
+        if ((index1 != std::wstring::npos) &&
+            (index2 != std::wstring::npos) &&
+            (index3 != std::wstring::npos))
+        {
+            __int64 minimum = ConvertToInt(work.substr(1, index1 - 1));
+            __int64 average = ConvertToInt(work.substr(index1 + 1, index2 - index1 - 1));
+            __int64 maximum = ConvertToInt(work.substr(index2 + 1, index3 - index1 - 1));
+
+            ValueRange test(minimum, average, maximum);
+            return test;
+        }
+    }
+    return ValueRange();
 }

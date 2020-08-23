@@ -33,9 +33,6 @@
     <ClCompile Include="IndividualNameTest.cpp">
       <Filter>Naming</Filter>
     </ClCompile>
-    <ClCompile Include="..\MultiPointValue.cpp">
-      <Filter>External</Filter>
-    </ClCompile>
     <ClCompile Include="AgeTraitsTest.cpp" />
     <ClCompile Include="..\AgeTraits.cpp">
       <Filter>External</Filter>
@@ -93,6 +90,15 @@
     <ClCompile Include="..\Race.cpp">
       <Filter>External</Filter>
     </ClCompile>
+    <ClCompile Include="..\MultiPointValue.cpp">
+      <Filter>External\Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\ValueRange.cpp">
+      <Filter>External\Types</Filter>
+    </ClCompile>
+    <ClCompile Include="ValueRangeTest.cpp">
+      <Filter>Types</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h" />
@@ -121,6 +127,9 @@
     </Filter>
     <Filter Include="Types">
       <UniqueIdentifier>{e3073bdb-a57a-476d-a7d4-60ed3ca0b825}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="External\Types">
+      <UniqueIdentifier>{e8d55244-0a6e-4275-bf60-67a0d0676de4}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>

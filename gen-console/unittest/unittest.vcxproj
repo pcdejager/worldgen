@@ -52,6 +52,7 @@
     <ClCompile Include="..\Races.cpp" />
     <ClCompile Include="..\Sex.cpp" />
     <ClCompile Include="..\TimeSpan.cpp" />
+    <ClCompile Include="..\ValueRange.cpp" />
     <ClCompile Include="..\WorldBuilder.cpp" />
     <ClCompile Include="..\WorldProperties.cpp" />
     <ClCompile Include="..\WorldTime.cpp" />
@@ -71,6 +72,7 @@
     <ClCompile Include="RaceTest.cpp" />
     <ClCompile Include="SexTest.cpp" />
     <ClCompile Include="TimeSpanTest.cpp" />
+    <ClCompile Include="ValueRangeTest.cpp" />
     <ClCompile Include="WorldPropertiesTest.cpp" />
     <ClCompile Include="WorldTimeTest.cpp" />
     <ClCompile Include="pch.cpp">
