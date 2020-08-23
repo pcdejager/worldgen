@@ -33,7 +33,6 @@
     <ClCompile Include="IndividualNameTest.cpp">
       <Filter>Naming</Filter>
     </ClCompile>
-    <ClCompile Include="MultiPointValueTest.cpp" />
     <ClCompile Include="..\MultiPointValue.cpp">
       <Filter>External</Filter>
     </ClCompile>
@@ -83,6 +82,17 @@
     <ClCompile Include="GrayCodeTest.cpp">
       <Filter>Genes</Filter>
     </ClCompile>
+    <ClCompile Include="MultiPointValueTest.cpp">
+      <Filter>Types</Filter>
+    </ClCompile>
+    <ClCompile Include="RaceTest.cpp" />
+    <ClCompile Include="..\Races.cpp">
+      <Filter>External</Filter>
+    </ClCompile>
+    <ClCompile Include="RacesTest.cpp" />
+    <ClCompile Include="..\Race.cpp">
+      <Filter>External</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h" />
@@ -108,6 +118,9 @@
     </Filter>
     <Filter Include="Genes">
       <UniqueIdentifier>{8ce61a5a-3579-416e-8780-b2694ed43eb2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Types">
+      <UniqueIdentifier>{e3073bdb-a57a-476d-a7d4-60ed3ca0b825}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>

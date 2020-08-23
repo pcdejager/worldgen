@@ -1,6 +1,9 @@
 #include "pch.h"
 #include "Races.h"
+#include "Race.h"
 #include "ConfigLoader.h"
+#include "RacialTraits.h"
+#include "TimeSpan.h"
 #include "AgeTraits.h"
 
 void Races::Initialize()
@@ -22,8 +25,8 @@ void Races::Initialize()
         counter++;
         std::wcout << L"  Race #" << counter << std::endl;
 
-        auto [found, value] = loader.ReadString(L"Race");
-        std::wcout << L"    Name: " << value << std::endl;
+        auto [found, name] = loader.ReadString(L"Race");
+        std::wcout << L"    Name: " << name << std::endl;
 
         RacialTraits traits;
         MultiPointValue ages;
@@ -45,6 +48,9 @@ void Races::Initialize()
         }
         std::wcout << L"]" << std::endl;
 
+        RacePtr newRace = RacePtr(new Race(name, traits));
+        races.push_back(newRace);
+
         loader.MoveOn();
         ok = loader.MoveTo(L"Race");
     }
@@ -64,4 +70,28 @@ void Races::Initialize()
     //    std::wcout << L"    Name = " << name << std::endl;
     //    std::wcout << L"    Pregnancy = [" << traits.minPregnancyDays << L" .. " << traits.maxPregnancyDays << L"]" << std::endl;
     //}
+}
+
+bool Races::HasRace(const std::wstring& name) const
+{
+    for (auto item : races)
+    {
+        if (item->Name() == name)
+        {
+            return true;
+        }
+    }
+    return false;
+}
+
+RacePtr Races::FindRace(const std::wstring& name) const
+{
+    for (auto item : races)
+    {
+        if (item->Name() == name)
+        {
+            return item;
+        }
+    }
+    return nullptr;
 }

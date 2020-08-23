@@ -34,6 +34,12 @@
     <Filter Include="Source Files\Genes">
       <UniqueIdentifier>{c2af3923-3434-4dd9-8f01-22765d5cd3f4}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Types">
+      <UniqueIdentifier>{2291b1c2-650f-465e-8e33-1877b5e30810}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Types">
+      <UniqueIdentifier>{5be75ad5-1d80-471a-8ec9-0caa691b7ac0}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="gen-console.cpp">
@@ -75,9 +81,6 @@
     <ClCompile Include="ConfigLoader.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="MultiPointValue.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="AgeTraits.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -95,6 +98,12 @@
     </ClCompile>
     <ClCompile Include="GrayCode.cpp">
       <Filter>Source Files\Genes</Filter>
+    </ClCompile>
+    <ClCompile Include="MultiPointValue.cpp">
+      <Filter>Source Files\Types</Filter>
+    </ClCompile>
+    <ClCompile Include="Race.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -122,9 +131,6 @@
     <ClInclude Include="Parents.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Types.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="NumberNameGenerator.h">
       <Filter>Header Files\Naming</Filter>
     </ClInclude>
@@ -141,9 +147,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="ConfigLoader.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="MultiPointValue.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="AgeTraits.h">
@@ -166,6 +169,18 @@
     </ClInclude>
     <ClInclude Include="GrayCode.h">
       <Filter>Header Files\Genes</Filter>
+    </ClInclude>
+    <ClInclude Include="Types.h">
+      <Filter>Header Files\Types</Filter>
+    </ClInclude>
+    <ClInclude Include="MultiPointValue.h">
+      <Filter>Header Files\Types</Filter>
+    </ClInclude>
+    <ClInclude Include="Race.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="RacialTraits.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

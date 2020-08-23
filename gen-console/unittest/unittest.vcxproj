@@ -48,6 +48,8 @@
     <ClCompile Include="..\NumberNameGenerator.cpp" />
     <ClCompile Include="..\Parents.cpp" />
     <ClCompile Include="..\Population.cpp" />
+    <ClCompile Include="..\Race.cpp" />
+    <ClCompile Include="..\Races.cpp" />
     <ClCompile Include="..\Sex.cpp" />
     <ClCompile Include="..\TimeSpan.cpp" />
     <ClCompile Include="..\WorldBuilder.cpp" />
@@ -65,6 +67,8 @@
     <ClCompile Include="NumberNameGeneratorTest.cpp" />
     <ClCompile Include="ParentsTest.cpp" />
     <ClCompile Include="PopulationTest.cpp" />
+    <ClCompile Include="RacesTest.cpp" />
+    <ClCompile Include="RaceTest.cpp" />
     <ClCompile Include="SexTest.cpp" />
     <ClCompile Include="TimeSpanTest.cpp" />
     <ClCompile Include="WorldPropertiesTest.cpp" />
