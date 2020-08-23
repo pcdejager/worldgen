@@ -4,6 +4,7 @@ class ValueRange
 {
 public:
     ValueRange();
+    ValueRange(__int64 constant);
     ValueRange(__int64 min, __int64 avg, __int64 max);
     ValueRange(const ValueRange&) = default;
     ValueRange(ValueRange&& rhs) = default;
@@ -20,6 +21,10 @@ public:
 public:
     bool operator==(const ValueRange& rhs) const;
     bool operator!=(const ValueRange& rhs) const;
+    bool operator<(const ValueRange& rhs) const;
+    bool operator<=(const ValueRange& rhs) const;
+    bool operator>(const ValueRange& rhs) const;
+    bool operator>=(const ValueRange& rhs) const;
 
 private:
     __int64 minimum;

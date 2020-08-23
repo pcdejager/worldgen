@@ -8,7 +8,7 @@ class AgeTraits
 {
 public:
     AgeTraits() = delete;
-    AgeTraits(const MultiPointValue& ranges);
+    AgeTraits(const MultiPointValueInt& ranges);
     ~AgeTraits() = default;
     AgeTraits(const AgeTraits&) = delete;
 

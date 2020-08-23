@@ -4,19 +4,19 @@
 
 TEST(AgeTraitsTest, Constructor)
 {
-    MultiPointValue values1;
+    MultiPointValueInt values1;
     AgeTraits test1(values1);
     EXPECT_EQ(test1.AgeStart(AgeCategory::Dead), 0L);
     
     //std::vector<__int64> ranges = { 10L, 20L, 30L, 40L, 50L, 60L, 70L, 80L }
-    MultiPointValue values2({ 10L, 20L, 30L, 40L, 50L, 60L, 70L, 80L });
+    MultiPointValueInt values2({ 10L, 20L, 30L, 40L, 50L, 60L, 70L, 80L });
     AgeTraits test2(values2);
     EXPECT_EQ(test2.AgeStart(AgeCategory::Dead), 80L);
 }
 
 TEST(AgeTraitsTest, Categorize)
 {
-    MultiPointValue values({ 10L, 20L, 30L, 40L, 50L, 60L, 70L, 80L });
+    MultiPointValueInt values({ 10L, 20L, 30L, 40L, 50L, 60L, 70L, 80L });
     AgeTraits test(values);
     EXPECT_EQ(test.Categorize(TimeSpan(1L, 0L, 0L, 0L, 0L, true)), AgeCategory::Dead);
     EXPECT_EQ(test.Categorize(TimeSpan(0L, 0L, 0L, 0L, 0L, false)), AgeCategory::NewBorn);
@@ -41,7 +41,7 @@ TEST(AgeTraitsTest, Categorize)
 
 TEST(AgeTraitsTest, AgeStart)
 {
-    MultiPointValue values({ 10L, 20L, 30L, 40L, 50L, 60L, 70L, 80L });
+    MultiPointValueInt values({ 10L, 20L, 30L, 40L, 50L, 60L, 70L, 80L });
     AgeTraits test(values);
     EXPECT_EQ(0L, test.AgeStart(AgeCategory::NewBorn));
     EXPECT_EQ(10L, test.AgeStart(AgeCategory::Toddler));
@@ -56,7 +56,7 @@ TEST(AgeTraitsTest, AgeStart)
 
 TEST(AgeTraitsTest, AgeEnd)
 {
-    MultiPointValue values({ 10L, 20L, 30L, 40L, 50L, 60L, 70L, 80L });
+    MultiPointValueInt values({ 10L, 20L, 30L, 40L, 50L, 60L, 70L, 80L });
     AgeTraits test(values);
     EXPECT_EQ(9L, test.AgeEnd(AgeCategory::NewBorn));
     EXPECT_EQ(19L, test.AgeEnd(AgeCategory::Toddler));

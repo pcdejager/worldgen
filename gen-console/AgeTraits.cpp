@@ -2,7 +2,7 @@
 #include "AgeTraits.h"
 #include "AgeCategory.h"
 
-AgeTraits::AgeTraits(const MultiPointValue& ranges)
+AgeTraits::AgeTraits(const MultiPointValueInt& ranges)
 {
     ages.clear();
     ages.push_back(std::make_pair(AgeCategory::NewBorn, 0L));

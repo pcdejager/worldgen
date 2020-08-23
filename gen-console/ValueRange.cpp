@@ -9,6 +9,14 @@ ValueRange::ValueRange()
     ;
 }
 
+ValueRange::ValueRange(__int64 constant)
+    : minimum(constant)
+    , average(constant)
+    , maximum(constant)
+{
+    ;
+}
+
 ValueRange::ValueRange(__int64 min, __int64 avg, __int64 max)
     : minimum(min)
     , average(avg)
@@ -29,4 +37,24 @@ bool ValueRange::operator!=(const ValueRange& rhs) const
     return (minimum != rhs.minimum) ||
         (average != rhs.average) ||
         (maximum != rhs.maximum);
+}
+
+bool ValueRange::operator<(const ValueRange& rhs) const
+{
+    return average < rhs.average;
+}
+
+bool ValueRange::operator<=(const ValueRange& rhs) const
+{
+    return average <= rhs.average;
+}
+
+bool ValueRange::operator>(const ValueRange& rhs) const
+{
+    return average > rhs.average;
+}
+
+bool ValueRange::operator>=(const ValueRange& rhs) const
+{
+    return average >= rhs.average;
 }

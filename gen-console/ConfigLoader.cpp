@@ -119,12 +119,12 @@ std::tuple<bool, ValueRange> ConfigLoader::ReadValueRange(const std::wstring& pr
     return std::make_tuple(true, rangeValue);
 }
 
-std::tuple<bool, MultiPointValue> ConfigLoader::ReadMultiPointValue(const std::wstring& propertyName)
+std::tuple<bool, MultiPointValueInt> ConfigLoader::ReadMultiPointValueInt(const std::wstring& propertyName)
 {
     auto [found, value] = ReadString(propertyName);
     if (!found)
     {
-        return std::make_tuple(found, MultiPointValue());
+        return std::make_tuple(found, MultiPointValueInt());
     }
     std::vector<__int64> values;
     auto find = value.find(L',');
@@ -136,7 +136,7 @@ std::tuple<bool, MultiPointValue> ConfigLoader::ReadMultiPointValue(const std::w
         find = value.find(L',');
     }
     values.push_back(ConvertToInt(value));
-    return std::make_tuple(true, MultiPointValue(values));
+    return std::make_tuple(true, MultiPointValueInt(values));
 }
 
 __int64 ConfigLoader::ConvertToInt(const std::wstring& value) const
