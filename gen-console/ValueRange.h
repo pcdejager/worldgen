@@ -18,6 +18,17 @@ public:
     __int64 Average() { return average; }
     __int64 Maximum() { return maximum; }
 
+    /// <summary>
+    /// Get the value in the range min to max given a double value that
+    /// can range from -1.0 to 1.0 where:
+    /// Value = -1.0 returns minimum
+    /// Value = 0.0 returns average
+    /// Value = 1.0 returns maximum
+    /// </summary>
+    /// <param name="value">The value index</param>
+    /// <returns></returns>
+    __int64 Value(double value);
+
     std::wstring ToString() const;
 
 public:

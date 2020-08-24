@@ -108,6 +108,9 @@
     <ClCompile Include="ValueRange.cpp">
       <Filter>Source Files\Types</Filter>
     </ClCompile>
+    <ClCompile Include="MathUtils.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="WorldBuilder.h">
@@ -187,6 +190,9 @@
     </ClInclude>
     <ClInclude Include="ValueRange.h">
       <Filter>Header Files\Types</Filter>
+    </ClInclude>
+    <ClInclude Include="MathUtils.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

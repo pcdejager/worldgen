@@ -99,6 +99,10 @@
     <ClCompile Include="ValueRangeTest.cpp">
       <Filter>Types</Filter>
     </ClCompile>
+    <ClCompile Include="..\MathUtils.cpp">
+      <Filter>External</Filter>
+    </ClCompile>
+    <ClCompile Include="MathUtilsTest.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h" />

@@ -1,5 +1,6 @@
 #include "pch.h"
 #include "ValueRange.h"
+#include "MathUtils.h"
 
 ValueRange::ValueRange()
     : minimum(0L)
@@ -30,6 +31,15 @@ std::wstring ValueRange::ToString() const
     std::wstringstream stream;
     stream << L"[" << minimum << L"-" << average << L"-" << maximum << L"]";
     return stream.str();
+}
+
+__int64 ValueRange::Value(double value)
+{
+    if (value < 0.0)
+    {
+        return MathUtils::ScaleInt(minimum, average, value + 1.0);
+    }
+    return MathUtils::ScaleInt(average, maximum, value);
 }
 
 bool ValueRange::operator==(const ValueRange& rhs) const

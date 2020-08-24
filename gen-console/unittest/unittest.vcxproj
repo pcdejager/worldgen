@@ -44,6 +44,7 @@
     <ClCompile Include="..\GrayCode.cpp" />
     <ClCompile Include="..\Individual.cpp" />
     <ClCompile Include="..\IndividualName.cpp" />
+    <ClCompile Include="..\MathUtils.cpp" />
     <ClCompile Include="..\MultiPointValue.cpp" />
     <ClCompile Include="..\NumberNameGenerator.cpp" />
     <ClCompile Include="..\Parents.cpp" />
@@ -64,6 +65,7 @@
     <ClCompile Include="GrayCodeTest.cpp" />
     <ClCompile Include="IndividualTest.cpp" />
     <ClCompile Include="IndividualNameTest.cpp" />
+    <ClCompile Include="MathUtilsTest.cpp" />
     <ClCompile Include="MultiPointValueTest.cpp" />
     <ClCompile Include="NumberNameGeneratorTest.cpp" />
     <ClCompile Include="ParentsTest.cpp" />
