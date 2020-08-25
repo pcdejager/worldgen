@@ -111,6 +111,9 @@
     <ClCompile Include="MathUtils.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Height.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="WorldBuilder.h">
@@ -192,6 +195,9 @@
       <Filter>Header Files\Types</Filter>
     </ClInclude>
     <ClInclude Include="MathUtils.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Height.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

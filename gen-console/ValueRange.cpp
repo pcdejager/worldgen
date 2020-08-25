@@ -33,7 +33,7 @@ std::wstring ValueRange::ToString() const
     return stream.str();
 }
 
-__int64 ValueRange::Value(double value)
+__int64 ValueRange::Value(double value) const
 {
     if (value < 0.0)
     {

@@ -158,6 +158,7 @@
     <ClCompile Include="Genes.cpp" />
     <ClCompile Include="Genome.cpp" />
     <ClCompile Include="GrayCode.cpp" />
+    <ClCompile Include="Height.cpp" />
     <ClCompile Include="Individual.cpp" />
     <ClCompile Include="IndividualName.cpp" />
     <ClCompile Include="MathUtils.cpp" />
@@ -188,6 +189,7 @@
     <ClInclude Include="Genes.h" />
     <ClInclude Include="Genome.h" />
     <ClInclude Include="GrayCode.h" />
+    <ClInclude Include="Height.h" />
     <ClInclude Include="INameGenerator.h" />
     <ClInclude Include="Individual.h" />
     <ClInclude Include="IndividualName.h" />

@@ -103,6 +103,10 @@
       <Filter>External</Filter>
     </ClCompile>
     <ClCompile Include="MathUtilsTest.cpp" />
+    <ClCompile Include="..\Height.cpp">
+      <Filter>External</Filter>
+    </ClCompile>
+    <ClCompile Include="HeightTest.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h" />

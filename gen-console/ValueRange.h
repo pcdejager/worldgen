@@ -27,7 +27,7 @@ public:
     /// </summary>
     /// <param name="value">The value index</param>
     /// <returns></returns>
-    __int64 Value(double value);
+    __int64 Value(double value) const;
 
     std::wstring ToString() const;
 
