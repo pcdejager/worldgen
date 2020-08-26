@@ -18,6 +18,7 @@ public:
     AgeCategory Categorize(const TimeSpan& age) const;
     __int64 AgeStart(AgeCategory age) const;
     __int64 AgeEnd(AgeCategory age) const;
+    __int64 NextAgeStart(AgeCategory age) const;
 
 private:
     std::vector<std::pair<AgeCategory, __int64>> ages;

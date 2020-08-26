@@ -15,11 +15,11 @@ public:
     ~Height() = default;
 
 public:
-    __int64 Value(const TimeSpan& age, const Sex& sex) const;
+    __int64 Value(double index, const TimeSpan& age, const Sex& sex) const;
 
 private:
-    __int64 Value(const MultiPointValueRange& range, const TimeSpan& age) const;
-    __int64 Value(const ValueRange& range, AgeCategory category, const TimeSpan& age) const;
+    __int64 Value(double index, const MultiPointValueRange& range, const TimeSpan& age) const;
+    __int64 Value(__int64 start, __int64 end, AgeCategory category, const TimeSpan& age) const;
 private:
     AgeTraitsPtr ages;
     MultiPointValueRange heightMale;

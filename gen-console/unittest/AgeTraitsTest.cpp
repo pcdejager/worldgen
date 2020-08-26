@@ -68,3 +68,18 @@ TEST(AgeTraitsTest, AgeEnd)
     EXPECT_EQ(79L, test.AgeEnd(AgeCategory::Elder));
     EXPECT_EQ(-1L, test.AgeEnd(AgeCategory::Dead));
 }
+
+TEST(AgeTraitsTest, NextAgeStart)
+{
+    MultiPointValueInt values({ 10L, 20L, 30L, 40L, 50L, 60L, 70L, 80L });
+    AgeTraits test(values);
+    EXPECT_EQ(10L, test.NextAgeStart(AgeCategory::NewBorn));
+    EXPECT_EQ(20L, test.NextAgeStart(AgeCategory::Toddler));
+    EXPECT_EQ(30L, test.NextAgeStart(AgeCategory::Child));
+    EXPECT_EQ(40L, test.NextAgeStart(AgeCategory::Teenager));
+    EXPECT_EQ(50L, test.NextAgeStart(AgeCategory::YoungAdult));
+    EXPECT_EQ(60L, test.NextAgeStart(AgeCategory::Adult));
+    EXPECT_EQ(70L, test.NextAgeStart(AgeCategory::OldAdult));
+    EXPECT_EQ(80L, test.NextAgeStart(AgeCategory::Elder));
+    EXPECT_EQ(-1L, test.NextAgeStart(AgeCategory::Dead));
+}

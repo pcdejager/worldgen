@@ -68,3 +68,12 @@ __int64 AgeTraits::AgeEnd(AgeCategory age) const
     return -1L;
 }
 
+__int64 AgeTraits::NextAgeStart(AgeCategory age) const
+{
+    __int64 end = AgeEnd(age);
+    if (end > 0L)
+    {
+        end += 1L;
+    }
+    return end;
+}
