@@ -5,6 +5,7 @@
 #include "RacialTraits.h"
 #include "TimeSpan.h"
 #include "AgeTraits.h"
+#include "Height.h"
 
 /*static*/ RacesPtr Races::instance = nullptr;
 
@@ -64,21 +65,27 @@ void Races::Initialize()
         std::wcout << L"]" << std::endl;
 
         // Height
-        std::tie(found, traits.heightMale) = loader.ReadMultiPointValueRange(L"HeightMale");
-        std::tie(found, traits.heightFemale) = loader.ReadMultiPointValueRange(L"HeightMale");
+        {
+            MultiPointValueRange maleRange;
+            std::tie(found, maleRange) = loader.ReadMultiPointValueRange(L"HeightMale");
+            MultiPointValueRange femaleRange;
+            std::tie(found, femaleRange) = loader.ReadMultiPointValueRange(L"HeightMale");
 
-        std::wcout << L"    Height =   Male [";
-        for (std::size_t count = 0; count < traits.heightMale.Count(); ++count)
-        {
-            std::wcout << traits.heightMale.Value(count).ToString() << L" ";
+            std::wcout << L"    Height =   Male [";
+            for (std::size_t count = 0; count < maleRange.Count(); ++count)
+            {
+                std::wcout << maleRange.Value(count).ToString() << L" ";
+            }
+            std::wcout << L"]" << std::endl;
+            std::wcout << L"    Height = Female [";
+            for (std::size_t count = 0; count < femaleRange.Count(); ++count)
+            {
+                std::wcout << femaleRange.Value(count).ToString() << L" ";
+            }
+            std::wcout << L"]" << std::endl;
+
+            traits.height = std::make_shared<Height>(maleRange, femaleRange, traits.ageRanges);
         }
-        std::wcout << L"]" << std::endl;
-        std::wcout << L"    Height = Female [";
-        for (std::size_t count = 0; count < traits.heightMale.Count(); ++count)
-        {
-            std::wcout << traits.heightFemale.Value(count).ToString() << L" ";
-        }
-        std::wcout << L"]" << std::endl;
 
         RacePtr newRace = RacePtr(new Race(name, traits));
         races.insert(std::make_pair(name, newRace));
