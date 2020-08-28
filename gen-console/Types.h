@@ -19,6 +19,6 @@ typedef std::shared_ptr<Races> RacesPtr;
 class AgeTraits;
 typedef std::shared_ptr<AgeTraits> AgeTraitsPtr;
 
-class Height;
-typedef std::shared_ptr<Height> HeightPtr;
+class AgeSexRangeValue;
+typedef std::shared_ptr<AgeSexRangeValue> AgeSexRangeValuePtr;
 

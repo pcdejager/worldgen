@@ -1,11 +1,11 @@
 #include "pch.h"
-#include "Height.h"
+#include "AgeSexRangeValue.h"
 #include "ValueRange.h"
 #include "AgeCategory.h"
 #include "AgeTraits.h"
 #include "MathUtils.h"
 
-Height::Height(const MultiPointValueRange& male, const MultiPointValueRange& female, const AgeTraitsPtr& traits)
+AgeSexRangeValue::AgeSexRangeValue(const MultiPointValueRange& male, const MultiPointValueRange& female, const AgeTraitsPtr& traits)
     : ages(traits)
     , heightMale(male)
     , heightFemale(female)
@@ -13,7 +13,7 @@ Height::Height(const MultiPointValueRange& male, const MultiPointValueRange& fem
     ;
 }
 
-__int64 Height::Value(double index, const TimeSpan& age, const Sex& sex) const
+__int64 AgeSexRangeValue::Value(double index, const TimeSpan& age, const Sex& sex) const
 {
     __int64 ticks = age.Ticks();
     if (sex.IsMale())
@@ -28,7 +28,7 @@ __int64 Height::Value(double index, const TimeSpan& age, const Sex& sex) const
 }
 
 
-__int64 Height::Value(double index, const MultiPointValueRange& range, const TimeSpan& age) const
+__int64 AgeSexRangeValue::Value(double index, const MultiPointValueRange& range, const TimeSpan& age) const
 {
     if (age < 0L)
     {
@@ -60,7 +60,7 @@ __int64 Height::Value(double index, const MultiPointValueRange& range, const Tim
     }
 }
 
-__int64 Height::Value(__int64 start, __int64 end, AgeCategory category, const TimeSpan& age) const
+__int64 AgeSexRangeValue::Value(__int64 start, __int64 end, AgeCategory category, const TimeSpan& age) const
 {
     __int64 ageStart = TimeSpan(ages->AgeStart(category), 0, 0, 0, 0, false).Ticks();
     __int64 ageEnd = TimeSpan(ages->NextAgeStart(category), 0, 0, 0, 0, false).Ticks();

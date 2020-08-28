@@ -37,12 +37,12 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\AgeCategory.cpp" />
+    <ClCompile Include="..\AgeSexRangeValue.cpp" />
     <ClCompile Include="..\AgeTraits.cpp" />
     <ClCompile Include="..\ConfigLoader.cpp" />
     <ClCompile Include="..\Genes.cpp" />
     <ClCompile Include="..\Genome.cpp" />
     <ClCompile Include="..\GrayCode.cpp" />
-    <ClCompile Include="..\Height.cpp" />
     <ClCompile Include="..\Individual.cpp" />
     <ClCompile Include="..\IndividualName.cpp" />
     <ClCompile Include="..\MathUtils.cpp" />
@@ -64,7 +64,7 @@
     <ClCompile Include="GenesTest.cpp" />
     <ClCompile Include="GenomeTest.cpp" />
     <ClCompile Include="GrayCodeTest.cpp" />
-    <ClCompile Include="HeightTest.cpp" />
+    <ClCompile Include="AgeSexRangeValueTest.cpp" />
     <ClCompile Include="IndividualTest.cpp" />
     <ClCompile Include="IndividualNameTest.cpp" />
     <ClCompile Include="MathUtilsTest.cpp" />

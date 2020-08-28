@@ -33,22 +33,10 @@
     <ClCompile Include="IndividualNameTest.cpp">
       <Filter>Naming</Filter>
     </ClCompile>
-    <ClCompile Include="AgeTraitsTest.cpp" />
-    <ClCompile Include="..\AgeTraits.cpp">
-      <Filter>External</Filter>
-    </ClCompile>
-    <ClCompile Include="..\AgeCategory.cpp">
-      <Filter>External</Filter>
-    </ClCompile>
-    <ClCompile Include="AgeCategoryTest.cpp" />
     <ClCompile Include="ConfigLoaderTest.cpp" />
     <ClCompile Include="..\ConfigLoader.cpp">
       <Filter>External</Filter>
     </ClCompile>
-    <ClCompile Include="..\Sex.cpp">
-      <Filter>External</Filter>
-    </ClCompile>
-    <ClCompile Include="SexTest.cpp" />
     <ClCompile Include="..\TimeSpan.cpp">
       <Filter>External\DateTime</Filter>
     </ClCompile>
@@ -103,10 +91,30 @@
       <Filter>External</Filter>
     </ClCompile>
     <ClCompile Include="MathUtilsTest.cpp" />
-    <ClCompile Include="..\Height.cpp">
-      <Filter>External</Filter>
+    <ClCompile Include="..\AgeCategory.cpp">
+      <Filter>External\Types</Filter>
     </ClCompile>
-    <ClCompile Include="HeightTest.cpp" />
+    <ClCompile Include="..\AgeSexRangeValue.cpp">
+      <Filter>External\Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\AgeTraits.cpp">
+      <Filter>External\Types</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Sex.cpp">
+      <Filter>External\Types</Filter>
+    </ClCompile>
+    <ClCompile Include="AgeSexRangeValueTest.cpp">
+      <Filter>Types</Filter>
+    </ClCompile>
+    <ClCompile Include="AgeCategoryTest.cpp">
+      <Filter>Types</Filter>
+    </ClCompile>
+    <ClCompile Include="AgeTraitsTest.cpp">
+      <Filter>Types</Filter>
+    </ClCompile>
+    <ClCompile Include="SexTest.cpp">
+      <Filter>Types</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h" />

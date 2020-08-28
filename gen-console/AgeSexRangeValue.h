@@ -6,13 +6,13 @@
 #include "Sex.h"
 #include "AgeCategory.h"
 
-class Height
+class AgeSexRangeValue
 {
 private:
-    Height() = delete;
+    AgeSexRangeValue() = delete;
 public:
-    Height(const MultiPointValueRange& male, const MultiPointValueRange& female, const AgeTraitsPtr& traits);
-    ~Height() = default;
+    AgeSexRangeValue(const MultiPointValueRange& male, const MultiPointValueRange& female, const AgeTraitsPtr& traits);
+    ~AgeSexRangeValue() = default;
 
 public:
     __int64 Value(double index, const TimeSpan& age, const Sex& sex) const;

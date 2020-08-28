@@ -5,7 +5,7 @@
 #include "RacialTraits.h"
 #include "TimeSpan.h"
 #include "AgeTraits.h"
-#include "Height.h"
+#include "AgeSexRangeValue.h"
 
 /*static*/ RacesPtr Races::instance = nullptr;
 
@@ -84,7 +84,30 @@ void Races::Initialize()
             }
             std::wcout << L"]" << std::endl;
 
-            traits.height = std::make_shared<Height>(maleRange, femaleRange, traits.ageRanges);
+            traits.height = std::make_shared<AgeSexRangeValue>(maleRange, femaleRange, traits.ageRanges);
+        }
+
+        // Weight
+        {
+            MultiPointValueRange maleRange;
+            std::tie(found, maleRange) = loader.ReadMultiPointValueRange(L"WeightMale");
+            MultiPointValueRange femaleRange;
+            std::tie(found, femaleRange) = loader.ReadMultiPointValueRange(L"WeightMale");
+
+            std::wcout << L"    Weight =   Male [";
+            for (std::size_t count = 0; count < maleRange.Count(); ++count)
+            {
+                std::wcout << maleRange.Value(count).ToString() << L" ";
+            }
+            std::wcout << L"]" << std::endl;
+            std::wcout << L"    Weight = Female [";
+            for (std::size_t count = 0; count < femaleRange.Count(); ++count)
+            {
+                std::wcout << femaleRange.Value(count).ToString() << L" ";
+            }
+            std::wcout << L"]" << std::endl;
+
+            traits.weight = std::make_shared<AgeSexRangeValue>(maleRange, femaleRange, traits.ageRanges);
         }
 
         RacePtr newRace = RacePtr(new Race(name, traits));
