@@ -3,6 +3,7 @@
 #include "Types.h"
 #include "Genes.h"
 #include "Sex.h"
+#include "TimeSpan.h"
 
 /// <summary>
 /// Genome is a utility class to extract information from the genes for the individual
@@ -18,6 +19,8 @@ public:
 public:
     RacePtr GetRace() const;
     Sex GetSex() const;
+    __int64 GetHeight(const TimeSpan& age) const;
+    __int64 GetWeight(const TimeSpan& age) const;
 
 #ifdef UNITTEST
 public:

@@ -16,7 +16,8 @@ TEST(AgeTraitsTest, Constructor)
 
 TEST(AgeTraitsTest, Categorize)
 {
-    MultiPointValueInt values({ 10L, 20L, 30L, 40L, 50L, 60L, 70L, 80L });
+    __int64 year = TimeSpan(1L, 0L, 0L, 0L, 0L, false).Ticks();
+    MultiPointValueInt values({ 10L * year, 20L * year, 30L * year, 40L * year, 50L * year, 60L * year, 70L * year, 80L * year });
     AgeTraits test(values);
     EXPECT_EQ(test.Categorize(TimeSpan(1L, 0L, 0L, 0L, 0L, true)), AgeCategory::Dead);
     EXPECT_EQ(test.Categorize(TimeSpan(0L, 0L, 0L, 0L, 0L, false)), AgeCategory::NewBorn);
@@ -41,45 +42,48 @@ TEST(AgeTraitsTest, Categorize)
 
 TEST(AgeTraitsTest, AgeStart)
 {
-    MultiPointValueInt values({ 10L, 20L, 30L, 40L, 50L, 60L, 70L, 80L });
+    __int64 year = TimeSpan(1L, 0L, 0L, 0L, 0L, false).Ticks();
+    MultiPointValueInt values({ 10L * year, 20L * year, 30L * year, 40L * year, 50L * year, 60L * year, 70L * year, 80L * year });
     AgeTraits test(values);
-    EXPECT_EQ(0L, test.AgeStart(AgeCategory::NewBorn));
-    EXPECT_EQ(10L, test.AgeStart(AgeCategory::Toddler));
-    EXPECT_EQ(20L, test.AgeStart(AgeCategory::Child));
-    EXPECT_EQ(30L, test.AgeStart(AgeCategory::Teenager));
-    EXPECT_EQ(40L, test.AgeStart(AgeCategory::YoungAdult));
-    EXPECT_EQ(50L, test.AgeStart(AgeCategory::Adult));
-    EXPECT_EQ(60L, test.AgeStart(AgeCategory::OldAdult));
-    EXPECT_EQ(70L, test.AgeStart(AgeCategory::Elder));
-    EXPECT_EQ(80L, test.AgeStart(AgeCategory::Dead));
+    EXPECT_EQ(0L * year, test.AgeStart(AgeCategory::NewBorn));
+    EXPECT_EQ(10L * year, test.AgeStart(AgeCategory::Toddler));
+    EXPECT_EQ(20L * year, test.AgeStart(AgeCategory::Child));
+    EXPECT_EQ(30L * year, test.AgeStart(AgeCategory::Teenager));
+    EXPECT_EQ(40L * year, test.AgeStart(AgeCategory::YoungAdult));
+    EXPECT_EQ(50L * year, test.AgeStart(AgeCategory::Adult));
+    EXPECT_EQ(60L * year, test.AgeStart(AgeCategory::OldAdult));
+    EXPECT_EQ(70L * year, test.AgeStart(AgeCategory::Elder));
+    EXPECT_EQ(80L * year, test.AgeStart(AgeCategory::Dead));
 }
 
 TEST(AgeTraitsTest, AgeEnd)
 {
-    MultiPointValueInt values({ 10L, 20L, 30L, 40L, 50L, 60L, 70L, 80L });
+    __int64 year = TimeSpan(1L, 0L, 0L, 0L, 0L, false).Ticks();
+    MultiPointValueInt values({ 10L * year, 20L * year, 30L * year, 40L * year, 50L * year, 60L * year, 70L * year, 80L * year });
     AgeTraits test(values);
-    EXPECT_EQ(9L, test.AgeEnd(AgeCategory::NewBorn));
-    EXPECT_EQ(19L, test.AgeEnd(AgeCategory::Toddler));
-    EXPECT_EQ(29L, test.AgeEnd(AgeCategory::Child));
-    EXPECT_EQ(39L, test.AgeEnd(AgeCategory::Teenager));
-    EXPECT_EQ(49L, test.AgeEnd(AgeCategory::YoungAdult));
-    EXPECT_EQ(59L, test.AgeEnd(AgeCategory::Adult));
-    EXPECT_EQ(69L, test.AgeEnd(AgeCategory::OldAdult));
-    EXPECT_EQ(79L, test.AgeEnd(AgeCategory::Elder));
+    EXPECT_EQ(10L * year - 1L, test.AgeEnd(AgeCategory::NewBorn));
+    EXPECT_EQ(20L * year - 1L, test.AgeEnd(AgeCategory::Toddler));
+    EXPECT_EQ(30L * year - 1L, test.AgeEnd(AgeCategory::Child));
+    EXPECT_EQ(40L * year - 1L, test.AgeEnd(AgeCategory::Teenager));
+    EXPECT_EQ(50L * year - 1L, test.AgeEnd(AgeCategory::YoungAdult));
+    EXPECT_EQ(60L * year - 1L, test.AgeEnd(AgeCategory::Adult));
+    EXPECT_EQ(70L * year - 1L, test.AgeEnd(AgeCategory::OldAdult));
+    EXPECT_EQ(80L * year - 1L, test.AgeEnd(AgeCategory::Elder));
     EXPECT_EQ(-1L, test.AgeEnd(AgeCategory::Dead));
 }
 
 TEST(AgeTraitsTest, NextAgeStart)
 {
-    MultiPointValueInt values({ 10L, 20L, 30L, 40L, 50L, 60L, 70L, 80L });
+    __int64 year = TimeSpan(1L, 0L, 0L, 0L, 0L, false).Ticks();
+    MultiPointValueInt values({ 10L * year, 20L * year, 30L * year, 40L * year, 50L * year, 60L * year, 70L * year, 80L * year });
     AgeTraits test(values);
-    EXPECT_EQ(10L, test.NextAgeStart(AgeCategory::NewBorn));
-    EXPECT_EQ(20L, test.NextAgeStart(AgeCategory::Toddler));
-    EXPECT_EQ(30L, test.NextAgeStart(AgeCategory::Child));
-    EXPECT_EQ(40L, test.NextAgeStart(AgeCategory::Teenager));
-    EXPECT_EQ(50L, test.NextAgeStart(AgeCategory::YoungAdult));
-    EXPECT_EQ(60L, test.NextAgeStart(AgeCategory::Adult));
-    EXPECT_EQ(70L, test.NextAgeStart(AgeCategory::OldAdult));
-    EXPECT_EQ(80L, test.NextAgeStart(AgeCategory::Elder));
+    EXPECT_EQ(10L * year, test.NextAgeStart(AgeCategory::NewBorn));
+    EXPECT_EQ(20L * year, test.NextAgeStart(AgeCategory::Toddler));
+    EXPECT_EQ(30L * year, test.NextAgeStart(AgeCategory::Child));
+    EXPECT_EQ(40L * year, test.NextAgeStart(AgeCategory::Teenager));
+    EXPECT_EQ(50L * year, test.NextAgeStart(AgeCategory::YoungAdult));
+    EXPECT_EQ(60L * year, test.NextAgeStart(AgeCategory::Adult));
+    EXPECT_EQ(70L * year, test.NextAgeStart(AgeCategory::OldAdult));
+    EXPECT_EQ(80L * year, test.NextAgeStart(AgeCategory::Elder));
     EXPECT_EQ(-1L, test.NextAgeStart(AgeCategory::Dead));
 }

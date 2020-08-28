@@ -15,14 +15,13 @@ AgeSexRangeValue::AgeSexRangeValue(const MultiPointValueRange& male, const Multi
 
 __int64 AgeSexRangeValue::Value(double index, const TimeSpan& age, const Sex& sex) const
 {
-    __int64 ticks = age.Ticks();
     if (sex.IsMale())
     {
-        return Value(index, heightMale, ticks);
+        return Value(index, heightMale, age);
     }
     else if (sex.IsFemale())
     {
-        return Value(index, heightFemale, ticks);
+        return Value(index, heightFemale, age);
     }
     return -1L;
 }
@@ -62,8 +61,20 @@ __int64 AgeSexRangeValue::Value(double index, const MultiPointValueRange& range,
 
 __int64 AgeSexRangeValue::Value(__int64 start, __int64 end, AgeCategory category, const TimeSpan& age) const
 {
-    __int64 ageStart = TimeSpan(ages->AgeStart(category), 0, 0, 0, 0, false).Ticks();
-    __int64 ageEnd = TimeSpan(ages->NextAgeStart(category), 0, 0, 0, 0, false).Ticks();
+    __int64 ageStart = ages->AgeStart(category);
+    __int64 ageEnd = ages->NextAgeStart(category);
+
     double index = static_cast<double>(age.Ticks() - ageStart) / static_cast<double>(ageEnd - ageStart);
+
+#ifdef UNITTEST
+    std::wcout << L"-----------------------------------------" << std::endl;
+    std::wcout << L"Age     : " << age.ToString() << std::endl;
+    std::wcout << L"AgeStart: " << TimeSpan(ages->AgeStart(category)).ToString() << std::endl;
+    std::wcout << L"AgeEnd  : " << TimeSpan(ages->NextAgeStart(category)).ToString() << std::endl;
+    std::wcout << L"Index   : " << index << std::endl;
+    std::wcout << L"Start   : " << start << std::endl;
+    std::wcout << L"End     : " << end << std::endl;
+#endif
+
     return MathUtils::ScaleInt(start, end, index);
 }

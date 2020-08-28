@@ -15,6 +15,7 @@ public:
 
 public:
     std::wstring Name() const { return name; }
+    const RacialTraits& Traits() const { return traits; }
 
 private:
     std::wstring name;

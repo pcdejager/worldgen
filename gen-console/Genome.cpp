@@ -2,6 +2,8 @@
 #include "Genome.h"
 #include "GenePositions.h"
 #include "Races.h"
+#include "Race.h"
+#include "AgeSexRangeValue.h"
 
 /*static*/ std::map<__int64, std::wstring> Genome::genomeRaces;
 
@@ -26,6 +28,22 @@ Sex Genome::GetSex() const
         return Sex(true, false, fertile);
     }
     return Sex(false, true, fertile);
+}
+
+__int64 Genome::GetHeight(const TimeSpan& age) const
+{
+    RacePtr race = GetRace();
+    Sex sex = GetSex();
+    double geneValue = (genes.ReadDouble(HeightGenesStart, HeightGenesSize) * 2.0) - 1.0;
+    return race->Traits().height->Value(geneValue, age, sex);
+}
+
+__int64 Genome::GetWeight(const TimeSpan& age) const
+{
+    RacePtr race = GetRace();
+    Sex sex = GetSex();
+    double geneValue = (genes.ReadDouble(WeightGenesStart, WeightGenesSize) * 2.0) - 1.0;
+    return race->Traits().weight->Value(geneValue, age, sex);
 }
 
 #ifdef UNITTEST

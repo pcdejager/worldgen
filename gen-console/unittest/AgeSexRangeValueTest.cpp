@@ -18,7 +18,7 @@ TEST(HeightTest, Constructor)
 TEST(HeightTest, Value_Male)
 {
     __int64 year = TimeSpan(1, 0, 0, 0, 0, false).Ticks();
-    MultiPointValueInt ranges({ 10L, 20L, 30L, 40L, 50L, 60L, 70L, 80L });
+    MultiPointValueInt ranges({ 10L * year, 20L * year, 30L * year, 40L * year, 50L * year, 60L * year, 70L * year, 80L * year });
     AgeTraitsPtr ages = std::make_shared<AgeTraits>(ranges);
     MultiPointValueRange male({ {10, 15, 20}, {20, 25, 30}, {30, 35, 40}, {40, 45, 50}, {50, 55, 60}, {60, 65, 70}, {70, 75, 80}, {80, 85, 90} });
     MultiPointValueRange female({ {0, 5, 10}, {10, 15, 20}, {20, 25, 30}, {30, 35, 40}, {40, 45, 50}, {50, 55, 60}, {60, 65, 70}, {70, 75, 80} });
@@ -35,7 +35,7 @@ TEST(HeightTest, Value_Male)
 TEST(HeightTest, Value_Female)
 {
     __int64 year = TimeSpan(1, 0, 0, 0, 0, false).Ticks();
-    MultiPointValueInt ranges({ 10L, 20L, 30L, 40L, 50L, 60L, 70L, 80L });
+    MultiPointValueInt ranges({ 10L * year, 20L * year, 30L * year, 40L * year, 50L * year, 60L * year, 70L * year, 80L * year });
     AgeTraitsPtr ages = std::make_shared<AgeTraits>(ranges);
     MultiPointValueRange male({ {10, 15, 20}, {20, 25, 30}, {30, 35, 40}, {40, 45, 50}, {50, 55, 60}, {60, 65, 70}, {70, 75, 80}, {80, 85, 90} });
     MultiPointValueRange female({ {0, 5, 10}, {10, 15, 20}, {20, 25, 30}, {30, 35, 40}, {40, 45, 50}, {50, 55, 60}, {60, 65, 70}, {70, 75, 80} });
@@ -52,7 +52,7 @@ TEST(HeightTest, Value_Female)
 TEST(HeightTest, Value_Male_Elder)
 {
     __int64 year = TimeSpan(1, 0, 0, 0, 0, false).Ticks();
-    MultiPointValueInt ranges({ 10L, 20L, 30L, 40L, 50L, 60L, 70L, 80L });
+    MultiPointValueInt ranges({ 10L * year, 20L * year, 30L * year, 40L * year, 50L * year, 60L * year, 70L * year, 80L * year });
     AgeTraitsPtr ages = std::make_shared<AgeTraits>(ranges);
     MultiPointValueRange male({ {10, 15, 20}, {20, 25, 30}, {30, 35, 40}, {40, 45, 50}, {50, 55, 60}, {60, 65, 70}, {70, 75, 80}, {80, 85, 90} });
     MultiPointValueRange female({ {0, 5, 10}, {10, 15, 20}, {20, 25, 30}, {30, 35, 40}, {40, 45, 50}, {50, 55, 60}, {60, 65, 70}, {70, 75, 80} });
@@ -69,7 +69,7 @@ TEST(HeightTest, Value_Male_Elder)
 TEST(HeightTest, Value_Female_Elder)
 {
     __int64 year = TimeSpan(1, 0, 0, 0, 0, false).Ticks();
-    MultiPointValueInt ranges({ 10L, 20L, 30L, 40L, 50L, 60L, 70L, 80L });
+    MultiPointValueInt ranges({ 10L * year, 20L * year, 30L * year, 40L * year, 50L * year, 60L * year, 70L * year, 80L * year });
     AgeTraitsPtr ages = std::make_shared<AgeTraits>(ranges);
     MultiPointValueRange male({ {10, 15, 20}, {20, 25, 30}, {30, 35, 40}, {40, 45, 50}, {50, 55, 60}, {60, 65, 70}, {70, 75, 80}, {80, 85, 90} });
     MultiPointValueRange female({ {0, 5, 10}, {10, 15, 20}, {20, 25, 30}, {30, 35, 40}, {40, 45, 50}, {50, 55, 60}, {60, 65, 70}, {70, 75, 80} });
@@ -85,7 +85,7 @@ TEST(HeightTest, Value_Female_Elder)
 TEST(HeightTest, Value_Outside_boundaries)
 {
     __int64 year = TimeSpan(1, 0, 0, 0, 0, false).Ticks();
-    MultiPointValueInt ranges({ 10L, 20L, 30L, 40L, 50L, 60L, 70L, 80L });
+    MultiPointValueInt ranges({ 10L * year, 20L * year, 30L * year, 40L * year, 50L * year, 60L * year, 70L * year, 80L * year });
     AgeTraitsPtr ages = std::make_shared<AgeTraits>(ranges);
     MultiPointValueRange male({ {10, 15, 20}, {20, 25, 30}, {30, 35, 40}, {40, 45, 50}, {50, 55, 60}, {60, 65, 70}, {70, 75, 80}, {80, 85, 90} });
     MultiPointValueRange female({ {0, 5, 10}, {10, 15, 20}, {20, 25, 30}, {30, 35, 40}, {40, 45, 50}, {50, 55, 60}, {60, 65, 70}, {70, 75, 80} });

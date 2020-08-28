@@ -9,7 +9,7 @@ TEST(MultiPointValueIntTest, Constructor)
 
 TEST(MultiPointValueIntTest, Constructor_values)
 {
-    std::vector<__int64> values = { 3L, 2L, 1L };
+    std::vector<__int64> values = { 1L, 2L, 3L };
     MultiPointValueInt test(values);
     EXPECT_EQ(test.Count(), 3);
     EXPECT_EQ(test.Value(0), 1L);
@@ -19,7 +19,7 @@ TEST(MultiPointValueIntTest, Constructor_values)
 
 TEST(MultiPointValueIntTest, Set)
 {
-    std::vector<__int64> values = { 3L, 2L, 1L };
+    std::vector<__int64> values = { 1L, 2L, 3L };
     MultiPointValueInt test;
     test.Set(values);
     EXPECT_EQ(test.Count(), 3);
@@ -82,7 +82,7 @@ TEST(MultiPointValueRangeTest, Constructor_values)
     ValueRange range1 = { 1L,2L,3L };
     ValueRange range2 = { 2L,3L,4L };
     ValueRange range3 = { 3L,4L,5L };
-    std::vector<ValueRange> values = { range3, range2, range1 };
+    std::vector<ValueRange> values = { range1, range2, range3 };
     MultiPointValueRange test(values);
     EXPECT_EQ(test.Count(), 3);
     EXPECT_EQ(test.Value(0), range1);
@@ -95,7 +95,7 @@ TEST(MultiPointValueRangeTest, Set)
     ValueRange range1 = { 1L,2L,3L };
     ValueRange range2 = { 2L,3L,4L };
     ValueRange range3 = { 3L,4L,5L };
-    std::vector<ValueRange> values = { range3, range2, range1 };
+    std::vector<ValueRange> values = { range1, range2, range3 };
     MultiPointValueRange test;
     test.Set(values);
     EXPECT_EQ(test.Count(), 3);
@@ -126,7 +126,7 @@ TEST(MultiPointValueRangeTest, Minimum)
     ValueRange range1 = { 1L,2L,3L };
     ValueRange range2 = { 2L,3L,4L };
     ValueRange range3 = { 3L,4L,5L };
-    std::vector<ValueRange> values = { range3, range2, range1 };
+    std::vector<ValueRange> values = { range1, range2, range3 };
     MultiPointValueRange test2;
     test2.Set(values);
     EXPECT_EQ(test2.Minimum(), range1);
@@ -140,7 +140,7 @@ TEST(MultiPointValueRangeTest, Maximum)
     ValueRange range1 = { 1L,2L,3L };
     ValueRange range2 = { 2L,3L,4L };
     ValueRange range3 = { 3L,4L,5L };
-    std::vector<ValueRange> values = { range3, range2, range1 };
+    std::vector<ValueRange> values = { range1, range2, range3 };
     MultiPointValueRange test2;
     test2.Set(values);
     EXPECT_EQ(test2.Maximum(), range3);
@@ -151,7 +151,7 @@ TEST(MultiPointValueRangeTest, Value)
     ValueRange range1 = { 1L,2L,3L };
     ValueRange range2 = { 2L,3L,4L };
     ValueRange range3 = { 3L,4L,5L };
-    std::vector<ValueRange> values = { range3, range2, range1 };
+    std::vector<ValueRange> values = { range1, range2, range3 };
     MultiPointValueRange test;
     test.Set(values);
     EXPECT_EQ(test.Value(0), range1);

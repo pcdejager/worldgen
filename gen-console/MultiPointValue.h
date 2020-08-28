@@ -14,7 +14,7 @@ public:
     MultiPointValue(const std::vector<T>& input)
         : values(input)
     {
-        std::sort(values.begin(), values.end());
+        ;
     }
     MultiPointValue(const MultiPointValue&) = default;
     MultiPointValue(MultiPointValue&& rhs) = default;
@@ -27,7 +27,6 @@ public:
     void Set(const std::vector<T>& input)
     {
         values = input;
-        std::sort(values.begin(), values.end());
     }
 
     std::size_t Count() const { return values.size(); }

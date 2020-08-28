@@ -10,6 +10,14 @@ constexpr std::size_t RaceGenesSize = 2;
 constexpr std::size_t SexGenesStart = RaceGenesStart + RaceGenesSize;
 constexpr std::size_t SexGenesSize = 8;
 
+// Height
+constexpr std::size_t HeightGenesStart = SexGenesStart + SexGenesSize;
+constexpr std::size_t HeightGenesSize = 16;
+
+// Weight
+constexpr std::size_t WeightGenesStart = HeightGenesStart + HeightGenesSize;
+constexpr std::size_t WeightGenesSize = 16;
+
 // Final result
 constexpr std::size_t NumberOfBits = 128;
 constexpr std::size_t NumberOfBytes = (NumberOfBits / 8) + 1;

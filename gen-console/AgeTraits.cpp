@@ -22,13 +22,12 @@ AgeCategory AgeTraits::Categorize(const TimeSpan& age) const
     {
         return AgeCategory::Dead;
     }
-    __int64 years = age.Years();
     auto previous = ages.begin();
     auto current = ages.begin();
     ++current;
     do
     {
-        if ((years >= previous->second) && (years < current->second))
+        if ((age >= previous->second) && (age < current->second))
         {
             return previous->first;
         }

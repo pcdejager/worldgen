@@ -62,3 +62,24 @@ TEST(GenomeTest, GetSex)
     EXPECT_TRUE(test.GetSex().IsFemale());
     EXPECT_FALSE(test.GetSex().IsFertile());
 }
+
+TEST(GenomeTest, GetHeight_Male_Min)
+{
+    Genome test;
+    Genes genes;
+    genes.SetGenes(RaceGenesStart, RaceGenesSize, 2L);
+    genes.SetGenes(SexGenesStart, SexGenesSize, GeneTest_Male_Fertile);
+    genes.SetGenes(HeightGenesStart, HeightGenesSize, 0L);
+
+    test.ReplaceGenes(genes);
+    std::wcout << "Race: " << test.GetRace()->Name() << std::endl;
+
+    EXPECT_EQ(test.GetHeight(TimeSpan(0L, 0L, 0L, 0L, 0L, false)), 28L);
+    EXPECT_EQ(test.GetHeight(TimeSpan(3L, 0L, 0L, 0L, 0L, false)), 55L);
+    EXPECT_EQ(test.GetHeight(TimeSpan(6L, 0L, 0L, 0L, 0L, false)), 88L);
+    EXPECT_EQ(test.GetHeight(TimeSpan(11L, 0L, 0L, 0L, 0L, false)), 105L);
+    EXPECT_EQ(test.GetHeight(TimeSpan(18L, 0L, 0L, 0L, 0L, false)), 140L);
+    EXPECT_EQ(test.GetHeight(TimeSpan(30L, 0L, 0L, 0L, 0L, false)), 140L);
+    EXPECT_EQ(test.GetHeight(TimeSpan(45L, 0L, 0L, 0L, 0L, false)), 135L);
+    EXPECT_EQ(test.GetHeight(TimeSpan(60L, 0L, 0L, 0L, 0L, false)), 130L);
+}

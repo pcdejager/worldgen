@@ -69,7 +69,7 @@ void Races::Initialize()
             MultiPointValueRange maleRange;
             std::tie(found, maleRange) = loader.ReadMultiPointValueRange(L"HeightMale");
             MultiPointValueRange femaleRange;
-            std::tie(found, femaleRange) = loader.ReadMultiPointValueRange(L"HeightMale");
+            std::tie(found, femaleRange) = loader.ReadMultiPointValueRange(L"HeightFemale");
 
             std::wcout << L"    Height =   Male [";
             for (std::size_t count = 0; count < maleRange.Count(); ++count)
@@ -92,7 +92,7 @@ void Races::Initialize()
             MultiPointValueRange maleRange;
             std::tie(found, maleRange) = loader.ReadMultiPointValueRange(L"WeightMale");
             MultiPointValueRange femaleRange;
-            std::tie(found, femaleRange) = loader.ReadMultiPointValueRange(L"WeightMale");
+            std::tie(found, femaleRange) = loader.ReadMultiPointValueRange(L"WeightFemale");
 
             std::wcout << L"    Weight =   Male [";
             for (std::size_t count = 0; count < maleRange.Count(); ++count)
