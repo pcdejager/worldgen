@@ -1,5 +1,7 @@
 #pragma once
 
+#include "GenePosition.h"
+
 class Genes
 {
 public:
@@ -11,11 +13,11 @@ public:
 public:
     std::size_t End() const;
     bool ReadBool(std::size_t index) const;
-    __int64 ReadInt(std::size_t from, std::size_t size) const;
-    double ReadDouble(std::size_t from, std::size_t size) const;
+    __int64 ReadInt(const GenePosition& position) const;
+    double ReadDouble(const GenePosition& position) const;
 
     void SetBool(std::size_t index, bool value);
-    void SetGenes(std::size_t from, std::size_t size, __int64 value);
+    void SetGenes(const GenePosition& position, __int64 value);
 private:
     void Initialize() noexcept;
 

@@ -200,6 +200,9 @@
     <ClInclude Include="AgeTraits.h">
       <Filter>Header Files\Types</Filter>
     </ClInclude>
+    <ClInclude Include="GenePosition.h">
+      <Filter>Header Files\Genes</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Text Include="Config\Races.txt">

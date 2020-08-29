@@ -15,13 +15,13 @@ Genome::Genome()
 
 RacePtr Genome::GetRace() const
 {
-    __int64 geneValue = genes.ReadInt(RaceGenesStart, RaceGenesSize) % genomeRaces.size();
+    __int64 geneValue = genes.ReadInt(GenePositions::Race()) % genomeRaces.size();
     return Races::GetRaces()->FindRace(genomeRaces[geneValue]);
 }
 
 Sex Genome::GetSex() const
 {
-    double geneValue = genes.ReadDouble(SexGenesStart, SexGenesSize);
+    double geneValue = genes.ReadDouble(GenePositions::Sex());
     bool fertile = (geneValue < 0.48) || (geneValue >= 0.52);
     if (geneValue < 0.5)
     {
@@ -34,7 +34,7 @@ __int64 Genome::GetHeight(const TimeSpan& age) const
 {
     RacePtr race = GetRace();
     Sex sex = GetSex();
-    double geneValue = (genes.ReadDouble(HeightGenesStart, HeightGenesSize) * 2.0) - 1.0;
+    double geneValue = (genes.ReadDouble(GenePositions::Height()) * 2.0) - 1.0;
     return race->Traits().height->Value(geneValue, age, sex);
 }
 
@@ -42,7 +42,7 @@ __int64 Genome::GetWeight(const TimeSpan& age) const
 {
     RacePtr race = GetRace();
     Sex sex = GetSex();
-    double geneValue = (genes.ReadDouble(WeightGenesStart, WeightGenesSize) * 2.0) - 1.0;
+    double geneValue = (genes.ReadDouble(GenePositions::Weight()) * 2.0) - 1.0;
     return race->Traits().weight->Value(geneValue, age, sex);
 }
 

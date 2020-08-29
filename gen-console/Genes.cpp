@@ -37,14 +37,14 @@ bool Genes::ReadBool(std::size_t index) const
     return result;
 }
 
-__int64 Genes::ReadInt(std::size_t from, std::size_t size) const
+__int64 Genes::ReadInt(const GenePosition& position) const
 {
-    std::size_t to = from + size;
+    std::size_t to = position.End();
     __int64 value = 0L;
-    std::size_t byte = from / 8;
-    std::size_t bit = from % 8;
+    std::size_t byte = position.Start() / 8;
+    std::size_t bit = position.Start() % 8;
     unsigned char mask = 1 << bit;
-    for (std::size_t index = from; index < to; ++index)
+    for (std::size_t index = position.Start(); index < to; ++index)
     {
         value <<= 1;
         if ((genes[byte] & mask) > 0)
@@ -61,10 +61,10 @@ __int64 Genes::ReadInt(std::size_t from, std::size_t size) const
     return GrayCode::GrayToBinary(value);
 }
 
-double Genes::ReadDouble(std::size_t from, std::size_t size) const
+double Genes::ReadDouble(const GenePosition& position) const
 {
-    __int64 value = ReadInt(from, size);
-    double max = std::pow(2.0, static_cast<double>(size)) - 1.0;
+    __int64 value = ReadInt(position);
+    double max = std::pow(2.0, static_cast<double>(position.Size())) - 1.0;
     double result = static_cast<double>(value) / max;
     return result;
 }
@@ -88,12 +88,12 @@ void Genes::SetBool(std::size_t index, bool value)
     }
 }
 
-void Genes::SetGenes(std::size_t from, std::size_t size, __int64 value)
+void Genes::SetGenes(const GenePosition& position, __int64 value)
 {
-    std::size_t to = from + size;
+    std::size_t to = position.End();
     std::size_t index = to;
     __int64 work = GrayCode::BinaryToGray(value);
-    while (index != from)
+    while (index != position.Start())
     {
         --index;
         bool enable = (work % 2) == 1;

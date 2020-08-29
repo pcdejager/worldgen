@@ -185,6 +185,7 @@
     <ClInclude Include="AgeCategory.h" />
     <ClInclude Include="AgeTraits.h" />
     <ClInclude Include="ConfigLoader.h" />
+    <ClInclude Include="GenePosition.h" />
     <ClInclude Include="GenePositions.h" />
     <ClInclude Include="Genes.h" />
     <ClInclude Include="Genome.h" />

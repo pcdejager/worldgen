@@ -1,25 +1,18 @@
 #pragma once
 
 // Genome positions
-
-// Race
-constexpr std::size_t RaceGenesStart = 0;
-constexpr std::size_t RaceGenesSize = 2;
-
-// Sex
-constexpr std::size_t SexGenesStart = RaceGenesStart + RaceGenesSize;
-constexpr std::size_t SexGenesSize = 8;
-
-// Height
-constexpr std::size_t HeightGenesStart = SexGenesStart + SexGenesSize;
-constexpr std::size_t HeightGenesSize = 16;
-
-// Weight
-constexpr std::size_t WeightGenesStart = HeightGenesStart + HeightGenesSize;
-constexpr std::size_t WeightGenesSize = 16;
+#include "GenePosition.h"
 
 // Final result
 constexpr std::size_t NumberOfBits = 128;
 constexpr std::size_t NumberOfBytes = (NumberOfBits / 8) + 1;
 
-
+class GenePositions
+{
+public:
+    // Race
+    static constexpr GenePosition Race() { return GenePosition(0, 2); }
+    static constexpr GenePosition Sex() { return GenePosition(Race().End(), 8); }
+    static constexpr GenePosition Height() { return GenePosition(Sex().End(), 16); }
+    static constexpr GenePosition Weight() { return GenePosition(Height().End(), 16); }
+};

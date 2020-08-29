@@ -1,6 +1,7 @@
 #include "pch.h"
 #include "../Genes.h"
 #include "../GenePositions.h"
+#include "../GenePosition.h"
 
 TEST(GenesTest, Constructor)
 {
@@ -26,45 +27,45 @@ TEST(GenesTest, ReadInt)
     Genes test;
     for (__int64 value = 0L; value < 1024L; ++value)
     {
-        test.SetGenes(0, 10, value);
-        EXPECT_EQ(test.ReadInt(0, 10), value);
+        test.SetGenes(GenePosition(0, 10), value);
+        EXPECT_EQ(test.ReadInt(GenePosition(0, 10)), value);
     }
 }
 
 TEST(GenesTest, ReadDouble)
 {
     Genes test;
-    EXPECT_EQ(test.ReadDouble(0, 10), 0.0);
+    EXPECT_EQ(test.ReadDouble(GenePosition(0, 10)), 0.0);
 
-    test.SetGenes(0, 10, 1L);
-    EXPECT_EQ(test.ReadDouble(0, 10), 1.0 / 1023.0);
+    test.SetGenes(GenePosition(0, 10), 1L);
+    EXPECT_EQ(test.ReadDouble(GenePosition(0, 10)), 1.0 / 1023.0);
 
-    test.SetGenes(0, 10, 3L);
-    EXPECT_EQ(test.ReadDouble(0, 10), 3.0 / 1023.0);
+    test.SetGenes(GenePosition(0, 10), 3L);
+    EXPECT_EQ(test.ReadDouble(GenePosition(0, 10)), 3.0 / 1023.0);
 
-    test.SetGenes(0, 10, 7L);
-    EXPECT_EQ(test.ReadDouble(0, 10), 7.0 / 1023.0);
+    test.SetGenes(GenePosition(0, 10), 7L);
+    EXPECT_EQ(test.ReadDouble(GenePosition(0, 10)), 7.0 / 1023.0);
 
-    test.SetGenes(0, 10, 15L);
-    EXPECT_EQ(test.ReadDouble(0, 10), 15.0 / 1023.0);
+    test.SetGenes(GenePosition(0, 10), 15L);
+    EXPECT_EQ(test.ReadDouble(GenePosition(0, 10)), 15.0 / 1023.0);
 
-    test.SetGenes(0, 10, 31L);
-    EXPECT_EQ(test.ReadDouble(0, 10), 31.0 / 1023.0);
+    test.SetGenes(GenePosition(0, 10), 31L);
+    EXPECT_EQ(test.ReadDouble(GenePosition(0, 10)), 31.0 / 1023.0);
 
-    test.SetGenes(0, 10, 63L);
-    EXPECT_EQ(test.ReadDouble(0, 10), 63.0 / 1023.0);
+    test.SetGenes(GenePosition(0, 10), 63L);
+    EXPECT_EQ(test.ReadDouble(GenePosition(0, 10)), 63.0 / 1023.0);
 
-    test.SetGenes(0, 10, 127L);
-    EXPECT_EQ(test.ReadDouble(0, 10), 127.0 / 1023.0);
+    test.SetGenes(GenePosition(0, 10), 127L);
+    EXPECT_EQ(test.ReadDouble(GenePosition(0, 10)), 127.0 / 1023.0);
 
-    test.SetGenes(0, 10, 255L);
-    EXPECT_EQ(test.ReadDouble(0, 10), 255.0 / 1023.0);
+    test.SetGenes(GenePosition(0, 10), 255L);
+    EXPECT_EQ(test.ReadDouble(GenePosition(0, 10)), 255.0 / 1023.0);
 
-    test.SetGenes(0, 10, 511L);
-    EXPECT_EQ(test.ReadDouble(0, 10), 511.0 / 1023.0);
+    test.SetGenes(GenePosition(0, 10), 511L);
+    EXPECT_EQ(test.ReadDouble(GenePosition(0, 10)), 511.0 / 1023.0);
 
-    test.SetGenes(0, 10, 1023L);
-    EXPECT_EQ(test.ReadDouble(0, 10), 1023.0 / 1023.0);
+    test.SetGenes(GenePosition(0, 10), 1023L);
+    EXPECT_EQ(test.ReadDouble(GenePosition(0, 10)), 1023.0 / 1023.0);
 }
 
 TEST(GenesTest, SetBool)
