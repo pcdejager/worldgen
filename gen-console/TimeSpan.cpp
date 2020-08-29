@@ -3,7 +3,7 @@
 #include "WorldConstants.h"
 
 TimeSpan::TimeSpan()
-	: span(0L)
+	: span(0LL)
 {
 	;
 }
@@ -74,7 +74,7 @@ __int64 TimeSpan::Years() const
 
 bool TimeSpan::Negative() const
 {
-	return span < 0L;
+	return span < 0LL;
 }
 
 __int64 TimeSpan::TotalSeconds() const

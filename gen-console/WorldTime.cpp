@@ -102,9 +102,9 @@ TimeSpan WorldTime::operator-(const WorldTime& rhs) const
 WorldTime& WorldTime::operator+=(const TimeSpan& span) 
 {
 	__int64 newTime = static_cast<__int64>(ticks) + span.Ticks();
-	if (newTime < 0L)
+	if (newTime < 0LL)
 	{
-		newTime = 0L;
+		newTime = 0LL;
 	}
 	ticks = static_cast<unsigned __int64>(newTime);
 	return *this;
@@ -113,9 +113,9 @@ WorldTime& WorldTime::operator+=(const TimeSpan& span)
 WorldTime WorldTime::operator+(const TimeSpan& span) const
 {
 	__int64 newTime = static_cast<__int64>(ticks) + span.Ticks();
-	if (newTime < 0L)
+	if (newTime < 0LL)
 	{
-		newTime = 0L;
+		newTime = 0LL;
 	}
 	return WorldTime(static_cast<unsigned __int64>(newTime));
 }
@@ -123,9 +123,9 @@ WorldTime WorldTime::operator+(const TimeSpan& span) const
 WorldTime& WorldTime::operator-=(const TimeSpan& span) 
 {
 	__int64 newTime = static_cast<__int64>(ticks) - span.Ticks();
-	if (newTime < 0L)
+	if (newTime < 0LL)
 	{
-		newTime = 0L;
+		newTime = 0LL;
 	}
 	ticks = static_cast<unsigned __int64>(newTime);
 	return *this;
@@ -134,9 +134,9 @@ WorldTime& WorldTime::operator-=(const TimeSpan& span)
 WorldTime WorldTime::operator-(const TimeSpan& span) const
 {
 	__int64 newTime = static_cast<__int64>(ticks) - span.Ticks();
-	if (newTime < 0L)
+	if (newTime < 0LL)
 	{
-		newTime = 0L;
+		newTime = 0LL;
 	}
 	return WorldTime(static_cast<unsigned __int64>(newTime));
 }

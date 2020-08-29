@@ -43,6 +43,15 @@ void Races::Initialize()
 
         RacialTraits traits;
 
+        // Gene
+        std::tie(found, traits.gene) = loader.ReadMultiPointValueInt(L"Gene");
+        std::wcout << L"    Gene = [";
+        for (std::size_t count = 0; count < traits.gene.Count(); ++count)
+        {
+            std::wcout << traits.gene.Value(count) << L" ";
+        }
+        std::wcout << L"]" << std::endl;
+
         // AgeRanges
         MultiPointValueInt ages;
         std::tie(found, ages) = loader.ReadMultiPointValueInt(L"AgeRanges");
@@ -113,6 +122,11 @@ void Races::Initialize()
         RacePtr newRace = RacePtr(new Race(name, traits));
         races.insert(std::make_pair(name, newRace));
 
+        for (std::size_t count = 0; count < traits.gene.Count(); ++count)
+        {
+            racesByGene.insert(std::make_pair(traits.gene.Value(count), name));
+        }
+
         loader.MoveOn();
         ok = loader.MoveTo(L"Race");
     }
@@ -151,6 +165,26 @@ bool Races::HasRace(const std::wstring& name) const
         return true;
     }
     return false;
+}
+
+std::wstring Races::FindRaceName(__int64 value) const
+{
+    auto find = racesByGene.find(value);
+    if (find != racesByGene.end())
+    {
+        return find->second;
+    }
+    return L"";
+}
+
+RacePtr Races::FindRace(__int64 value) const
+{
+    auto find = racesByGene.find(value);
+    if (find != racesByGene.end())
+    {
+        return FindRace(find->second);
+    }
+    return nullptr;
 }
 
 RacePtr Races::FindRace(const std::wstring& name) const

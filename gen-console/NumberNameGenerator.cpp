@@ -2,7 +2,7 @@
 #include "NumberNameGenerator.h"
 
 NumberNameGenerator::NumberNameGenerator()
-    : counter(0L)
+    : counter(0LL)
 {
     ;
 }

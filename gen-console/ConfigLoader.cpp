@@ -102,7 +102,7 @@ std::tuple<bool, __int64> ConfigLoader::ReadInt(const std::wstring& propertyName
     auto [found, value] = ReadString(propertyName);
     if (!found)
     {
-        return std::make_tuple(found, 0L);
+        return std::make_tuple(found, 0LL);
     }
     __int64 intValue = ConvertToInt(value);
     return std::make_tuple(true, intValue);
@@ -164,13 +164,13 @@ __int64 ConfigLoader::ConvertToInt(const std::wstring& value) const
     std::wstring work = value;
     if (work.empty())
     {
-        return 0L;
+        return 0LL;
     }
     if (work[0] == L'D')
     {
         // Duration
         work = work.substr(1);
-        __int64 year = 0L;
+        __int64 year = 0LL;
         std::size_t index = work.find(L"Y");
         if (index != std::wstring::npos)
         {
@@ -178,7 +178,7 @@ __int64 ConfigLoader::ConvertToInt(const std::wstring& value) const
             year = std::stoll(yearString);
             work = work.substr(index + 1);
         }
-        __int64 day = 0L;
+        __int64 day = 0LL;
         index = work.find(L"D");
         if (index != std::wstring::npos)
         {
@@ -186,7 +186,7 @@ __int64 ConfigLoader::ConvertToInt(const std::wstring& value) const
             day = std::stoll(dayString);
             work = work.substr(index + 1);
         }
-        __int64 hour = 0L;
+        __int64 hour = 0LL;
         index = work.find(L"H");
         if (index != std::wstring::npos)
         {
@@ -194,7 +194,7 @@ __int64 ConfigLoader::ConvertToInt(const std::wstring& value) const
             hour = std::stoll(hourString);
             work = work.substr(index + 1);
         }
-        __int64 minute = 0L;
+        __int64 minute = 0LL;
         index = work.find(L"M");
         if (index != std::wstring::npos)
         {
@@ -202,7 +202,7 @@ __int64 ConfigLoader::ConvertToInt(const std::wstring& value) const
             minute = std::stoll(minuteString);
             work = work.substr(index + 1);
         }
-        __int64 second = 0L;
+        __int64 second = 0LL;
         index = work.find(L"S");
         if (index != std::wstring::npos)
         {

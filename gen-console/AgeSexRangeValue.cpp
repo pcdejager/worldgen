@@ -23,15 +23,15 @@ __int64 AgeSexRangeValue::Value(double index, const TimeSpan& age, const Sex& se
     {
         return Value(index, heightFemale, age);
     }
-    return -1L;
+    return -1LL;
 }
 
 
 __int64 AgeSexRangeValue::Value(double index, const MultiPointValueRange& range, const TimeSpan& age) const
 {
-    if (age < 0L)
+    if (age < 0LL)
     {
-        return -1L;
+        return -1LL;
     }
     AgeCategory category = ages->Categorize(age);
     switch (category)
@@ -53,9 +53,9 @@ __int64 AgeSexRangeValue::Value(double index, const MultiPointValueRange& range,
     case AgeCategory::Elder:
         return range.Value(7).Value(index);
     case AgeCategory::Dead:
-        return -1L;
+        return -1LL;
     default:
-        return -1L;
+        return -1LL;
     }
 }
 

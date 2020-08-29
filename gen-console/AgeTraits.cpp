@@ -5,7 +5,7 @@
 AgeTraits::AgeTraits(const MultiPointValueInt& ranges)
 {
     ages.clear();
-    ages.push_back(std::make_pair(AgeCategory::NewBorn, 0L));
+    ages.push_back(std::make_pair(AgeCategory::NewBorn, 0LL));
     ages.push_back(std::make_pair(AgeCategory::Toddler, ranges.Value(0)));
     ages.push_back(std::make_pair(AgeCategory::Child, ranges.Value(1)));
     ages.push_back(std::make_pair(AgeCategory::Teenager, ranges.Value(2)));
@@ -47,32 +47,32 @@ __int64 AgeTraits::AgeStart(AgeCategory age) const
             return iter->second;
         }
     }
-    return -1L;
+    return -1LL;
 }
 
 __int64 AgeTraits::AgeEnd(AgeCategory age) const
 {
     if (age == AgeCategory::Dead)
     {
-        return -1L;
+        return -1LL;
     }
     AgeCategory test = AgeCategoryUtils::CategoryAfter(age);
     for (auto iter = ages.begin(); iter < ages.end(); ++iter)
     {
         if (iter->first == test)
         {
-            return (iter->second - 1L);
+            return (iter->second - 1LL);
         }
     }
-    return -1L;
+    return -1LL;
 }
 
 __int64 AgeTraits::NextAgeStart(AgeCategory age) const
 {
     __int64 end = AgeEnd(age);
-    if (end > 0L)
+    if (end > 0LL)
     {
-        end += 1L;
+        end += 1LL;
     }
     return end;
 }

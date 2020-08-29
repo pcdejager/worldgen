@@ -3,9 +3,9 @@
 #include "MathUtils.h"
 
 ValueRange::ValueRange()
-    : minimum(0L)
-    , average(0L)
-    , maximum(0L)
+    : minimum(0LL)
+    , average(0LL)
+    , maximum(0LL)
 {
     ;
 }

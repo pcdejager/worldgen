@@ -37,7 +37,7 @@ TEST(WorldPropertiesTest, AdvanceTime_positive)
 	auto time = WorldProperties::Properties()->Now();
 	auto start = WorldTime::Minimum();
 	EXPECT_TRUE(time == start);
-	TimeSpan adjust(1234567890L);
+	TimeSpan adjust(1234567890LL);
 	WorldProperties::Properties()->AdvanceTime(adjust);
 	time = WorldProperties::Properties()->Now();
 	EXPECT_TRUE(time > WorldTime::Minimum());
@@ -50,7 +50,7 @@ TEST(WorldPropertiesTest, AdvanceTime_negative)
 	auto time = WorldProperties::Properties()->Now();
 	auto start = WorldTime::Minimum();
 	EXPECT_TRUE(time == start);
-	TimeSpan adjust(-1234L);
+	TimeSpan adjust(-1234LL);
 	WorldProperties::Properties()->AdvanceTime(adjust);
 	time = WorldProperties::Properties()->Now();
 	EXPECT_TRUE(time > WorldTime::Minimum());

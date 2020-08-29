@@ -5,18 +5,16 @@
 #include "Race.h"
 #include "AgeSexRangeValue.h"
 
-/*static*/ std::map<__int64, std::wstring> Genome::genomeRaces;
-
 Genome::Genome()
     : genes()
 {
-    InitializeRaces();
+    ;
 }
 
 RacePtr Genome::GetRace() const
 {
-    __int64 geneValue = genes.ReadInt(GenePositions::Race()) % genomeRaces.size();
-    return Races::GetRaces()->FindRace(genomeRaces[geneValue]);
+    __int64 geneValue = genes.ReadInt(GenePositions::Race());
+    return Races::GetRaces()->FindRace(geneValue);
 }
 
 Sex Genome::GetSex() const
@@ -52,16 +50,4 @@ void Genome::ReplaceGenes(const Genes& newGenes)
     genes = newGenes;
 }
 #endif
-
-void Genome::InitializeRaces() const
-{
-    if (genomeRaces.size() == 0)
-    {
-        auto names = Races::GetRaces()->AllRaces();
-        for (std::size_t count = 0; count < names.size(); ++count)
-        {
-            genomeRaces.insert(std::make_pair(count, names[count]));
-        }
-    }
-}
 

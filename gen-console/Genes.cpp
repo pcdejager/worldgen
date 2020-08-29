@@ -40,18 +40,18 @@ bool Genes::ReadBool(std::size_t index) const
 __int64 Genes::ReadInt(const GenePosition& position) const
 {
     std::size_t to = position.End();
-    __int64 value = 0L;
+    __int64 value = 0LL;
     std::size_t byte = position.Start() / 8;
     std::size_t bit = position.Start() % 8;
     unsigned char mask = 1 << bit;
     for (std::size_t index = position.Start(); index < to; ++index)
     {
-        value <<= 1;
+        value <<= 1LL;
         if ((genes[byte] & mask) > 0)
         {
-            value += 1L;
+            value += 1LL;
         }
-        mask <<= 1;
+        mask <<= 1LL;
         if (mask == 0)
         {
             mask = 1;
@@ -100,4 +100,19 @@ void Genes::SetGenes(const GenePosition& position, __int64 value)
         SetBool(index, enable);
         work /= 2;
     }
+}
+
+void Genes::SetGenes(const GenePosition& position, double value)
+{
+    __int64 maxSize = (1LL << static_cast<__int64>(position.Size())) - 1LL;
+    __int64 intValue = static_cast<__int64>(value * static_cast<double>(maxSize));
+    if (intValue < 0LL)
+    {
+        intValue = 0LL;
+    }
+    else if (intValue > maxSize)
+    {
+        intValue = maxSize;
+    }
+    SetGenes(position, intValue);
 }

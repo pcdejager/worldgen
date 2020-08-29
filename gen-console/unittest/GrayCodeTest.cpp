@@ -3,79 +3,79 @@
 
 TEST(GrayCodeTest, BinaryToGray_2)
 {
-    EXPECT_EQ(0L, GrayCode::BinaryToGray(0L));
-    EXPECT_EQ(1L, GrayCode::BinaryToGray(1L));
-    EXPECT_EQ(3L, GrayCode::BinaryToGray(2L));
-    EXPECT_EQ(2L, GrayCode::BinaryToGray(3L));
+    EXPECT_EQ(0LL, GrayCode::BinaryToGray(0LL));
+    EXPECT_EQ(1LL, GrayCode::BinaryToGray(1LL));
+    EXPECT_EQ(3LL, GrayCode::BinaryToGray(2LL));
+    EXPECT_EQ(2LL, GrayCode::BinaryToGray(3LL));
 }
 
 TEST(GrayCodeTest, BinaryToGray_3)
 {
-    EXPECT_EQ(0L, GrayCode::BinaryToGray(0L));
-    EXPECT_EQ(1L, GrayCode::BinaryToGray(1L));
-    EXPECT_EQ(3L, GrayCode::BinaryToGray(2L));
-    EXPECT_EQ(2L, GrayCode::BinaryToGray(3L));
-    EXPECT_EQ(6L, GrayCode::BinaryToGray(4L));
-    EXPECT_EQ(7L, GrayCode::BinaryToGray(5L));
-    EXPECT_EQ(5L, GrayCode::BinaryToGray(6L));
-    EXPECT_EQ(4L, GrayCode::BinaryToGray(7L));
+    EXPECT_EQ(0LL, GrayCode::BinaryToGray(0LL));
+    EXPECT_EQ(1LL, GrayCode::BinaryToGray(1LL));
+    EXPECT_EQ(3LL, GrayCode::BinaryToGray(2LL));
+    EXPECT_EQ(2LL, GrayCode::BinaryToGray(3LL));
+    EXPECT_EQ(6LL, GrayCode::BinaryToGray(4LL));
+    EXPECT_EQ(7LL, GrayCode::BinaryToGray(5LL));
+    EXPECT_EQ(5LL, GrayCode::BinaryToGray(6LL));
+    EXPECT_EQ(4LL, GrayCode::BinaryToGray(7LL));
 }
 
 TEST(GrayCodeTest, BinaryToGray_4)
 {
-    EXPECT_EQ(0L, GrayCode::BinaryToGray(0L));
-    EXPECT_EQ(1L, GrayCode::BinaryToGray(1L));
-    EXPECT_EQ(3L, GrayCode::BinaryToGray(2L));
-    EXPECT_EQ(2L, GrayCode::BinaryToGray(3L));
-    EXPECT_EQ(6L, GrayCode::BinaryToGray(4L));
-    EXPECT_EQ(7L, GrayCode::BinaryToGray(5L));
-    EXPECT_EQ(5L, GrayCode::BinaryToGray(6L));
-    EXPECT_EQ(4L, GrayCode::BinaryToGray(7L));
-    EXPECT_EQ(12L, GrayCode::BinaryToGray(8L));
-    EXPECT_EQ(13L, GrayCode::BinaryToGray(9L));
-    EXPECT_EQ(15L, GrayCode::BinaryToGray(10L));
-    EXPECT_EQ(14L, GrayCode::BinaryToGray(11L));
-    EXPECT_EQ(10L, GrayCode::BinaryToGray(12L));
-    EXPECT_EQ(11L, GrayCode::BinaryToGray(13L));
-    EXPECT_EQ(9L, GrayCode::BinaryToGray(14L));
-    EXPECT_EQ(8L, GrayCode::BinaryToGray(15L));
+    EXPECT_EQ(0LL, GrayCode::BinaryToGray(0LL));
+    EXPECT_EQ(1LL, GrayCode::BinaryToGray(1LL));
+    EXPECT_EQ(3LL, GrayCode::BinaryToGray(2LL));
+    EXPECT_EQ(2LL, GrayCode::BinaryToGray(3LL));
+    EXPECT_EQ(6LL, GrayCode::BinaryToGray(4LL));
+    EXPECT_EQ(7LL, GrayCode::BinaryToGray(5LL));
+    EXPECT_EQ(5LL, GrayCode::BinaryToGray(6LL));
+    EXPECT_EQ(4LL, GrayCode::BinaryToGray(7LL));
+    EXPECT_EQ(12LL, GrayCode::BinaryToGray(8LL));
+    EXPECT_EQ(13LL, GrayCode::BinaryToGray(9LL));
+    EXPECT_EQ(15LL, GrayCode::BinaryToGray(10LL));
+    EXPECT_EQ(14LL, GrayCode::BinaryToGray(11LL));
+    EXPECT_EQ(10LL, GrayCode::BinaryToGray(12LL));
+    EXPECT_EQ(11LL, GrayCode::BinaryToGray(13LL));
+    EXPECT_EQ(9LL, GrayCode::BinaryToGray(14LL));
+    EXPECT_EQ(8LL, GrayCode::BinaryToGray(15LL));
 }
 
 TEST(GrayCodeTest, GrayToBinary_2)
 {
-    EXPECT_EQ(0L, GrayCode::GrayToBinary(0L));
-    EXPECT_EQ(1L, GrayCode::GrayToBinary(1L));
-    EXPECT_EQ(2L, GrayCode::GrayToBinary(3L));
-    EXPECT_EQ(3L, GrayCode::GrayToBinary(2L));
+    EXPECT_EQ(0LL, GrayCode::GrayToBinary(0LL));
+    EXPECT_EQ(1LL, GrayCode::GrayToBinary(1LL));
+    EXPECT_EQ(2LL, GrayCode::GrayToBinary(3LL));
+    EXPECT_EQ(3LL, GrayCode::GrayToBinary(2LL));
 }
 
 TEST(GrayCodeTest, GrayToBinary_3)
 {
-    EXPECT_EQ(0L, GrayCode::GrayToBinary(0L));
-    EXPECT_EQ(1L, GrayCode::GrayToBinary(1L));
-    EXPECT_EQ(2L, GrayCode::GrayToBinary(3L));
-    EXPECT_EQ(3L, GrayCode::GrayToBinary(2L));
-    EXPECT_EQ(4L, GrayCode::GrayToBinary(6L));
-    EXPECT_EQ(5L, GrayCode::GrayToBinary(7L));
-    EXPECT_EQ(6L, GrayCode::GrayToBinary(5L));
-    EXPECT_EQ(7L, GrayCode::GrayToBinary(4L));
+    EXPECT_EQ(0LL, GrayCode::GrayToBinary(0LL));
+    EXPECT_EQ(1LL, GrayCode::GrayToBinary(1LL));
+    EXPECT_EQ(2LL, GrayCode::GrayToBinary(3LL));
+    EXPECT_EQ(3LL, GrayCode::GrayToBinary(2LL));
+    EXPECT_EQ(4LL, GrayCode::GrayToBinary(6LL));
+    EXPECT_EQ(5LL, GrayCode::GrayToBinary(7LL));
+    EXPECT_EQ(6LL, GrayCode::GrayToBinary(5LL));
+    EXPECT_EQ(7LL, GrayCode::GrayToBinary(4LL));
 }
 TEST(GrayCodeTest, GrayToBinary_4)
 {
-    EXPECT_EQ(0L, GrayCode::GrayToBinary(0L));
-    EXPECT_EQ(1L, GrayCode::GrayToBinary(1L));
-    EXPECT_EQ(2L, GrayCode::GrayToBinary(3L));
-    EXPECT_EQ(3L, GrayCode::GrayToBinary(2L));
-    EXPECT_EQ(4L, GrayCode::GrayToBinary(6L));
-    EXPECT_EQ(5L, GrayCode::GrayToBinary(7L));
-    EXPECT_EQ(6L, GrayCode::GrayToBinary(5L));
-    EXPECT_EQ(7L, GrayCode::GrayToBinary(4L));
-    EXPECT_EQ(8L, GrayCode::GrayToBinary(12L));
-    EXPECT_EQ(9L, GrayCode::GrayToBinary(13L));
-    EXPECT_EQ(10L, GrayCode::GrayToBinary(15L));
-    EXPECT_EQ(11L, GrayCode::GrayToBinary(14L));
-    EXPECT_EQ(12L, GrayCode::GrayToBinary(10L));
-    EXPECT_EQ(13L, GrayCode::GrayToBinary(11L));
-    EXPECT_EQ(14L, GrayCode::GrayToBinary(9L));
-    EXPECT_EQ(15L, GrayCode::GrayToBinary(8L));
+    EXPECT_EQ(0LL, GrayCode::GrayToBinary(0LL));
+    EXPECT_EQ(1LL, GrayCode::GrayToBinary(1LL));
+    EXPECT_EQ(2LL, GrayCode::GrayToBinary(3LL));
+    EXPECT_EQ(3LL, GrayCode::GrayToBinary(2LL));
+    EXPECT_EQ(4LL, GrayCode::GrayToBinary(6LL));
+    EXPECT_EQ(5LL, GrayCode::GrayToBinary(7LL));
+    EXPECT_EQ(6LL, GrayCode::GrayToBinary(5LL));
+    EXPECT_EQ(7LL, GrayCode::GrayToBinary(4LL));
+    EXPECT_EQ(8LL, GrayCode::GrayToBinary(12LL));
+    EXPECT_EQ(9LL, GrayCode::GrayToBinary(13LL));
+    EXPECT_EQ(10LL, GrayCode::GrayToBinary(15LL));
+    EXPECT_EQ(11LL, GrayCode::GrayToBinary(14LL));
+    EXPECT_EQ(12LL, GrayCode::GrayToBinary(10LL));
+    EXPECT_EQ(13LL, GrayCode::GrayToBinary(11LL));
+    EXPECT_EQ(14LL, GrayCode::GrayToBinary(9LL));
+    EXPECT_EQ(15LL, GrayCode::GrayToBinary(8LL));
 }

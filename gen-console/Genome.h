@@ -28,16 +28,7 @@ public:
 #endif
     
 private:
-    void InitializeRaces() const;
-
-private:
     Genes genes;
 
-#ifdef UNITTEST
-public:
-#else
-private:
-#endif
-    static std::map<__int64, std::wstring> genomeRaces;
 };
 

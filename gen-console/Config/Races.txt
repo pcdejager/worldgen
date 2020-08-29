@@ -2,6 +2,7 @@
 
 # Humans
 Race:Human
+Gene:0,1
 # Age ranges start times for Toddler, Child, Teenager, YoungAdult, Adult, OldAdult, Elder, Dead
 AgeRanges:D3Y,D6Y,D11Y,D18Y,D30Y,D45Y,D60Y,D120Y
 Pregnancy:D240D,D270D,D280D
@@ -13,6 +14,7 @@ WeightFemale:[3-5-7],[15-40-70],[40-70-100],[70-100-130],[100-130-160],[100-140-
 
 # Elves
 Race:Elf
+Gene:2
 Pregnancy:D300D,D320D,D360D
 AgeRanges:D13Y,D26Y,D41Y,D78Y,D100Y,D150Y,D200Y,D350Y
 HeightMale:[28-45-52],[55-75-80],[88-105-112],[105-130-140],[140-190-210],[140-190-210],[135-185-205],[130-180-200]
@@ -22,6 +24,7 @@ WeightFemale:[3-5-7],[15-40-70],[40-70-100],[70-100-130],[100-130-160],[100-140-
 
 # Half-elves
 Race:Half-elf
+Gene:3
 Pregnancy:D250D,D270D,D290D
 AgeRanges:D4Y,D8Y,D14Y,D22Y,D35Y,D55Y,D80Y,D160Y
 HeightMale:[28-35-42],[55-65-70],[88-95-102],[105-120-130],[140-180-210],[140-180-210],[135-175-205],[130-170-200]

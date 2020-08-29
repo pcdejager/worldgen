@@ -21,6 +21,12 @@ private:
     __int64 Value(double index, const MultiPointValueRange& range, const TimeSpan& age) const;
     __int64 Value(__int64 start, __int64 end, AgeCategory category, const TimeSpan& age) const;
 
+#ifdef UNITTEST
+public:
+    MultiPointValueRange& MaleRange() { return heightMale; }
+    MultiPointValueRange& FemaleRange() { return heightFemale; }
+#endif
+
 private:
     AgeTraitsPtr ages;
     MultiPointValueRange heightMale;

@@ -103,7 +103,7 @@ TEST(IndividualTest, Died)
 TEST(IndividualTest, Age_bornInTheFuture)
 {
     WorldProperties::Properties()->ResetTime();
-    WorldProperties::Properties()->AdvanceTime(TimeSpan(1234L));
+    WorldProperties::Properties()->AdvanceTime(TimeSpan(1234LL));
     Individual test(Parents::CreateNoParents());
 
     WorldProperties::Properties()->ResetTime();
@@ -118,13 +118,13 @@ TEST(IndividualTest, Age_alive)
     Individual test(Parents::CreateNoParents());
 
     WorldTime start = WorldProperties::Properties()->Now();
-    WorldProperties::Properties()->AdvanceTime(TimeSpan(12345L));
+    WorldProperties::Properties()->AdvanceTime(TimeSpan(12345LL));
     WorldTime end1 = WorldProperties::Properties()->Now();
 
     EXPECT_EQ(test.Age(), end1 - start);
     EXPECT_TRUE(test.IsValid());
 
-    WorldProperties::Properties()->AdvanceTime(TimeSpan(12345L));
+    WorldProperties::Properties()->AdvanceTime(TimeSpan(12345LL));
     WorldTime end2 = WorldProperties::Properties()->Now();
 
     EXPECT_EQ(test.Age(), end2 - start);
@@ -139,12 +139,12 @@ TEST(IndividualTest, Age_dead)
     pop.Add(test);
 
     WorldTime start = WorldProperties::Properties()->Now();
-    WorldProperties::Properties()->AdvanceTime(TimeSpan(12345L));
+    WorldProperties::Properties()->AdvanceTime(TimeSpan(12345LL));
     WorldTime died = WorldProperties::Properties()->Now();
 
     pop.Died(test);
 
-    WorldProperties::Properties()->AdvanceTime(TimeSpan(67890L));
+    WorldProperties::Properties()->AdvanceTime(TimeSpan(67890LL));
     WorldTime end = WorldProperties::Properties()->Now();
 
     EXPECT_EQ(test->Age(), died - start);

@@ -4,7 +4,7 @@
 /*static*/ __int64 GrayCode::BinaryToGray(__int64 binary)
 {
     __int64 value = binary;
-    value = value ^ (value >> 1);
+    value = value ^ (value >> 1LL);
     return value;
 }
 
@@ -12,9 +12,9 @@
 {
     __int64 mask = code;
     __int64 result = code;
-    while (mask > 0) 
+    while (mask > 0LL) 
     {           
-        mask >>= 1L;
+        mask >>= 1LL;
         result ^= mask;
     }
     return result;
