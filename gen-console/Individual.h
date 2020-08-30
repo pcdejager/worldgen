@@ -3,13 +3,15 @@
 #include "Types.h"
 #include "IndividualName.h"
 #include "WorldTime.h"
+#include "Genome.h"
+#include "Genes.h"
 
 class Individual
 {
 private:
     Individual();
 public:
-    Individual(const ParentsPtr& parentsObject);
+    Individual(const ParentsPtr& parentsObject, const Genes& genes);
     Individual(const Individual&) = delete;
     ~Individual() = default;
     Individual& operator=(const Individual&) = delete;
@@ -61,6 +63,7 @@ private:
     IndividualName name;
     WorldTime born;
     WorldTime died;
+    Genome genome;
 /*
 * parents - mother, father (step parents over time?)
 * siblings - full (dna), half mother/father side (1/2 dna), step (no dna)

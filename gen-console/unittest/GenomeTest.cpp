@@ -17,6 +17,20 @@ constexpr __int64 GeneTest_Male_Infertile = ((1LL << static_cast<__int64>(GenePo
 constexpr __int64 GeneTest_Female_Fertile = (1LL << static_cast<__int64>(GenePositions::Sex().Size())) - 1LL;     // all bits enabled
 constexpr __int64 GeneTest_Female_Infertile = ((1LL << static_cast<__int64>(GenePositions::Sex().Size())) / 2LL) + 1LL;
 
+TEST(GenomeTest, Constructor_genes)
+{
+    Genes genes;
+    Genes empty;
+    genes.SetGenes(GenePosition(0LL, 16LL), 123456LL);
+
+    Genome test1;
+    EXPECT_TRUE(test1.GetGenes() != genes);
+    EXPECT_TRUE(test1.GetGenes() == empty);
+
+    Genome test2(genes);
+    EXPECT_TRUE(test2.GetGenes() == genes);
+    EXPECT_TRUE(test2.GetGenes() != empty);
+}
 TEST(GenomeTest, GetRace)
 {
     Genome test;

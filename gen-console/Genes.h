@@ -19,6 +19,11 @@ public:
     void SetBool(std::size_t index, bool value);
     void SetGenes(const GenePosition& position, __int64 value);
     void SetGenes(const GenePosition& position, double value);
+
+public:
+    bool operator==(const Genes& rhs) const;
+    bool operator!=(const Genes& rhs) const;
+
 private:
     void Initialize() noexcept;
 

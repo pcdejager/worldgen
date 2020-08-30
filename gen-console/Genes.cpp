@@ -8,15 +8,6 @@ Genes::Genes()
     Initialize();
 }
 
-void Genes::Initialize() noexcept
-{
-    genes = new unsigned char[NumberOfBytes];
-    for (std::size_t count = 0; count < NumberOfBytes; ++count)
-    {
-        genes[count] = 0;
-    }
-}
-
 std::size_t Genes::End() const
 {
     return NumberOfBits;
@@ -116,3 +107,30 @@ void Genes::SetGenes(const GenePosition& position, double value)
     }
     SetGenes(position, intValue);
 }
+
+bool Genes::operator==(const Genes& rhs) const
+{
+    for (std::size_t count = 0; count < NumberOfBytes; ++count)
+    {
+        if (genes[count] != rhs.genes[count])
+        {
+            return false;
+        }
+    }
+    return true;
+}
+
+bool Genes::operator!=(const Genes& rhs) const
+{
+    return !(*this == rhs);
+}
+
+void Genes::Initialize() noexcept
+{
+    genes = new unsigned char[NumberOfBytes];
+    for (std::size_t count = 0; count < NumberOfBytes; ++count)
+    {
+        genes[count] = 0;
+    }
+}
+

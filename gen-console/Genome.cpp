@@ -11,6 +11,12 @@ Genome::Genome()
     ;
 }
 
+Genome::Genome(const Genes& inputGenes)
+    : genes(inputGenes)
+{
+    ;
+}
+
 RacePtr Genome::GetRace() const
 {
     __int64 geneValue = genes.ReadInt(GenePositions::Race());

@@ -10,13 +10,15 @@ Individual::Individual()
     , name()
     , born(WorldTime())
     , died(WorldTime())
+    , genome()
 {
     ;
 }
 
-Individual::Individual(const ParentsPtr& parentsObject)
+Individual::Individual(const ParentsPtr& parentsObject, const Genes& genes)
     : parents(parentsObject)
     , died(WorldTime())
+    , genome(genes)
 {
     name = WorldProperties::Properties()->NameGenerator()->GenerateName();
     born = WorldProperties::Properties()->Now();

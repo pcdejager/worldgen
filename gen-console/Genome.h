@@ -12,6 +12,7 @@ class Genome
 {
 public:
     Genome();
+    Genome(const Genes& inputGenes);
     Genome(const Genome& rhs) = default;
     ~Genome() = default;
     Genome& operator=(const Genome& rhs) = default;
@@ -25,6 +26,7 @@ public:
 #ifdef UNITTEST
 public:
     void ReplaceGenes(const Genes& newGenes);
+    const Genes& GetGenes() const { return genes; }
 #endif
     
 private:

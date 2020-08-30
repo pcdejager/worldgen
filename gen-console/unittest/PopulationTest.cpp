@@ -16,7 +16,8 @@ TEST(PopulationTest, Size)
     IndividualPtr test1 = Individual::GetNullIndividual();
     pop.Add(test1);
     EXPECT_EQ(pop.Size(), 1);
-    IndividualPtr test2 = std::make_shared<Individual>(Parents::CreateNoParents());
+    Genes genes;
+    IndividualPtr test2 = std::make_shared<Individual>(Parents::CreateNoParents(), genes);
     pop.Add(test2);
     EXPECT_EQ(pop.Size(), 2);
 
@@ -34,7 +35,8 @@ TEST(PopulationTest, Add)
     IndividualPtr test1 = Individual::GetNullIndividual();
     pop.Add(test1);
     EXPECT_EQ(pop.Size(), 1);
-    IndividualPtr test2 = std::make_shared<Individual>(Parents::CreateNoParents());
+    Genes genes;
+    IndividualPtr test2 = std::make_shared<Individual>(Parents::CreateNoParents(), genes);
     pop.Add(test2);
     EXPECT_EQ(pop.Size(), 2);
 }
@@ -46,7 +48,8 @@ TEST(PopulationTest, DeadSize)
     IndividualPtr test1 = Individual::GetNullIndividual();
     pop.Add(test1);
     EXPECT_EQ(pop.DeadSize(), 0);
-    IndividualPtr test2 = std::make_shared<Individual>(Parents::CreateNoParents());
+    Genes genes;
+    IndividualPtr test2 = std::make_shared<Individual>(Parents::CreateNoParents(), genes);
     pop.Add(test2);
     EXPECT_EQ(pop.DeadSize(), 0);
 
@@ -59,14 +62,15 @@ TEST(PopulationTest, DeadSize)
 
 TEST(PopulationTest, Died)
 {
+    Genes genes;
     Population pop;
     EXPECT_EQ(pop.Size(), 0);
     EXPECT_EQ(pop.DeadSize(), 0);
     IndividualPtr test1 = Individual::GetNullIndividual();
     pop.Add(test1);
-    IndividualPtr test2 = std::make_shared<Individual>(Parents::CreateNoParents());
+    IndividualPtr test2 = std::make_shared<Individual>(Parents::CreateNoParents(), genes);
     pop.Add(test2);
-    IndividualPtr test3 = std::make_shared<Individual>(Parents::CreateNoParents());
+    IndividualPtr test3 = std::make_shared<Individual>(Parents::CreateNoParents(), genes);
 
     EXPECT_EQ(pop.Size(), 2);
     EXPECT_EQ(pop.DeadSize(), 0);

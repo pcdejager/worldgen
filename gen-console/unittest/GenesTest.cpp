@@ -96,3 +96,34 @@ TEST(GenesTest, SetBool)
     }
 }
 
+TEST(GenesTest, OperatorEQ)
+{
+    Genes test1;
+    Genes test2;
+
+    EXPECT_TRUE(test1 == test2);
+
+    test1.SetGenes(GenePosition(0LL, 16LL), 12345LL);
+
+    EXPECT_FALSE(test1 == test2);
+
+    test2.SetGenes(GenePosition(0LL, 16LL), 12345LL);
+
+    EXPECT_TRUE(test1 == test2);
+}
+
+TEST(GenesTest, OperatorNE)
+{
+    Genes test1;
+    Genes test2;
+
+    EXPECT_FALSE(test1 != test2);
+
+    test1.SetGenes(GenePosition(0LL, 16LL), 12345LL);
+
+    EXPECT_TRUE(test1 != test2);
+
+    test2.SetGenes(GenePosition(0LL, 16LL), 12345LL);
+
+    EXPECT_FALSE(test1 != test2);
+}

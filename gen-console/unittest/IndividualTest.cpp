@@ -7,7 +7,8 @@
 
 TEST(IndividualTest, Constructor)
 {
-    Individual test(Parents::CreateNoParents());
+    Genes emptyGenes;
+    Individual test(Parents::CreateNoParents(), emptyGenes);
     EXPECT_EQ(test.Born(), WorldProperties::Properties()->Now());
     EXPECT_TRUE(test.IsValid());
 }
@@ -28,16 +29,18 @@ TEST(IndividualTest, IsValid)
     ASSERT_TRUE(test1 != nullptr);
     EXPECT_FALSE(test1->IsValid());
 
-    IndividualPtr test2 = std::make_shared<Individual>(Parents::CreateNoParents());
+    Genes genes;
+    IndividualPtr test2 = std::make_shared<Individual>(Parents::CreateNoParents(), genes);
     EXPECT_TRUE(test2->IsValid());
 }
 
 TEST(IndividualTest, IsAlive)
 {
+    Genes genes;
     Population pop;
     IndividualPtr test1 = Individual::GetNullIndividual();
     pop.Add(test1);
-    IndividualPtr test2 = std::make_shared<Individual>(Parents::CreateNoParents());
+    IndividualPtr test2 = std::make_shared<Individual>(Parents::CreateNoParents(), genes);
     pop.Add(test2);
 
     EXPECT_EQ(pop.Size(), 2);
@@ -57,7 +60,8 @@ TEST(IndividualTest, IsAlive)
 
 TEST(IndividualTest, Parents)
 {
-    Individual test(Parents::CreateNoParents());
+    Genes genes;
+    Individual test(Parents::CreateNoParents(), genes);
     auto parents = test.Parents();
     EXPECT_FALSE(parents->BiologicalFather()->IsValid());
     EXPECT_FALSE(parents->BiologicalMother()->IsValid());
@@ -69,17 +73,19 @@ TEST(IndividualTest, Name)
     ASSERT_TRUE(test1 != nullptr);
     EXPECT_FALSE(test1->Name().IsValid());
 
-    Individual test2(Parents::CreateNoParents());
+    Genes genes;
+    Individual test2(Parents::CreateNoParents(), genes);
     EXPECT_TRUE(test2.Name().IsValid());
 }
 
 TEST(IndividualTest, Born)
 {
-    Individual test1(Parents::CreateNoParents());
+    Genes genes;
+    Individual test1(Parents::CreateNoParents(), genes);
     WorldTime date1 = WorldProperties::Properties()->Now();
     EXPECT_EQ(test1.Born(), date1);
     WorldProperties::Properties()->AdvanceTime(TimeSpan(1234567UL));
-    Individual test2(Parents::CreateNoParents());
+    Individual test2(Parents::CreateNoParents(), genes);
     WorldTime date2 = WorldProperties::Properties()->Now();
     EXPECT_EQ(test2.Born(), date2);
     EXPECT_TRUE(test1.Born() < test2.Born());
@@ -87,11 +93,12 @@ TEST(IndividualTest, Born)
 
 TEST(IndividualTest, Died)
 {
-    Individual test1(Parents::CreateNoParents());
+    Genes genes;
+    Individual test1(Parents::CreateNoParents(), genes);
     EXPECT_EQ(WorldTime::Undefined(), test1.Died());
 
     Population pop;
-    IndividualPtr test2 = std::make_shared<Individual>(Parents::CreateNoParents());
+    IndividualPtr test2 = std::make_shared<Individual>(Parents::CreateNoParents(), genes);
     pop.Add(test2);
 
     WorldProperties::Properties()->AdvanceTime(TimeSpan(123456UL));
@@ -104,7 +111,8 @@ TEST(IndividualTest, Age_bornInTheFuture)
 {
     WorldProperties::Properties()->ResetTime();
     WorldProperties::Properties()->AdvanceTime(TimeSpan(1234LL));
-    Individual test(Parents::CreateNoParents());
+    Genes genes;
+    Individual test(Parents::CreateNoParents(), genes);
 
     WorldProperties::Properties()->ResetTime();
 
@@ -114,8 +122,9 @@ TEST(IndividualTest, Age_bornInTheFuture)
 
 TEST(IndividualTest, Age_alive)
 {
+    Genes genes;
     WorldProperties::Properties()->ResetTime();
-    Individual test(Parents::CreateNoParents());
+    Individual test(Parents::CreateNoParents(), genes);
 
     WorldTime start = WorldProperties::Properties()->Now();
     WorldProperties::Properties()->AdvanceTime(TimeSpan(12345LL));
@@ -134,8 +143,9 @@ TEST(IndividualTest, Age_alive)
 
 TEST(IndividualTest, Age_dead)
 {
+    Genes genes;
     Population pop;
-    IndividualPtr test = std::make_shared<Individual>(Parents::CreateNoParents());
+    IndividualPtr test = std::make_shared<Individual>(Parents::CreateNoParents(), genes);
     pop.Add(test);
 
     WorldTime start = WorldProperties::Properties()->Now();
