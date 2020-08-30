@@ -2,12 +2,21 @@
 //
 #include "pch.h"
 #include "Races.h"
+#include "Logger.h"
+#include "WorldBuilder.h"
 
 int main()
 {
-    std::cout << "World Builder\n";
+    LoggerPtr logger = Logger::GetLogger();
+    logger->Log(L"World Builder started");
+    logger->Log(L"Loading configuration");
     RacesPtr races = Races::GetRaces();
-
+    logger->Log(L"Configuration loaded");
+    
+    WorldBuilder builder;
+    builder.Run();
+         
+    logger->Log(L"Exit...");
     int i;
     std::cin >> i;
 }

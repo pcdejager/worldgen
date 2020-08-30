@@ -155,12 +155,14 @@
     <ClCompile Include="AgeTraits.cpp" />
     <ClCompile Include="ConfigLoader.cpp" />
     <ClCompile Include="gen-console.cpp" />
+    <ClCompile Include="GeneGenerator.cpp" />
     <ClCompile Include="Genes.cpp" />
     <ClCompile Include="Genome.cpp" />
     <ClCompile Include="GrayCode.cpp" />
     <ClCompile Include="AgeSexRangeValue.cpp" />
     <ClCompile Include="Individual.cpp" />
     <ClCompile Include="IndividualName.cpp" />
+    <ClCompile Include="Logger.cpp" />
     <ClCompile Include="MathUtils.cpp" />
     <ClCompile Include="MultiPointValue.cpp" />
     <ClCompile Include="NumberNameGenerator.cpp" />
@@ -185,6 +187,7 @@
     <ClInclude Include="AgeCategory.h" />
     <ClInclude Include="AgeTraits.h" />
     <ClInclude Include="ConfigLoader.h" />
+    <ClInclude Include="GeneGenerator.h" />
     <ClInclude Include="GenePosition.h" />
     <ClInclude Include="GenePositions.h" />
     <ClInclude Include="Genes.h" />
@@ -194,6 +197,7 @@
     <ClInclude Include="INameGenerator.h" />
     <ClInclude Include="Individual.h" />
     <ClInclude Include="IndividualName.h" />
+    <ClInclude Include="Logger.h" />
     <ClInclude Include="MathUtils.h" />
     <ClInclude Include="MultiPointValue.h" />
     <ClInclude Include="NumberNameGenerator.h" />

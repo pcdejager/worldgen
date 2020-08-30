@@ -47,12 +47,16 @@ public:
 	unsigned __int64 Minutes() const;
 	unsigned __int64 Hours() const;
 	unsigned __int64 Days() const;
+	unsigned __int64 Years() const;
 
 	unsigned __int64 TotalSeconds() const;
 	unsigned __int64 TotalMinutes() const;
 	unsigned __int64 TotalHours() const;
 	unsigned __int64 TotalDays() const;
 	unsigned __int64 TotalYears() const;
+
+public:
+	std::wstring ToString() const;
 
 public:
 	TimeSpan operator-(const WorldTime& rhs) const;

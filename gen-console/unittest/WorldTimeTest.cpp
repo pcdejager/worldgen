@@ -101,6 +101,17 @@ TEST(WorldTimeTest, Days)
 	EXPECT_EQ(test.Days(), days);
 }
 
+TEST(WorldTimeTest, Years)
+{
+	unsigned __int64 years = 8UL;
+	unsigned __int64 days = 9UL;
+	unsigned __int64 hour = 10UL;
+	unsigned __int64 minute = 11UL;
+	unsigned __int64 second = 12UL;
+	WorldTime test(years, days, hour, minute, second);
+	EXPECT_EQ(test.Years(), years);
+}
+
 TEST(WorldTimeTest, TotalSeconds)
 {
 	unsigned __int64 years = 8UL;
@@ -154,6 +165,27 @@ TEST(WorldTimeTest, TotalYears)
 	unsigned __int64 second = 12UL;
 	WorldTime test(years, days, hour, minute, second);
 	EXPECT_EQ(test.TotalYears(), years);
+}
+
+TEST(WorldTimeTest, ToString)
+{
+	WorldTime test1(0, 0, 0, 0, 0);
+	EXPECT_EQ(test1.ToString(), L"00000-000 00:00:00");
+
+	WorldTime test2(1, 2, 3, 4, 5);
+	EXPECT_EQ(test2.ToString(), L"00001-002 03:04:05");
+
+	WorldTime test3(12, 23, 14, 45, 56);
+	EXPECT_EQ(test3.ToString(), L"00012-023 14:45:56");
+
+	WorldTime test4(123, 234, 14, 45, 56);
+	EXPECT_EQ(test4.ToString(), L"00123-234 14:45:56");
+
+	WorldTime test5(1234, 234, 14, 45, 56);
+	EXPECT_EQ(test5.ToString(), L"01234-234 14:45:56");
+
+	WorldTime test6(12345, 234, 14, 45, 56);
+	EXPECT_EQ(test6.ToString(), L"12345-234 14:45:56");
 }
 
 TEST(WorldTimeTest, OperatorSubractWorldTimes)

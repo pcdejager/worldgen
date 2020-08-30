@@ -2,6 +2,9 @@
 
 #include <memory>
 
+class Logger;
+typedef std::shared_ptr<Logger> LoggerPtr;
+
 class AgeSexRangeValue;
 typedef std::shared_ptr<AgeSexRangeValue> AgeSexRangeValuePtr;
 

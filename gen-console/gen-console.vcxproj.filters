@@ -114,6 +114,12 @@
     <ClCompile Include="Sex.cpp">
       <Filter>Source Files\Types</Filter>
     </ClCompile>
+    <ClCompile Include="GeneGenerator.cpp">
+      <Filter>Source Files\Genes</Filter>
+    </ClCompile>
+    <ClCompile Include="Logger.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="WorldBuilder.h">
@@ -202,6 +208,12 @@
     </ClInclude>
     <ClInclude Include="GenePosition.h">
       <Filter>Header Files\Genes</Filter>
+    </ClInclude>
+    <ClInclude Include="GeneGenerator.h">
+      <Filter>Header Files\Genes</Filter>
+    </ClInclude>
+    <ClInclude Include="Logger.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

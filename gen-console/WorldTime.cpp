@@ -69,6 +69,11 @@ unsigned __int64 WorldTime::Days() const
 	return (ticks / (WORLD_TIME_HOURSPERDAY * WORLD_TIME_MINUTESPERHOUR * WORLD_TIME_SECONDSPERMINUTE * WORLD_TIME_TICKSPERSECOND)) % WORLD_TIME_DAYSPERYEAR;
 }
 
+unsigned __int64 WorldTime::Years() const
+{
+	return ticks / (WORLD_TIME_DAYSPERYEAR * WORLD_TIME_HOURSPERDAY * WORLD_TIME_MINUTESPERHOUR * WORLD_TIME_SECONDSPERMINUTE * WORLD_TIME_TICKSPERSECOND);
+}
+
 unsigned __int64 WorldTime::TotalSeconds() const
 {
 	return ticks / WORLD_TIME_TICKSPERSECOND;
@@ -92,6 +97,17 @@ unsigned __int64 WorldTime::TotalDays() const
 unsigned __int64 WorldTime::TotalYears() const
 {
 	return ticks / (WORLD_TIME_DAYSPERYEAR * WORLD_TIME_HOURSPERDAY * WORLD_TIME_MINUTESPERHOUR * WORLD_TIME_SECONDSPERMINUTE * WORLD_TIME_TICKSPERSECOND);
+}
+
+std::wstring WorldTime::ToString() const
+{
+	std::wstringstream result;
+	result << std::setfill(L'0') << std::setw(5) << Years()
+		<< L"-" << std::setw(3) << Days()
+		<< L" " << std::setw(2) << Hours()
+		<< L":" << std::setw(2) << Minutes()
+		<< L":" << std::setw(2) << Seconds();
+	return result.str();
 }
 
 TimeSpan WorldTime::operator-(const WorldTime& rhs) const

@@ -6,6 +6,7 @@
 #include "TimeSpan.h"
 #include "AgeTraits.h"
 #include "AgeSexRangeValue.h"
+#include "Logger.h"
 
 /*static*/ RacesPtr Races::instance = nullptr;
 
@@ -21,6 +22,7 @@
 
 void Races::Initialize()
 {
+    LoggerPtr logger = Logger::GetLogger();
     std::string filename = "E:\\Dev\\worldgen\\gen-console\\Config\\Races.txt";
     ConfigLoader loader(filename);
     if (!loader.Initialize())
@@ -28,7 +30,7 @@ void Races::Initialize()
         return; // failure?
     }
 
-    std::wcout << L"Reading Races:" << std::endl;
+    logger->Log(L"Reading Races:");
     std::wifstream file(filename);
 
     std::size_t counter = 0;
@@ -36,42 +38,26 @@ void Races::Initialize()
     while (ok)
     {
         counter++;
-        std::wcout << L"  Race #" << counter << std::endl;
+        logger->Log(L"  Race #", counter);
 
         auto [found, name] = loader.ReadString(L"Race");
-        std::wcout << L"    Name: " << name << std::endl;
+        logger->Log(L"    Name: ", name);
 
         RacialTraits traits;
 
         // Gene
         std::tie(found, traits.gene) = loader.ReadMultiPointValueInt(L"Gene");
-        std::wcout << L"    Gene = [";
-        for (std::size_t count = 0; count < traits.gene.Count(); ++count)
-        {
-            std::wcout << traits.gene.Value(count) << L" ";
-        }
-        std::wcout << L"]" << std::endl;
+        logger->Log(L"    Gene = ", traits.gene);
 
         // AgeRanges
         MultiPointValueInt ages;
         std::tie(found, ages) = loader.ReadMultiPointValueInt(L"AgeRanges");
-        std::wcout << L"    AgeRanges = [";
-        for (std::size_t count = 0; count < ages.Count(); ++count)
-        {
-            std::wcout << TimeSpan(ages.Value(count)).ToString() << L" ";
-        }
-        std::wcout << L"]" << std::endl;
+        logger->Log(L"    AgeRanges = ", ages);
         traits.ageRanges = std::make_shared<AgeTraits>(ages);
 
         // Pregnancy
         std::tie(found, traits.pregnancy) = loader.ReadMultiPointValueInt(L"Pregnancy");
-
-        std::wcout << L"    Pregnancy = [";
-        for (std::size_t count = 0; count < traits.pregnancy.Count(); ++count)
-        {
-            std::wcout << TimeSpan(traits.pregnancy.Value(count)).ToString() << L" ";
-        }
-        std::wcout << L"]" << std::endl;
+        logger->Log(L"    Pregnancy = ", traits.pregnancy);
 
         // Height
         {
@@ -79,19 +65,8 @@ void Races::Initialize()
             std::tie(found, maleRange) = loader.ReadMultiPointValueRange(L"HeightMale");
             MultiPointValueRange femaleRange;
             std::tie(found, femaleRange) = loader.ReadMultiPointValueRange(L"HeightFemale");
-
-            std::wcout << L"    Height =   Male [";
-            for (std::size_t count = 0; count < maleRange.Count(); ++count)
-            {
-                std::wcout << maleRange.Value(count).ToString() << L" ";
-            }
-            std::wcout << L"]" << std::endl;
-            std::wcout << L"    Height = Female [";
-            for (std::size_t count = 0; count < femaleRange.Count(); ++count)
-            {
-                std::wcout << femaleRange.Value(count).ToString() << L" ";
-            }
-            std::wcout << L"]" << std::endl;
+            logger->Log(L"    Height =   Male [", maleRange);
+            logger->Log(L"    Height = Female [", femaleRange);
 
             traits.height = std::make_shared<AgeSexRangeValue>(maleRange, femaleRange, traits.ageRanges);
         }
@@ -102,19 +77,8 @@ void Races::Initialize()
             std::tie(found, maleRange) = loader.ReadMultiPointValueRange(L"WeightMale");
             MultiPointValueRange femaleRange;
             std::tie(found, femaleRange) = loader.ReadMultiPointValueRange(L"WeightFemale");
-
-            std::wcout << L"    Weight =   Male [";
-            for (std::size_t count = 0; count < maleRange.Count(); ++count)
-            {
-                std::wcout << maleRange.Value(count).ToString() << L" ";
-            }
-            std::wcout << L"]" << std::endl;
-            std::wcout << L"    Weight = Female [";
-            for (std::size_t count = 0; count < femaleRange.Count(); ++count)
-            {
-                std::wcout << femaleRange.Value(count).ToString() << L" ";
-            }
-            std::wcout << L"]" << std::endl;
+            logger->Log(L"    Weight =   Male [", maleRange);
+            logger->Log(L"    Weight = Female [", femaleRange);
 
             traits.weight = std::make_shared<AgeSexRangeValue>(maleRange, femaleRange, traits.ageRanges);
         }

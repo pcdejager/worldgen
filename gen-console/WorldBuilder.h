@@ -7,5 +7,7 @@ class WorldBuilder
 public:
 	WorldBuilder() { ; }
 	~WorldBuilder() { ; }
+
+	void Run();
 };
 

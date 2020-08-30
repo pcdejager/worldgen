@@ -45,6 +45,7 @@
     <ClCompile Include="..\GrayCode.cpp" />
     <ClCompile Include="..\Individual.cpp" />
     <ClCompile Include="..\IndividualName.cpp" />
+    <ClCompile Include="..\Logger.cpp" />
     <ClCompile Include="..\MathUtils.cpp" />
     <ClCompile Include="..\MultiPointValue.cpp" />
     <ClCompile Include="..\NumberNameGenerator.cpp" />

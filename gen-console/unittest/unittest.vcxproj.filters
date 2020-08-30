@@ -115,6 +115,9 @@
     <ClCompile Include="SexTest.cpp">
       <Filter>Types</Filter>
     </ClCompile>
+    <ClCompile Include="..\Logger.cpp">
+      <Filter>External</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h" />
