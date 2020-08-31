@@ -1,38 +1,34 @@
 #include "pch.h"
 #include "GeneGenerator.h"
 #include "GenePositions.h"
+#include "MathUtils.h"
 
 /*static*/ Genes GeneGenerator::Random()
 {
     Genes result;
 
-    std::random_device randomDevice;
-    std::mt19937 generator(randomDevice());
-
     // Race
     {
         std::size_t raceMax = (1 << GenePositions::Race().Size()) - 1;
-        std::uniform_int_distribution<> raceDistribution(0, raceMax);
-        __int64 race = raceDistribution(generator);
+        __int64 race = MathUtils::RandomInt(0, raceMax);
         result.SetGenes(GenePositions::Race(), race);
     }
 
-    std::uniform_real<> realDistribution(0.0, 1.0);
     // Sex
     {
-        double sex = realDistribution(generator);
+        double sex = MathUtils::RandomDouble();
         result.SetGenes(GenePositions::Sex(), sex);
     }
 
     // Height
     {
-        double height = realDistribution(generator);
+        double height = MathUtils::RandomDouble();
         result.SetGenes(GenePositions::Height(), height);
     }
 
     // Weight
     {
-        double weight = realDistribution(generator);
+        double weight = MathUtils::RandomDouble();
         result.SetGenes(GenePositions::Weight(), weight);
     }
 

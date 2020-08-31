@@ -33,3 +33,8 @@ bool IndividualName::IsValid() const
     }
     return true;
 }
+
+std::wstring IndividualName::ToString() const
+{
+    return firstName + L" " + lastName;
+}

@@ -16,6 +16,7 @@ public:
     bool IsValid() const;
     std::wstring FirstName() const { return firstName; }
     std::wstring LastName() const { return lastName; }
+    std::wstring ToString() const;
 private:
     std::wstring firstName;
     std::wstring lastName;

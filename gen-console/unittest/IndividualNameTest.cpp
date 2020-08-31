@@ -53,3 +53,12 @@ TEST(IndividualNameTest, LastName)
     IndividualName test(first, last);
     EXPECT_EQ(test.LastName(), last);
 }
+
+TEST(IndividualNameTest, ToString)
+{
+    std::wstring first = L"FirstName";
+    std::wstring last = L"LastName";
+
+    IndividualName test(first, last);
+    EXPECT_EQ(test.ToString(), L"FirstName LastName");
+}
