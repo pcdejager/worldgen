@@ -40,6 +40,7 @@
     <ClCompile Include="..\AgeSexRangeValue.cpp" />
     <ClCompile Include="..\AgeTraits.cpp" />
     <ClCompile Include="..\ConfigLoader.cpp" />
+    <ClCompile Include="..\GeneGenerator.cpp" />
     <ClCompile Include="..\Genes.cpp" />
     <ClCompile Include="..\Genome.cpp" />
     <ClCompile Include="..\GrayCode.cpp" />

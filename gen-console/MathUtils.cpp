@@ -19,7 +19,7 @@
 
 /*static*/ __int64 MathUtils::RandomInt(__int64 min, __int64 max)
 {
-    std::uniform_int_distribution<> raceDistribution(min, max);
+    std::uniform_int_distribution<__int64> raceDistribution(min, max);
     return raceDistribution(randomGenerator);
 }
 

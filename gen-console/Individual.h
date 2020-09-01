@@ -5,6 +5,7 @@
 #include "WorldTime.h"
 #include "Genome.h"
 #include "Genes.h"
+#include "Sex.h"
 
 class Individual
 {
@@ -49,7 +50,9 @@ public:
     /// Note: If born date is in the future, an age of 0 will be returned
     /// </summary>
     /// <returns>Age of the individual</returns>
-    TimeSpan Age();
+    TimeSpan Age() const;
+
+    Sex Sex() const { return genome.GetSex(); }
 
 private:
     friend class Population;

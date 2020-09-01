@@ -16,6 +16,9 @@ public:
     std::size_t DeadSize() const;
     void Died(const IndividualPtr& individual);
 
+public:
+    std::size_t NumberOfMales() const;
+    std::size_t NumberOfFemales() const;
 private:
     std::set<IndividualPtr> population;
     std::set<IndividualPtr> dead;

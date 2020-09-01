@@ -47,7 +47,7 @@ bool Individual::IsAlive() const
     return (died == WorldTime::Undefined());
 }
 
-TimeSpan Individual::Age()
+TimeSpan Individual::Age() const
 {
     // If diead
     if (died != WorldTime::Undefined())

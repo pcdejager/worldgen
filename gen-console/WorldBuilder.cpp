@@ -27,7 +27,7 @@ void WorldBuilder::Run()
 
 void WorldBuilder::GenerateInitialPopulation()
 {
-    WorldTime finish(2, 0, 0, 0, 0);
+    WorldTime finish(10, 0, 0, 0, 0);
     LoggerPtr logger = Logger::GetLogger();
     auto parents = Parents::CreateNoParents();
     for (__int64 count = 0; count < 1000LL; ++count)
@@ -47,4 +47,8 @@ void WorldBuilder::GenerateInitialPopulation()
         TimeSpan increase(MathUtils::RandomInt(1, diff.Ticks() / (1000LL - count)));
         WorldProperties::Properties()->AdvanceTime(increase);
     }
+
+    logger->Log(L"Initial population done");
+    logger->Log(L"  Males=", population.NumberOfMales());
+    logger->Log(L"Females=", population.NumberOfFemales());
 }
