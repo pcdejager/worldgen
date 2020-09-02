@@ -2,6 +2,7 @@
 #include "Population.h"
 #include "Individual.h"
 #include "Sex.h"
+#include "IPopulationVisitor.h"
 
 std::size_t Population::Size() const
 {
@@ -29,28 +30,10 @@ void Population::Died(const IndividualPtr& individual)
     }
 }
 
-std::size_t Population::NumberOfMales() const
+void Population::Visit(IPopulationVisitor* pVisitor)
 {
-    std::size_t result = 0;
     for (auto individual : population)
     {
-        if (individual->Sex().IsMale())
-        {
-            ++result;
-        }
+        pVisitor->VisitIndividual(individual);
     }
-    return result;
-}
-
-std::size_t Population::NumberOfFemales() const
-{
-    std::size_t result = 0;
-    for (auto individual : population)
-    {
-        if (individual->Sex().IsFemale())
-        {
-            ++result;
-        }
-    }
-    return result;
 }

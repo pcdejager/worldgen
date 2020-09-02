@@ -3,6 +3,8 @@
 #include "Types.h"
 #include "WorldTime.h"
 
+class IPopulationVisitor;
+
 class Population
 {
 public:
@@ -17,8 +19,8 @@ public:
     void Died(const IndividualPtr& individual);
 
 public:
-    std::size_t NumberOfMales() const;
-    std::size_t NumberOfFemales() const;
+    void Visit(IPopulationVisitor* pVisitor);
+
 private:
     std::set<IndividualPtr> population;
     std::set<IndividualPtr> dead;

@@ -8,6 +8,7 @@
 #include "GeneGenerator.h"
 #include "MathUtils.h"
 #include "WorldConstants.h"
+#include "PopulationStatistics.h"
 
 WorldBuilder::WorldBuilder()
     : population()
@@ -49,6 +50,9 @@ void WorldBuilder::GenerateInitialPopulation()
     }
 
     logger->Log(L"Initial population done");
-    logger->Log(L"  Males=", population.NumberOfMales());
-    logger->Log(L"Females=", population.NumberOfFemales());
+    PopulationStatistics stats;
+    population.Visit(&stats);
+    logger->Log(L"  Total=", stats.Total());
+    logger->Log(L"  Males=", stats.Males());
+    logger->Log(L"Females=", stats.Females());
 }

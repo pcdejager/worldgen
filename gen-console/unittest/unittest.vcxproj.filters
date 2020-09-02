@@ -121,6 +121,9 @@
     <ClCompile Include="..\GeneGenerator.cpp">
       <Filter>External\Genes</Filter>
     </ClCompile>
+    <ClCompile Include="..\PopulationStatistics.cpp">
+      <Filter>External</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h" />
