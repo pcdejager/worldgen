@@ -124,9 +124,12 @@
     <ClCompile Include="..\PopulationStatistics.cpp">
       <Filter>External</Filter>
     </ClCompile>
+    <ClCompile Include="PopulationStatisticsTest.cpp" />
+    <ClCompile Include="TestUtils.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h" />
+    <ClInclude Include="TestUtils.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="External">

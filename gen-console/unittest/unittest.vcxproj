@@ -34,6 +34,7 @@
   <PropertyGroup Label="UserMacros" />
   <ItemGroup>
     <ClInclude Include="pch.h" />
+    <ClInclude Include="TestUtils.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\AgeCategory.cpp" />
@@ -74,10 +75,12 @@
     <ClCompile Include="MultiPointValueTest.cpp" />
     <ClCompile Include="NumberNameGeneratorTest.cpp" />
     <ClCompile Include="ParentsTest.cpp" />
+    <ClCompile Include="PopulationStatisticsTest.cpp" />
     <ClCompile Include="PopulationTest.cpp" />
     <ClCompile Include="RacesTest.cpp" />
     <ClCompile Include="RaceTest.cpp" />
     <ClCompile Include="SexTest.cpp" />
+    <ClCompile Include="TestUtils.cpp" />
     <ClCompile Include="TimeSpanTest.cpp" />
     <ClCompile Include="ValueRangeTest.cpp" />
     <ClCompile Include="WorldPropertiesTest.cpp" />
