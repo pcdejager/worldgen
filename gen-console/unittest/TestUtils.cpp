@@ -6,10 +6,8 @@
 constexpr __int64 GeneTest_Race_Max = (1LL << static_cast<__int64>(GenePositions::Race().Size())) - 1LL;
 
 // Sex uses 8 bits
-constexpr __int64 GeneTest_Male_Fertile = 0LL;         // all bits disabled
-constexpr __int64 GeneTest_Male_Infertile = ((1LL << static_cast<__int64>(GenePositions::Sex().Size())) / 2LL) - 1LL;
-constexpr __int64 GeneTest_Female_Fertile = (1LL << static_cast<__int64>(GenePositions::Sex().Size())) - 1LL;     // all bits enabled
-constexpr __int64 GeneTest_Female_Infertile = ((1LL << static_cast<__int64>(GenePositions::Sex().Size())) / 2LL) + 1LL;
+constexpr __int64 GeneTest_Male = 0LL;         // all bits disabled
+constexpr __int64 GeneTest_Female = (1LL << static_cast<__int64>(GenePositions::Sex().Size())) - 1LL;     // all bits enabled
 
 /*static*/ __int64 TestUtils::RaceMaxNumber()
 {
@@ -18,20 +16,24 @@ constexpr __int64 GeneTest_Female_Infertile = ((1LL << static_cast<__int64>(Gene
 
 /*static*/ void TestUtils::SetGenes_MaleFertile(Genes& genes)
 {
-    genes.SetGenes(GenePositions::Sex(), GeneTest_Male_Fertile);
+    genes.SetGenes(GenePositions::Sex(), GeneTest_Male);
+    genes.SetGenes(GenePositions::Fertility(), 1.0);
 }
 
 /*static*/ void TestUtils::SetGenes_MaleInfertile(Genes& genes)
 {
-    genes.SetGenes(GenePositions::Sex(), GeneTest_Male_Infertile);
+    genes.SetGenes(GenePositions::Sex(), GeneTest_Male);
+    genes.SetGenes(GenePositions::Fertility(), 0.0);
 }
 
 /*static*/ void TestUtils::SetGenes_FemaleFertile(Genes& genes)
 {
-    genes.SetGenes(GenePositions::Sex(), GeneTest_Female_Fertile);
+    genes.SetGenes(GenePositions::Sex(), GeneTest_Female);
+    genes.SetGenes(GenePositions::Fertility(), 1.0);
 }
 
 /*static*/ void TestUtils::SetGenes_FemaleInfertile(Genes& genes)
 {
-    genes.SetGenes(GenePositions::Sex(), GeneTest_Female_Infertile);
+    genes.SetGenes(GenePositions::Sex(), GeneTest_Female);
+    genes.SetGenes(GenePositions::Fertility(), 0.0);
 }

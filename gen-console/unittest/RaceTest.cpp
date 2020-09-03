@@ -8,15 +8,22 @@
 TEST(RaceTest, Constructor)
 {
     RacialTraits traits;
-    Race test(L"Test", traits);
+    Race test(L"Test", 123LL, traits);
     EXPECT_EQ(test.Name(), L"Test");
 }
 
 TEST(RaceTest, Name)
 {
     RacialTraits traits;
-    Race test(L"Test", traits);
+    Race test(L"Test", 123LL, traits);
     EXPECT_EQ(test.Name(), L"Test");
+}
+
+TEST(RaceTest, ID)
+{
+    RacialTraits traits;
+    Race test(L"Test", 123LL, traits);
+    EXPECT_EQ(test.ID(), 123LL);
 }
 
 TEST(RaceTest, Traits)
@@ -31,7 +38,7 @@ TEST(RaceTest, Traits)
     MultiPointValueRange maleWeightRange({ {11,12,13},{14,15,16},{17,18,19} });
     MultiPointValueRange femaleWeightRange({ {21,22,23},{24,25,6},{27,8,9} });
     traits.weight = AgeSexRangeValuePtr(new AgeSexRangeValue(maleWeightRange, femaleWeightRange, traits.ageRanges));
-    Race race(L"Test", traits);
+    Race race(L"Test", 123LL, traits);
     auto& test = race.Traits();
 
     EXPECT_EQ(test.ageRanges, traits.ageRanges);

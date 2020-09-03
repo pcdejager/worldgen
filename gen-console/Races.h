@@ -23,10 +23,12 @@ public:
     std::vector<std::wstring> AllRaces() const;
     bool HasRace(const std::wstring& name) const;
     std::wstring FindRaceName(__int64 value) const;
-    RacePtr FindRace(__int64 value) const;
-    RacePtr FindRace(const std::wstring& name) const;
+    RacePtr FindRaceByGene(__int64 value) const;
+    RacePtr FindRaceByID(__int64 id) const;
+    RacePtr FindRaceByName(const std::wstring& name) const;
 private:
-    std::map<std::wstring, RacePtr> races;
-    std::map<__int64, std::wstring> racesByGene;
+    std::map<__int64, RacePtr> races;
+    std::map<std::wstring, __int64> racesByName;
+    std::map<__int64, __int64> racesByGene;
 };
 

@@ -38,7 +38,7 @@ TEST(GenomeTest, GetRace)
         auto race = test.GetRace();
         ASSERT_TRUE(race != nullptr);
 
-        auto compare = Races::GetRaces()->FindRace(count);
+        auto compare = Races::GetRaces()->FindRaceByGene(count);
         ASSERT_TRUE(compare != nullptr);
 
         EXPECT_EQ(race->Name(), compare->Name());
@@ -92,7 +92,7 @@ TEST(GenomeTest, GetHeight_Male)
     std::vector<std::wstring> races = Races::GetRaces()->AllRaces();
     for (std::size_t raceCount = 0; raceCount < races.size(); ++raceCount)
     {
-        auto race = Races::GetRaces()->FindRace(races[raceCount]);
+        auto race = Races::GetRaces()->FindRaceByName(races[raceCount]);
         for (std::size_t raceID = 0; raceID < race->Traits().gene.Count(); ++raceID)
         {
             genes.SetGenes(GenePositions::Race(), race->Traits().gene.Value(raceID));
@@ -146,7 +146,7 @@ TEST(GenomeTest, GetHeight_Female)
     std::vector<std::wstring> races = Races::GetRaces()->AllRaces();
     for (std::size_t raceCount = 0; raceCount < races.size(); ++raceCount)
     {
-        auto race = Races::GetRaces()->FindRace(races[raceCount]);
+        auto race = Races::GetRaces()->FindRaceByName(races[raceCount]);
         for (std::size_t raceID = 0; raceID < race->Traits().gene.Count(); ++raceID)
         {
             genes.SetGenes(GenePositions::Race(), race->Traits().gene.Value(raceID));
@@ -200,7 +200,7 @@ TEST(GenomeTest, GetWeight_Male)
     std::vector<std::wstring> races = Races::GetRaces()->AllRaces();
     for (std::size_t raceCount = 0; raceCount < races.size(); ++raceCount)
     {
-        auto race = Races::GetRaces()->FindRace(races[raceCount]);
+        auto race = Races::GetRaces()->FindRaceByName(races[raceCount]);
         for (std::size_t raceID = 0; raceID < race->Traits().gene.Count(); ++raceID)
         {
             genes.SetGenes(GenePositions::Race(), race->Traits().gene.Value(raceID));
@@ -254,7 +254,7 @@ TEST(GenomeTest, GetWeight_Female)
     std::vector<std::wstring> races = Races::GetRaces()->AllRaces();
     for (std::size_t raceCount = 0; raceCount < races.size(); ++raceCount)
     {
-        auto race = Races::GetRaces()->FindRace(races[raceCount]);
+        auto race = Races::GetRaces()->FindRaceByName(races[raceCount]);
         for (std::size_t raceID = 0; raceID < race->Traits().gene.Count(); ++raceID)
         {
             genes.SetGenes(GenePositions::Race(), race->Traits().gene.Value(raceID));

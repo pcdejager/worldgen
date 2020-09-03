@@ -43,6 +43,9 @@ void Races::Initialize()
         auto [found, name] = loader.ReadString(L"Race");
         logger->Log(L"    Name: ", name);
 
+        __int64 id = -1;
+        std::tie(found, id) = loader.ReadInt(L"RaceID");
+
         RacialTraits traits;
 
         // Gene
@@ -83,12 +86,13 @@ void Races::Initialize()
             traits.weight = std::make_shared<AgeSexRangeValue>(maleRange, femaleRange, traits.ageRanges);
         }
 
-        RacePtr newRace = RacePtr(new Race(name, traits));
-        races.insert(std::make_pair(name, newRace));
+        RacePtr newRace = RacePtr(new Race(name, id, traits));
+        races.insert(std::make_pair(id, newRace));
+        racesByName.insert(std::make_pair(name, id));
 
         for (std::size_t count = 0; count < traits.gene.Count(); ++count)
         {
-            racesByGene.insert(std::make_pair(traits.gene.Value(count), name));
+            racesByGene.insert(std::make_pair(traits.gene.Value(count), id));
         }
 
         loader.MoveOn();
@@ -117,14 +121,14 @@ std::vector<std::wstring> Races::AllRaces() const
     std::vector<std::wstring> result;
     for (auto item : races)
     {
-        result.push_back(item.first);
+        result.push_back(item.second->Name());
     }
     return result;
 }
 
 bool Races::HasRace(const std::wstring& name) const
 {
-    if (races.find(name) != races.end())
+    if (racesByName.find(name) != racesByName.end())
     {
         return true;
     }
@@ -136,27 +140,47 @@ std::wstring Races::FindRaceName(__int64 value) const
     auto find = racesByGene.find(value);
     if (find != racesByGene.end())
     {
-        return find->second;
+        __int64 id = find->second;
+        auto raceFind = races.find(id);
+        if (raceFind != races.end())
+        {
+            return raceFind->second->Name();
+        }
     }
     return L"";
 }
 
-RacePtr Races::FindRace(__int64 value) const
+RacePtr Races::FindRaceByGene(__int64 value) const
 {
     auto find = racesByGene.find(value);
     if (find != racesByGene.end())
     {
-        return FindRace(find->second);
+        return FindRaceByID(find->second);
     }
     return nullptr;
 }
 
-RacePtr Races::FindRace(const std::wstring& name) const
+RacePtr Races::FindRaceByID(__int64 id) const
 {
-    auto find = races.find(name);
+    auto find = races.find(id);
     if (find != races.end())
     {
         return find->second;
+    }
+    return nullptr;
+}
+
+RacePtr Races::FindRaceByName(const std::wstring& name) const
+{
+    auto find = racesByName.find(name);
+    if (find != racesByName.end())
+    {
+        __int64 raceID = find->second;
+        auto raceFind = races.find(raceID);
+        if (raceFind != races.end())
+        {
+            return raceFind->second;
+        }
     }
     return nullptr;
 }

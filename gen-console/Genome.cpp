@@ -20,18 +20,18 @@ Genome::Genome(const Genes& inputGenes)
 RacePtr Genome::GetRace() const
 {
     __int64 geneValue = genes.ReadInt(GenePositions::Race());
-    return Races::GetRaces()->FindRace(geneValue);
+    return Races::GetRaces()->FindRaceByGene(geneValue);
 }
 
 Sex Genome::GetSex() const
 {
     double geneValue = genes.ReadDouble(GenePositions::Sex());
-    bool fertile = (geneValue < 0.48) || (geneValue >= 0.52);
+    double fertility = genes.ReadDouble(GenePositions::Fertility());
     if (geneValue < 0.5)
     {
-        return Sex(true, false, fertile);
+        return Sex(true, false, fertility);
     }
-    return Sex(false, true, fertile);
+    return Sex(false, true, fertility);
 }
 
 __int64 Genome::GetHeight(const TimeSpan& age) const

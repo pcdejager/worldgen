@@ -3,7 +3,7 @@
 
 TEST(SexTest, Constructor)
 {
-    Sex test(true, false, false);
+    Sex test(true, false, 0.0);
     EXPECT_TRUE(test.IsMale());
     EXPECT_FALSE(test.IsFemale());
     EXPECT_FALSE(test.IsFertile());
@@ -29,9 +29,9 @@ TEST(SexTest, IsFemale)
 
 TEST(SexTest, IsFertile)
 {
-    Sex test1(false, false, true);
+    Sex test1(false, false, 1.0);
     EXPECT_TRUE(test1.IsFertile());
 
-    Sex test2(true, true, false);
+    Sex test2(true, true, 0.0);
     EXPECT_FALSE(test2.IsFertile());
 }
