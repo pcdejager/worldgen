@@ -34,13 +34,13 @@ void Races::Initialize()
     std::wifstream file(filename);
 
     std::size_t counter = 0;
-    bool ok = loader.MoveTo(L"Race");
+    bool ok = loader.MoveTo(L"RaceName");
     while (ok)
     {
         counter++;
         logger->Log(L"  Race #", counter);
 
-        auto [found, name] = loader.ReadString(L"Race");
+        auto [found, name] = loader.ReadString(L"RaceName");
         logger->Log(L"    Name: ", name);
 
         __int64 id = -1;
@@ -86,6 +86,17 @@ void Races::Initialize()
             traits.weight = std::make_shared<AgeSexRangeValue>(maleRange, femaleRange, traits.ageRanges);
         }
 
+        // Marry
+        {
+            std::tie(found, traits.marry) = loader.ReadMarryMap(L"Marry");
+            std::wstringstream result;
+            for (auto item : traits.marry)
+            {
+                result << L"[" << item.first << "," << item.second << "]";
+            }
+            logger->Log(L"    Marry = ", result.str());
+        }
+
         RacePtr newRace = RacePtr(new Race(name, id, traits));
         races.insert(std::make_pair(id, newRace));
         racesByName.insert(std::make_pair(name, id));
@@ -96,7 +107,7 @@ void Races::Initialize()
         }
 
         loader.MoveOn();
-        ok = loader.MoveTo(L"Race");
+        ok = loader.MoveTo(L"RaceName");
     }
 
 

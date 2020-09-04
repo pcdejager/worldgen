@@ -31,6 +31,7 @@ public:
     std::tuple<bool, ValueRange> ReadValueRange(const std::wstring& propertyName);
     std::tuple<bool, MultiPointValueInt> ReadMultiPointValueInt(const std::wstring& propertyName);
     std::tuple<bool, MultiPointValueRange> ReadMultiPointValueRange(const std::wstring& propertyName);
+    std::tuple<bool, std::map<__int64, double>> ReadMarryMap(const std::wstring& propertyName);
     bool End() { return (position >= lines.size()); }
 
 #ifdef UNITTEST
@@ -39,6 +40,8 @@ public:
 private:
 #endif
     __int64 ConvertToInt(const std::wstring& value) const;
+    std::vector<__int64> ConvertToIntArray(const std::wstring& value) const;
+    std::vector<double> ConvertToDoubleArray(const std::wstring& value) const;
     ValueRange ConvertToValueRange(const std::wstring& value) const;
 
 private:

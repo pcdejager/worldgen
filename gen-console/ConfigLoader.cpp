@@ -89,7 +89,7 @@ std::tuple<bool, std::wstring> ConfigLoader::ReadString(const std::wstring& prop
             if (possible == propertyName)
             {
                 std::wstring result = lines[count].substr(propertyName.length() + 1);
-                return std::make_tuple(true, result);
+                 return std::make_tuple(true, result);
             }
         }
         ++count;
@@ -159,6 +159,34 @@ std::tuple<bool, MultiPointValueRange> ConfigLoader::ReadMultiPointValueRange(co
     return std::make_tuple(true, MultiPointValueRange(values));
 }
 
+std::tuple<bool, std::map<__int64, double>> ConfigLoader::ReadMarryMap(const std::wstring& propertyName)
+{
+    std::map<__int64, double> result;
+    auto [found, value] = ReadString(propertyName);
+    if (!found)
+    {
+        return std::make_tuple(found, result);
+    }
+    std::size_t index = value.find(L"][");
+    if ((value[0] != L'[') || (index == std::wstring::npos) || (value[value.size() - 1] != L']'))
+    {
+        return std::make_tuple(false, result);
+    }
+    std::wstring array1 = value.substr(1, index - 1);
+    std::wstring array2 = value.substr(index + 2, value.length() - index - 2);
+    std::vector<__int64> raceIDs = ConvertToIntArray(array1);
+    std::vector<double> chance = ConvertToDoubleArray(array2);
+    if (raceIDs.size() != chance.size())
+    {
+        return std::make_tuple(false, result);
+    }
+    for (std::size_t count = 0; count < raceIDs.size(); ++count)
+    {
+        result.insert(std::make_pair(raceIDs[count], chance[count]));
+    }
+    return std::make_tuple(true, result);
+}
+
 __int64 ConfigLoader::ConvertToInt(const std::wstring& value) const
 {
     std::wstring work = value;
@@ -217,6 +245,44 @@ __int64 ConfigLoader::ConvertToInt(const std::wstring& value) const
     {
         return std::stoll(work);
     }
+}
+
+std::vector<__int64> ConfigLoader::ConvertToIntArray(const std::wstring& value) const
+{
+    std::vector<__int64> result;
+    std::wstring work = value;
+    std::size_t index = work.find(L",");
+    while (index != std::wstring::npos)
+    {
+        std::wstring elementString = work.substr(0, index);
+        __int64 intValue = std::stoll(elementString);
+        result.push_back(intValue);
+
+        work = work.substr(index + 1);
+        index = work.find(L",");
+    }
+    __int64 intValue = std::stoll(work);
+    result.push_back(intValue);
+    return result;
+}
+
+std::vector<double> ConfigLoader::ConvertToDoubleArray(const std::wstring& value) const
+{
+    std::vector<double> result;
+    std::wstring work = value;
+    std::size_t index = work.find(L",");
+    while (index != std::wstring::npos)
+    {
+        std::wstring elementString = work.substr(0, index);
+        double doubleValue = std::stod(elementString);
+        result.push_back(doubleValue);
+
+        work = work.substr(index + 1);
+        index = work.find(L",");
+    }
+    double doubleValue = std::stod(work);
+    result.push_back(doubleValue);
+    return result;
 }
 
 ValueRange ConfigLoader::ConvertToValueRange(const std::wstring& value) const

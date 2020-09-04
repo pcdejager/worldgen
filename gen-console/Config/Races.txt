@@ -1,20 +1,40 @@
 # File containing all races that can be used and their associated racial traits
 
 # Humans
-Race:Human
+RaceName:Human
 RaceID:0
+
+# Possile gene values for this race
 Gene:0,1
+
 # Age ranges start times for Toddler, Child, Teenager, YoungAdult, Adult, OldAdult, Elder, Dead
 AgeRanges:D3Y,D6Y,D11Y,D18Y,D30Y,D45Y,D60Y,D120Y
+
+# How long pregnancies will last [min, avg, max]
 Pregnancy:D240D,D270D,D280D
+
 # Height ranges for NewBorn, Toddler, Child, Teenager, YoungAdult, Adult, OldAdult, Elder
 HeightMale:[28-35-42],[55-65-70],[88-95-102],[105-120-130],[140-180-210],[140-180-210],[135-175-205],[130-170-200]
 HeightFemale:[26-33-40],[52-62-70],[80-92-100],[100-110-125],[120-170-200],[120-170-200],[115-165-195],[115-160-190]
+
+# Weight ranges
 WeightMale:[3-6-8],[20-50-80],[60-100-120],[100-140-180],[140-180-220],[160-200-240],[160-200-240],[140-180-200]
 WeightFemale:[3-5-7],[15-40-70],[40-70-100],[70-100-130],[100-130-160],[100-140-170],[100-140-170],[80-120-140]
 
+# Marry array - [RIDArray], [%Chance]
+# RIDArray - list of RIDs that this race will marry
+# %Chance - The % chance this race will mary the other race
+Marry:[0,1,2][0.95,0.005,0.1]
+
+# Pregnancy result - RID,[RIDArray],[Split%]
+# RIDArray - list of RIDs that coupling with the other race can produce
+# Split% - Split points on scale from 0.0 to 1.0. Must always end on 1.0 and must have same number of entries as RaceIDArray
+Mate:0,[0][1.0]
+Mate:1,[0,2,1][0.6,0.999,1.0]
+Mate:2,[0,2][0.6,1.0]
+
 # Elves
-Race:Elf
+RaceName:Elf
 RaceID:1
 Gene:2
 Pregnancy:D300D,D320D,D360D
@@ -23,9 +43,10 @@ HeightMale:[28-45-52],[55-75-80],[88-105-112],[105-130-140],[140-190-210],[140-1
 HeightFemale:[26-43-50],[52-72-80],[80-102-110],[100-120-135],[120-180-200],[120-180-200],[115-175-195],[115-170-190]
 WeightMale:[3-6-8],[20-50-80],[60-100-120],[100-140-180],[140-180-220],[160-200-240],[160-200-240],[140-180-200]
 WeightFemale:[3-5-7],[15-40-70],[40-70-100],[70-100-130],[100-130-160],[100-140-170],[100-140-170],[80-120-140]
+Marry:[0,1,2][0.005,0.95,0.01]
 
 # Half-elves
-Race:Half-elf
+RaceName:Half-elf
 RaceID:2
 Gene:3
 Pregnancy:D250D,D270D,D290D
@@ -34,5 +55,6 @@ HeightMale:[28-35-42],[55-65-70],[88-95-102],[105-120-130],[140-180-210],[140-18
 HeightFemale:[26-33-40],[52-62-70],[80-92-100],[100-110-125],[120-170-200],[120-170-200],[115-165-195],[115-160-190]
 WeightMale:[3-6-8],[20-50-80],[60-100-120],[100-140-180],[140-180-220],[160-200-240],[160-200-240],[140-180-200]
 WeightFemale:[3-5-7],[15-40-70],[40-70-100],[70-100-130],[100-130-160],[100-140-170],[100-140-170],[80-120-140]
+Marry:[0,1,2][0.2,0.1,0.95]
 
 # End of definition
