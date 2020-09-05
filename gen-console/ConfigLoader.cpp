@@ -159,7 +159,7 @@ std::tuple<bool, MultiPointValueRange> ConfigLoader::ReadMultiPointValueRange(co
     return std::make_tuple(true, MultiPointValueRange(values));
 }
 
-std::tuple<bool, std::map<__int64, double>> ConfigLoader::ReadMarryMap(const std::wstring& propertyName)
+std::tuple<bool, std::map<__int64, double>> ConfigLoader::ReadIntDoubleMap(const std::wstring& propertyName)
 {
     std::map<__int64, double> result;
     auto [found, value] = ReadString(propertyName);
@@ -167,23 +167,19 @@ std::tuple<bool, std::map<__int64, double>> ConfigLoader::ReadMarryMap(const std
     {
         return std::make_tuple(found, result);
     }
-    std::size_t index = value.find(L"][");
-    if ((value[0] != L'[') || (index == std::wstring::npos) || (value[value.size() - 1] != L']'))
+    if ((value[0] != L'[') || (value[value.size() - 1] != L']'))
     {
         return std::make_tuple(false, result);
     }
-    std::wstring array1 = value.substr(1, index - 1);
-    std::wstring array2 = value.substr(index + 2, value.length() - index - 2);
-    std::vector<__int64> raceIDs = ConvertToIntArray(array1);
-    std::vector<double> chance = ConvertToDoubleArray(array2);
-    if (raceIDs.size() != chance.size())
+    std::wstring work = value.substr(1, value.length() - 2);
+    std::size_t index = work.find(L"][");
+    while (index != std::wstring::npos)
     {
-        return std::make_tuple(false, result);
+        result.insert(ConvertToIntDoublePair(work.substr(0, index)));
+        work = work.substr(index + 2);
+        index = work.find(L"][");
     }
-    for (std::size_t count = 0; count < raceIDs.size(); ++count)
-    {
-        result.insert(std::make_pair(raceIDs[count], chance[count]));
-    }
+    result.insert(ConvertToIntDoublePair(work));
     return std::make_tuple(true, result);
 }
 
@@ -310,4 +306,16 @@ ValueRange ConfigLoader::ConvertToValueRange(const std::wstring& value) const
         }
     }
     return ValueRange();
+}
+
+std::pair<__int64, double> ConfigLoader::ConvertToIntDoublePair(const std::wstring& value) const
+{
+    std::size_t index = value.find(L",");
+    if (index != std::wstring::npos)
+    {
+        __int64 value1 = std::stoll(value.substr(0, index));
+        double value2 = std::stod(value.substr(index + 1));
+        return std::make_pair(value1, value2);
+    }
+    return std::make_pair(0LL, 0.0);
 }

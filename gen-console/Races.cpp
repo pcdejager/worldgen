@@ -88,7 +88,7 @@ void Races::Initialize()
 
         // Marry
         {
-            std::tie(found, traits.marry) = loader.ReadMarryMap(L"Marry");
+            std::tie(found, traits.marry) = loader.ReadIntDoubleMap(L"Marry");
             std::wstringstream result;
             for (auto item : traits.marry)
             {

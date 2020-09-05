@@ -171,6 +171,32 @@ TEST(ConfigLoaderTest, ConvertToInt_duration)
     EXPECT_EQ(span.Ticks(), loader.ConvertToInt(value));
 }
 
+TEST(ConfigLoaderTest, ConvertToIntArray)
+{
+    std::vector<std::wstring> empty;
+    ConfigLoader loader(empty);
+
+    std::wstring input = L"3,2,1";
+    auto test = loader.ConvertToIntArray(input);
+    ASSERT_EQ(test.size(), 3);
+    EXPECT_EQ(test[0], 3LL);
+    EXPECT_EQ(test[1], 2LL);
+    EXPECT_EQ(test[2], 1LL);
+}
+
+TEST(ConfigLoaderTest, ConvertToDoubleArray)
+{
+    std::vector<std::wstring> empty;
+    ConfigLoader loader(empty);
+
+    std::wstring input = L"3.3,2.2,1.1";
+    auto test = loader.ConvertToDoubleArray(input);
+    ASSERT_EQ(test.size(), 3);
+    EXPECT_EQ(test[0], 3.3);
+    EXPECT_EQ(test[1], 2.2);
+    EXPECT_EQ(test[2], 1.1);
+}
+
 TEST(ConfigLoaderTest, ConvertToValueRange)
 {
     std::vector<std::wstring> empty;
@@ -196,4 +222,16 @@ TEST(ConfigLoaderTest, ConvertToValueRange)
     value = L"[1-2-3]";
     test = ValueRange(1LL, 2LL, 3LL);
     EXPECT_EQ(test, loader.ConvertToValueRange(value));
+}
+
+
+TEST(ConfigLoaderTest, ConvertToIntDoublePair)
+{
+    std::vector<std::wstring> empty;
+    ConfigLoader loader(empty);
+
+    std::wstring input = L"3,2.2";
+    auto test = loader.ConvertToIntDoublePair(input);
+    EXPECT_EQ(test.first, 3LL);
+    EXPECT_EQ(test.second, 2.2);
 }
