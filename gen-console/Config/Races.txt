@@ -26,13 +26,6 @@ WeightFemale:[3-5-7],[15-40-70],[40-70-100],[70-100-130],[100-130-160],[100-140-
 # %Chance - The % chance this race will mary the other race
 Marry:[0,0.95][1,0.005][2,0.1]
 
-# Pregnancy result - RID,[RIDArray],[Split%]
-# RIDArray - list of RIDs that coupling with the other race can produce
-# Split% - Split points on scale from 0.0 to 1.0. Must always end on 1.0 and must have same number of entries as RaceIDArray
-Mate:0,[0][1.0]
-Mate:1,[0,2,1][0.6,0.999,1.0]
-Mate:2,[0,2][0.6,1.0]
-
 # Elves
 RaceName:Elf
 RaceID:1
@@ -56,5 +49,32 @@ HeightFemale:[26-33-40],[52-62-70],[80-92-100],[100-110-125],[120-170-200],[120-
 WeightMale:[3-6-8],[20-50-80],[60-100-120],[100-140-180],[140-180-220],[160-200-240],[160-200-240],[140-180-200]
 WeightFemale:[3-5-7],[15-40-70],[40-70-100],[70-100-130],[100-130-160],[100-140-170],[100-140-170],[80-120-140]
 Marry:[0,0.2][1,0.1][2,0.95]
+
+
+
+#-----------------------------------------------------------------------------------------------------
+
+# Pregnancy result - RID,[RIDArray],[Split%]
+# RIDArray - list of RIDs that coupling with the other race can produce
+# Split% - Split points on scale from 0.0 to 1.0. Must always end on 1.0 and must have same number of entries as RaceIDArray
+
+MateResultM0F0:[0]
+MateChanceM0F0:[1.0]
+MateResultM0F1:[0,2,1]
+MateChanceM0F1:[0.6,0.999,1.0]
+MateResultM0F2:[0,2]
+MateChanceM0F2:[0.6,1.0]
+MateResultM1F0:[0,2,1]
+MateChanceM1F0:[0.7,0.9999,1.0]
+MateResultM1F1:[1]
+MateChanceM1F1:[1.0]
+MateResultM1F2:[0,2]
+MateChanceM1F2:[0.7,1.0]
+MateResultM2F0:[0,2]
+MateChanceM2F0:[0.7,1.0]
+MateResultM2F1:[0,2,1]
+MateChanceM2F1:[0.7,0.9999,1.0]
+MateResultM2F2:[2]
+MateChanceM2F2:[1.0]
 
 # End of definition

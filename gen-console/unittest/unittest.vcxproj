@@ -54,6 +54,7 @@
     <ClCompile Include="..\Parents.cpp" />
     <ClCompile Include="..\Population.cpp" />
     <ClCompile Include="..\PopulationStatistics.cpp" />
+    <ClCompile Include="..\Procreate.cpp" />
     <ClCompile Include="..\Race.cpp" />
     <ClCompile Include="..\Races.cpp" />
     <ClCompile Include="..\Sex.cpp" />

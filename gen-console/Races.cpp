@@ -22,6 +22,8 @@
 
 void Races::Initialize()
 {
+    proceateMatrix.Reset();
+
     LoggerPtr logger = Logger::GetLogger();
     std::string filename = "E:\\Dev\\worldgen\\gen-console\\Config\\Races.txt";
     ConfigLoader loader(filename);
@@ -110,6 +112,27 @@ void Races::Initialize()
         ok = loader.MoveTo(L"RaceName");
     }
 
+    for (auto maleRaceID : races)
+    {
+        for (auto femaleRaceID : races)
+        {
+            bool found = false;
+            std::vector<__int64> raceIDs;
+            {
+                std::wstringstream property;
+                property << L"MateResultM" << maleRaceID.first << L"F" << femaleRaceID.first;
+                std::tie(found, raceIDs) = loader.ReadIntVector(property.str());
+            }
+            std::vector<double> chance;
+            {
+                std::wstringstream property;
+                property << L"MateChanceM" << maleRaceID.first << L"F" << femaleRaceID.first;
+                std::tie(found, chance) = loader.ReadDoubleVector(property.str());
+            }
+            proceateMatrix.Add(maleRaceID.first, femaleRaceID.first, raceIDs, chance);
+        }
+    }
+    proceateMatrix.LogMatrix();
 
     //std::size_t numberOfRaces = 0;
     //file >> numberOfRaces;

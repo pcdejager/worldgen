@@ -175,6 +175,7 @@
     </ClCompile>
     <ClCompile Include="Population.cpp" />
     <ClCompile Include="PopulationStatistics.cpp" />
+    <ClCompile Include="Procreate.cpp" />
     <ClCompile Include="Race.cpp" />
     <ClCompile Include="Races.cpp" />
     <ClCompile Include="Sex.cpp" />
@@ -206,6 +207,7 @@
     <ClInclude Include="Parents.h" />
     <ClInclude Include="Population.h" />
     <ClInclude Include="PopulationStatistics.h" />
+    <ClInclude Include="Procreate.h" />
     <ClInclude Include="Race.h" />
     <ClInclude Include="Races.h" />
     <ClInclude Include="RacialTraits.h" />

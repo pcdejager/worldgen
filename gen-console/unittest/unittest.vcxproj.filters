@@ -126,6 +126,9 @@
     </ClCompile>
     <ClCompile Include="PopulationStatisticsTest.cpp" />
     <ClCompile Include="TestUtils.cpp" />
+    <ClCompile Include="..\Procreate.cpp">
+      <Filter>External</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h" />

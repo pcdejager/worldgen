@@ -31,6 +31,8 @@ public:
     std::tuple<bool, ValueRange> ReadValueRange(const std::wstring& propertyName);
     std::tuple<bool, MultiPointValueInt> ReadMultiPointValueInt(const std::wstring& propertyName);
     std::tuple<bool, MultiPointValueRange> ReadMultiPointValueRange(const std::wstring& propertyName);
+    std::tuple<bool, std::vector<__int64>> ReadIntVector(const std::wstring& propertyName);
+    std::tuple<bool, std::vector<double>> ReadDoubleVector(const std::wstring& propertyName);
     std::tuple<bool, std::map<__int64, double>> ReadIntDoubleMap(const std::wstring& propertyName);
     bool End() { return (position >= lines.size()); }
 

@@ -55,17 +55,19 @@ bool ConfigLoader::MoveTo(const std::wstring& propertyName)
     {
         return false;
     }
-    while (position < lines.size())
+    std::size_t newPosition = position;
+    while (newPosition < lines.size())
     {
-        if (lines[position].size() > propertyName.length())
+        if (lines[newPosition].size() > propertyName.length())
         {
-            std::wstring possible = lines[position].substr(0, propertyName.length());
+            std::wstring possible = lines[newPosition].substr(0, propertyName.length());
             if (possible == propertyName)
             {
+                position = newPosition;
                 return true;
             }
         }
-        ++position;
+        ++newPosition;
     }
     return false;
 }
@@ -157,6 +159,38 @@ std::tuple<bool, MultiPointValueRange> ConfigLoader::ReadMultiPointValueRange(co
     }
     values.push_back(ConvertToValueRange(value));
     return std::make_tuple(true, MultiPointValueRange(values));
+}
+
+std::tuple<bool, std::vector<__int64>> ConfigLoader::ReadIntVector(const std::wstring& propertyName)
+{
+    std::vector<__int64> result;
+    auto [found, value] = ReadString(propertyName);
+    if (!found)
+    {
+        return std::make_tuple(found, result);
+    }
+    if ((value[0] != L'[') || (value[value.size() - 1] != L']'))
+    {
+        return std::make_tuple(false, result);
+    }
+    result = ConvertToIntArray(value.substr(1, value.length() - 2));
+    return std::make_tuple(false, result);
+}
+
+std::tuple<bool, std::vector<double>> ConfigLoader::ReadDoubleVector(const std::wstring& propertyName)
+{
+    std::vector<double> result;
+    auto [found, value] = ReadString(propertyName);
+    if (!found)
+    {
+        return std::make_tuple(found, result);
+    }
+    if ((value[0] != L'[') || (value[value.size() - 1] != L']'))
+    {
+        return std::make_tuple(false, result);
+    }
+    result = ConvertToDoubleArray(value.substr(1, value.length() - 2));
+    return std::make_tuple(false, result);
 }
 
 std::tuple<bool, std::map<__int64, double>> ConfigLoader::ReadIntDoubleMap(const std::wstring& propertyName)
