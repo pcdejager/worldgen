@@ -126,6 +126,9 @@
     <ClCompile Include="Procreate.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Marry.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="WorldBuilder.h">
@@ -228,6 +231,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Procreate.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Marry.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

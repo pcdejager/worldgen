@@ -163,6 +163,7 @@
     <ClCompile Include="Individual.cpp" />
     <ClCompile Include="IndividualName.cpp" />
     <ClCompile Include="Logger.cpp" />
+    <ClCompile Include="Marry.cpp" />
     <ClCompile Include="MathUtils.cpp" />
     <ClCompile Include="MultiPointValue.cpp" />
     <ClCompile Include="NumberNameGenerator.cpp" />
@@ -201,6 +202,7 @@
     <ClInclude Include="IndividualName.h" />
     <ClInclude Include="IPopulationVisitor.h" />
     <ClInclude Include="Logger.h" />
+    <ClInclude Include="Marry.h" />
     <ClInclude Include="MathUtils.h" />
     <ClInclude Include="MultiPointValue.h" />
     <ClInclude Include="NumberNameGenerator.h" />

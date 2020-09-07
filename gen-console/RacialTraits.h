@@ -10,5 +10,5 @@ struct RacialTraits
     MultiPointValueInt pregnancy;
     AgeSexRangeValuePtr height;
     AgeSexRangeValuePtr weight;
-    std::map<__int64, double> marry;
+    MarryPtr marry;
 };

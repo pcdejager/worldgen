@@ -129,6 +129,11 @@
     <ClCompile Include="..\Procreate.cpp">
       <Filter>External</Filter>
     </ClCompile>
+    <ClCompile Include="..\Marry.cpp">
+      <Filter>External</Filter>
+    </ClCompile>
+    <ClCompile Include="MarryTest.cpp" />
+    <ClCompile Include="ProcreateTest.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h" />

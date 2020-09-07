@@ -7,6 +7,7 @@
 #include "AgeTraits.h"
 #include "AgeSexRangeValue.h"
 #include "Logger.h"
+#include "Marry.h"
 
 /*static*/ RacesPtr Races::instance = nullptr;
 
@@ -90,13 +91,13 @@ void Races::Initialize()
 
         // Marry
         {
-            std::tie(found, traits.marry) = loader.ReadIntDoubleMap(L"Marry");
-            std::wstringstream result;
-            for (auto item : traits.marry)
-            {
-                result << L"[" << item.first << "," << item.second << "]";
-            }
-            logger->Log(L"    Marry = ", result.str());
+            std::map<__int64, double> marryMale;
+            std::map<__int64, double> marryFemale;
+            std::tie(found, marryMale) = loader.ReadIntDoubleMap(L"MarryMale");
+            std::tie(found, marryFemale) = loader.ReadIntDoubleMap(L"MarryFemale");
+
+            traits.marry = std::make_shared<Marry>(marryMale, marryFemale);
+            traits.marry->Log();
         }
 
         RacePtr newRace = RacePtr(new Race(name, id, traits));

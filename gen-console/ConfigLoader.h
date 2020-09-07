@@ -36,6 +36,7 @@ public:
     std::tuple<bool, std::map<__int64, double>> ReadIntDoubleMap(const std::wstring& propertyName);
     bool End() { return (position >= lines.size()); }
 
+// TODO : Need to remove this special check for UNITTEST. Tests must be done through above methods
 #ifdef UNITTEST
 public:
 #else

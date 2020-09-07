@@ -17,6 +17,9 @@ typedef std::shared_ptr<INameGenerator> INameGeneratorPtr;
 class Individual;
 typedef std::shared_ptr<Individual> IndividualPtr;
 
+class Marry;
+typedef std::shared_ptr<Marry> MarryPtr;
+
 class Parents;
 typedef std::shared_ptr<Parents> ParentsPtr;
 
