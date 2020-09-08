@@ -3,7 +3,9 @@
 #include "GenePositions.h"
 #include "Races.h"
 #include "Race.h"
+#include "RacialTraits.h"
 #include "AgeSexRangeValue.h"
+#include "AgeTraits.h"
 
 Genome::Genome()
     : genes()
@@ -48,6 +50,24 @@ __int64 Genome::GetWeight(const TimeSpan& age) const
     Sex sex = GetSex();
     double geneValue = (genes.ReadDouble(GenePositions::Weight()) * 2.0) - 1.0;
     return race->Traits().weight->Value(geneValue, age, sex);
+}
+
+TimeSpan Genome::MaximumAge() const
+{
+    RacePtr race = GetRace();
+    double geneValue = genes.ReadDouble(GenePositions::MaximumLife());
+    __int64 max = race->Traits().ageRanges->NextAgeStart(AgeCategory::Elder);
+    __int64 min = race->Traits().ageRanges->AgeStart(AgeCategory::Elder);
+    __int64 result = min + static_cast<__int64>((geneValue * static_cast<double>(max - min)));
+    if (result < min)
+    {
+        result = min;
+    }
+    else if (result > max)
+    {
+        result = max;
+    }
+    return TimeSpan(result);
 }
 
 #ifdef UNITTEST

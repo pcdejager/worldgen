@@ -22,6 +22,7 @@ public:
     Sex GetSex() const;
     __int64 GetHeight(const TimeSpan& age) const;
     __int64 GetWeight(const TimeSpan& age) const;
+    TimeSpan MaximumAge() const;
 
 #ifdef UNITTEST
 public:

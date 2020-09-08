@@ -289,3 +289,31 @@ TEST(GenomeTest, GetWeight_Female)
         } // raceID
     } // raceCount
 }
+
+TEST(GenomeTest, MaximumAge)
+{
+    Genome test;
+    Genes genes;
+
+    std::vector<std::wstring> races = Races::GetRaces()->AllRaces();
+    for (std::size_t raceCount = 0; raceCount < races.size(); ++raceCount)
+    {
+        auto race = Races::GetRaces()->FindRaceByName(races[raceCount]);
+        for (std::size_t raceID = 0; raceID < race->Traits().gene.Count(); ++raceID)
+        {
+            genes.SetGenes(GenePositions::Race(), race->Traits().gene.Value(raceID));
+            TestUtils::SetGenes_MaleFertile(genes);
+            genes.SetGenes(GenePositions::MaximumLife(), 0.0);
+            test.ReplaceGenes(genes);
+
+            TimeSpan result = test.MaximumAge();
+            EXPECT_EQ(result.Ticks(), race->Traits().ageRanges->AgeStart(AgeCategory::Elder));
+
+            genes.SetGenes(GenePositions::MaximumLife(), 1.0);
+            test.ReplaceGenes(genes);
+
+            result = test.MaximumAge();
+            EXPECT_EQ(result.Ticks(), race->Traits().ageRanges->NextAgeStart(AgeCategory::Elder));
+        }
+    }
+}
