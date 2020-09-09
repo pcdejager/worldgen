@@ -47,12 +47,12 @@ TEST(IndividualTest, IsAlive)
     EXPECT_FALSE(test1->IsAlive());
     EXPECT_TRUE(test2->IsAlive());
 
-    pop.Died(test1);
+    pop.Died(test1, WorldTime(1LL, 0LL, 0LL, 0LL, 0LL));
     EXPECT_EQ(pop.Size(), 1);
     EXPECT_FALSE(test1->IsAlive());
     EXPECT_TRUE(test2->IsAlive());
 
-    pop.Died(test2);
+    pop.Died(test2, WorldTime(1LL, 0LL, 0LL, 0LL, 0LL));
     EXPECT_EQ(pop.Size(), 0);
     EXPECT_FALSE(test1->IsAlive());
     EXPECT_FALSE(test2->IsAlive());
@@ -102,7 +102,7 @@ TEST(IndividualTest, Died)
     pop.Add(test2);
 
     WorldProperties::Properties()->AdvanceTime(TimeSpan(123456UL));
-    pop.Died(test2);
+    pop.Died(test2, WorldProperties::Properties()->Now());
 
     EXPECT_EQ(test2->Died(), WorldProperties::Properties()->Now());
 }
@@ -152,7 +152,7 @@ TEST(IndividualTest, Age_dead)
     WorldProperties::Properties()->AdvanceTime(TimeSpan(12345LL));
     WorldTime died = WorldProperties::Properties()->Now();
 
-    pop.Died(test);
+    pop.Died(test, died);
 
     WorldProperties::Properties()->AdvanceTime(TimeSpan(67890LL));
     WorldTime end = WorldProperties::Properties()->Now();

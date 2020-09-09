@@ -63,7 +63,12 @@ TimeSpan Individual::Age() const
     return now - born;
 }
 
-void Individual::IndividualDied()
+TimeSpan Individual::MaximumAge() const
 {
-    died = WorldProperties::Properties()->Now();
+    return genome.MaximumAge();
+}
+
+void Individual::IndividualDied(const WorldTime& time)
+{
+    died = time;
 }

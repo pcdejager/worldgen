@@ -50,13 +50,14 @@ public:
     /// Note: If born date is in the future, an age of 0 will be returned
     /// </summary>
     /// <returns>Age of the individual</returns>
-    TimeSpan Age() const;
+    TimeSpan Age() const;    
+    TimeSpan MaximumAge() const;
 
     Sex Sex() const { return genome.GetSex(); }
 
 private:
     friend class Population;
-    void IndividualDied();
+    void IndividualDied(const WorldTime& time);
 
 private:
     static IndividualPtr NullIndividual;

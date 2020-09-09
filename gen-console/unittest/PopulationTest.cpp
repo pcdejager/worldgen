@@ -21,10 +21,10 @@ TEST(PopulationTest, Size)
     pop.Add(test2);
     EXPECT_EQ(pop.Size(), 2);
 
-    pop.Died(test1);
+    pop.Died(test1, WorldTime(1LL, 0LL, 0LL, 0LL, 0LL));
     EXPECT_EQ(pop.Size(), 1);
 
-    pop.Died(test2);
+    pop.Died(test2, WorldTime(1LL, 0LL, 0LL, 0LL, 0LL));
     EXPECT_EQ(pop.Size(), 0);
 }
 
@@ -53,10 +53,10 @@ TEST(PopulationTest, DeadSize)
     pop.Add(test2);
     EXPECT_EQ(pop.DeadSize(), 0);
 
-    pop.Died(test1);
+    pop.Died(test1, WorldTime(1LL, 0LL, 0LL, 0LL, 0LL));
     EXPECT_EQ(pop.DeadSize(), 1);
 
-    pop.Died(test2);
+    pop.Died(test2, WorldTime(1LL, 0LL, 0LL, 0LL, 0LL));
     EXPECT_EQ(pop.DeadSize(), 2);
 }
 
@@ -75,15 +75,15 @@ TEST(PopulationTest, Died)
     EXPECT_EQ(pop.Size(), 2);
     EXPECT_EQ(pop.DeadSize(), 0);
 
-    pop.Died(test1);
+    pop.Died(test1, WorldTime(1LL, 0LL, 0LL, 0LL, 0LL));
     EXPECT_EQ(pop.Size(), 1);
     EXPECT_EQ(pop.DeadSize(), 1);
 
-    pop.Died(test3);
+    pop.Died(test3, WorldTime(1LL, 0LL, 0LL, 0LL, 0LL));
     EXPECT_EQ(pop.Size(), 1);
     EXPECT_EQ(pop.DeadSize(), 1);
 
-    pop.Died(test2);
+    pop.Died(test2, WorldTime(1LL, 0LL, 0LL, 0LL, 0LL));
     EXPECT_EQ(pop.Size(), 0);
     EXPECT_EQ(pop.DeadSize(), 2);
 }

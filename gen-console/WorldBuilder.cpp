@@ -55,4 +55,14 @@ void WorldBuilder::GenerateInitialPopulation()
     logger->Log(L"  Total=", stats.Total());
     logger->Log(L"  Males=", stats.Males());
     logger->Log(L"Females=", stats.Females());
+
+    while (population.Size() > 0)
+    {
+        WorldProperties::Properties()->AdvanceTime(TimeSpan(0LL, 1LL, 0LL, 0LL, 0LL));
+        if (WorldProperties::Properties()->Now().Days() == 1)
+        {
+            logger->Log(L"New year");
+        }
+        population.CheckDeaths();
+    }
 }
