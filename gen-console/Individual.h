@@ -53,7 +53,12 @@ public:
     TimeSpan Age() const;    
     TimeSpan MaximumAge() const;
 
+    RacePtr Race() const { return genome.GetRace(); }
     Sex Sex() const { return genome.GetSex(); }
+
+public:
+    bool IsMarried() const;
+    void Marry(const IndividualPtr& individual);
 
 private:
     friend class Population;
@@ -68,6 +73,8 @@ private:
     WorldTime born;
     WorldTime died;
     Genome genome;
+
+    IndividualPtr partner;
 /*
 * parents - mother, father (step parents over time?)
 * siblings - full (dna), half mother/father side (1/2 dna), step (no dna)

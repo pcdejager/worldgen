@@ -200,6 +200,7 @@
     <ClInclude Include="INameGenerator.h" />
     <ClInclude Include="Individual.h" />
     <ClInclude Include="IndividualName.h" />
+    <ClInclude Include="IPopulationFilter.h" />
     <ClInclude Include="IPopulationVisitor.h" />
     <ClInclude Include="Logger.h" />
     <ClInclude Include="Marry.h" />

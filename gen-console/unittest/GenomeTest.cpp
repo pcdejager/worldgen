@@ -89,7 +89,7 @@ TEST(GenomeTest, GetHeight_Male)
         AgeCategory::OldAdult, 
         AgeCategory::Elder };
 
-    std::vector<std::wstring> races = Races::GetRaces()->AllRaces();
+    std::vector<std::wstring> races = Races::GetRaces()->AllRaceNames();
     for (std::size_t raceCount = 0; raceCount < races.size(); ++raceCount)
     {
         auto race = Races::GetRaces()->FindRaceByName(races[raceCount]);
@@ -143,7 +143,7 @@ TEST(GenomeTest, GetHeight_Female)
         AgeCategory::OldAdult,
         AgeCategory::Elder };
 
-    std::vector<std::wstring> races = Races::GetRaces()->AllRaces();
+    std::vector<std::wstring> races = Races::GetRaces()->AllRaceNames();
     for (std::size_t raceCount = 0; raceCount < races.size(); ++raceCount)
     {
         auto race = Races::GetRaces()->FindRaceByName(races[raceCount]);
@@ -197,7 +197,7 @@ TEST(GenomeTest, GetWeight_Male)
         AgeCategory::OldAdult,
         AgeCategory::Elder };
 
-    std::vector<std::wstring> races = Races::GetRaces()->AllRaces();
+    std::vector<std::wstring> races = Races::GetRaces()->AllRaceNames();
     for (std::size_t raceCount = 0; raceCount < races.size(); ++raceCount)
     {
         auto race = Races::GetRaces()->FindRaceByName(races[raceCount]);
@@ -251,7 +251,7 @@ TEST(GenomeTest, GetWeight_Female)
         AgeCategory::OldAdult,
         AgeCategory::Elder };
 
-    std::vector<std::wstring> races = Races::GetRaces()->AllRaces();
+    std::vector<std::wstring> races = Races::GetRaces()->AllRaceNames();
     for (std::size_t raceCount = 0; raceCount < races.size(); ++raceCount)
     {
         auto race = Races::GetRaces()->FindRaceByName(races[raceCount]);
@@ -295,7 +295,7 @@ TEST(GenomeTest, MaximumAge)
     Genome test;
     Genes genes;
 
-    std::vector<std::wstring> races = Races::GetRaces()->AllRaces();
+    std::vector<std::wstring> races = Races::GetRaces()->AllRaceNames();
     for (std::size_t raceCount = 0; raceCount < races.size(); ++raceCount)
     {
         auto race = Races::GetRaces()->FindRaceByName(races[raceCount]);

@@ -17,10 +17,6 @@
       <Filter>External</Filter>
     </ClCompile>
     <ClCompile Include="ParentsTest.cpp" />
-    <ClCompile Include="..\Population.cpp">
-      <Filter>External</Filter>
-    </ClCompile>
-    <ClCompile Include="PopulationTest.cpp" />
     <ClCompile Include="TimeSpanTest.cpp">
       <Filter>DateTime</Filter>
     </ClCompile>
@@ -121,10 +117,6 @@
     <ClCompile Include="..\GeneGenerator.cpp">
       <Filter>External\Genes</Filter>
     </ClCompile>
-    <ClCompile Include="..\PopulationStatistics.cpp">
-      <Filter>External</Filter>
-    </ClCompile>
-    <ClCompile Include="PopulationStatisticsTest.cpp" />
     <ClCompile Include="TestUtils.cpp" />
     <ClCompile Include="..\Procreate.cpp">
       <Filter>External</Filter>
@@ -134,6 +126,18 @@
     </ClCompile>
     <ClCompile Include="MarryTest.cpp" />
     <ClCompile Include="ProcreateTest.cpp" />
+    <ClCompile Include="..\PopulationStatistics.cpp">
+      <Filter>External\Population</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Population.cpp">
+      <Filter>External\Population</Filter>
+    </ClCompile>
+    <ClCompile Include="PopulationStatisticsTest.cpp">
+      <Filter>Population</Filter>
+    </ClCompile>
+    <ClCompile Include="PopulationTest.cpp">
+      <Filter>Population</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h" />
@@ -166,6 +170,12 @@
     </Filter>
     <Filter Include="External\Types">
       <UniqueIdentifier>{e8d55244-0a6e-4275-bf60-67a0d0676de4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="External\Population">
+      <UniqueIdentifier>{b174d1b4-be34-4033-bc29-08b2bda774ca}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Population">
+      <UniqueIdentifier>{ec342673-d506-4e0f-9ed7-e09d15dd5495}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>

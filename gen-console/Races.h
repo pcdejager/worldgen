@@ -21,7 +21,9 @@ protected:
 
 public:
     std::size_t NumberOfRaces() const { return races.size(); }
-    std::vector<std::wstring> AllRaces() const;
+    std::vector<__int64> AllRaceIDs() const;
+    std::vector<std::wstring> AllRaceNames() const;
+    bool HasRace(const __int64 id) const;
     bool HasRace(const std::wstring& name) const;
     std::wstring FindRaceName(__int64 value) const;
     RacePtr FindRaceByGene(__int64 value) const;

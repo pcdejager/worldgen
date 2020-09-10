@@ -2,6 +2,9 @@
 
 #include <memory>
 
+class IPopulationFilter;
+class IPopulationVisitor;
+
 class Logger;
 typedef std::shared_ptr<Logger> LoggerPtr;
 

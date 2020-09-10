@@ -151,7 +151,7 @@ void Races::Initialize()
     //}
 }
 
-std::vector<std::wstring> Races::AllRaces() const
+std::vector<std::wstring> Races::AllRaceNames() const
 {
     std::vector<std::wstring> result;
     for (auto item : races)
@@ -159,6 +159,25 @@ std::vector<std::wstring> Races::AllRaces() const
         result.push_back(item.second->Name());
     }
     return result;
+}
+
+std::vector<__int64> Races::AllRaceIDs() const
+{
+    std::vector<__int64> result;
+    for (auto item : races)
+    {
+        result.push_back(item.second->ID());
+    }
+    return result;
+}
+
+bool Races::HasRace(const __int64 id) const
+{
+    if (races.find(id) != races.end())
+    {
+        return true;
+    }
+    return false;
 }
 
 bool Races::HasRace(const std::wstring& name) const

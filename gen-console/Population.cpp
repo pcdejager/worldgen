@@ -3,6 +3,7 @@
 #include "Individual.h"
 #include "Sex.h"
 #include "IPopulationVisitor.h"
+#include "IPopulationFilter.h"
 #include "WorldProperties.h"
 #include "Logger.h"
 
@@ -61,5 +62,16 @@ void Population::Visit(IPopulationVisitor* pVisitor)
     for (auto individual : population)
     {
         pVisitor->VisitIndividual(individual);
+    }
+}
+
+void Population::Visit(IPopulationVisitor* pVisitor, IPopulationFilter* pFilter)
+{
+    for (auto individual : population)
+    {
+        if (pFilter->Allow(individual))
+        {
+            pVisitor->VisitIndividual(individual);
+        }
     }
 }

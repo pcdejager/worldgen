@@ -13,9 +13,19 @@ TEST(RacesTest, NumberOfRaces)
     EXPECT_EQ(Races::GetRaces()->NumberOfRaces(), 3);
 }
 
-TEST(RacesTest, AllRaces)
+TEST(RacesTest, AllRaceNames)
 {
-    auto test = Races::GetRaces()->AllRaces();
+    auto test = Races::GetRaces()->AllRaceNames();
+    EXPECT_EQ(test.size(), 3u);
+    for (std::size_t count = 0; count < test.size(); ++count)
+    {
+        EXPECT_TRUE(Races::GetRaces()->HasRace(test[count]));
+    }
+}
+
+TEST(RacesTest, AllRaceIDs)
+{
+    auto test = Races::GetRaces()->AllRaceIDs();
     EXPECT_EQ(test.size(), 3u);
     for (std::size_t count = 0; count < test.size(); ++count)
     {

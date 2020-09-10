@@ -23,6 +23,7 @@ public:
 
 public:
     void Visit(IPopulationVisitor* pVisitor);
+    void Visit(IPopulationVisitor* pVisitor, IPopulationFilter* pFilter);
 
 private:
     std::set<IndividualPtr> population;

@@ -1,6 +1,7 @@
 #include "pch.h"
 #include "TestUtils.h"
 #include "..\GenePositions.h"
+#include "..\Race.h"
 
 // Races use 2 bits
 constexpr __int64 GeneTest_Race_Max = (1LL << static_cast<__int64>(GenePositions::Race().Size())) - 1LL;
@@ -12,6 +13,12 @@ constexpr __int64 GeneTest_Female = (1LL << static_cast<__int64>(GenePositions::
 /*static*/ __int64 TestUtils::RaceMaxNumber()
 {
     return GeneTest_Race_Max;
+}
+
+/*static*/ void TestUtils::SetGenes_Race(Genes& genes, const RacePtr& race)
+{
+    auto raceGene = race->Traits().gene.Value(0);
+    genes.SetGenes(GenePositions::Race(), raceGene);
 }
 
 /*static*/ void TestUtils::SetGenes_MaleFertile(Genes& genes)

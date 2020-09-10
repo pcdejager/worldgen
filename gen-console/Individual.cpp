@@ -11,6 +11,7 @@ Individual::Individual()
     , born(WorldTime())
     , died(WorldTime())
     , genome()
+    , partner(nullptr)
 {
     ;
 }
@@ -66,6 +67,16 @@ TimeSpan Individual::Age() const
 TimeSpan Individual::MaximumAge() const
 {
     return genome.MaximumAge();
+}
+
+bool Individual::IsMarried() const
+{
+    return (partner != nullptr);
+}
+
+void Individual::Marry(const IndividualPtr& individual)
+{
+    partner = individual;
 }
 
 void Individual::IndividualDied(const WorldTime& time)

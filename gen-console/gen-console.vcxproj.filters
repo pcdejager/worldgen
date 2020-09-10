@@ -40,6 +40,12 @@
     <Filter Include="Source Files\Types">
       <UniqueIdentifier>{5be75ad5-1d80-471a-8ec9-0caa691b7ac0}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Population">
+      <UniqueIdentifier>{37ba1a96-bc18-4242-b07e-cd190b9bd30e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Population">
+      <UniqueIdentifier>{4293f368-2d58-4595-9547-a77dda2512da}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="gen-console.cpp">
@@ -68,9 +74,6 @@
     </ClCompile>
     <ClCompile Include="NumberNameGenerator.cpp">
       <Filter>Source Files\Naming</Filter>
-    </ClCompile>
-    <ClCompile Include="Population.cpp">
-      <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="IndividualName.cpp">
       <Filter>Source Files\Naming</Filter>
@@ -120,14 +123,17 @@
     <ClCompile Include="Logger.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="PopulationStatistics.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Procreate.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Marry.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="PopulationStatistics.cpp">
+      <Filter>Source Files\Population</Filter>
+    </ClCompile>
+    <ClCompile Include="Population.cpp">
+      <Filter>Source Files\Population</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -160,9 +166,6 @@
     </ClInclude>
     <ClInclude Include="INameGenerator.h">
       <Filter>Header Files\Naming</Filter>
-    </ClInclude>
-    <ClInclude Include="Population.h">
-      <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="IndividualName.h">
       <Filter>Header Files\Naming</Filter>
@@ -224,17 +227,23 @@
     <ClInclude Include="Logger.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="PopulationStatistics.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="IPopulationVisitor.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Procreate.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Marry.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="IPopulationFilter.h">
+      <Filter>Header Files\Population</Filter>
+    </ClInclude>
+    <ClInclude Include="IPopulationVisitor.h">
+      <Filter>Header Files\Population</Filter>
+    </ClInclude>
+    <ClInclude Include="Population.h">
+      <Filter>Header Files\Population</Filter>
+    </ClInclude>
+    <ClInclude Include="PopulationStatistics.h">
+      <Filter>Header Files\Population</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
