@@ -117,6 +117,12 @@ public:
 	bool Negative() const;
 
 	/// <summary>
+	/// Is the duration zero?
+	/// </summary>
+	/// <returns>True if duration is zeroi, else false</returns>
+	bool IsZero() const { return span == 0ULL; }
+
+	/// <summary>
 	/// Get the total number of seconds in the duration
 	/// </summary>
 	/// <returns>Number of seconds</returns>

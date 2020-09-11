@@ -8,8 +8,7 @@ PopulationStatistics::PopulationStatistics()
     : total(0ULL)
     , males(0ULL)
     , females(0ULL)
-    , maleRace()
-    , femaleRace()
+    , raceStatistics()
 {
     SetupContainers();
 }
@@ -19,27 +18,26 @@ void PopulationStatistics::Reset()
     total = 0ULL;
     males = 0ULL;
     females = 0ULL;
-    maleRace.clear();
-    femaleRace.clear();
+    raceStatistics.clear();
     SetupContainers();
 }
 
 unsigned __int64 PopulationStatistics::MalesOfRace(__int64 raceID) const
 {
-    auto find = maleRace.find(raceID);
-    if (find != maleRace.end())
+    auto find = raceStatistics.find(raceID);
+    if (find != raceStatistics.end())
     {
-        return find->second;
+        return find->second.sex.males;
     }
     return 0ULL;
 }
 
 unsigned __int64 PopulationStatistics::FemalesOfRace(__int64 raceID) const
 {
-    auto find = femaleRace.find(raceID);
-    if (find != femaleRace.end())
+    auto find = raceStatistics.find(raceID);
+    if (find != raceStatistics.end())
     {
-        return find->second;
+        return find->second.sex.females;
     }
     return 0ULL;
 }
@@ -47,16 +45,20 @@ unsigned __int64 PopulationStatistics::FemalesOfRace(__int64 raceID) const
 void PopulationStatistics::VisitIndividual(const IndividualPtr& individual)
 {
     ++total;
-    auto race = individual->Race();
+    RacePtr race = individual->Race();
+    AgeCategory ageCategory = individual->AgeCategory();
+    __int64 raceID = race->ID();
     if (individual->Sex().IsFemale())
     {
         ++females;
-        femaleRace[race->ID()] += 1ULL;
+        raceStatistics[raceID].sex.females += 1ULL;
+        raceStatistics[raceID].perAge[ageCategory].females += 1ULL;
     }
     if (individual->Sex().IsMale())
     {
         ++males;
-        maleRace[race->ID()] += 1ULL;
+        raceStatistics[raceID].sex.males += 1ULL;
+        raceStatistics[raceID].perAge[ageCategory].males += 1ULL;
     }
 }
 
@@ -66,7 +68,17 @@ void PopulationStatistics::SetupContainers()
     auto ids = races->AllRaceIDs();
     for (__int64 id : ids)
     {
-        maleRace.insert(std::make_pair(id, 0ULL));
-        femaleRace.insert(std::make_pair(id, 0ULL));
+        RaceStatistics raceStats;
+        raceStats.sex.females = 0ULL;
+        raceStats.sex.males = 0ULL;
+        auto categories = AgeCategoryUtils::AliveCategories();
+        for (AgeCategory category : categories)
+        {
+            SexStatistics sex;
+            sex.females = 0ULL;
+            sex.males = 0ULL;
+            raceStats.perAge.insert(std::make_pair(category, sex));
+        }
+        raceStatistics.insert(std::make_pair(id, raceStats));
     }
 }

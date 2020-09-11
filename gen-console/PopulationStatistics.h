@@ -1,6 +1,8 @@
 #pragma once
 
 #include "IPopulationVisitor.h"
+#include "Types.h"
+#include "AgeCategory.h"
 
 class PopulationStatistics : public IPopulationVisitor
 {
@@ -25,10 +27,20 @@ private:
     void SetupContainers();
 
 private:
+    struct SexStatistics
+    {
+        unsigned __int64 males;
+        unsigned __int64 females;
+    };
+    struct RaceStatistics
+    {
+        SexStatistics sex;
+        std::map<AgeCategory, SexStatistics> perAge;
+    };
+private:
     unsigned __int64 total;
     unsigned __int64 males;
     unsigned __int64 females;
-    std::map<__int64, unsigned __int64> maleRace;
-    std::map<__int64, unsigned __int64> femaleRace;
+    std::map<__int64, RaceStatistics> raceStatistics;
 };
 

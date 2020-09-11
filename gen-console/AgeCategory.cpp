@@ -34,3 +34,19 @@
         return AgeCategory::Dead;
     }
 }
+
+/*static*/ std::vector<AgeCategory> AgeCategoryUtils::AliveCategories()
+{
+    std::vector<AgeCategory> result =
+    {
+        AgeCategory::NewBorn,
+        AgeCategory::Toddler,
+        AgeCategory::Child,
+        AgeCategory::Teenager,
+        AgeCategory::YoungAdult,
+        AgeCategory::Adult,
+        AgeCategory::OldAdult,
+        AgeCategory::Elder
+    };
+    return result;
+}

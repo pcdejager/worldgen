@@ -11,5 +11,6 @@ private:
 public:
     static AgeCategory CategoryBefore(AgeCategory age);
     static AgeCategory CategoryAfter(AgeCategory age);
+    static std::vector<AgeCategory> AliveCategories();
 };
 

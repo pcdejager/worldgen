@@ -238,6 +238,22 @@ TEST(TimeSpanTest, Negative_negative)
 	EXPECT_TRUE(test.Negative());
 }
 
+TEST(TimeSpanTest, IsZero)
+{
+	TimeSpan test1(0LL, 0LL, 0LL, 0LL, 0LL);
+	__int64 years = 8LL;
+	__int64 days = 9LL;
+	__int64 hours = 10LL;
+	__int64 minutes = 11LL;
+	__int64 seconds = 12LL;
+	TimeSpan test2(years, days, hours, minutes, seconds, true);
+	TimeSpan test3;
+
+	EXPECT_TRUE(test1.IsZero());
+	EXPECT_FALSE(test2.IsZero());
+	EXPECT_TRUE(test3.IsZero());
+}
+
 TEST(TimeSpanTest, TotalSeconds_positive)
 {
 	__int64 years = 8LL;

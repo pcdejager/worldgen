@@ -6,6 +6,7 @@
 #include "Genome.h"
 #include "Genes.h"
 #include "Sex.h"
+#include "AgeCategory.h"
 
 class Individual
 {
@@ -52,6 +53,7 @@ public:
     /// <returns>Age of the individual</returns>
     TimeSpan Age() const;    
     TimeSpan MaximumAge() const;
+    AgeCategory AgeCategory() const;
 
     RacePtr Race() const { return genome.GetRace(); }
     Sex Sex() const { return genome.GetSex(); }

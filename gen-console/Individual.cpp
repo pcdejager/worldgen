@@ -2,6 +2,9 @@
 #include "Individual.h"
 #include "WorldProperties.h"
 #include "INameGenerator.h"
+#include "AgeCategory.h"
+#include "Race.h"
+#include "AgeTraits.h"
 
 /*static*/ IndividualPtr Individual::NullIndividual = nullptr;
 
@@ -67,6 +70,22 @@ TimeSpan Individual::Age() const
 TimeSpan Individual::MaximumAge() const
 {
     return genome.MaximumAge();
+}
+
+AgeCategory Individual::AgeCategory() const
+{
+    if (!IsAlive())
+    {
+        return AgeCategory::Dead;
+    }
+    TimeSpan age = Age();
+    if (age.IsZero())
+    {
+        return AgeCategory::Dead;
+    }
+    RacePtr race = Race();
+    AgeTraitsPtr ageTraits = race->Traits().ageRanges;
+    return ageTraits->Categorize(age);
 }
 
 bool Individual::IsMarried() const
