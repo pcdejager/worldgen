@@ -15,5 +15,7 @@ public:
     static void SetGenes_MaleInfertile(Genes& genes);
     static void SetGenes_FemaleFertile(Genes& genes);
     static void SetGenes_FemaleInfertile(Genes& genes);
+
+    static void SetGenes_MaximumLife(Genes& genes, double value);
 };
 

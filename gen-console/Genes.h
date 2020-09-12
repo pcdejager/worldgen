@@ -6,9 +6,11 @@ class Genes
 {
 public:
     Genes();
-    Genes(const Genes& rhs) = default;
-    ~Genes() = default;
-    Genes& operator=(const Genes& rhs) = default;
+    Genes(const Genes& rhs);
+    Genes(Genes&& rhs) noexcept;
+    ~Genes();
+    Genes& operator=(const Genes& rhs);
+    Genes& operator=(Genes&& rhs);
 
 public:
     std::size_t End() const;
@@ -25,7 +27,7 @@ public:
     bool operator!=(const Genes& rhs) const;
 
 private:
-    void Initialize() noexcept;
+    void Initialize(unsigned char* genes) noexcept;
 
 private:
     unsigned char* genes;

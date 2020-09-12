@@ -44,3 +44,8 @@ constexpr __int64 GeneTest_Female = (1LL << static_cast<__int64>(GenePositions::
     genes.SetGenes(GenePositions::Sex(), GeneTest_Female);
     genes.SetGenes(GenePositions::Fertility(), 0.0);
 }
+
+/*static*/ void TestUtils::SetGenes_MaximumLife(Genes& genes, double value)
+{
+    genes.SetGenes(GenePositions::MaximumLife(), value);
+}

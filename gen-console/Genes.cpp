@@ -5,7 +5,54 @@
 
 Genes::Genes()
 {
-    Initialize();
+    Initialize(nullptr);
+}
+
+Genes::Genes(const Genes& rhs)
+{
+    Initialize(rhs.genes);
+}
+
+Genes::Genes(Genes&& rhs) noexcept
+{
+    genes = rhs.genes;
+    rhs.genes = nullptr;
+}
+
+Genes::~Genes()
+{
+    if (genes != nullptr)
+    {
+        delete[] genes;
+        genes = nullptr;
+    }
+}
+
+Genes& Genes::operator=(const Genes& rhs)
+{
+    if (this != &rhs)
+    {
+        for (std::size_t count = 0; count < NumberOfBytes; ++count)
+        {
+            genes[count] = rhs.genes[count];
+        }
+    }
+    return *this;
+}
+
+Genes& Genes::operator=(Genes&& rhs)
+{
+    if (this != &rhs)
+    {
+        if (genes != nullptr)
+        {
+            delete[] genes;
+            genes = nullptr;
+        }
+        genes = rhs.genes;
+        rhs.genes = nullptr;
+    }
+    return *this;
 }
 
 std::size_t Genes::End() const
@@ -125,12 +172,22 @@ bool Genes::operator!=(const Genes& rhs) const
     return !(*this == rhs);
 }
 
-void Genes::Initialize() noexcept
+void Genes::Initialize(unsigned char* from) noexcept
 {
     genes = new unsigned char[NumberOfBytes];
-    for (std::size_t count = 0; count < NumberOfBytes; ++count)
+    if (from == nullptr)
     {
-        genes[count] = 0;
+        for (std::size_t count = 0; count < NumberOfBytes; ++count)
+        {
+            genes[count] = 0;
+        }
+    }
+    else
+    {
+        for (std::size_t count = 0; count < NumberOfBytes; ++count)
+        {
+            genes[count] = from[count];
+        }
     }
 }
 

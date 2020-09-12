@@ -1,5 +1,7 @@
 #pragma once
 
+// Need to add unborn category!
+
 enum class AgeCategory { NewBorn, Toddler, Child, Teenager, YoungAdult, Adult, OldAdult, Elder, Dead };
 
 class AgeCategoryUtils

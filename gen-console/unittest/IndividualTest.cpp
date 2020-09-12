@@ -4,6 +4,10 @@
 #include "..\Population.h"
 #include "..\WorldTime.h"
 #include "..\WorldProperties.h"
+#include "..\Race.h"
+#include "..\Races.h"
+#include "..\AgeTraits.h"
+#include "TestUtils.h"
 
 TEST(IndividualTest, Constructor)
 {
@@ -162,3 +166,87 @@ TEST(IndividualTest, Age_dead)
     EXPECT_TRUE(test->IsValid());
 }
 
+TEST(IndividualTest, MaximumAge)
+{
+    RacePtr race = Races::GetRaces()->FindRaceByName(L"Human");
+
+    TimeSpan min = race->Traits().ageRanges->AgeStart(AgeCategory::Elder);
+    TimeSpan max = race->Traits().ageRanges->AgeStart(AgeCategory::Dead);
+
+    Genes genes;
+    TestUtils::SetGenes_Race(genes, race);
+    TestUtils::SetGenes_MaleFertile(genes);
+
+    TestUtils::SetGenes_MaximumLife(genes, 0.0);
+    Individual test1(Parents::CreateNoParents(), genes);
+
+    TestUtils::SetGenes_MaximumLife(genes, 1.0);
+    Individual test2(Parents::CreateNoParents(), genes);
+
+    std::wcout << L"v = " << test2.MaximumAge().Ticks() << std::endl;
+    std::wcout << L"m = " << max.Ticks() << std::endl;
+    EXPECT_EQ(test1.MaximumAge(), min);
+    EXPECT_EQ(test2.MaximumAge(), max);
+}
+
+TEST(IndividualTest, AgeCategory)
+{
+    RacePtr race = Races::GetRaces()->FindRaceByName(L"Human");
+
+    Genes genes;
+    TestUtils::SetGenes_Race(genes, race);
+    TestUtils::SetGenes_MaleFertile(genes);
+    TestUtils::SetGenes_MaximumLife(genes, 0.0);
+    Individual test(Parents::CreateNoParents(), genes);
+
+    WorldProperties::Properties()->ResetTime();
+    WorldProperties::Properties()->AdvanceTime(TimeSpan(1LL, 0LL, 0LL, 0LL, 0LL));
+    EXPECT_EQ(test.AgeCategory(), AgeCategory::NewBorn);
+
+    WorldProperties::Properties()->ResetTime();
+    WorldProperties::Properties()->AdvanceTime(race->Traits().ageRanges->AgeStart(AgeCategory::Toddler));
+    WorldProperties::Properties()->AdvanceTime(TimeSpan(1LL, 0LL, 0LL, 0LL, 0LL));
+    EXPECT_EQ(test.AgeCategory(), AgeCategory::Toddler);
+
+    WorldProperties::Properties()->ResetTime();
+    WorldProperties::Properties()->AdvanceTime(race->Traits().ageRanges->AgeStart(AgeCategory::Child));
+    WorldProperties::Properties()->AdvanceTime(TimeSpan(1LL, 0LL, 0LL, 0LL, 0LL));
+    EXPECT_EQ(test.AgeCategory(), AgeCategory::Child);
+}
+
+TEST(IndividualTest, Race)
+{
+    RacePtr race1 = Races::GetRaces()->FindRaceByName(L"Human");
+    RacePtr race2 = Races::GetRaces()->FindRaceByName(L"Elf");
+
+    Genes genes;
+    TestUtils::SetGenes_Race(genes, race1);
+    TestUtils::SetGenes_MaleFertile(genes);
+
+    Individual test1(Parents::CreateNoParents(), genes);
+
+    TestUtils::SetGenes_Race(genes, race2);
+    Individual test2(Parents::CreateNoParents(), genes);
+
+    EXPECT_EQ(test1.Race(), race1);
+    EXPECT_EQ(test2.Race(), race2);
+}
+
+TEST(IndividualTest, Sex)
+{
+    RacePtr race1 = Races::GetRaces()->FindRaceByName(L"Human");
+    RacePtr race2 = Races::GetRaces()->FindRaceByName(L"Elf");
+
+    Genes genes;
+    TestUtils::SetGenes_Race(genes, race1);
+    TestUtils::SetGenes_MaleFertile(genes);
+
+    Individual test1(Parents::CreateNoParents(), genes);
+
+    TestUtils::SetGenes_Race(genes, race2);
+    TestUtils::SetGenes_FemaleFertile(genes);
+    Individual test2(Parents::CreateNoParents(), genes);
+
+    EXPECT_TRUE(test1.Sex().IsMale());
+    EXPECT_TRUE(test2.Sex().IsFemale());
+}

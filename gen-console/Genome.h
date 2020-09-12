@@ -32,6 +32,5 @@ public:
     
 private:
     Genes genes;
-
 };
 
