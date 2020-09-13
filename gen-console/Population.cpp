@@ -75,3 +75,16 @@ void Population::Visit(IPopulationVisitor* pVisitor, IPopulationFilter* pFilter)
         }
     }
 }
+
+std::vector<IndividualPtr> Population::Filter(IPopulationFilter* pFilter)
+{
+    std::vector<IndividualPtr> result;
+    for (auto individual : population)
+    {
+        if (pFilter->Allow(individual))
+        {
+            result.push_back(individual);
+        }
+    }
+    return result;
+}

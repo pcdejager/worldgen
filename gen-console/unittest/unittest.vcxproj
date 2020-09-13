@@ -54,6 +54,9 @@
     <ClCompile Include="..\NumberNameGenerator.cpp" />
     <ClCompile Include="..\Parents.cpp" />
     <ClCompile Include="..\Population.cpp" />
+    <ClCompile Include="..\PopulationCompositeFilter.cpp" />
+    <ClCompile Include="..\PopulationFertileFilter.cpp" />
+    <ClCompile Include="..\PopulationSexFilter.cpp" />
     <ClCompile Include="..\PopulationStatistics.cpp" />
     <ClCompile Include="..\Procreate.cpp" />
     <ClCompile Include="..\Race.cpp" />

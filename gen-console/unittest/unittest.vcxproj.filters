@@ -138,6 +138,15 @@
     <ClCompile Include="PopulationTest.cpp">
       <Filter>Population</Filter>
     </ClCompile>
+    <ClCompile Include="..\PopulationSexFilter.cpp">
+      <Filter>Population\Filters</Filter>
+    </ClCompile>
+    <ClCompile Include="..\PopulationFertileFilter.cpp">
+      <Filter>Population\Filters</Filter>
+    </ClCompile>
+    <ClCompile Include="..\PopulationCompositeFilter.cpp">
+      <Filter>Population\Filters</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h" />
@@ -176,6 +185,9 @@
     </Filter>
     <Filter Include="Population">
       <UniqueIdentifier>{ec342673-d506-4e0f-9ed7-e09d15dd5495}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Population\Filters">
+      <UniqueIdentifier>{9afc804c-c557-41d4-a260-1bd8f596c3ff}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>

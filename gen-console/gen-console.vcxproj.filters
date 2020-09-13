@@ -46,6 +46,12 @@
     <Filter Include="Source Files\Population">
       <UniqueIdentifier>{4293f368-2d58-4595-9547-a77dda2512da}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Population\Filters">
+      <UniqueIdentifier>{54a5a474-bff4-4f4c-9116-24c270d17225}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Population\Filters">
+      <UniqueIdentifier>{596be2e8-5529-4c8c-9314-5240f7dd3ce3}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="gen-console.cpp">
@@ -134,6 +140,15 @@
     </ClCompile>
     <ClCompile Include="Population.cpp">
       <Filter>Source Files\Population</Filter>
+    </ClCompile>
+    <ClCompile Include="PopulationFertileFilter.cpp">
+      <Filter>Source Files\Population\Filters</Filter>
+    </ClCompile>
+    <ClCompile Include="PopulationSexFilter.cpp">
+      <Filter>Source Files\Population\Filters</Filter>
+    </ClCompile>
+    <ClCompile Include="PopulationCompositeFilter.cpp">
+      <Filter>Source Files\Population\Filters</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -233,9 +248,6 @@
     <ClInclude Include="Marry.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="IPopulationFilter.h">
-      <Filter>Header Files\Population</Filter>
-    </ClInclude>
     <ClInclude Include="IPopulationVisitor.h">
       <Filter>Header Files\Population</Filter>
     </ClInclude>
@@ -244,6 +256,18 @@
     </ClInclude>
     <ClInclude Include="PopulationStatistics.h">
       <Filter>Header Files\Population</Filter>
+    </ClInclude>
+    <ClInclude Include="IPopulationFilter.h">
+      <Filter>Header Files\Population\Filters</Filter>
+    </ClInclude>
+    <ClInclude Include="PopulationCompositeFilter.h">
+      <Filter>Header Files\Population\Filters</Filter>
+    </ClInclude>
+    <ClInclude Include="PopulationFertileFilter.h">
+      <Filter>Header Files\Population\Filters</Filter>
+    </ClInclude>
+    <ClInclude Include="PopulationSexFilter.h">
+      <Filter>Header Files\Population\Filters</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
