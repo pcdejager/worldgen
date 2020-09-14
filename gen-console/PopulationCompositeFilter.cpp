@@ -1,5 +1,6 @@
 #include "pch.h"
 #include "PopulationCompositeFilter.h"
+#include "Individual.h"
 
 PopulationCompositeFilter::PopulationCompositeFilter()
     : filters()
@@ -12,7 +13,7 @@ PopulationCompositeFilter::~PopulationCompositeFilter()
     ;
 }
 
-bool PopulationCompositeFilter::Allow(const IndividualPtr& individual)
+bool PopulationCompositeFilter::Allow(Individual* individual)
 {
     for (auto filter : filters)
     {

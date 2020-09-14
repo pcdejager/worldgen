@@ -42,7 +42,7 @@ unsigned __int64 PopulationStatistics::FemalesOfRace(__int64 raceID) const
     return 0ULL;
 }
 
-void PopulationStatistics::VisitIndividual(const IndividualPtr& individual)
+void PopulationStatistics::VisitIndividual(Individual* individual)
 {
     ++total;
     RacePtr race = individual->Race();

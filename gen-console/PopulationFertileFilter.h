@@ -1,6 +1,5 @@
 #pragma once
 
-#include "Types.h"
 #include "IPopulationFilter.h"
 
 class PopulationFertileFilter : public IPopulationFilter
@@ -11,7 +10,12 @@ public:
 
 // IPopulationFilter
 public:
-    virtual bool Allow(const IndividualPtr& individual);
+    virtual bool Allow(Individual* individual);
+
+#ifdef UNITTEST
+public:
+    bool Fertile() const { return fertile; }
+#endif
 
 private:
     bool fertile;

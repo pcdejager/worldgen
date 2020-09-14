@@ -13,7 +13,7 @@ PopulationFertileFilter::~PopulationFertileFilter()
     ;
 }
 
-bool PopulationFertileFilter::Allow(const IndividualPtr& individual)
+bool PopulationFertileFilter::Allow(Individual* individual)
 {
     Sex sex = individual->Sex();
     if (sex.IsFertile() == fertile)

@@ -17,5 +17,7 @@ public:
     static void SetGenes_FemaleInfertile(Genes& genes);
 
     static void SetGenes_MaximumLife(Genes& genes, double value);
+
+    static IndividualPtr CreateIndividual(const std::wstring& raceName, bool male, bool fertile);
 };
 

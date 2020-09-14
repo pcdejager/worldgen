@@ -32,7 +32,7 @@ TEST(PopulationstatisticsTest, Visit)
     EXPECT_EQ(stats.FemalesOfRace(human->ID()), 0ULL);
     EXPECT_EQ(stats.MalesOfRace(elf->ID()), 0ULL);
     EXPECT_EQ(stats.FemalesOfRace(elf->ID()), 0ULL);
-    stats.VisitIndividual(test1);
+    stats.VisitIndividual(test1.get());
     EXPECT_EQ(stats.Total(), 1ULL);
     EXPECT_EQ(stats.Males(), 0ULL);
     EXPECT_EQ(stats.Females(), 1ULL);
@@ -40,7 +40,7 @@ TEST(PopulationstatisticsTest, Visit)
     EXPECT_EQ(stats.FemalesOfRace(human->ID()), 1ULL);
     EXPECT_EQ(stats.MalesOfRace(elf->ID()), 0ULL);
     EXPECT_EQ(stats.FemalesOfRace(elf->ID()), 0ULL);
-    stats.VisitIndividual(test1);
+    stats.VisitIndividual(test1.get());
     EXPECT_EQ(stats.Total(), 2ULL);
     EXPECT_EQ(stats.Males(), 0ULL);
     EXPECT_EQ(stats.Females(), 2ULL);
@@ -48,7 +48,7 @@ TEST(PopulationstatisticsTest, Visit)
     EXPECT_EQ(stats.FemalesOfRace(human->ID()), 2ULL);
     EXPECT_EQ(stats.MalesOfRace(elf->ID()), 0ULL);
     EXPECT_EQ(stats.FemalesOfRace(elf->ID()), 0ULL);
-    stats.VisitIndividual(test2);
+    stats.VisitIndividual(test2.get());
     EXPECT_EQ(stats.Total(), 3ULL);
     EXPECT_EQ(stats.Males(), 1ULL);
     EXPECT_EQ(stats.Females(), 2ULL);

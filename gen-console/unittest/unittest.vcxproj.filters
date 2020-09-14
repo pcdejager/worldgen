@@ -139,12 +139,18 @@
       <Filter>Population</Filter>
     </ClCompile>
     <ClCompile Include="..\PopulationSexFilter.cpp">
-      <Filter>Population\Filters</Filter>
+      <Filter>External\Population\Filters</Filter>
     </ClCompile>
     <ClCompile Include="..\PopulationFertileFilter.cpp">
-      <Filter>Population\Filters</Filter>
+      <Filter>External\Population\Filters</Filter>
     </ClCompile>
     <ClCompile Include="..\PopulationCompositeFilter.cpp">
+      <Filter>External\Population\Filters</Filter>
+    </ClCompile>
+    <ClCompile Include="PopulationSexFilterTest.cpp">
+      <Filter>Population\Filters</Filter>
+    </ClCompile>
+    <ClCompile Include="PopulationFertileFilterTest.cpp">
       <Filter>Population\Filters</Filter>
     </ClCompile>
   </ItemGroup>
@@ -186,8 +192,11 @@
     <Filter Include="Population">
       <UniqueIdentifier>{ec342673-d506-4e0f-9ed7-e09d15dd5495}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Population\Filters">
+    <Filter Include="External\Population\Filters">
       <UniqueIdentifier>{9afc804c-c557-41d4-a260-1bd8f596c3ff}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Population\Filters">
+      <UniqueIdentifier>{0bc99bda-7dbd-41ad-94b9-2c78ba8e97b2}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>

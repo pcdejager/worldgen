@@ -21,7 +21,7 @@ public:
     unsigned __int64 FemalesOfRace(__int64 raceID) const;
 
 public:
-    virtual void VisitIndividual(const IndividualPtr& individual);
+    virtual void VisitIndividual(Individual* individual);
 
 private:
     void SetupContainers();

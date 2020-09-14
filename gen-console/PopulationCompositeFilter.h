@@ -1,6 +1,5 @@
 #pragma once
 
-#include "Types.h"
 #include "IPopulationFilter.h"
 
 class PopulationCompositeFilter : public IPopulationFilter
@@ -11,7 +10,7 @@ public:
 
 // IPopulationFilter
 public:
-    virtual bool Allow(const IndividualPtr& individual);
+    virtual bool Allow(Individual* individual);
 
 public:
     void AddFilter(const IPopulationFilterPtr& newFilter);

@@ -1,6 +1,6 @@
 #pragma once
 
-#include "Types.h"
+class Individual;
 
 class IPopulationVisitor
 {
@@ -11,5 +11,5 @@ public:
     virtual ~IPopulationVisitor() = default;
 
 public:
-    virtual void VisitIndividual(const IndividualPtr& individual) = 0;
+    virtual void VisitIndividual(Individual* individual) = 0;
 };
