@@ -81,6 +81,7 @@
     <ClCompile Include="MultiPointValueTest.cpp" />
     <ClCompile Include="NumberNameGeneratorTest.cpp" />
     <ClCompile Include="ParentsTest.cpp" />
+    <ClCompile Include="PopulationCompositeFilterTest.cpp" />
     <ClCompile Include="PopulationFertileFilterTest.cpp" />
     <ClCompile Include="PopulationSexFilterTest.cpp" />
     <ClCompile Include="PopulationStatisticsTest.cpp" />

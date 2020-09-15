@@ -15,6 +15,11 @@ public:
 public:
     void AddFilter(const IPopulationFilterPtr& newFilter);
 
+#ifdef UNITTEST
+public:
+    std::vector<IPopulationFilterPtr>& Filters() { return filters; }
+#endif
+
 private:
     std::vector<IPopulationFilterPtr> filters;
 
