@@ -150,6 +150,9 @@
     <ClCompile Include="PopulationCompositeFilter.cpp">
       <Filter>Source Files\Population\Filters</Filter>
     </ClCompile>
+    <ClCompile Include="PopulationAgeCategoryFilter.cpp">
+      <Filter>Source Files\Population\Filters</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="WorldBuilder.h">
@@ -267,6 +270,9 @@
       <Filter>Header Files\Population\Filters</Filter>
     </ClInclude>
     <ClInclude Include="PopulationSexFilter.h">
+      <Filter>Header Files\Population\Filters</Filter>
+    </ClInclude>
+    <ClInclude Include="PopulationAgeCategoryFilter.h">
       <Filter>Header Files\Population\Filters</Filter>
     </ClInclude>
   </ItemGroup>

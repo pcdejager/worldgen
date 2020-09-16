@@ -175,6 +175,7 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="Population.cpp" />
+    <ClCompile Include="PopulationAgeCategoryFilter.cpp" />
     <ClCompile Include="PopulationCompositeFilter.cpp" />
     <ClCompile Include="PopulationFertileFilter.cpp" />
     <ClCompile Include="PopulationSexFilter.cpp" />
@@ -212,6 +213,7 @@
     <ClInclude Include="NumberNameGenerator.h" />
     <ClInclude Include="Parents.h" />
     <ClInclude Include="Population.h" />
+    <ClInclude Include="PopulationAgeCategoryFilter.h" />
     <ClInclude Include="PopulationCompositeFilter.h" />
     <ClInclude Include="PopulationFertileFilter.h" />
     <ClInclude Include="PopulationSexFilter.h" />
