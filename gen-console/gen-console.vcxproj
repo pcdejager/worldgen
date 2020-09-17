@@ -178,6 +178,7 @@
     <ClCompile Include="PopulationAgeCategoryFilter.cpp" />
     <ClCompile Include="PopulationCompositeFilter.cpp" />
     <ClCompile Include="PopulationFertileFilter.cpp" />
+    <ClCompile Include="PopulationFilterFactory.cpp" />
     <ClCompile Include="PopulationSexFilter.cpp" />
     <ClCompile Include="PopulationStatistics.cpp" />
     <ClCompile Include="Procreate.cpp" />
@@ -216,6 +217,7 @@
     <ClInclude Include="PopulationAgeCategoryFilter.h" />
     <ClInclude Include="PopulationCompositeFilter.h" />
     <ClInclude Include="PopulationFertileFilter.h" />
+    <ClInclude Include="PopulationFilterFactory.h" />
     <ClInclude Include="PopulationSexFilter.h" />
     <ClInclude Include="PopulationStatistics.h" />
     <ClInclude Include="Procreate.h" />

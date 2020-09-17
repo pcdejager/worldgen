@@ -26,3 +26,31 @@ TEST(AgeCategoryTest, CategoryAfter)
     EXPECT_EQ(AgeCategory::Dead, AgeCategoryUtils::CategoryAfter(AgeCategory::Elder));
     EXPECT_EQ(AgeCategory::Dead, AgeCategoryUtils::CategoryAfter(AgeCategory::Dead));
 }
+
+TEST(AgeCategoryTest, AliveCategories)
+{
+    auto alive = AgeCategoryUtils::AliveCategories();
+    EXPECT_TRUE(std::find(alive.begin(), alive.end(), AgeCategory::NewBorn) != alive.end());
+    EXPECT_TRUE(std::find(alive.begin(), alive.end(), AgeCategory::Toddler) != alive.end());
+    EXPECT_TRUE(std::find(alive.begin(), alive.end(), AgeCategory::Child) != alive.end());
+    EXPECT_TRUE(std::find(alive.begin(), alive.end(), AgeCategory::Teenager) != alive.end());
+    EXPECT_TRUE(std::find(alive.begin(), alive.end(), AgeCategory::YoungAdult) != alive.end());
+    EXPECT_TRUE(std::find(alive.begin(), alive.end(), AgeCategory::Adult) != alive.end());
+    EXPECT_TRUE(std::find(alive.begin(), alive.end(), AgeCategory::OldAdult) != alive.end());
+    EXPECT_TRUE(std::find(alive.begin(), alive.end(), AgeCategory::Elder) != alive.end());
+    EXPECT_FALSE(std::find(alive.begin(), alive.end(), AgeCategory::Dead) != alive.end());
+}
+
+TEST(AgeCategoryTest, MarryCategories)
+{
+    auto marry = AgeCategoryUtils::MarryCategories();
+    EXPECT_FALSE(std::find(marry.begin(), marry.end(), AgeCategory::NewBorn) != marry.end());
+    EXPECT_FALSE(std::find(marry.begin(), marry.end(), AgeCategory::Toddler) != marry.end());
+    EXPECT_FALSE(std::find(marry.begin(), marry.end(), AgeCategory::Child) != marry.end());
+    EXPECT_FALSE(std::find(marry.begin(), marry.end(), AgeCategory::Teenager) != marry.end());
+    EXPECT_TRUE(std::find(marry.begin(), marry.end(), AgeCategory::YoungAdult) != marry.end());
+    EXPECT_TRUE(std::find(marry.begin(), marry.end(), AgeCategory::Adult) != marry.end());
+    EXPECT_TRUE(std::find(marry.begin(), marry.end(), AgeCategory::OldAdult) != marry.end());
+    EXPECT_TRUE(std::find(marry.begin(), marry.end(), AgeCategory::Elder) != marry.end());
+    EXPECT_FALSE(std::find(marry.begin(), marry.end(), AgeCategory::Dead) != marry.end());
+}

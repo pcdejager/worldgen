@@ -3,7 +3,7 @@
 #include "IPopulationFilter.h"
 #include "AgeCategory.h"
 
-class PopulationAgeCategoryFilter
+class PopulationAgeCategoryFilter : public IPopulationFilter
 {
 public:
     PopulationAgeCategoryFilter();

@@ -50,3 +50,15 @@
     };
     return result;
 }
+
+/*static*/ std::vector<AgeCategory> AgeCategoryUtils::MarryCategories()
+{
+    std::vector<AgeCategory> result =
+    {
+        AgeCategory::YoungAdult,
+        AgeCategory::Adult,
+        AgeCategory::OldAdult,
+        AgeCategory::Elder
+    };
+    return result;
+}
