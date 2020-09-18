@@ -3,6 +3,7 @@
 #include "PopulationAgeCategoryFilter.h"
 #include "PopulationCompositeFilter.h"
 #include "PopulationSexFilter.h"
+#include "PopulationMarryFilter.h"
 #include "AgeCategory.h"
 
 /*static*/ IPopulationFilterPtr PopulationFilterFactory::MaleMarry()
@@ -13,6 +14,10 @@
     // Add sex
     IPopulationFilterPtr sexFilter = IPopulationFilterPtr(new PopulationSexFilter(true, false));
     filter->AddFilter(sexFilter);
+
+    // Add not married
+    IPopulationFilterPtr marryFilter = IPopulationFilterPtr(new PopulationMarryFilter(false));
+    filter->AddFilter(marryFilter);
 
     // Add age categories
     {
@@ -37,6 +42,10 @@
     // Add sex
     IPopulationFilterPtr sexFilter = IPopulationFilterPtr(new PopulationSexFilter(false, true));
     filter->AddFilter(sexFilter);
+
+    // Add not married
+    IPopulationFilterPtr marryFilter = IPopulationFilterPtr(new PopulationMarryFilter(false));
+    filter->AddFilter(marryFilter);
 
     // Add age categories
     {

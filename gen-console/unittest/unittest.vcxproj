@@ -57,6 +57,7 @@
     <ClCompile Include="..\PopulationAgeCategoryFilter.cpp" />
     <ClCompile Include="..\PopulationCompositeFilter.cpp" />
     <ClCompile Include="..\PopulationFertileFilter.cpp" />
+    <ClCompile Include="..\PopulationMarryFilter.cpp" />
     <ClCompile Include="..\PopulationSexFilter.cpp" />
     <ClCompile Include="..\PopulationStatistics.cpp" />
     <ClCompile Include="..\Procreate.cpp" />
@@ -85,6 +86,7 @@
     <ClCompile Include="PopulationAgeCategoryFilterTest.cpp" />
     <ClCompile Include="PopulationCompositeFilterTest.cpp" />
     <ClCompile Include="PopulationFertileFilterTest.cpp" />
+    <ClCompile Include="PopulationMarriedFilterTest.cpp" />
     <ClCompile Include="PopulationSexFilterTest.cpp" />
     <ClCompile Include="PopulationStatisticsTest.cpp" />
     <ClCompile Include="PopulationTest.cpp" />
