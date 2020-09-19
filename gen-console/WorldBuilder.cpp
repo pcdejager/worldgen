@@ -9,6 +9,7 @@
 #include "MathUtils.h"
 #include "WorldConstants.h"
 #include "PopulationStatistics.h"
+#include "PopulationFilterFactory.h"
 
 WorldBuilder::WorldBuilder()
     : population()
@@ -56,6 +57,9 @@ void WorldBuilder::GenerateInitialPopulation()
     logger->Log(L"  Males=", stats.Males());
     logger->Log(L"Females=", stats.Females());
 
+    IPopulationFilterPtr maleMarry = PopulationFilterFactory::MaleMarry();
+    IPopulationFilterPtr femaleMarry = PopulationFilterFactory::FemaleMarry();
+
     while (population.Size() > 0)
     {
         WorldProperties::Properties()->AdvanceTime(TimeSpan(0LL, 1LL, 0LL, 0LL, 0LL));
@@ -64,5 +68,10 @@ void WorldBuilder::GenerateInitialPopulation()
             logger->Log(L"New year");
         }
         population.CheckDeaths();
+
+        auto males = population.Filter(maleMarry.get());
+        logger->Log(L"M: ", males.size());
+        auto females = population.Filter(femaleMarry.get());
+        logger->Log(L"F: ", females.size());
     }
 }

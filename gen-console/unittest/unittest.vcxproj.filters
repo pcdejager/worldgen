@@ -168,6 +168,12 @@
     <ClCompile Include="PopulationMarriedFilterTest.cpp">
       <Filter>Population\Filters</Filter>
     </ClCompile>
+    <ClCompile Include="..\PopulationFilterFactory.cpp">
+      <Filter>External\Population\Filters</Filter>
+    </ClCompile>
+    <ClCompile Include="PopulationFilterFactoryTest.cpp">
+      <Filter>Population\Filters</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h" />
