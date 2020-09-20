@@ -9,6 +9,26 @@ Marry::Marry(const std::map<__int64, double>& marryMale, const std::map<__int64,
     ;
 }
 
+double Marry::ChanceToMarryMale(__int64 raceID)
+{
+    auto find = male.find(raceID);
+    if (find != male.end())
+    {
+        return find->second;
+    }
+    return 0.0;
+}
+
+double Marry::ChanceToMarryFemale(__int64 raceID)
+{
+    auto find = female.find(raceID);
+    if (find != female.end())
+    {
+        return find->second;
+    }
+    return 0.0;
+}
+
 void Marry::Log() const
 {
     LoggerPtr logger = Logger::GetLogger();

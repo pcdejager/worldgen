@@ -10,6 +10,7 @@
 #include "WorldConstants.h"
 #include "PopulationStatistics.h"
 #include "PopulationFilterFactory.h"
+#include "MathUtils.h"
 
 WorldBuilder::WorldBuilder()
     : population()
@@ -73,5 +74,18 @@ void WorldBuilder::GenerateInitialPopulation()
         logger->Log(L"M: ", males.size());
         auto females = population.Filter(femaleMarry.get());
         logger->Log(L"F: ", females.size());
+
+        //double femaleConstant = static_cast<double>(males.size() + females.size());
+        double femaleConstant = 0.5;
+        for (IndividualPtr male : males)
+        {
+            double looking = MathUtils::RandomDouble();
+            // once in 5 years?
+            double cutoff = 1.0 / (5.0 * static_cast<double>(WORLD_TIME_DAYSPERYEAR) * femaleConstant);
+            if (looking < cutoff)
+            {
+                logger->Log(std::wstring(L"Male looking for mate: ") + male->Name().ToString());
+            }
+        }
     }
 }

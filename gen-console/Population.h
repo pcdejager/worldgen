@@ -26,6 +26,7 @@ public:
     void Visit(IPopulationVisitor* pVisitor, IPopulationFilter* pFilter);
 
     std::vector<IndividualPtr> Filter(IPopulationFilter* pFilter);
+    std::size_t FilterCount(IPopulationFilter* pFilter);
 
 private:
     std::set<IndividualPtr> population;

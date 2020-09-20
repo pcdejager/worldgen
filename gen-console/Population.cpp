@@ -88,3 +88,16 @@ std::vector<IndividualPtr> Population::Filter(IPopulationFilter* pFilter)
     }
     return result;
 }
+
+std::size_t Population::FilterCount(IPopulationFilter* pFilter)
+{
+    std::size_t result = 0;
+    for (auto individual : population)
+    {
+        if (pFilter->Allow(individual.get()))
+        {
+            ++result;
+        }
+    }
+    return result;
+}

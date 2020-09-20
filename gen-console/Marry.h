@@ -7,6 +7,10 @@ public:
     ~Marry() = default;
 
 public:
+    double ChanceToMarryMale(__int64 raceID);
+    double ChanceToMarryFemale(__int64 raceID);
+
+public:
     void Log() const;
 
 #ifdef UNITTEST
