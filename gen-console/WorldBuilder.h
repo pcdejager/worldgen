@@ -15,6 +15,7 @@ public:
 
 private:
 	void GenerateInitialPopulation();
+	void Marry();
 
 private:
 	Population population;

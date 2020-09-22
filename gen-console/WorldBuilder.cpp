@@ -5,6 +5,8 @@
 #include "Logger.h"
 #include "Individual.h"
 #include "Parents.h"
+#include "Race.h"
+#include "Marry.h"
 #include "GeneGenerator.h"
 #include "MathUtils.h"
 #include "WorldConstants.h"
@@ -58,9 +60,7 @@ void WorldBuilder::GenerateInitialPopulation()
     logger->Log(L"  Males=", stats.Males());
     logger->Log(L"Females=", stats.Females());
 
-    IPopulationFilterPtr maleMarry = PopulationFilterFactory::MaleMarry();
-    IPopulationFilterPtr femaleMarry = PopulationFilterFactory::FemaleMarry();
-
+    __int64 marriedCount = 0;
     while (population.Size() > 0)
     {
         WorldProperties::Properties()->AdvanceTime(TimeSpan(0LL, 1LL, 0LL, 0LL, 0LL));
@@ -70,22 +70,61 @@ void WorldBuilder::GenerateInitialPopulation()
         }
         population.CheckDeaths();
 
-        auto males = population.Filter(maleMarry.get());
-        logger->Log(L"M: ", males.size());
-        auto females = population.Filter(femaleMarry.get());
-        logger->Log(L"F: ", females.size());
+        Marry();
+    }
+}
 
-        //double femaleConstant = static_cast<double>(males.size() + females.size());
-        double femaleConstant = 0.5;
-        for (IndividualPtr male : males)
+void WorldBuilder::Marry()
+{
+    static IPopulationFilterPtr maleMarry = PopulationFilterFactory::MaleMarry();
+    static IPopulationFilterPtr femaleMarry = PopulationFilterFactory::FemaleMarry();
+
+    LoggerPtr logger = Logger::GetLogger();
+    auto males = population.Filter(maleMarry.get());
+    logger->Log(L"M: ", males.size());
+    auto females = population.Filter(femaleMarry.get());
+    logger->Log(L"F: ", females.size());
+
+    // Find possible matches
+    std::vector<std::pair<IndividualPtr, IndividualPtr>> possible;
+    for (IndividualPtr female : females)
+    {
+        double looking = MathUtils::RandomDouble();
+        double cutoff = 0.5;
+        if (looking < cutoff)
         {
-            double looking = MathUtils::RandomDouble();
-            // once in 5 years?
-            double cutoff = 1.0 / (5.0 * static_cast<double>(WORLD_TIME_DAYSPERYEAR) * femaleConstant);
-            if (looking < cutoff)
+            for (IndividualPtr male : males)
             {
-                logger->Log(std::wstring(L"Male looking for mate: ") + male->Name().ToString());
+                looking = MathUtils::RandomDouble();
+                if (looking < cutoff)
+                {
+                    possible.push_back(std::make_pair(female, male));
+                }
             }
         }
     }
+
+    // Marry
+    for (auto pair : possible)
+    {
+        IndividualPtr female = pair.first;
+        IndividualPtr male = pair.second;
+        if (female->IsMarried() || male->IsMarried())
+        {
+            continue;
+        }
+        auto femaleRace = female->Race();
+        auto maleRace = male->Race();
+        double chance1 = femaleRace->Traits().marry->ChanceToMarryMale(maleRace->ID());
+        double chance2 = maleRace->Traits().marry->ChanceToMarryFemale(femaleRace->ID());
+        double roll1 = MathUtils::RandomDouble();
+        double roll2 = MathUtils::RandomDouble();
+        if ((roll1 <= chance1) && (roll2 <= chance2))
+        {
+            logger->Log(L"Match F:" + pair.first->Name().ToString() + L" M" + pair.second->Name().ToString() + L" C:");
+            female->Marry(male);
+            male->Marry(female);
+        }
+}
+
 }
