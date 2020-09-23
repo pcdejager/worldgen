@@ -129,9 +129,9 @@ TEST(PopulationTest, Visit)
     pop.Visit(&test);
 
     ASSERT_EQ(test.visited.size(), 3);
-    EXPECT_EQ(test.visited[0], individual1.get());
-    EXPECT_EQ(test.visited[1], individual2.get());
-    EXPECT_EQ(test.visited[2], individual3.get());
+    EXPECT_TRUE(std::find(test.visited.begin(), test.visited.end(), individual1.get()) != test.visited.end());
+    EXPECT_TRUE(std::find(test.visited.begin(), test.visited.end(), individual2.get()) != test.visited.end());
+    EXPECT_TRUE(std::find(test.visited.begin(), test.visited.end(), individual3.get()) != test.visited.end());
 }
 
 TEST(PopulationTest, Visit_Filtered)

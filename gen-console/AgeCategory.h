@@ -15,5 +15,6 @@ public:
     static AgeCategory CategoryAfter(AgeCategory age);
     static std::vector<AgeCategory> AliveCategories();
     static std::vector<AgeCategory> MarryCategories();
+    static std::vector<AgeCategory> PregnantCategories();
 };
 

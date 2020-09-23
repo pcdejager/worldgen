@@ -62,3 +62,14 @@
     };
     return result;
 }
+
+/*static*/ std::vector<AgeCategory> AgeCategoryUtils::PregnantCategories()
+{
+    std::vector<AgeCategory> result =
+    {
+        AgeCategory::YoungAdult,
+        AgeCategory::Adult,
+        AgeCategory::OldAdult
+    };
+    return result;
+}

@@ -61,3 +61,31 @@
 
     return result;
 }
+
+/*static*/ IPopulationFilterPtr PopulationFilterFactory::MarriedFemales()
+{
+    PopulationCompositeFilter* filter = new PopulationCompositeFilter();
+    IPopulationFilterPtr result = IPopulationFilterPtr(filter);
+
+    // Add sex
+    IPopulationFilterPtr sexFilter = IPopulationFilterPtr(new PopulationSexFilter(false, true));
+    filter->AddFilter(sexFilter);
+
+    // Add married
+    IPopulationFilterPtr marryFilter = IPopulationFilterPtr(new PopulationMarryFilter(true));
+    filter->AddFilter(marryFilter);
+
+    // Add age categories
+    {
+        PopulationAgeCategoryFilter* newFilter = new PopulationAgeCategoryFilter();
+        IPopulationFilterPtr ageFilter = IPopulationFilterPtr(newFilter);
+        filter->AddFilter(ageFilter);
+        auto ages = AgeCategoryUtils::PregnantCategories();
+        for (auto ageCategory : ages)
+        {
+            newFilter->AddCategory(ageCategory);
+        }
+    }
+
+    return result;
+}

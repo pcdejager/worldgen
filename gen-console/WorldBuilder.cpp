@@ -70,6 +70,10 @@ void WorldBuilder::GenerateInitialPopulation()
         }
         population.CheckDeaths();
 
+        // Create
+        static IPopulationFilterPtr female = PopulationFilterFactory::MarriedFemales();
+
+        // Couple
         Marry();
     }
 }

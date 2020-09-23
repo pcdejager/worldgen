@@ -54,3 +54,17 @@ TEST(AgeCategoryTest, MarryCategories)
     EXPECT_TRUE(std::find(marry.begin(), marry.end(), AgeCategory::Elder) != marry.end());
     EXPECT_FALSE(std::find(marry.begin(), marry.end(), AgeCategory::Dead) != marry.end());
 }
+
+TEST(AgeCategoryTest, PregnantCategories)
+{
+    auto test = AgeCategoryUtils::PregnantCategories();
+    EXPECT_FALSE(std::find(test.begin(), test.end(), AgeCategory::NewBorn) != test.end());
+    EXPECT_FALSE(std::find(test.begin(), test.end(), AgeCategory::Toddler) != test.end());
+    EXPECT_FALSE(std::find(test.begin(), test.end(), AgeCategory::Child) != test.end());
+    EXPECT_FALSE(std::find(test.begin(), test.end(), AgeCategory::Teenager) != test.end());
+    EXPECT_TRUE(std::find(test.begin(), test.end(), AgeCategory::YoungAdult) != test.end());
+    EXPECT_TRUE(std::find(test.begin(), test.end(), AgeCategory::Adult) != test.end());
+    EXPECT_TRUE(std::find(test.begin(), test.end(), AgeCategory::OldAdult) != test.end());
+    EXPECT_FALSE(std::find(test.begin(), test.end(), AgeCategory::Elder) != test.end());
+    EXPECT_FALSE(std::find(test.begin(), test.end(), AgeCategory::Dead) != test.end());
+}
