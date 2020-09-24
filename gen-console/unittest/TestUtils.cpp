@@ -24,28 +24,24 @@ constexpr __int64 GeneTest_Female = (1LL << static_cast<__int64>(GenePositions::
     genes.SetGenes(GenePositions::Race(), raceGene);
 }
 
-/*static*/ void TestUtils::SetGenes_MaleFertile(Genes& genes)
+/*static*/ void TestUtils::SetGenes_Male(Genes& genes)
 {
     genes.SetGenes(GenePositions::Sex(), GeneTest_Male);
-    genes.SetGenes(GenePositions::Fertility(), 1.0);
 }
 
-/*static*/ void TestUtils::SetGenes_MaleInfertile(Genes& genes)
-{
-    genes.SetGenes(GenePositions::Sex(), GeneTest_Male);
-    genes.SetGenes(GenePositions::Fertility(), 0.0);
-}
-
-/*static*/ void TestUtils::SetGenes_FemaleFertile(Genes& genes)
+/*static*/ void TestUtils::SetGenes_Female(Genes& genes)
 {
     genes.SetGenes(GenePositions::Sex(), GeneTest_Female);
-    genes.SetGenes(GenePositions::Fertility(), 1.0);
 }
 
-/*static*/ void TestUtils::SetGenes_FemaleInfertile(Genes& genes)
+/*static*/ void TestUtils::SetGenes_Fertile(Genes& genes, double value)
 {
-    genes.SetGenes(GenePositions::Sex(), GeneTest_Female);
-    genes.SetGenes(GenePositions::Fertility(), 0.0);
+    genes.SetGenes(GenePositions::Fertility(), value);
+}
+
+/*static*/ void TestUtils::SetGenes_Period(Genes& genes, double value)
+{
+    genes.SetGenes(GenePositions::Period(), value);
 }
 
 /*static*/ void TestUtils::SetGenes_MaximumLife(Genes& genes, double value)
@@ -53,28 +49,23 @@ constexpr __int64 GeneTest_Female = (1LL << static_cast<__int64>(GenePositions::
     genes.SetGenes(GenePositions::MaximumLife(), value);
 }
 
-/*static*/ IndividualPtr TestUtils::CreateIndividual(const std::wstring& raceName, bool male, bool fertile)
+/*static*/ IndividualPtr TestUtils::CreateIndividual(const std::wstring& raceName, bool male, double period, double fertile, double maxLife)
 {
     Genes genes;
     RacePtr race = Races::GetRaces()->FindRaceByName(raceName);
     TestUtils::SetGenes_Race(genes, race);
+    TestUtils::SetGenes_Period(genes, period);
+    TestUtils::SetGenes_Fertile(genes, fertile);
 
-    if (male && fertile)
+    if (male)
     {
-        TestUtils::SetGenes_MaleFertile(genes);
+        TestUtils::SetGenes_Male(genes);
     }
-    else if (male && !fertile)
+    else 
     {
-        TestUtils::SetGenes_MaleInfertile(genes);
+        TestUtils::SetGenes_Female(genes);
     }
-    else if (!male && fertile)
-    {
-        TestUtils::SetGenes_FemaleFertile(genes);
-    }
-    else if (!male && !fertile)
-    {
-        TestUtils::SetGenes_FemaleInfertile(genes);
-    }
+    TestUtils::SetGenes_MaximumLife(genes, maxLife);
     
     return IndividualPtr(new Individual(Parents::CreateNoParents(), genes));
 }

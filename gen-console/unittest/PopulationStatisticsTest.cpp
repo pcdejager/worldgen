@@ -14,15 +14,8 @@ TEST(PopulationstatisticsTest, Visit)
     auto human = Races::GetRaces()->FindRaceByName(L"Human");
     auto elf = Races::GetRaces()->FindRaceByName(L"Elf");
 
-    Genes genes1;
-    TestUtils::SetGenes_Race(genes1, human);
-    TestUtils::SetGenes_FemaleFertile(genes1);
-    IndividualPtr test1 = std::make_shared<Individual>(Parents::CreateNoParents(), genes1);
-
-    Genes genes2;
-    TestUtils::SetGenes_Race(genes2, elf);
-    TestUtils::SetGenes_MaleFertile(genes2);
-    IndividualPtr test2 = std::make_shared<Individual>(Parents::CreateNoParents(), genes2);
+    IndividualPtr test1 = TestUtils::CreateIndividual(L"Human", false, 0.0, 1.0, 0.0);
+    IndividualPtr test2 = TestUtils::CreateIndividual(L"Elf", true, 0.0, 1.0, 0.0);
 
     stats.Reset();
     EXPECT_EQ(stats.Total(), 0ULL);

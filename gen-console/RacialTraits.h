@@ -7,7 +7,8 @@ struct RacialTraits
 {
     MultiPointValueInt gene;
     AgeTraitsPtr ageRanges;
-    MultiPointValueInt pregnancy;
+    ValueRange period;
+    ValueRange pregnancy;
     AgeSexRangeValuePtr height;
     AgeSexRangeValuePtr weight;
     MarryPtr marry;

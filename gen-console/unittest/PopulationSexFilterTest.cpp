@@ -27,10 +27,10 @@ TEST(PopulationSexFilterTest, Allow_None)
 {
     PopulationSexFilter test(false, false);
 
-    IndividualPtr individual1 = TestUtils::CreateIndividual(L"Human", true, true);
+    IndividualPtr individual1 = TestUtils::CreateIndividual(L"Human", true, 0.0, 1.0, 0.0);
     EXPECT_FALSE(test.Allow(individual1.get()));
 
-    IndividualPtr individual2 = TestUtils::CreateIndividual(L"Human", false, true);
+    IndividualPtr individual2 = TestUtils::CreateIndividual(L"Human", false, 0.0, 1.0, 0.0);
     EXPECT_FALSE(test.Allow(individual2.get()));
 }
 
@@ -38,10 +38,10 @@ TEST(PopulationSexFilterTest, Allow_Males)
 {
     PopulationSexFilter test(true, false);
 
-    IndividualPtr individual1 = TestUtils::CreateIndividual(L"Human", true, true);
+    IndividualPtr individual1 = TestUtils::CreateIndividual(L"Human", true, 0.0, 1.0, 0.0);
     EXPECT_TRUE(test.Allow(individual1.get()));
 
-    IndividualPtr individual2 = TestUtils::CreateIndividual(L"Human", false, true);
+    IndividualPtr individual2 = TestUtils::CreateIndividual(L"Human", false, 0.0, 1.0, 0.0);
     EXPECT_FALSE(test.Allow(individual2.get()));
 }
 
@@ -49,10 +49,10 @@ TEST(PopulationSexFilterTest, Allow_Females)
 {
     PopulationSexFilter test(false, true);
 
-    IndividualPtr individual1 = TestUtils::CreateIndividual(L"Human", true, true);
+    IndividualPtr individual1 = TestUtils::CreateIndividual(L"Human", true, 0.0, 1.0, 0.0);
     EXPECT_FALSE(test.Allow(individual1.get()));
 
-    IndividualPtr individual2 = TestUtils::CreateIndividual(L"Human", false, true);
+    IndividualPtr individual2 = TestUtils::CreateIndividual(L"Human", false, 0.0, 1.0, 0.0);
     EXPECT_TRUE(test.Allow(individual2.get()));
 }
 
@@ -60,9 +60,9 @@ TEST(PopulationSexFilterTest, Allow_MalesAndFemales)
 {
     PopulationSexFilter test(true, true);
 
-    IndividualPtr individual1 = TestUtils::CreateIndividual(L"Human", true, true);
+    IndividualPtr individual1 = TestUtils::CreateIndividual(L"Human", true, 0.0, 1.0, 0.0);
     EXPECT_TRUE(test.Allow(individual1.get()));
 
-    IndividualPtr individual2 = TestUtils::CreateIndividual(L"Human", false, true);
+    IndividualPtr individual2 = TestUtils::CreateIndividual(L"Human", false, 0.0, 1.0, 0.0);
     EXPECT_TRUE(test.Allow(individual2.get()));
 }

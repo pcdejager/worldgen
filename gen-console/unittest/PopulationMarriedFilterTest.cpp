@@ -19,10 +19,10 @@ TEST(PopulationMarryFilterTest, Allow_NotMarried)
 {
     PopulationMarryFilter test(false);
 
-    IndividualPtr individual1 = TestUtils::CreateIndividual(L"Human", true, true);
+    IndividualPtr individual1 = TestUtils::CreateIndividual(L"Human", true, 0.0, 1.0, 0.0);
     EXPECT_TRUE(test.Allow(individual1.get()));
 
-    IndividualPtr individual2 = TestUtils::CreateIndividual(L"Human", false, true);
+    IndividualPtr individual2 = TestUtils::CreateIndividual(L"Human", false, 0.0, 1.0, 0.0);
     individual2->Marry(individual1);
     EXPECT_FALSE(test.Allow(individual2.get()));
 }
@@ -31,10 +31,10 @@ TEST(PopulationMarryFilterTest, Allow_Married)
 {
     PopulationMarryFilter test(true);
 
-    IndividualPtr individual1 = TestUtils::CreateIndividual(L"Human", true, true);
+    IndividualPtr individual1 = TestUtils::CreateIndividual(L"Human", true, 0.0, 1.0, 0.0);
     EXPECT_FALSE(test.Allow(individual1.get()));
 
-    IndividualPtr individual2 = TestUtils::CreateIndividual(L"Human", false, true);
+    IndividualPtr individual2 = TestUtils::CreateIndividual(L"Human", false, 0.0, 1.0, 0.0);
     individual2->Marry(individual1);
     EXPECT_TRUE(test.Allow(individual2.get()));
 }

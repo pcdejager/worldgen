@@ -42,3 +42,13 @@ void Logger::Log(const std::wstring& message, const MultiPointValueRange& value)
     stream << L"]";
     Log(stream.str());
 }
+
+void Logger::Log(const std::wstring& message, const ValueRange& value)
+{
+    std::wstringstream stream;
+    stream << message << L"["
+        << value.Minimum() << L"-"
+        << value.Average() << L"-"
+        << value.Maximum() << L"]";
+    Log(stream.str());
+}

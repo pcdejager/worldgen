@@ -11,13 +11,13 @@ public:
 
 public:
     static void SetGenes_Race(Genes& genes, const RacePtr& race);
-    static void SetGenes_MaleFertile(Genes& genes);
-    static void SetGenes_MaleInfertile(Genes& genes);
-    static void SetGenes_FemaleFertile(Genes& genes);
-    static void SetGenes_FemaleInfertile(Genes& genes);
+    static void SetGenes_Male(Genes& genes);
+    static void SetGenes_Female(Genes& genes);
+    static void SetGenes_Fertile(Genes& genes, double value);
+    static void SetGenes_Period(Genes& genes, double value);
 
     static void SetGenes_MaximumLife(Genes& genes, double value);
 
-    static IndividualPtr CreateIndividual(const std::wstring& raceName, bool male, bool fertile);
+    static IndividualPtr CreateIndividual(const std::wstring& raceName, bool male, double period, double fertile, double maxLife);
 };
 

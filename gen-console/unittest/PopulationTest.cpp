@@ -117,9 +117,9 @@ TEST(PopulationTest, Died)
 TEST(PopulationTest, Visit)
 {
     Population pop;
-    IndividualPtr individual1 = TestUtils::CreateIndividual(L"Human", true, true);
-    IndividualPtr individual2 = TestUtils::CreateIndividual(L"Human", false, true);
-    IndividualPtr individual3 = TestUtils::CreateIndividual(L"Human", true, true);
+    IndividualPtr individual1 = TestUtils::CreateIndividual(L"Human", true, 0.0, 1.0, 0.0);
+    IndividualPtr individual2 = TestUtils::CreateIndividual(L"Human", false, 0.0, 1.0, 0.0);
+    IndividualPtr individual3 = TestUtils::CreateIndividual(L"Human", true, 0.0, 1.0, 0.0);
     pop.Add(individual1);
     pop.Add(individual2);
     pop.Add(individual3);
@@ -137,9 +137,9 @@ TEST(PopulationTest, Visit)
 TEST(PopulationTest, Visit_Filtered)
 {
     Population pop;
-    IndividualPtr individual1 = TestUtils::CreateIndividual(L"Human", true, true);
-    IndividualPtr individual2 = TestUtils::CreateIndividual(L"Human", false, true);
-    IndividualPtr individual3 = TestUtils::CreateIndividual(L"Human", true, true);
+    IndividualPtr individual1 = TestUtils::CreateIndividual(L"Human", true, 0.0, 1.0, 0.0);
+    IndividualPtr individual2 = TestUtils::CreateIndividual(L"Human", false, 0.0, 1.0, 0.0);
+    IndividualPtr individual3 = TestUtils::CreateIndividual(L"Human", true, 0.0, 1.0, 0.0);
     pop.Add(individual1);
     pop.Add(individual2);
     pop.Add(individual3);
@@ -179,9 +179,9 @@ TEST(PopulationTest, Visit_Filtered)
 TEST(PopulationTest, Filter)
 {
     Population pop;
-    IndividualPtr individual1 = TestUtils::CreateIndividual(L"Human", true, true);
-    IndividualPtr individual2 = TestUtils::CreateIndividual(L"Human", false, true);
-    IndividualPtr individual3 = TestUtils::CreateIndividual(L"Human", true, true);
+    IndividualPtr individual1 = TestUtils::CreateIndividual(L"Human", true, 0.0, 1.0, 0.0);
+    IndividualPtr individual2 = TestUtils::CreateIndividual(L"Human", false, 0.0, 1.0, 0.0);
+    IndividualPtr individual3 = TestUtils::CreateIndividual(L"Human", true, 0.0, 1.0, 0.0);
     pop.Add(individual1);
     pop.Add(individual2);
     pop.Add(individual3);
@@ -213,9 +213,9 @@ TEST(PopulationTest, Filter)
 TEST(PopulationTest, FilterCount)
 {
     Population pop;
-    IndividualPtr individual1 = TestUtils::CreateIndividual(L"Human", true, true);
-    IndividualPtr individual2 = TestUtils::CreateIndividual(L"Human", false, true);
-    IndividualPtr individual3 = TestUtils::CreateIndividual(L"Human", true, true);
+    IndividualPtr individual1 = TestUtils::CreateIndividual(L"Human", true, 0.0, 1.0, 0.0);
+    IndividualPtr individual2 = TestUtils::CreateIndividual(L"Human", false, 0.0, 1.0, 0.0);
+    IndividualPtr individual3 = TestUtils::CreateIndividual(L"Human", true, 0.0, 1.0, 0.0);
     pop.Add(individual1);
     pop.Add(individual2);
     pop.Add(individual3);

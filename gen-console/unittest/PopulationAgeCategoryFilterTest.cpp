@@ -18,7 +18,7 @@ TEST(PopulationAgeCategoryFilterTest, Allow)
 {
     WorldProperties::Properties()->ResetTime();
 
-    IndividualPtr individual = TestUtils::CreateIndividual(L"Human", true, true);
+    IndividualPtr individual = TestUtils::CreateIndividual(L"Human", true, 0.0, 1.0, 0.0);
     RacePtr race = Races::GetRaces()->FindRaceByName(L"Human");
     __int64 year = TimeSpan(1LL, 0LL, 0LL, 0LL, 0LL).Ticks();
 

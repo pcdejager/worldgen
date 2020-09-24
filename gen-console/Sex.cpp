@@ -1,9 +1,10 @@
 #include "pch.h"
 #include "Sex.h"
 
-Sex::Sex(bool isMale, bool isFemale, double fertile)
+Sex::Sex(bool isMale, bool isFemale, const TimeSpan& period, double fertile)
     : male(isMale)
     , female(isFemale)
+    , periodCycle(period)
     , fertility(fertile)
 {
     ;

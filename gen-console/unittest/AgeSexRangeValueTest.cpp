@@ -11,7 +11,7 @@ TEST(HeightTest, Constructor)
     MultiPointValueRange male({ {10, 15, 20}, {20, 25, 30}, {30, 35, 40}, {40, 45, 50}, {50, 55, 60}, {60, 65, 70}, {70, 75, 80}, {80, 85, 90} });
     MultiPointValueRange female({ {0, 5, 10}, {10, 15, 20}, {20, 25, 30}, {30, 35, 40}, {40, 45, 50}, {50, 55, 60}, {60, 65, 70}, {70, 75, 80} });
     AgeSexRangeValue test(male, female, ages);
-    Sex sex(true, false, false);
+    Sex sex(true, false, TimeSpan(), false);
     EXPECT_EQ(test.Value(0.5, TimeSpan(1, 0, 0, 0, 0, true), sex), -1LL);
 }
 
@@ -23,7 +23,7 @@ TEST(HeightTest, Value_Male)
     MultiPointValueRange male({ {10, 15, 20}, {20, 25, 30}, {30, 35, 40}, {40, 45, 50}, {50, 55, 60}, {60, 65, 70}, {70, 75, 80}, {80, 85, 90} });
     MultiPointValueRange female({ {0, 5, 10}, {10, 15, 20}, {20, 25, 30}, {30, 35, 40}, {40, 45, 50}, {50, 55, 60}, {60, 65, 70}, {70, 75, 80} });
     AgeSexRangeValue test(male, female, ages);
-    Sex sexMale(true, false, false);
+    Sex sexMale(true, false, TimeSpan(), false);
     for (__int64 count = 0LL; count <= 70LL; count += 5LL)
     {
         EXPECT_EQ(test.Value(-1.0, year * count, sexMale), 10LL + count);
@@ -40,7 +40,7 @@ TEST(HeightTest, Value_Female)
     MultiPointValueRange male({ {10, 15, 20}, {20, 25, 30}, {30, 35, 40}, {40, 45, 50}, {50, 55, 60}, {60, 65, 70}, {70, 75, 80}, {80, 85, 90} });
     MultiPointValueRange female({ {0, 5, 10}, {10, 15, 20}, {20, 25, 30}, {30, 35, 40}, {40, 45, 50}, {50, 55, 60}, {60, 65, 70}, {70, 75, 80} });
     AgeSexRangeValue test(male, female, ages);
-    Sex sexFemale(false, true, false);
+    Sex sexFemale(false, true, TimeSpan(), false);
     for (__int64 count = 0LL; count <= 70LL; count += 5LL)
     {
         EXPECT_EQ(test.Value(-1.0, year * count, sexFemale), 0LL + count);
@@ -57,7 +57,7 @@ TEST(HeightTest, Value_Male_Elder)
     MultiPointValueRange male({ {10, 15, 20}, {20, 25, 30}, {30, 35, 40}, {40, 45, 50}, {50, 55, 60}, {60, 65, 70}, {70, 75, 80}, {80, 85, 90} });
     MultiPointValueRange female({ {0, 5, 10}, {10, 15, 20}, {20, 25, 30}, {30, 35, 40}, {40, 45, 50}, {50, 55, 60}, {60, 65, 70}, {70, 75, 80} });
     AgeSexRangeValue test(male, female, ages);
-    Sex sexMale(true, false, false);
+    Sex sexMale(true, false, TimeSpan(), false);
     for (__int64 count = 70LL; count < 80LL; ++count)
     {
         EXPECT_EQ(test.Value(-1.0, year * count, sexMale), 80LL);
@@ -74,7 +74,7 @@ TEST(HeightTest, Value_Female_Elder)
     MultiPointValueRange male({ {10, 15, 20}, {20, 25, 30}, {30, 35, 40}, {40, 45, 50}, {50, 55, 60}, {60, 65, 70}, {70, 75, 80}, {80, 85, 90} });
     MultiPointValueRange female({ {0, 5, 10}, {10, 15, 20}, {20, 25, 30}, {30, 35, 40}, {40, 45, 50}, {50, 55, 60}, {60, 65, 70}, {70, 75, 80} });
     AgeSexRangeValue test(male, female, ages);
-    Sex sexFemale(false, true, false);
+    Sex sexFemale(false, true, TimeSpan(), false);
     for (__int64 count = 70LL; count < 80LL; ++count)
     {
         EXPECT_EQ(test.Value(-1.0, year * count, sexFemale), 70LL);
@@ -90,11 +90,11 @@ TEST(HeightTest, Value_Outside_boundaries)
     MultiPointValueRange male({ {10, 15, 20}, {20, 25, 30}, {30, 35, 40}, {40, 45, 50}, {50, 55, 60}, {60, 65, 70}, {70, 75, 80}, {80, 85, 90} });
     MultiPointValueRange female({ {0, 5, 10}, {10, 15, 20}, {20, 25, 30}, {30, 35, 40}, {40, 45, 50}, {50, 55, 60}, {60, 65, 70}, {70, 75, 80} });
     AgeSexRangeValue test(male, female, ages);
-    Sex sexMale(true, false, false);
+    Sex sexMale(true, false, TimeSpan(), false);
     EXPECT_EQ(test.Value(0.5, year * -1LL, sexMale), -1LL);
     EXPECT_EQ(test.Value(0.5, year * 80LL, sexMale), -1LL);
 
-    Sex sexFemale(false, true, false);
+    Sex sexFemale(false, true, TimeSpan(), false);
     EXPECT_EQ(test.Value(0.5, year * -1LL, sexFemale), -1LL);
     EXPECT_EQ(test.Value(0.5, year * 80LL, sexFemale), -1LL);
 }

@@ -31,9 +31,9 @@ Sex Genome::GetSex() const
     double fertility = genes.ReadDouble(GenePositions::Fertility());
     if (geneValue < 0.5)
     {
-        return Sex(true, false, fertility);
+        return Sex(true, false, GetPeriodCycle(), fertility);
     }
-    return Sex(false, true, fertility);
+    return Sex(false, true, GetPeriodCycle(), fertility);
 }
 
 __int64 Genome::GetHeight(const TimeSpan& age) const
@@ -68,6 +68,14 @@ TimeSpan Genome::MaximumAge() const
         result = max;
     }
     return TimeSpan(result);
+}
+
+TimeSpan Genome::GetPeriodCycle() const
+{
+    RacePtr race = GetRace();
+    double period = (genes.ReadDouble(GenePositions::Period()) * 2.0) - 1.0;
+    __int64 ticks = race->Traits().period.Value(period);
+    return TimeSpan(ticks);
 }
 
 #ifdef UNITTEST

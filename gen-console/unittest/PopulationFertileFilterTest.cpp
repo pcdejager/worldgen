@@ -15,13 +15,13 @@ TEST(PopulationFertileFilterTest, Allow_Fertile)
 {
     PopulationFertileFilter test(true);
 
-    IndividualPtr individual1 = TestUtils::CreateIndividual(L"Human", true, false);
+    IndividualPtr individual1 = TestUtils::CreateIndividual(L"Human", true, 0.0, 0.0, 0.0);
     EXPECT_FALSE(test.Allow(individual1.get()));
-    IndividualPtr individual2 = TestUtils::CreateIndividual(L"Human", true, true);
+    IndividualPtr individual2 = TestUtils::CreateIndividual(L"Human", true, 0.0, 1.0, 0.0);
     EXPECT_TRUE(test.Allow(individual2.get()));
-    IndividualPtr individual3 = TestUtils::CreateIndividual(L"Human", false, false);
+    IndividualPtr individual3 = TestUtils::CreateIndividual(L"Human", false, 0.0, 0.0, 0.0);
     EXPECT_FALSE(test.Allow(individual3.get()));
-    IndividualPtr individual4 = TestUtils::CreateIndividual(L"Human", false, true);
+    IndividualPtr individual4 = TestUtils::CreateIndividual(L"Human", false, 0.0, 1.0, 0.0);
     EXPECT_TRUE(test.Allow(individual4.get()));
 }
 
@@ -29,12 +29,12 @@ TEST(PopulationFertileFilterTest, Allow_Infertile)
 {
     PopulationFertileFilter test(false);
 
-    IndividualPtr individual1 = TestUtils::CreateIndividual(L"Human", true, false);
+    IndividualPtr individual1 = TestUtils::CreateIndividual(L"Human", true, 0.0, 0.0, 0.0);
     EXPECT_TRUE(test.Allow(individual1.get()));
-    IndividualPtr individual2 = TestUtils::CreateIndividual(L"Human", true, true);
+    IndividualPtr individual2 = TestUtils::CreateIndividual(L"Human", true, 0.0, 1.0, 0.0);
     EXPECT_FALSE(test.Allow(individual2.get()));
-    IndividualPtr individual3 = TestUtils::CreateIndividual(L"Human", false, false);
+    IndividualPtr individual3 = TestUtils::CreateIndividual(L"Human", false, 0.0, 0.0, 0.0);
     EXPECT_TRUE(test.Allow(individual3.get()));
-    IndividualPtr individual4 = TestUtils::CreateIndividual(L"Human", false, true);
+    IndividualPtr individual4 = TestUtils::CreateIndividual(L"Human", false, 0.0, 1.0, 0.0);
     EXPECT_FALSE(test.Allow(individual4.get()));
 }

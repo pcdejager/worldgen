@@ -61,8 +61,12 @@ void Races::Initialize()
         logger->Log(L"    AgeRanges = ", ages);
         traits.ageRanges = std::make_shared<AgeTraits>(ages);
 
+        // Period
+        std::tie(found, traits.period) = loader.ReadValueRange(L"Period");
+        logger->Log(L"    Period    = ", traits.period);
+
         // Pregnancy
-        std::tie(found, traits.pregnancy) = loader.ReadMultiPointValueInt(L"Pregnancy");
+        std::tie(found, traits.pregnancy) = loader.ReadValueRange(L"Pregnancy");
         logger->Log(L"    Pregnancy = ", traits.pregnancy);
 
         // Height

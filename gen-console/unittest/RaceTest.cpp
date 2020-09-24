@@ -31,7 +31,8 @@ TEST(RaceTest, Traits)
     RacialTraits traits;
     MultiPointValueInt ranges({ 1,2,3 });
     traits.ageRanges = AgeTraitsPtr(new AgeTraits(ranges));
-    traits.pregnancy = MultiPointValueInt({ 4,5,6 });
+    traits.period = ValueRange(7, 8, 9);
+    traits.pregnancy = ValueRange(4, 5, 6);
     MultiPointValueRange maleHeightRange({ {11,22,33},{44,55,66},{77,88,99} });
     MultiPointValueRange femaleHeightRange({ {12,23,34},{45,56,67},{78,89,90} });
     traits.height = AgeSexRangeValuePtr(new AgeSexRangeValue(maleHeightRange, femaleHeightRange, traits.ageRanges));
@@ -42,7 +43,8 @@ TEST(RaceTest, Traits)
     auto& test = race.Traits();
 
     EXPECT_EQ(test.ageRanges, traits.ageRanges);
-    EXPECT_EQ(test.pregnancy.Value(0), 4);
+    EXPECT_EQ(test.period, ValueRange(7, 8, 9));
+    EXPECT_EQ(test.pregnancy, ValueRange(4, 5, 6));
     EXPECT_EQ(test.height, traits.height);
     EXPECT_EQ(test.weight, traits.weight);
 }

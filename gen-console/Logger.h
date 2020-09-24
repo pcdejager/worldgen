@@ -2,6 +2,7 @@
 
 #include "Types.h"
 #include "MultiPointValue.h"
+#include "ValueRange.h"
 
 class Logger
 {
@@ -18,6 +19,7 @@ public:
     void Log(const std::wstring& message);
     void Log(const std::wstring& message, const MultiPointValueInt& value);
     void Log(const std::wstring& message, const MultiPointValueRange& value);
+    void Log(const std::wstring& message, const ValueRange& value);
     template<class T> void Log(const std::wstring& message, const T& value);
 
 private:

@@ -24,6 +24,9 @@ public:
     __int64 GetWeight(const TimeSpan& age) const;
     TimeSpan MaximumAge() const;
 
+private:
+    TimeSpan GetPeriodCycle() const;
+
 #ifdef UNITTEST
 public:
     void ReplaceGenes(const Genes& newGenes);

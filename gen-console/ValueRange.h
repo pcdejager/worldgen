@@ -14,9 +14,9 @@ public:
     ValueRange& operator=(ValueRange&&) = default;
 
 public:
-    __int64 Minimum() { return minimum; }
-    __int64 Average() { return average; }
-    __int64 Maximum() { return maximum; }
+    __int64 Minimum() const { return minimum; }
+    __int64 Average() const { return average; }
+    __int64 Maximum() const { return maximum; }
 
     /// <summary>
     /// Get the value in the range min to max given a double value that

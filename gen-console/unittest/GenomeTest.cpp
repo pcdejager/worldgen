@@ -49,25 +49,29 @@ TEST(GenomeTest, GetSex)
 {
     Genome test;
     Genes genes;
-    TestUtils::SetGenes_MaleFertile(genes);
+    TestUtils::SetGenes_Male(genes);
+    TestUtils::SetGenes_Fertile(genes, 1.0);
     test.ReplaceGenes(genes);
     EXPECT_TRUE(test.GetSex().IsMale());
     EXPECT_FALSE(test.GetSex().IsFemale());
     EXPECT_TRUE(test.GetSex().IsFertile());
 
-    TestUtils::SetGenes_MaleInfertile(genes);
+    TestUtils::SetGenes_Male(genes);
+    TestUtils::SetGenes_Fertile(genes, 0.0);
     test.ReplaceGenes(genes);
     EXPECT_TRUE(test.GetSex().IsMale());
     EXPECT_FALSE(test.GetSex().IsFemale());
     EXPECT_FALSE(test.GetSex().IsFertile());
 
-    TestUtils::SetGenes_FemaleFertile(genes);
+    TestUtils::SetGenes_Female(genes);
+    TestUtils::SetGenes_Fertile(genes, 1.0);
     test.ReplaceGenes(genes);
     EXPECT_FALSE(test.GetSex().IsMale());
     EXPECT_TRUE(test.GetSex().IsFemale());
     EXPECT_TRUE(test.GetSex().IsFertile());
 
-    TestUtils::SetGenes_FemaleInfertile(genes);
+    TestUtils::SetGenes_Female(genes);
+    TestUtils::SetGenes_Fertile(genes, 0.0);
     test.ReplaceGenes(genes);
     EXPECT_FALSE(test.GetSex().IsMale());
     EXPECT_TRUE(test.GetSex().IsFemale());
@@ -96,7 +100,7 @@ TEST(GenomeTest, GetHeight_Male)
         for (std::size_t raceID = 0; raceID < race->Traits().gene.Count(); ++raceID)
         {
             genes.SetGenes(GenePositions::Race(), race->Traits().gene.Value(raceID));
-            TestUtils::SetGenes_MaleFertile(genes);
+            TestUtils::SetGenes_Male(genes);
             genes.SetGenes(GenePositions::Height(), 0LL);
             test.ReplaceGenes(genes);
             std::wcout << "Race: " << test.GetRace()->Name() << std::endl;
@@ -150,7 +154,7 @@ TEST(GenomeTest, GetHeight_Female)
         for (std::size_t raceID = 0; raceID < race->Traits().gene.Count(); ++raceID)
         {
             genes.SetGenes(GenePositions::Race(), race->Traits().gene.Value(raceID));
-            TestUtils::SetGenes_FemaleFertile(genes);
+            TestUtils::SetGenes_Female(genes);
             genes.SetGenes(GenePositions::Height(), 0LL);
             test.ReplaceGenes(genes);
             std::wcout << "Race: " << test.GetRace()->Name() << std::endl;
@@ -204,7 +208,7 @@ TEST(GenomeTest, GetWeight_Male)
         for (std::size_t raceID = 0; raceID < race->Traits().gene.Count(); ++raceID)
         {
             genes.SetGenes(GenePositions::Race(), race->Traits().gene.Value(raceID));
-            TestUtils::SetGenes_MaleFertile(genes);
+            TestUtils::SetGenes_Male(genes);
             genes.SetGenes(GenePositions::Weight(), 0LL);
             test.ReplaceGenes(genes);
             std::wcout << "Race: " << test.GetRace()->Name() << std::endl;
@@ -258,7 +262,7 @@ TEST(GenomeTest, GetWeight_Female)
         for (std::size_t raceID = 0; raceID < race->Traits().gene.Count(); ++raceID)
         {
             genes.SetGenes(GenePositions::Race(), race->Traits().gene.Value(raceID));
-            TestUtils::SetGenes_FemaleFertile(genes);
+            TestUtils::SetGenes_Female(genes);
             genes.SetGenes(GenePositions::Weight(), 0LL);
             test.ReplaceGenes(genes);
             std::wcout << "Race: " << test.GetRace()->Name() << std::endl;
@@ -302,7 +306,7 @@ TEST(GenomeTest, MaximumAge)
         for (std::size_t raceID = 0; raceID < race->Traits().gene.Count(); ++raceID)
         {
             genes.SetGenes(GenePositions::Race(), race->Traits().gene.Value(raceID));
-            TestUtils::SetGenes_MaleFertile(genes);
+            TestUtils::SetGenes_Male(genes);
             genes.SetGenes(GenePositions::MaximumLife(), 0.0);
             test.ReplaceGenes(genes);
 
