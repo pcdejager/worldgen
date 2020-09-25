@@ -159,6 +159,9 @@
     <ClCompile Include="PopulationMarryFilter.cpp">
       <Filter>Source Files\Population\Filters</Filter>
     </ClCompile>
+    <ClCompile Include="Physiology.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="WorldBuilder.h">
@@ -286,6 +289,9 @@
     </ClInclude>
     <ClInclude Include="PopulationMarryFilter.h">
       <Filter>Header Files\Population\Filters</Filter>
+    </ClInclude>
+    <ClInclude Include="Physiology.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

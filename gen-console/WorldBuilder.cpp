@@ -117,8 +117,8 @@ void WorldBuilder::Marry()
         {
             continue;
         }
-        auto femaleRace = female->Race();
-        auto maleRace = male->Race();
+        auto femaleRace = female->GetRace();
+        auto maleRace = male->GetRace();
         double chance1 = femaleRace->Traits().marry->ChanceToMarryMale(maleRace->ID());
         double chance2 = maleRace->Traits().marry->ChanceToMarryFemale(femaleRace->ID());
         double roll1 = MathUtils::RandomDouble();

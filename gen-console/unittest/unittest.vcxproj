@@ -53,6 +53,7 @@
     <ClCompile Include="..\MultiPointValue.cpp" />
     <ClCompile Include="..\NumberNameGenerator.cpp" />
     <ClCompile Include="..\Parents.cpp" />
+    <ClCompile Include="..\Physiology.cpp" />
     <ClCompile Include="..\Population.cpp" />
     <ClCompile Include="..\PopulationAgeCategoryFilter.cpp" />
     <ClCompile Include="..\PopulationCompositeFilter.cpp" />
@@ -84,6 +85,7 @@
     <ClCompile Include="MultiPointValueTest.cpp" />
     <ClCompile Include="NumberNameGeneratorTest.cpp" />
     <ClCompile Include="ParentsTest.cpp" />
+    <ClCompile Include="PhysiologyTest.cpp" />
     <ClCompile Include="PopulationAgeCategoryFilterTest.cpp" />
     <ClCompile Include="PopulationCompositeFilterTest.cpp" />
     <ClCompile Include="PopulationFertileFilterTest.cpp" />

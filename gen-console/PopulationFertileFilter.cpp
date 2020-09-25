@@ -15,8 +15,8 @@ PopulationFertileFilter::~PopulationFertileFilter()
 
 bool PopulationFertileFilter::Allow(Individual* individual)
 {
-    Sex sex = individual->Sex();
-    if (sex.IsFertile() == fertile)
+    Physiology physiology = individual->GetPhysiology();
+    if (physiology.IsFertile() == fertile)
     {
         return true;
     }

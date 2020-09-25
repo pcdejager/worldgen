@@ -16,7 +16,7 @@ PopulationSexFilter::~PopulationSexFilter()
 
 bool PopulationSexFilter::Allow(Individual* individual)
 {
-    Sex sex = individual->Sex();
+    Sex sex = individual->GetSex();
     if (sex.IsFemale() && (!females))
     {
         return false;

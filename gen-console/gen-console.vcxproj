@@ -185,6 +185,7 @@
     <ClCompile Include="Procreate.cpp" />
     <ClCompile Include="Race.cpp" />
     <ClCompile Include="Races.cpp" />
+    <ClCompile Include="Physiology.cpp" />
     <ClCompile Include="Sex.cpp" />
     <ClCompile Include="TimeSpan.cpp" />
     <ClCompile Include="ValueRange.cpp" />
@@ -226,6 +227,7 @@
     <ClInclude Include="Race.h" />
     <ClInclude Include="Races.h" />
     <ClInclude Include="RacialTraits.h" />
+    <ClInclude Include="Physiology.h" />
     <ClInclude Include="Sex.h" />
     <ClInclude Include="TimeSpan.h" />
     <ClInclude Include="Types.h" />

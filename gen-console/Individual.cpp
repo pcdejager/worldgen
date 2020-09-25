@@ -83,7 +83,7 @@ AgeCategory Individual::AgeCategory() const
     {
         return AgeCategory::Dead;
     }
-    RacePtr race = Race();
+    RacePtr race = GetRace();
     AgeTraitsPtr ageTraits = race->Traits().ageRanges;
     return ageTraits->Categorize(age);
 }

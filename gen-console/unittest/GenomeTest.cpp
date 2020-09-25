@@ -50,32 +50,14 @@ TEST(GenomeTest, GetSex)
     Genome test;
     Genes genes;
     TestUtils::SetGenes_Male(genes);
-    TestUtils::SetGenes_Fertile(genes, 1.0);
     test.ReplaceGenes(genes);
     EXPECT_TRUE(test.GetSex().IsMale());
     EXPECT_FALSE(test.GetSex().IsFemale());
-    EXPECT_TRUE(test.GetSex().IsFertile());
-
-    TestUtils::SetGenes_Male(genes);
-    TestUtils::SetGenes_Fertile(genes, 0.0);
-    test.ReplaceGenes(genes);
-    EXPECT_TRUE(test.GetSex().IsMale());
-    EXPECT_FALSE(test.GetSex().IsFemale());
-    EXPECT_FALSE(test.GetSex().IsFertile());
 
     TestUtils::SetGenes_Female(genes);
-    TestUtils::SetGenes_Fertile(genes, 1.0);
     test.ReplaceGenes(genes);
     EXPECT_FALSE(test.GetSex().IsMale());
     EXPECT_TRUE(test.GetSex().IsFemale());
-    EXPECT_TRUE(test.GetSex().IsFertile());
-
-    TestUtils::SetGenes_Female(genes);
-    TestUtils::SetGenes_Fertile(genes, 0.0);
-    test.ReplaceGenes(genes);
-    EXPECT_FALSE(test.GetSex().IsMale());
-    EXPECT_TRUE(test.GetSex().IsFemale());
-    EXPECT_FALSE(test.GetSex().IsFertile());
 }
 
 TEST(GenomeTest, GetHeight_Male)

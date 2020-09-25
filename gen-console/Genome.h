@@ -20,12 +20,11 @@ public:
 public:
     RacePtr GetRace() const;
     Sex GetSex() const;
+    double GetFertility() const;
+    TimeSpan GetPeriodCycle() const;
     __int64 GetHeight(const TimeSpan& age) const;
     __int64 GetWeight(const TimeSpan& age) const;
     TimeSpan MaximumAge() const;
-
-private:
-    TimeSpan GetPeriodCycle() const;
 
 #ifdef UNITTEST
 public:

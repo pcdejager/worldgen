@@ -45,16 +45,16 @@ unsigned __int64 PopulationStatistics::FemalesOfRace(__int64 raceID) const
 void PopulationStatistics::VisitIndividual(Individual* individual)
 {
     ++total;
-    RacePtr race = individual->Race();
+    RacePtr race = individual->GetRace();
     AgeCategory ageCategory = individual->AgeCategory();
     __int64 raceID = race->ID();
-    if (individual->Sex().IsFemale())
+    if (individual->GetSex().IsFemale())
     {
         ++females;
         raceStatistics[raceID].sex.females += 1ULL;
         raceStatistics[raceID].perAge[ageCategory].females += 1ULL;
     }
-    if (individual->Sex().IsMale())
+    if (individual->GetSex().IsMale())
     {
         ++males;
         raceStatistics[raceID].sex.males += 1ULL;

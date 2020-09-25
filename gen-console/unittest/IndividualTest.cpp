@@ -208,8 +208,8 @@ TEST(IndividualTest, Race)
     IndividualPtr test1 = TestUtils::CreateIndividual(L"Human", true, 0.0, 1.0, 0.0);
     IndividualPtr test2 = TestUtils::CreateIndividual(L"Elf", true, 0.0, 1.0, 0.0);
 
-    EXPECT_EQ(test1->Race(), race1);
-    EXPECT_EQ(test2->Race(), race2);
+    EXPECT_EQ(test1->GetRace(), race1);
+    EXPECT_EQ(test2->GetRace(), race2);
 }
 
 TEST(IndividualTest, Sex)
@@ -217,6 +217,6 @@ TEST(IndividualTest, Sex)
     IndividualPtr test1 = TestUtils::CreateIndividual(L"Human", true, 0.0, 1.0, 0.0);
     IndividualPtr test2 = TestUtils::CreateIndividual(L"Elf", false, 0.0, 1.0, 0.0);
 
-    EXPECT_TRUE(test1->Sex().IsMale());
-    EXPECT_TRUE(test2->Sex().IsFemale());
+    EXPECT_TRUE(test1->GetSex().IsMale());
+    EXPECT_TRUE(test2->GetSex().IsFemale());
 }

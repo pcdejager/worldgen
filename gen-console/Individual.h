@@ -7,6 +7,7 @@
 #include "Genes.h"
 #include "Sex.h"
 #include "AgeCategory.h"
+#include "Physiology.h"
 
 class Individual
 {
@@ -55,15 +56,18 @@ public:
     TimeSpan MaximumAge() const;
     AgeCategory AgeCategory() const;
 
-    RacePtr Race() const { return genome.GetRace(); }
-    Sex Sex() const { return genome.GetSex(); }
+    RacePtr GetRace() const { return genome.GetRace(); }
+    Sex GetSex() const { return genome.GetSex(); }
+    Physiology GetPhysiology() const { return Physiology(this); }
 
 public:
     bool IsMarried() const;
     void Marry(const IndividualPtr& individual);
 
 private:
+    friend class Physiology;
     friend class Population;
+
     void IndividualDied(const WorldTime& time);
 
 private:

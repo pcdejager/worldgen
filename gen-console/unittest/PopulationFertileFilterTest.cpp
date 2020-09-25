@@ -19,10 +19,6 @@ TEST(PopulationFertileFilterTest, Allow_Fertile)
     EXPECT_FALSE(test.Allow(individual1.get()));
     IndividualPtr individual2 = TestUtils::CreateIndividual(L"Human", true, 0.0, 1.0, 0.0);
     EXPECT_TRUE(test.Allow(individual2.get()));
-    IndividualPtr individual3 = TestUtils::CreateIndividual(L"Human", false, 0.0, 0.0, 0.0);
-    EXPECT_FALSE(test.Allow(individual3.get()));
-    IndividualPtr individual4 = TestUtils::CreateIndividual(L"Human", false, 0.0, 1.0, 0.0);
-    EXPECT_TRUE(test.Allow(individual4.get()));
 }
 
 TEST(PopulationFertileFilterTest, Allow_Infertile)
@@ -33,8 +29,4 @@ TEST(PopulationFertileFilterTest, Allow_Infertile)
     EXPECT_TRUE(test.Allow(individual1.get()));
     IndividualPtr individual2 = TestUtils::CreateIndividual(L"Human", true, 0.0, 1.0, 0.0);
     EXPECT_FALSE(test.Allow(individual2.get()));
-    IndividualPtr individual3 = TestUtils::CreateIndividual(L"Human", false, 0.0, 0.0, 0.0);
-    EXPECT_TRUE(test.Allow(individual3.get()));
-    IndividualPtr individual4 = TestUtils::CreateIndividual(L"Human", false, 0.0, 1.0, 0.0);
-    EXPECT_FALSE(test.Allow(individual4.get()));
 }
