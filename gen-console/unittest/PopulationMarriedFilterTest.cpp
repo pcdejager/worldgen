@@ -2,8 +2,6 @@
 #include "..\PopulationMarryFilter.h"
 #include "..\Genes.h"
 #include "..\Individual.h"
-#include "..\Parents.h"
-#include "..\Races.h"
 #include "TestUtils.h"
 
 TEST(PopulationMarryFilterTest, Constructor)

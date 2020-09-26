@@ -60,6 +60,7 @@
     <ClCompile Include="..\PopulationFertileFilter.cpp" />
     <ClCompile Include="..\PopulationFilterFactory.cpp" />
     <ClCompile Include="..\PopulationMarryFilter.cpp" />
+    <ClCompile Include="..\PopulationPregnantFilter.cpp" />
     <ClCompile Include="..\PopulationSexFilter.cpp" />
     <ClCompile Include="..\PopulationStatistics.cpp" />
     <ClCompile Include="..\Procreate.cpp" />
@@ -91,6 +92,7 @@
     <ClCompile Include="PopulationFertileFilterTest.cpp" />
     <ClCompile Include="PopulationFilterFactoryTest.cpp" />
     <ClCompile Include="PopulationMarriedFilterTest.cpp" />
+    <ClCompile Include="PopulationPregnantFilterTest.cpp" />
     <ClCompile Include="PopulationSexFilterTest.cpp" />
     <ClCompile Include="PopulationStatisticsTest.cpp" />
     <ClCompile Include="PopulationTest.cpp" />

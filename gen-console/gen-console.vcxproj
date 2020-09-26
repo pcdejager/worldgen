@@ -180,6 +180,7 @@
     <ClCompile Include="PopulationFertileFilter.cpp" />
     <ClCompile Include="PopulationFilterFactory.cpp" />
     <ClCompile Include="PopulationMarryFilter.cpp" />
+    <ClCompile Include="PopulationPregnantFilter.cpp" />
     <ClCompile Include="PopulationSexFilter.cpp" />
     <ClCompile Include="PopulationStatistics.cpp" />
     <ClCompile Include="Procreate.cpp" />
@@ -221,6 +222,7 @@
     <ClInclude Include="PopulationFertileFilter.h" />
     <ClInclude Include="PopulationFilterFactory.h" />
     <ClInclude Include="PopulationMarryFilter.h" />
+    <ClInclude Include="PopulationPregnantFilter.h" />
     <ClInclude Include="PopulationSexFilter.h" />
     <ClInclude Include="PopulationStatistics.h" />
     <ClInclude Include="Procreate.h" />

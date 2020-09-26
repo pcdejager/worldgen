@@ -10,6 +10,6 @@ private:
 public:
     static IPopulationFilterPtr MaleMarry();
     static IPopulationFilterPtr FemaleMarry();
-    static IPopulationFilterPtr MarriedFemales();
+    static IPopulationFilterPtr PossiblePregnant();
 };
 

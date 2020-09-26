@@ -13,7 +13,7 @@ TEST(IndividualTest, Constructor)
 {
     Genes emptyGenes;
     Individual test(Parents::CreateNoParents(), emptyGenes);
-    EXPECT_EQ(test.Born(), WorldProperties::Properties()->Now());
+    EXPECT_EQ(test.GetBorn(), WorldProperties::Properties()->Now());
     EXPECT_TRUE(test.IsValid());
 }
 
@@ -62,44 +62,44 @@ TEST(IndividualTest, IsAlive)
     EXPECT_FALSE(test2->IsAlive());
 }
 
-TEST(IndividualTest, Parents)
+TEST(IndividualTest, GetParents)
 {
     Genes genes;
     Individual test(Parents::CreateNoParents(), genes);
-    auto parents = test.Parents();
+    auto parents = test.GetParents();
     EXPECT_FALSE(parents->BiologicalFather()->IsValid());
     EXPECT_FALSE(parents->BiologicalMother()->IsValid());
 }
 
-TEST(IndividualTest, Name)
+TEST(IndividualTest, GetName)
 {
     auto test1 = Individual::GetNullIndividual();
     ASSERT_TRUE(test1 != nullptr);
-    EXPECT_FALSE(test1->Name().IsValid());
+    EXPECT_FALSE(test1->GetName().IsValid());
 
     Genes genes;
     Individual test2(Parents::CreateNoParents(), genes);
-    EXPECT_TRUE(test2.Name().IsValid());
+    EXPECT_TRUE(test2.GetName().IsValid());
 }
 
-TEST(IndividualTest, Born)
+TEST(IndividualTest, GetBorn)
 {
     Genes genes;
     Individual test1(Parents::CreateNoParents(), genes);
     WorldTime date1 = WorldProperties::Properties()->Now();
-    EXPECT_EQ(test1.Born(), date1);
+    EXPECT_EQ(test1.GetBorn(), date1);
     WorldProperties::Properties()->AdvanceTime(TimeSpan(1234567UL));
     Individual test2(Parents::CreateNoParents(), genes);
     WorldTime date2 = WorldProperties::Properties()->Now();
-    EXPECT_EQ(test2.Born(), date2);
-    EXPECT_TRUE(test1.Born() < test2.Born());
+    EXPECT_EQ(test2.GetBorn(), date2);
+    EXPECT_TRUE(test1.GetBorn() < test2.GetBorn());
 }
 
-TEST(IndividualTest, Died)
+TEST(IndividualTest, GetDied)
 {
     Genes genes;
     Individual test1(Parents::CreateNoParents(), genes);
-    EXPECT_EQ(WorldTime::Undefined(), test1.Died());
+    EXPECT_EQ(WorldTime::Undefined(), test1.GetDied());
 
     Population pop;
     IndividualPtr test2 = std::make_shared<Individual>(Parents::CreateNoParents(), genes);
@@ -108,10 +108,10 @@ TEST(IndividualTest, Died)
     WorldProperties::Properties()->AdvanceTime(TimeSpan(123456UL));
     pop.Died(test2, WorldProperties::Properties()->Now());
 
-    EXPECT_EQ(test2->Died(), WorldProperties::Properties()->Now());
+    EXPECT_EQ(test2->GetDied(), WorldProperties::Properties()->Now());
 }
 
-TEST(IndividualTest, Age_bornInTheFuture)
+TEST(IndividualTest, GetAge_bornInTheFuture)
 {
     WorldProperties::Properties()->ResetTime();
     WorldProperties::Properties()->AdvanceTime(TimeSpan(1234LL));
@@ -120,11 +120,11 @@ TEST(IndividualTest, Age_bornInTheFuture)
 
     WorldProperties::Properties()->ResetTime();
 
-    EXPECT_EQ(test.Age(), TimeSpan());
+    EXPECT_EQ(test.GetAge(), TimeSpan());
     EXPECT_TRUE(test.IsValid());
 }
 
-TEST(IndividualTest, Age_alive)
+TEST(IndividualTest, GetAge_alive)
 {
     Genes genes;
     WorldProperties::Properties()->ResetTime();
@@ -134,18 +134,18 @@ TEST(IndividualTest, Age_alive)
     WorldProperties::Properties()->AdvanceTime(TimeSpan(12345LL));
     WorldTime end1 = WorldProperties::Properties()->Now();
 
-    EXPECT_EQ(test.Age(), end1 - start);
+    EXPECT_EQ(test.GetAge(), end1 - start);
     EXPECT_TRUE(test.IsValid());
 
     WorldProperties::Properties()->AdvanceTime(TimeSpan(12345LL));
     WorldTime end2 = WorldProperties::Properties()->Now();
 
-    EXPECT_EQ(test.Age(), end2 - start);
-    EXPECT_NE(test.Age(), end1 - start);
+    EXPECT_EQ(test.GetAge(), end2 - start);
+    EXPECT_NE(test.GetAge(), end1 - start);
     EXPECT_TRUE(test.IsValid());
 }
 
-TEST(IndividualTest, Age_dead)
+TEST(IndividualTest, GetAge_dead)
 {
     Genes genes;
     Population pop;
@@ -161,12 +161,12 @@ TEST(IndividualTest, Age_dead)
     WorldProperties::Properties()->AdvanceTime(TimeSpan(67890LL));
     WorldTime end = WorldProperties::Properties()->Now();
 
-    EXPECT_EQ(test->Age(), died - start);
-    EXPECT_NE(test->Age(), end - start);
+    EXPECT_EQ(test->GetAge(), died - start);
+    EXPECT_NE(test->GetAge(), end - start);
     EXPECT_TRUE(test->IsValid());
 }
 
-TEST(IndividualTest, MaximumAge)
+TEST(IndividualTest, GetMaximumAge)
 {
     RacePtr race = Races::GetRaces()->FindRaceByName(L"Human");
     TimeSpan min = race->Traits().ageRanges->AgeStart(AgeCategory::Elder);
@@ -175,11 +175,11 @@ TEST(IndividualTest, MaximumAge)
     IndividualPtr test1 = TestUtils::CreateIndividual(L"Human", true, 0.0, 1.0, 0.0);
     IndividualPtr test2 = TestUtils::CreateIndividual(L"Human", true, 0.0, 1.0, 1.0);
 
-    EXPECT_EQ(test1->MaximumAge(), min);
-    EXPECT_EQ(test2->MaximumAge(), max);
+    EXPECT_EQ(test1->GetMaximumAge(), min);
+    EXPECT_EQ(test2->GetMaximumAge(), max);
 }
 
-TEST(IndividualTest, AgeCategory)
+TEST(IndividualTest, GetAgeCategory)
 {
     RacePtr race = Races::GetRaces()->FindRaceByName(L"Human");
 
@@ -187,20 +187,20 @@ TEST(IndividualTest, AgeCategory)
 
     WorldProperties::Properties()->ResetTime();
     WorldProperties::Properties()->AdvanceTime(TimeSpan(1LL, 0LL, 0LL, 0LL, 0LL));
-    EXPECT_EQ(test->AgeCategory(), AgeCategory::NewBorn);
+    EXPECT_EQ(test->GetAgeCategory(), AgeCategory::NewBorn);
 
     WorldProperties::Properties()->ResetTime();
     WorldProperties::Properties()->AdvanceTime(race->Traits().ageRanges->AgeStart(AgeCategory::Toddler));
     WorldProperties::Properties()->AdvanceTime(TimeSpan(1LL, 0LL, 0LL, 0LL, 0LL));
-    EXPECT_EQ(test->AgeCategory(), AgeCategory::Toddler);
+    EXPECT_EQ(test->GetAgeCategory(), AgeCategory::Toddler);
 
     WorldProperties::Properties()->ResetTime();
     WorldProperties::Properties()->AdvanceTime(race->Traits().ageRanges->AgeStart(AgeCategory::Child));
     WorldProperties::Properties()->AdvanceTime(TimeSpan(1LL, 0LL, 0LL, 0LL, 0LL));
-    EXPECT_EQ(test->AgeCategory(), AgeCategory::Child);
+    EXPECT_EQ(test->GetAgeCategory(), AgeCategory::Child);
 }
 
-TEST(IndividualTest, Race)
+TEST(IndividualTest, GetRace)
 {
     RacePtr race1 = Races::GetRaces()->FindRaceByName(L"Human");
     RacePtr race2 = Races::GetRaces()->FindRaceByName(L"Elf");
@@ -212,11 +212,20 @@ TEST(IndividualTest, Race)
     EXPECT_EQ(test2->GetRace(), race2);
 }
 
-TEST(IndividualTest, Sex)
+TEST(IndividualTest, GetSex)
 {
     IndividualPtr test1 = TestUtils::CreateIndividual(L"Human", true, 0.0, 1.0, 0.0);
     IndividualPtr test2 = TestUtils::CreateIndividual(L"Elf", false, 0.0, 1.0, 0.0);
 
     EXPECT_TRUE(test1->GetSex().IsMale());
     EXPECT_TRUE(test2->GetSex().IsFemale());
+}
+
+TEST(IndividualTest, GetPhysiology)
+{
+    IndividualPtr test1 = TestUtils::CreateIndividual(L"Human", true, 0.0, 1.0, 0.0);
+    IndividualPtr test2 = TestUtils::CreateIndividual(L"Elf", false, 0.0, 0.0, 0.0);
+
+    EXPECT_EQ(test1->GetPhysiology().Fertility(), 1.0);
+    EXPECT_EQ(test2->GetPhysiology().Fertility(), 0.0);
 }

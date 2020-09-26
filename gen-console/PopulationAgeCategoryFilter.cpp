@@ -16,7 +16,7 @@ PopulationAgeCategoryFilter::~PopulationAgeCategoryFilter()
 
 bool PopulationAgeCategoryFilter::Allow(Individual* individual)
 {
-    AgeCategory category = individual->AgeCategory();
+    AgeCategory category = individual->GetAgeCategory();
     if (ages.find(category) != ages.end())
     {
         return true;

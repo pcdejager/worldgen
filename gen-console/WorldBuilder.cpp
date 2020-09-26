@@ -39,7 +39,7 @@ void WorldBuilder::GenerateInitialPopulation()
     {
         Genes genes = GeneGenerator::Random();
         IndividualPtr individual = IndividualPtr(new Individual(parents, genes));
-        logger->Log(L"New individual: ", individual->Name().ToString());
+        logger->Log(L"New individual: ", individual->GetName().ToString());
         population.Add(individual);
 
         // Increase time
@@ -71,7 +71,26 @@ void WorldBuilder::GenerateInitialPopulation()
         population.CheckDeaths();
 
         // Create
-        static IPopulationFilterPtr female = PopulationFilterFactory::MarriedFemales();
+        static IPopulationFilterPtr female = PopulationFilterFactory::PossiblePregnant();
+        auto possible = population.Filter(female.get());
+        for (IndividualPtr mother : possible)
+        {
+            if (mother->GetPhysiology().IsFertile())
+            {
+                logger->Log(L"Fertile: " + mother->GetName().ToString());
+                if (mother->GetPartner()->GetPhysiology().IsFertile())
+                {
+                    logger->Log(L"Both ok");
+                    if (MathUtils::RandomDouble() > 0.01)
+                    {
+                        logger->Log(L"PREGNANT F:" + mother->GetName().ToString() + L" M:" + mother->GetPartner()->GetName().ToString());
+
+                        // TODO
+
+                    }
+                }
+            }
+        }
 
         // Couple
         Marry();
@@ -85,9 +104,9 @@ void WorldBuilder::Marry()
 
     LoggerPtr logger = Logger::GetLogger();
     auto males = population.Filter(maleMarry.get());
-    logger->Log(L"M: ", males.size());
+    //logger->Log(L"M: ", males.size());
     auto females = population.Filter(femaleMarry.get());
-    logger->Log(L"F: ", females.size());
+    //logger->Log(L"F: ", females.size());
 
     // Find possible matches
     std::vector<std::pair<IndividualPtr, IndividualPtr>> possible;
@@ -125,7 +144,7 @@ void WorldBuilder::Marry()
         double roll2 = MathUtils::RandomDouble();
         if ((roll1 <= chance1) && (roll2 <= chance2))
         {
-            logger->Log(L"Match F:" + pair.first->Name().ToString() + L" M" + pair.second->Name().ToString() + L" C:");
+            logger->Log(L"MARRIED F:" + pair.first->GetName().ToString() + L" M" + pair.second->GetName().ToString() + L" C:");
             female->Marry(male);
             male->Marry(female);
         }

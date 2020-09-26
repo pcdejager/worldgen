@@ -178,6 +178,12 @@
       <Filter>External</Filter>
     </ClCompile>
     <ClCompile Include="PhysiologyTest.cpp" />
+    <ClCompile Include="..\PopulationPregnantFilter.cpp">
+      <Filter>External\Population\Filters</Filter>
+    </ClCompile>
+    <ClCompile Include="PopulationPregnantFilterTest.cpp">
+      <Filter>Population\Filters</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h" />

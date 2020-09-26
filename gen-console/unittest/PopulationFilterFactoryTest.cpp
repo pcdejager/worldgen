@@ -4,6 +4,7 @@
 #include "..\PopulationSexFilter.h"
 #include "..\PopulationMarryFilter.h"
 #include "..\PopulationAgeCategoryFilter.h"
+#include "..\PopulationPregnantFilter.h"
 #include "..\AgeCategory.h"
 
 TEST(PopulationFilterFactoryTest, MaleMarry)
@@ -70,27 +71,30 @@ TEST(PopulationFilterFactoryTest, FemaleMarry)
     }
 }
 
-TEST(PopulationFilterFactoryTest, MarriedFemales)
+TEST(PopulationFilterFactoryTest, PossiblePregnant)
 {
-    IPopulationFilterPtr filter = PopulationFilterFactory::MarriedFemales();
+    IPopulationFilterPtr filter = PopulationFilterFactory::PossiblePregnant();
     ASSERT_NE(filter, nullptr);
 
     PopulationCompositeFilter* composite = dynamic_cast<PopulationCompositeFilter*>(filter.get());
     ASSERT_NE(composite, nullptr);
 
     std::vector<IPopulationFilterPtr>& internalFilters = composite->Filters();
-    ASSERT_EQ(internalFilters.size(), 3);
+    ASSERT_EQ(internalFilters.size(), 4);
 
     PopulationSexFilter* sex = dynamic_cast<PopulationSexFilter*>(internalFilters[0].get());
     ASSERT_NE(sex, nullptr);
     EXPECT_FALSE(sex->Males());
     EXPECT_TRUE(sex->Females());
 
-    PopulationMarryFilter* marry = dynamic_cast<PopulationMarryFilter*>(internalFilters[1].get());
+    PopulationPregnantFilter* pregnant = dynamic_cast<PopulationPregnantFilter*>(internalFilters[1].get());
+    EXPECT_FALSE(pregnant->Pregnant());
+
+    PopulationMarryFilter* marry = dynamic_cast<PopulationMarryFilter*>(internalFilters[2].get());
     ASSERT_NE(marry, nullptr);
     EXPECT_TRUE(marry->Married());
 
-    PopulationAgeCategoryFilter* age = dynamic_cast<PopulationAgeCategoryFilter*>(internalFilters[2].get());
+    PopulationAgeCategoryFilter* age = dynamic_cast<PopulationAgeCategoryFilter*>(internalFilters[3].get());
     ASSERT_NE(age, nullptr);
     std::set<AgeCategory>& categories = age->AgeCategories();
 

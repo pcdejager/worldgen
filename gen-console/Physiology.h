@@ -13,7 +13,7 @@ public:
     Physiology(Physiology&& rhs) noexcept;
     ~Physiology() = default;
     Physiology& operator=(const Physiology& rhs) = default;
-    Physiology& operator=(Physiology&& rhs);
+    Physiology& operator=(Physiology&& rhs) noexcept;
 
 public:
     bool IsFertile() const;
@@ -27,6 +27,7 @@ public:
 
 private:
     RacePtr race;
+    TimeSpan age;
     TimeSpan periodCycle;
     double fertility;
 };

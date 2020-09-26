@@ -20,6 +20,18 @@
         result.SetGenes(GenePositions::Sex(), sex);
     }
 
+    // Period
+    {
+        double period = MathUtils::RandomDouble();
+        result.SetGenes(GenePositions::Period(), period);
+    }
+
+    // Fertility
+    {
+        double fertility = MathUtils::RandomDouble();
+        result.SetGenes(GenePositions::Fertility(), fertility);
+    }
+
     // Height
     {
         double height = MathUtils::RandomDouble();
@@ -30,6 +42,12 @@
     {
         double weight = MathUtils::RandomDouble();
         result.SetGenes(GenePositions::Weight(), weight);
+    }
+
+    // Maximum life
+    {
+        double max = MathUtils::RandomDouble();
+        result.SetGenes(GenePositions::MaximumLife(), max);
     }
 
     return result;

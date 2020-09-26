@@ -15,6 +15,8 @@ Individual::Individual()
     , died(WorldTime())
     , genome()
     , partner(nullptr)
+    , pregnant(nullptr)
+    , conceived(WorldTime())
 {
     ;
 }
@@ -51,7 +53,7 @@ bool Individual::IsAlive() const
     return (died == WorldTime::Undefined());
 }
 
-TimeSpan Individual::Age() const
+TimeSpan Individual::GetAge() const
 {
     // If diead
     if (died != WorldTime::Undefined())
@@ -67,18 +69,18 @@ TimeSpan Individual::Age() const
     return now - born;
 }
 
-TimeSpan Individual::MaximumAge() const
+TimeSpan Individual::GetMaximumAge() const
 {
     return genome.MaximumAge();
 }
 
-AgeCategory Individual::AgeCategory() const
+AgeCategory Individual::GetAgeCategory() const
 {
     if (!IsAlive())
     {
         return AgeCategory::Dead;
     }
-    TimeSpan age = Age();
+    TimeSpan age = GetAge();
     if (age.IsZero())
     {
         return AgeCategory::Dead;
@@ -98,7 +100,19 @@ void Individual::Marry(const IndividualPtr& individual)
     partner = individual;
 }
 
+bool Individual::IsPregnant() const
+{
+    return (pregnant != nullptr);
+}
+
+void Individual::Inpregnate(const IndividualPtr& father)
+{
+    pregnant = father;
+    conceived = WorldProperties::Properties()->Now();
+}
+
 void Individual::IndividualDied(const WorldTime& time)
 {
     died = time;
 }
+

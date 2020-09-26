@@ -40,8 +40,8 @@ void Population::CheckDeaths()
     std::vector<std::pair<IndividualPtr, WorldTime>> newlyDead;
     for (auto individual : population)
     {
-        TimeSpan span = individual->MaximumAge();
-        WorldTime born = individual->Born();
+        TimeSpan span = individual->GetMaximumAge();
+        WorldTime born = individual->GetBorn();
         WorldTime deathTime = born + span;
         if (now > deathTime)
         {
@@ -51,7 +51,7 @@ void Population::CheckDeaths()
     for (auto individual : newlyDead)
     {
         std::wstringstream message;
-        message << individual.first->Name().ToString() << L" died atr " << individual.second.ToString();
+        message << individual.first->GetName().ToString() << L" died atr " << individual.second.ToString();
         logger->Log(message.str());
         Died(individual.first, individual.second);
     }

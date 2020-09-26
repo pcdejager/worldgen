@@ -41,10 +41,10 @@ public:
     /// <returns>True if alive, else false</returns>
     bool IsAlive() const;
 
-    ParentsPtr Parents() const { return parents; }
-    IndividualName Name() const { return name; }
-    WorldTime Born() { return born; }
-    WorldTime Died() { return died; }
+    ParentsPtr GetParents() const { return parents; }
+    IndividualName GetName() const { return name; }
+    WorldTime GetBorn() const { return born; }
+    WorldTime GetDied() const { return died; }
 
     /// <summary>
     /// Returns the age of the individual
@@ -52,9 +52,9 @@ public:
     /// Note: If born date is in the future, an age of 0 will be returned
     /// </summary>
     /// <returns>Age of the individual</returns>
-    TimeSpan Age() const;    
-    TimeSpan MaximumAge() const;
-    AgeCategory AgeCategory() const;
+    TimeSpan GetAge() const;    
+    TimeSpan GetMaximumAge() const;
+    AgeCategory GetAgeCategory() const;
 
     RacePtr GetRace() const { return genome.GetRace(); }
     Sex GetSex() const { return genome.GetSex(); }
@@ -62,7 +62,12 @@ public:
 
 public:
     bool IsMarried() const;
+    IndividualPtr GetPartner() const { return partner; }
     void Marry(const IndividualPtr& individual);
+
+public:
+    bool IsPregnant() const;
+    void Inpregnate(const IndividualPtr& father);
 
 private:
     friend class Physiology;
@@ -81,6 +86,9 @@ private:
     Genome genome;
 
     IndividualPtr partner;
+
+    IndividualPtr pregnant;
+    WorldTime conceived;
 /*
 * parents - mother, father (step parents over time?)
 * siblings - full (dna), half mother/father side (1/2 dna), step (no dna)

@@ -4,6 +4,7 @@
 #include "PopulationCompositeFilter.h"
 #include "PopulationSexFilter.h"
 #include "PopulationMarryFilter.h"
+#include "PopulationPregnantFilter.h"
 #include "AgeCategory.h"
 
 /*static*/ IPopulationFilterPtr PopulationFilterFactory::MaleMarry()
@@ -62,7 +63,7 @@
     return result;
 }
 
-/*static*/ IPopulationFilterPtr PopulationFilterFactory::MarriedFemales()
+/*static*/ IPopulationFilterPtr PopulationFilterFactory::PossiblePregnant()
 {
     PopulationCompositeFilter* filter = new PopulationCompositeFilter();
     IPopulationFilterPtr result = IPopulationFilterPtr(filter);
@@ -70,6 +71,10 @@
     // Add sex
     IPopulationFilterPtr sexFilter = IPopulationFilterPtr(new PopulationSexFilter(false, true));
     filter->AddFilter(sexFilter);
+
+    // Add pregnant
+    IPopulationFilterPtr pregnantFilter = IPopulationFilterPtr(new PopulationPregnantFilter(false));
+    filter->AddFilter(pregnantFilter);
 
     // Add married
     IPopulationFilterPtr marryFilter = IPopulationFilterPtr(new PopulationMarryFilter(true));

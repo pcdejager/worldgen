@@ -162,6 +162,9 @@
     <ClCompile Include="Physiology.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="PopulationPregnantFilter.cpp">
+      <Filter>Source Files\Population\Filters</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="WorldBuilder.h">
@@ -292,6 +295,9 @@
     </ClInclude>
     <ClInclude Include="Physiology.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="PopulationPregnantFilter.h">
+      <Filter>Header Files\Population\Filters</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
