@@ -67,7 +67,7 @@ public:
 
 public:
     bool IsPregnant() const;
-    void Inpregnate(const IndividualPtr& father);
+    void Inpregnate(const IndividualPtr& father, const IndividualPtr& mother);
 
 private:
     friend class Physiology;
@@ -87,8 +87,7 @@ private:
 
     IndividualPtr partner;
 
-    IndividualPtr pregnant;
-    WorldTime conceived;
+    PregnancyPtr pregnant;
 /*
 * parents - mother, father (step parents over time?)
 * siblings - full (dna), half mother/father side (1/2 dna), step (no dna)

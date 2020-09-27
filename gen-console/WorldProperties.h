@@ -41,6 +41,7 @@ public:
 	/// </summary>
 	/// <param name="span">The duration to advance with</param>
 	void AdvanceTime(const TimeSpan& span);
+	void AdvanceToNextDay();
 private:
 	static std::shared_ptr<WorldProperties> properties;
 	

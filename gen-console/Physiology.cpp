@@ -40,10 +40,10 @@ bool Physiology::IsFertile() const
         return fertility > 0.01;
     }
 
-    // Else check if character is in 20% band in the middle of the period cycle
+    // Else check if character is in 10% band in the middle of the period cycle
     __int64 cyclePosition = age.Ticks() % periodCycle.Ticks();
     double value = static_cast<double>(cyclePosition) / static_cast<double>(periodCycle.Ticks());
-    if ((value > 0.4) && (value < 0.6))
+    if ((value > 0.45) && (value < 0.55))
     {
         return fertility > 0.001;
     }

@@ -4,7 +4,9 @@
 #include "INameGenerator.h"
 #include "AgeCategory.h"
 #include "Race.h"
+#include "MathUtils.h"
 #include "AgeTraits.h"
+#include "Pregnancy.h"
 
 /*static*/ IndividualPtr Individual::NullIndividual = nullptr;
 
@@ -16,7 +18,6 @@ Individual::Individual()
     , genome()
     , partner(nullptr)
     , pregnant(nullptr)
-    , conceived(WorldTime())
 {
     ;
 }
@@ -105,10 +106,13 @@ bool Individual::IsPregnant() const
     return (pregnant != nullptr);
 }
 
-void Individual::Inpregnate(const IndividualPtr& father)
+void Individual::Inpregnate(const IndividualPtr& father, const IndividualPtr& mother)
 {
-    pregnant = father;
-    conceived = WorldProperties::Properties()->Now();
+    WorldTime conceived = WorldProperties::Properties()->Now();
+    RacePtr race = GetRace();
+    double random = MathUtils::RandomDouble();
+    __int64 duration = race->Traits().pregnancy.Value(random);
+    pregnant = std::make_shared<Pregnancy>(father, mother, conceived, TimeSpan(duration));
 }
 
 void Individual::IndividualDied(const WorldTime& time)

@@ -165,6 +165,9 @@
     <ClCompile Include="PopulationPregnantFilter.cpp">
       <Filter>Source Files\Population\Filters</Filter>
     </ClCompile>
+    <ClCompile Include="Pregnancy.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="WorldBuilder.h">
@@ -298,6 +301,9 @@
     </ClInclude>
     <ClInclude Include="PopulationPregnantFilter.h">
       <Filter>Header Files\Population\Filters</Filter>
+    </ClInclude>
+    <ClInclude Include="Pregnancy.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

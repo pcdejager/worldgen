@@ -60,6 +60,8 @@ void WorldBuilder::GenerateInitialPopulation()
     logger->Log(L"  Males=", stats.Males());
     logger->Log(L"Females=", stats.Females());
 
+    WorldProperties::Properties()->AdvanceToNextDay();
+
     __int64 marriedCount = 0;
     while (population.Size() > 0)
     {
@@ -77,16 +79,14 @@ void WorldBuilder::GenerateInitialPopulation()
         {
             if (mother->GetPhysiology().IsFertile())
             {
-                logger->Log(L"Fertile: " + mother->GetName().ToString());
+                //logger->Log(L"Fertile: " + mother->GetName().ToString());
                 if (mother->GetPartner()->GetPhysiology().IsFertile())
                 {
-                    logger->Log(L"Both ok");
-                    if (MathUtils::RandomDouble() > 0.01)
+                    //logger->Log(L"Both ok");
+                    if (MathUtils::RandomDouble() < 0.01)
                     {
                         logger->Log(L"PREGNANT F:" + mother->GetName().ToString() + L" M:" + mother->GetPartner()->GetName().ToString());
-
-                        // TODO
-
+                        mother->Inpregnate(mother->GetPartner(), mother);
                     }
                 }
             }

@@ -44,3 +44,8 @@ void WorldProperties::AdvanceTime(const TimeSpan& span)
 		now += span;
 	}
 }
+
+void WorldProperties::AdvanceToNextDay()
+{
+	now = WorldTime(now.Years(), now.Days() + 1, 0ULL, 0ULL, 0ULL);
+}

@@ -183,6 +183,7 @@
     <ClCompile Include="PopulationPregnantFilter.cpp" />
     <ClCompile Include="PopulationSexFilter.cpp" />
     <ClCompile Include="PopulationStatistics.cpp" />
+    <ClCompile Include="Pregnancy.cpp" />
     <ClCompile Include="Procreate.cpp" />
     <ClCompile Include="Race.cpp" />
     <ClCompile Include="Races.cpp" />
@@ -225,6 +226,7 @@
     <ClInclude Include="PopulationPregnantFilter.h" />
     <ClInclude Include="PopulationSexFilter.h" />
     <ClInclude Include="PopulationStatistics.h" />
+    <ClInclude Include="Pregnancy.h" />
     <ClInclude Include="Procreate.h" />
     <ClInclude Include="Race.h" />
     <ClInclude Include="Races.h" />
