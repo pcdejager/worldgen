@@ -22,7 +22,7 @@ TEST(PopulationPregnantFilterTest, Allow_NotPregnant)
     EXPECT_TRUE(test.Allow(individual1.get()));
 
     IndividualPtr individual2 = TestUtils::CreateIndividual(L"Human", false, 0.0, 1.0, 0.0);
-    individual1->Inpregnate(individual2);
+    individual1->Inpregnate(individual2, individual1);
     EXPECT_FALSE(test.Allow(individual1.get()));
 }
 
@@ -34,7 +34,7 @@ TEST(PopulationPregnantFilterTest, Allow_Pregnant)
     EXPECT_FALSE(test.Allow(individual1.get()));
 
     IndividualPtr individual2 = TestUtils::CreateIndividual(L"Human", false, 0.0, 1.0, 0.0);
-    individual1->Inpregnate(individual2);
+    individual1->Inpregnate(individual2, individual1);
     EXPECT_TRUE(test.Allow(individual1.get()));
 }
 

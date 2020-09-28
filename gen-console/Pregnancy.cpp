@@ -9,3 +9,8 @@ Pregnancy::Pregnancy(const IndividualPtr& theFather, const IndividualPtr& theMot
 {
     ;
 }
+
+WorldTime Pregnancy::DueDate() const
+{
+    return conceived + duration;
+}
