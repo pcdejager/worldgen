@@ -29,22 +29,22 @@ TEST(PopulationAgeCategoryFilterTest, Allow)
     EXPECT_FALSE(test.Allow(individual.get()));
 
     WorldProperties::Properties()->ResetTime();
-    WorldProperties::Properties()->AdvanceTime(race->Traits().ageRanges->AgeStart(AgeCategory::Toddler) + year);
+    WorldProperties::Properties()->AdvanceTime(race->GetTraits().ageRanges->AgeStart(AgeCategory::Toddler) + year);
 
     EXPECT_FALSE(test.Allow(individual.get()));
 
     WorldProperties::Properties()->ResetTime();
-    WorldProperties::Properties()->AdvanceTime(race->Traits().ageRanges->AgeStart(AgeCategory::Child) + year);
+    WorldProperties::Properties()->AdvanceTime(race->GetTraits().ageRanges->AgeStart(AgeCategory::Child) + year);
 
     EXPECT_TRUE(test.Allow(individual.get()));
 
     WorldProperties::Properties()->ResetTime();
-    WorldProperties::Properties()->AdvanceTime(race->Traits().ageRanges->AgeStart(AgeCategory::YoungAdult) + year);
+    WorldProperties::Properties()->AdvanceTime(race->GetTraits().ageRanges->AgeStart(AgeCategory::YoungAdult) + year);
 
     EXPECT_FALSE(test.Allow(individual.get()));
 
     WorldProperties::Properties()->ResetTime();
-    WorldProperties::Properties()->AdvanceTime(race->Traits().ageRanges->AgeStart(AgeCategory::Adult) + year);
+    WorldProperties::Properties()->AdvanceTime(race->GetTraits().ageRanges->AgeStart(AgeCategory::Adult) + year);
 
     EXPECT_TRUE(test.Allow(individual.get()));
 }

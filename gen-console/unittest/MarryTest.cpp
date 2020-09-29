@@ -18,11 +18,11 @@ TEST(MarryTest, ChanceToMarryMale)
     RacePtr humanRace = Races::GetRaces()->FindRaceByName(L"Human");
     RacePtr elfRace = Races::GetRaces()->FindRaceByName(L"Elf");
 
-    EXPECT_EQ(humanRace->Traits().marry->ChanceToMarryMale(humanRace->ID()), 0.98);
-    EXPECT_EQ(humanRace->Traits().marry->ChanceToMarryMale(elfRace->ID()), 0.015);
+    EXPECT_EQ(humanRace->GetTraits().marry->ChanceToMarryMale(humanRace->GetID()), 0.98);
+    EXPECT_EQ(humanRace->GetTraits().marry->ChanceToMarryMale(elfRace->GetID()), 0.015);
 
-    EXPECT_EQ(elfRace->Traits().marry->ChanceToMarryMale(humanRace->ID()), 0.001);
-    EXPECT_EQ(elfRace->Traits().marry->ChanceToMarryMale(elfRace->ID()), 0.90);
+    EXPECT_EQ(elfRace->GetTraits().marry->ChanceToMarryMale(humanRace->GetID()), 0.001);
+    EXPECT_EQ(elfRace->GetTraits().marry->ChanceToMarryMale(elfRace->GetID()), 0.90);
 }
 
 TEST(MarryTest, ChanceToMarryFemale)
@@ -30,9 +30,9 @@ TEST(MarryTest, ChanceToMarryFemale)
     RacePtr humanRace = Races::GetRaces()->FindRaceByName(L"Human");
     RacePtr elfRace = Races::GetRaces()->FindRaceByName(L"Elf");
 
-    EXPECT_EQ(humanRace->Traits().marry->ChanceToMarryFemale(humanRace->ID()), 0.95);
-    EXPECT_EQ(humanRace->Traits().marry->ChanceToMarryFemale(elfRace->ID()), 0.005);
+    EXPECT_EQ(humanRace->GetTraits().marry->ChanceToMarryFemale(humanRace->GetID()), 0.95);
+    EXPECT_EQ(humanRace->GetTraits().marry->ChanceToMarryFemale(elfRace->GetID()), 0.005);
 
-    EXPECT_EQ(elfRace->Traits().marry->ChanceToMarryFemale(humanRace->ID()), 0.005);
-    EXPECT_EQ(elfRace->Traits().marry->ChanceToMarryFemale(elfRace->ID()), 0.95);
+    EXPECT_EQ(elfRace->GetTraits().marry->ChanceToMarryFemale(humanRace->GetID()), 0.005);
+    EXPECT_EQ(elfRace->GetTraits().marry->ChanceToMarryFemale(elfRace->GetID()), 0.95);
 }

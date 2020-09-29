@@ -30,6 +30,8 @@ public:
     RacePtr FindRaceByID(__int64 id) const;
     RacePtr FindRaceByName(const std::wstring& name) const;
 
+    RacePtr ChildRace(const RacePtr& father, const RacePtr& mother, double roll);
+
 private:
     std::map<__int64, RacePtr> races;
     std::map<std::wstring, __int64> racesByName;

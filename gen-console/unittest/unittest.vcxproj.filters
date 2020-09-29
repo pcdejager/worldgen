@@ -188,6 +188,9 @@
       <Filter>External</Filter>
     </ClCompile>
     <ClCompile Include="PregnancyTest.cpp" />
+    <ClCompile Include="..\Genetics.cpp">
+      <Filter>External\Genes</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h" />

@@ -41,7 +41,7 @@ TEST(GenomeTest, GetRace)
         auto compare = Races::GetRaces()->FindRaceByGene(count);
         ASSERT_TRUE(compare != nullptr);
 
-        EXPECT_EQ(race->Name(), compare->Name());
+        EXPECT_EQ(race->GetName(), compare->GetName());
     }
 }
 
@@ -79,36 +79,36 @@ TEST(GenomeTest, GetHeight_Male)
     for (std::size_t raceCount = 0; raceCount < races.size(); ++raceCount)
     {
         auto race = Races::GetRaces()->FindRaceByName(races[raceCount]);
-        for (std::size_t raceID = 0; raceID < race->Traits().gene.Count(); ++raceID)
+        for (std::size_t raceID = 0; raceID < race->GetTraits().gene.Count(); ++raceID)
         {
-            genes.SetGenes(GenePositions::Race(), race->Traits().gene.Value(raceID));
+            genes.SetGenes(GenePositions::Race(), race->GetTraits().gene.Value(raceID));
             TestUtils::SetGenes_Male(genes);
             genes.SetGenes(GenePositions::Height(), 0LL);
             test.ReplaceGenes(genes);
-            std::wcout << "Race: " << test.GetRace()->Name() << std::endl;
+            std::wcout << "Race: " << test.GetRace()->GetName() << std::endl;
 
             // Check name
-            EXPECT_EQ(test.GetRace()->Name(), races[raceCount]);
+            EXPECT_EQ(test.GetRace()->GetName(), races[raceCount]);
 
             for (std::size_t ageCount = 0; ageCount < ageCategories.size(); ++ageCount)
             {
                 AgeCategory category = ageCategories[ageCount];
-                TimeSpan start = race->Traits().ageRanges->AgeStart(category);
+                TimeSpan start = race->GetTraits().ageRanges->AgeStart(category);
 
                 genes.SetGenes(GenePositions::Height(), 0.0);
                 test.ReplaceGenes(genes);
                 __int64 height = test.GetHeight(start);
-                EXPECT_EQ(height, race->Traits().height->MaleRange().Value(ageCount).Minimum());
+                EXPECT_EQ(height, race->GetTraits().height->MaleRange().Value(ageCount).Minimum());
 
                 genes.SetGenes(GenePositions::Height(), 0.51);
                 test.ReplaceGenes(genes);
                 height = test.GetHeight(start);
-                EXPECT_EQ(height, race->Traits().height->MaleRange().Value(ageCount).Average());
+                EXPECT_EQ(height, race->GetTraits().height->MaleRange().Value(ageCount).Average());
             
                 genes.SetGenes(GenePositions::Height(), 1.0);
                 test.ReplaceGenes(genes);
                 height = test.GetHeight(start);
-                EXPECT_EQ(height, race->Traits().height->MaleRange().Value(ageCount).Maximum());
+                EXPECT_EQ(height, race->GetTraits().height->MaleRange().Value(ageCount).Maximum());
             }
         } // raceID
     } // raceCount
@@ -133,36 +133,36 @@ TEST(GenomeTest, GetHeight_Female)
     for (std::size_t raceCount = 0; raceCount < races.size(); ++raceCount)
     {
         auto race = Races::GetRaces()->FindRaceByName(races[raceCount]);
-        for (std::size_t raceID = 0; raceID < race->Traits().gene.Count(); ++raceID)
+        for (std::size_t raceID = 0; raceID < race->GetTraits().gene.Count(); ++raceID)
         {
-            genes.SetGenes(GenePositions::Race(), race->Traits().gene.Value(raceID));
+            genes.SetGenes(GenePositions::Race(), race->GetTraits().gene.Value(raceID));
             TestUtils::SetGenes_Female(genes);
             genes.SetGenes(GenePositions::Height(), 0LL);
             test.ReplaceGenes(genes);
-            std::wcout << "Race: " << test.GetRace()->Name() << std::endl;
+            std::wcout << "Race: " << test.GetRace()->GetName() << std::endl;
 
             // Check name
-            EXPECT_EQ(test.GetRace()->Name(), races[raceCount]);
+            EXPECT_EQ(test.GetRace()->GetName(), races[raceCount]);
 
             for (std::size_t ageCount = 0; ageCount < ageCategories.size(); ++ageCount)
             {
                 AgeCategory category = ageCategories[ageCount];
-                TimeSpan start = race->Traits().ageRanges->AgeStart(category);
+                TimeSpan start = race->GetTraits().ageRanges->AgeStart(category);
 
                 genes.SetGenes(GenePositions::Height(), 0.0);
                 test.ReplaceGenes(genes);
                 __int64 height = test.GetHeight(start);
-                EXPECT_EQ(height, race->Traits().height->FemaleRange().Value(ageCount).Minimum());
+                EXPECT_EQ(height, race->GetTraits().height->FemaleRange().Value(ageCount).Minimum());
 
                 genes.SetGenes(GenePositions::Height(), 0.51);
                 test.ReplaceGenes(genes);
                 height = test.GetHeight(start);
-                EXPECT_EQ(height, race->Traits().height->FemaleRange().Value(ageCount).Average());
+                EXPECT_EQ(height, race->GetTraits().height->FemaleRange().Value(ageCount).Average());
 
                 genes.SetGenes(GenePositions::Height(), 1.0);
                 test.ReplaceGenes(genes);
                 height = test.GetHeight(start);
-                EXPECT_EQ(height, race->Traits().height->FemaleRange().Value(ageCount).Maximum());
+                EXPECT_EQ(height, race->GetTraits().height->FemaleRange().Value(ageCount).Maximum());
             }
         } // raceID
     } // raceCount
@@ -187,36 +187,36 @@ TEST(GenomeTest, GetWeight_Male)
     for (std::size_t raceCount = 0; raceCount < races.size(); ++raceCount)
     {
         auto race = Races::GetRaces()->FindRaceByName(races[raceCount]);
-        for (std::size_t raceID = 0; raceID < race->Traits().gene.Count(); ++raceID)
+        for (std::size_t raceID = 0; raceID < race->GetTraits().gene.Count(); ++raceID)
         {
-            genes.SetGenes(GenePositions::Race(), race->Traits().gene.Value(raceID));
+            genes.SetGenes(GenePositions::Race(), race->GetTraits().gene.Value(raceID));
             TestUtils::SetGenes_Male(genes);
             genes.SetGenes(GenePositions::Weight(), 0LL);
             test.ReplaceGenes(genes);
-            std::wcout << "Race: " << test.GetRace()->Name() << std::endl;
+            std::wcout << "Race: " << test.GetRace()->GetName() << std::endl;
 
             // Check name
-            EXPECT_EQ(test.GetRace()->Name(), races[raceCount]);
+            EXPECT_EQ(test.GetRace()->GetName(), races[raceCount]);
 
             for (std::size_t ageCount = 0; ageCount < ageCategories.size(); ++ageCount)
             {
                 AgeCategory category = ageCategories[ageCount];
-                TimeSpan start = race->Traits().ageRanges->AgeStart(category);
+                TimeSpan start = race->GetTraits().ageRanges->AgeStart(category);
 
                 genes.SetGenes(GenePositions::Weight(), 0.0);
                 test.ReplaceGenes(genes);
                 __int64 weight = test.GetWeight(start);
-                EXPECT_EQ(weight, race->Traits().weight->MaleRange().Value(ageCount).Minimum());
+                EXPECT_EQ(weight, race->GetTraits().weight->MaleRange().Value(ageCount).Minimum());
 
                 genes.SetGenes(GenePositions::Weight(), 0.51);
                 test.ReplaceGenes(genes);
                 weight = test.GetWeight(start);
-                EXPECT_EQ(weight, race->Traits().weight->MaleRange().Value(ageCount).Average());
+                EXPECT_EQ(weight, race->GetTraits().weight->MaleRange().Value(ageCount).Average());
 
                 genes.SetGenes(GenePositions::Weight(), 1.0);
                 test.ReplaceGenes(genes);
                 weight = test.GetWeight(start);
-                EXPECT_EQ(weight, race->Traits().weight->MaleRange().Value(ageCount).Maximum());
+                EXPECT_EQ(weight, race->GetTraits().weight->MaleRange().Value(ageCount).Maximum());
             }
         } // raceID
     } // raceCount
@@ -241,36 +241,36 @@ TEST(GenomeTest, GetWeight_Female)
     for (std::size_t raceCount = 0; raceCount < races.size(); ++raceCount)
     {
         auto race = Races::GetRaces()->FindRaceByName(races[raceCount]);
-        for (std::size_t raceID = 0; raceID < race->Traits().gene.Count(); ++raceID)
+        for (std::size_t raceID = 0; raceID < race->GetTraits().gene.Count(); ++raceID)
         {
-            genes.SetGenes(GenePositions::Race(), race->Traits().gene.Value(raceID));
+            genes.SetGenes(GenePositions::Race(), race->GetTraits().gene.Value(raceID));
             TestUtils::SetGenes_Female(genes);
             genes.SetGenes(GenePositions::Weight(), 0LL);
             test.ReplaceGenes(genes);
-            std::wcout << "Race: " << test.GetRace()->Name() << std::endl;
+            std::wcout << "Race: " << test.GetRace()->GetName() << std::endl;
 
             // Check name
-            EXPECT_EQ(test.GetRace()->Name(), races[raceCount]);
+            EXPECT_EQ(test.GetRace()->GetName(), races[raceCount]);
 
             for (std::size_t ageCount = 0; ageCount < ageCategories.size(); ++ageCount)
             {
                 AgeCategory category = ageCategories[ageCount];
-                TimeSpan start = race->Traits().ageRanges->AgeStart(category);
+                TimeSpan start = race->GetTraits().ageRanges->AgeStart(category);
 
                 genes.SetGenes(GenePositions::Weight(), 0.0);
                 test.ReplaceGenes(genes);
                 __int64 weight = test.GetWeight(start);
-                EXPECT_EQ(weight, race->Traits().weight->FemaleRange().Value(ageCount).Minimum());
+                EXPECT_EQ(weight, race->GetTraits().weight->FemaleRange().Value(ageCount).Minimum());
 
                 genes.SetGenes(GenePositions::Weight(), 0.51);
                 test.ReplaceGenes(genes);
                 weight = test.GetWeight(start);
-                EXPECT_EQ(weight, race->Traits().weight->FemaleRange().Value(ageCount).Average());
+                EXPECT_EQ(weight, race->GetTraits().weight->FemaleRange().Value(ageCount).Average());
 
                 genes.SetGenes(GenePositions::Weight(), 1.0);
                 test.ReplaceGenes(genes);
                 weight = test.GetWeight(start);
-                EXPECT_EQ(weight, race->Traits().weight->FemaleRange().Value(ageCount).Maximum());
+                EXPECT_EQ(weight, race->GetTraits().weight->FemaleRange().Value(ageCount).Maximum());
             }
         } // raceID
     } // raceCount
@@ -285,21 +285,21 @@ TEST(GenomeTest, MaximumAge)
     for (std::size_t raceCount = 0; raceCount < races.size(); ++raceCount)
     {
         auto race = Races::GetRaces()->FindRaceByName(races[raceCount]);
-        for (std::size_t raceID = 0; raceID < race->Traits().gene.Count(); ++raceID)
+        for (std::size_t raceID = 0; raceID < race->GetTraits().gene.Count(); ++raceID)
         {
-            genes.SetGenes(GenePositions::Race(), race->Traits().gene.Value(raceID));
+            genes.SetGenes(GenePositions::Race(), race->GetTraits().gene.Value(raceID));
             TestUtils::SetGenes_Male(genes);
             genes.SetGenes(GenePositions::MaximumLife(), 0.0);
             test.ReplaceGenes(genes);
 
             TimeSpan result = test.MaximumAge();
-            EXPECT_EQ(result.Ticks(), race->Traits().ageRanges->AgeStart(AgeCategory::Elder));
+            EXPECT_EQ(result.Ticks(), race->GetTraits().ageRanges->AgeStart(AgeCategory::Elder));
 
             genes.SetGenes(GenePositions::MaximumLife(), 1.0);
             test.ReplaceGenes(genes);
 
             result = test.MaximumAge();
-            EXPECT_EQ(result.Ticks(), race->Traits().ageRanges->NextAgeStart(AgeCategory::Elder));
+            EXPECT_EQ(result.Ticks(), race->GetTraits().ageRanges->NextAgeStart(AgeCategory::Elder));
         }
     }
 }

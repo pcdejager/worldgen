@@ -17,6 +17,9 @@ public:
     void Add(__int64 maleRaceID, __int64 femaleRaceID, const std::vector<__int64>& raceIDs, const std::vector<double>& chance);
 
 public:
+    __int64 Lookup(__int64 father, __int64 mother, double roll);
+
+public:
     void LogMatrix() const;
 
 #ifdef UNITTEST

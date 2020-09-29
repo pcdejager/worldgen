@@ -20,7 +20,7 @@ constexpr __int64 GeneTest_Female = (1LL << static_cast<__int64>(GenePositions::
 
 /*static*/ void TestUtils::SetGenes_Race(Genes& genes, const RacePtr& race)
 {
-    auto raceGene = race->Traits().gene.Value(0);
+    auto raceGene = race->GetTraits().gene.Value(0);
     genes.SetGenes(GenePositions::Race(), raceGene);
 }
 

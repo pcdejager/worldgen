@@ -160,7 +160,7 @@ std::vector<std::wstring> Races::AllRaceNames() const
     std::vector<std::wstring> result;
     for (auto item : races)
     {
-        result.push_back(item.second->Name());
+        result.push_back(item.second->GetName());
     }
     return result;
 }
@@ -170,7 +170,7 @@ std::vector<__int64> Races::AllRaceIDs() const
     std::vector<__int64> result;
     for (auto item : races)
     {
-        result.push_back(item.second->ID());
+        result.push_back(item.second->GetID());
     }
     return result;
 }
@@ -202,7 +202,7 @@ std::wstring Races::FindRaceName(__int64 value) const
         auto raceFind = races.find(id);
         if (raceFind != races.end())
         {
-            return raceFind->second->Name();
+            return raceFind->second->GetName();
         }
     }
     return L"";
@@ -241,4 +241,10 @@ RacePtr Races::FindRaceByName(const std::wstring& name) const
         }
     }
     return nullptr;
+}
+
+RacePtr Races::ChildRace(const RacePtr& father, const RacePtr& mother, double roll)
+{
+    __int64 raceID = proceateMatrix.Lookup(father->GetID(), mother->GetID(), roll);
+    return FindRaceByID(raceID);
 }

@@ -14,9 +14,9 @@ public:
     Race& operator=(const Race& rhs) = delete;
 
 public:
-    std::wstring Name() const { return name; }
-    __int64 ID() const { return id; }
-    const RacialTraits& Traits() const { return traits; }
+    std::wstring GetName() const { return name; }
+    __int64 GetID() const { return id; }
+    const RacialTraits& GetTraits() const { return traits; }
 
 private:
     std::wstring name;

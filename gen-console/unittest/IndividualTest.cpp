@@ -169,8 +169,8 @@ TEST(IndividualTest, GetAge_dead)
 TEST(IndividualTest, GetMaximumAge)
 {
     RacePtr race = Races::GetRaces()->FindRaceByName(L"Human");
-    TimeSpan min = race->Traits().ageRanges->AgeStart(AgeCategory::Elder);
-    TimeSpan max = race->Traits().ageRanges->AgeStart(AgeCategory::Dead);
+    TimeSpan min = race->GetTraits().ageRanges->AgeStart(AgeCategory::Elder);
+    TimeSpan max = race->GetTraits().ageRanges->AgeStart(AgeCategory::Dead);
 
     IndividualPtr test1 = TestUtils::CreateIndividual(L"Human", true, 0.0, 1.0, 0.0);
     IndividualPtr test2 = TestUtils::CreateIndividual(L"Human", true, 0.0, 1.0, 1.0);
@@ -190,12 +190,12 @@ TEST(IndividualTest, GetAgeCategory)
     EXPECT_EQ(test->GetAgeCategory(), AgeCategory::NewBorn);
 
     WorldProperties::Properties()->ResetTime();
-    WorldProperties::Properties()->AdvanceTime(race->Traits().ageRanges->AgeStart(AgeCategory::Toddler));
+    WorldProperties::Properties()->AdvanceTime(race->GetTraits().ageRanges->AgeStart(AgeCategory::Toddler));
     WorldProperties::Properties()->AdvanceTime(TimeSpan(1LL, 0LL, 0LL, 0LL, 0LL));
     EXPECT_EQ(test->GetAgeCategory(), AgeCategory::Toddler);
 
     WorldProperties::Properties()->ResetTime();
-    WorldProperties::Properties()->AdvanceTime(race->Traits().ageRanges->AgeStart(AgeCategory::Child));
+    WorldProperties::Properties()->AdvanceTime(race->GetTraits().ageRanges->AgeStart(AgeCategory::Child));
     WorldProperties::Properties()->AdvanceTime(TimeSpan(1LL, 0LL, 0LL, 0LL, 0LL));
     EXPECT_EQ(test->GetAgeCategory(), AgeCategory::Child);
 }

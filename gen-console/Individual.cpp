@@ -87,7 +87,7 @@ AgeCategory Individual::GetAgeCategory() const
         return AgeCategory::Dead;
     }
     RacePtr race = GetRace();
-    AgeTraitsPtr ageTraits = race->Traits().ageRanges;
+    AgeTraitsPtr ageTraits = race->GetTraits().ageRanges;
     return ageTraits->Categorize(age);
 }
 
@@ -111,7 +111,7 @@ void Individual::Inpregnate(const IndividualPtr& father, const IndividualPtr& mo
     WorldTime conceived = WorldProperties::Properties()->Now();
     RacePtr race = GetRace();
     double random = MathUtils::RandomDouble();
-    __int64 duration = race->Traits().pregnancy.Value(random);
+    __int64 duration = race->GetTraits().pregnancy.Value(random);
     pregnant = std::make_shared<Pregnancy>(father, mother, conceived, TimeSpan(duration));
 }
 

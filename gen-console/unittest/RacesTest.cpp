@@ -56,10 +56,10 @@ TEST(RacesTest, FindRaceName)
 TEST(RacesTest, FindRaceByGene)
 {
     auto test = Races::GetRaces();
-    EXPECT_EQ(test->FindRaceByGene(0LL)->Name(), L"Human");
-    EXPECT_EQ(test->FindRaceByGene(1LL)->Name(), L"Human");
-    EXPECT_EQ(test->FindRaceByGene(2LL)->Name(), L"Elf");
-    EXPECT_EQ(test->FindRaceByGene(3LL)->Name(), L"Half-elf");
+    EXPECT_EQ(test->FindRaceByGene(0LL)->GetName(), L"Human");
+    EXPECT_EQ(test->FindRaceByGene(1LL)->GetName(), L"Human");
+    EXPECT_EQ(test->FindRaceByGene(2LL)->GetName(), L"Elf");
+    EXPECT_EQ(test->FindRaceByGene(3LL)->GetName(), L"Half-elf");
 
     EXPECT_EQ(test->FindRaceByGene(4LL), nullptr);
 }
@@ -67,9 +67,9 @@ TEST(RacesTest, FindRaceByGene)
 TEST(RacesTest, FindRaceByID)
 {
     auto test = Races::GetRaces();
-    EXPECT_EQ(test->FindRaceByID(0LL)->Name(), L"Human");
-    EXPECT_EQ(test->FindRaceByID(1LL)->Name(), L"Elf");
-    EXPECT_EQ(test->FindRaceByID(2LL)->Name(), L"Half-elf");
+    EXPECT_EQ(test->FindRaceByID(0LL)->GetName(), L"Human");
+    EXPECT_EQ(test->FindRaceByID(1LL)->GetName(), L"Elf");
+    EXPECT_EQ(test->FindRaceByID(2LL)->GetName(), L"Half-elf");
 
     EXPECT_EQ(test->FindRaceByName(L"Unknown"), nullptr);
 }
@@ -77,9 +77,9 @@ TEST(RacesTest, FindRaceByID)
 TEST(RacesTest, FindRaceByName)
 {
     auto test = Races::GetRaces();
-    EXPECT_EQ(test->FindRaceByName(L"Human")->Name(), L"Human");
-    EXPECT_EQ(test->FindRaceByName(L"Elf")->Name(), L"Elf");
-    EXPECT_EQ(test->FindRaceByName(L"Half-elf")->Name(), L"Half-elf");
+    EXPECT_EQ(test->FindRaceByName(L"Human")->GetName(), L"Human");
+    EXPECT_EQ(test->FindRaceByName(L"Elf")->GetName(), L"Elf");
+    EXPECT_EQ(test->FindRaceByName(L"Half-elf")->GetName(), L"Half-elf");
 
     EXPECT_EQ(test->FindRaceByName(L"Unknown"), nullptr);
 }

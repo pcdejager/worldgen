@@ -47,7 +47,7 @@ void PopulationStatistics::VisitIndividual(Individual* individual)
     ++total;
     RacePtr race = individual->GetRace();
     AgeCategory ageCategory = individual->GetAgeCategory();
-    __int64 raceID = race->ID();
+    __int64 raceID = race->GetID();
     if (individual->GetSex().IsFemale())
     {
         ++females;

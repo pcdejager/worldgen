@@ -168,6 +168,9 @@
     <ClCompile Include="Pregnancy.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Genetics.cpp">
+      <Filter>Source Files\Genes</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="WorldBuilder.h">
@@ -304,6 +307,9 @@
     </ClInclude>
     <ClInclude Include="Pregnancy.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Genetics.h">
+      <Filter>Header Files\Genes</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

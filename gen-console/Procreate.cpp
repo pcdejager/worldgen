@@ -14,6 +14,34 @@ void Procreate::Add(__int64 maleRaceID, __int64 femaleRaceID, const std::vector<
     matrix.insert(std::make_pair(pairing, result));
 }
 
+__int64 Procreate::Lookup(__int64 father, __int64 mother, double roll)
+{
+    Pairing pairing = std::make_pair(father, mother);
+    auto find = matrix.find(pairing);
+    if (find != matrix.end())
+    {
+        //  0    1    2
+        //0.8 0.90 0.99
+
+        PairingResult result = find->second;
+        std::size_t index = result.second.size() - 1;
+        __int64 raceID = -1;
+        for (std::size_t index = result.second.size() - 1; (index > 0) && (raceID == -1); ++index)
+        {
+            if (roll > result.second[index])
+            {
+                raceID = result.first[index];
+            }
+        }
+        if (raceID == -1)
+        {
+            raceID = result.first[0];
+        }
+        return raceID;
+    }
+    return 0;
+}
+
 void Procreate::LogMatrix() const
 {
     LoggerPtr log = Logger::GetLogger();
