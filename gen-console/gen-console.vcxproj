@@ -157,6 +157,7 @@
     <ClCompile Include="gen-console.cpp" />
     <ClCompile Include="GeneGenerator.cpp" />
     <ClCompile Include="Genes.cpp" />
+    <ClCompile Include="GeneticRaceOperator.cpp" />
     <ClCompile Include="Genetics.cpp" />
     <ClCompile Include="Genome.cpp" />
     <ClCompile Include="GrayCode.cpp" />
@@ -204,10 +205,12 @@
     <ClInclude Include="GenePosition.h" />
     <ClInclude Include="GenePositions.h" />
     <ClInclude Include="Genes.h" />
+    <ClInclude Include="GeneticRaceOperator.h" />
     <ClInclude Include="Genetics.h" />
     <ClInclude Include="Genome.h" />
     <ClInclude Include="GrayCode.h" />
     <ClInclude Include="AgeSexRangeValue.h" />
+    <ClInclude Include="IGeneticOperator.h" />
     <ClInclude Include="INameGenerator.h" />
     <ClInclude Include="Individual.h" />
     <ClInclude Include="IndividualName.h" />

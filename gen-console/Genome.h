@@ -32,6 +32,9 @@ public:
     const Genes& GetGenes() const { return genes; }
 #endif
     
+public:
+    friend class Genetics;
+
 private:
     Genes genes;
 };

@@ -72,6 +72,7 @@ public:
 private:
     friend class Physiology;
     friend class Population;
+    friend class Genetics;
 
     void IndividualDied(const WorldTime& time);
 

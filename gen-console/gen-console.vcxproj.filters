@@ -52,6 +52,12 @@
     <Filter Include="Source Files\Population\Filters">
       <UniqueIdentifier>{596be2e8-5529-4c8c-9314-5240f7dd3ce3}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Genes\Operators">
+      <UniqueIdentifier>{edb2bbca-030d-475d-b6ad-bb551186ba16}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Genes\Operators">
+      <UniqueIdentifier>{14a756fd-aef8-40d5-93bf-0f9c376cf909}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="gen-console.cpp">
@@ -170,6 +176,9 @@
     </ClCompile>
     <ClCompile Include="Genetics.cpp">
       <Filter>Source Files\Genes</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneticRaceOperator.cpp">
+      <Filter>Source Files\Genes\Operators</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -310,6 +319,12 @@
     </ClInclude>
     <ClInclude Include="Genetics.h">
       <Filter>Header Files\Genes</Filter>
+    </ClInclude>
+    <ClInclude Include="GeneticRaceOperator.h">
+      <Filter>Header Files\Genes\Operators</Filter>
+    </ClInclude>
+    <ClInclude Include="IGeneticOperator.h">
+      <Filter>Header Files\Genes\Operators</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

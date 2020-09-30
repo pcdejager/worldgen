@@ -4,18 +4,17 @@
 #include "Races.h"
 #include "Individual.h"
 #include "MathUtils.h"
+#include "IGeneticOperator.h"
+#include "GeneticRaceOperator.h"
+#include "GenePositions.h"
 
 /*static*/ IndividualPtr Genetics::CreateChild(const IndividualPtr& father, const IndividualPtr& mother)
 {
     IndividualPtr child;
 
-    // TODO : Calculate new race
-    RacePtr fatherRace = father->GetRace();
-    RacePtr motherRace = mother->GetRace();
-
-    double roll = MathUtils::RandomDouble();
-
-    RacePtr childRace = Races::GetRaces()->ChildRace(fatherRace, motherRace, roll);
+    // Race
+    GeneticRaceOperator raceOperator;
+    raceOperator.Apply(father->genome.genes, mother->genome.genes, GenePositions::Race(), child->genome.genes);
 
     // TODO : Apply GeneticOperators to all GenePositions
 

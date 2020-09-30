@@ -191,6 +191,9 @@
     <ClCompile Include="..\Genetics.cpp">
       <Filter>External\Genes</Filter>
     </ClCompile>
+    <ClCompile Include="..\GeneticRaceOperator.cpp">
+      <Filter>External\Genes\Operators</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h" />
@@ -235,6 +238,9 @@
     </Filter>
     <Filter Include="Population\Filters">
       <UniqueIdentifier>{0bc99bda-7dbd-41ad-94b9-2c78ba8e97b2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="External\Genes\Operators">
+      <UniqueIdentifier>{73f249a2-9ba8-4af4-a7b0-19db779b3d81}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
