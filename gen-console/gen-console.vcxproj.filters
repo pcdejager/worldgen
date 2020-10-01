@@ -180,6 +180,9 @@
     <ClCompile Include="GeneticRaceOperator.cpp">
       <Filter>Source Files\Genes\Operators</Filter>
     </ClCompile>
+    <ClCompile Include="GeneticCrossoverOperator.cpp">
+      <Filter>Source Files\Genes\Operators</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="WorldBuilder.h">
@@ -324,6 +327,9 @@
       <Filter>Header Files\Genes\Operators</Filter>
     </ClInclude>
     <ClInclude Include="IGeneticOperator.h">
+      <Filter>Header Files\Genes\Operators</Filter>
+    </ClInclude>
+    <ClInclude Include="GeneticCrossoverOperator.h">
       <Filter>Header Files\Genes\Operators</Filter>
     </ClInclude>
   </ItemGroup>

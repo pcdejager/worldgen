@@ -43,6 +43,7 @@
     <ClCompile Include="..\ConfigLoader.cpp" />
     <ClCompile Include="..\GeneGenerator.cpp" />
     <ClCompile Include="..\Genes.cpp" />
+    <ClCompile Include="..\GeneticCrossoverOperator.cpp" />
     <ClCompile Include="..\GeneticRaceOperator.cpp" />
     <ClCompile Include="..\Genetics.cpp" />
     <ClCompile Include="..\Genome.cpp" />
