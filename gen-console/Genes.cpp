@@ -40,7 +40,7 @@ Genes& Genes::operator=(const Genes& rhs)
     return *this;
 }
 
-Genes& Genes::operator=(Genes&& rhs)
+Genes& Genes::operator=(Genes&& rhs) noexcept
 {
     if (this != &rhs)
     {

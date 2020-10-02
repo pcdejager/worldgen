@@ -10,7 +10,7 @@ public:
     Genes(Genes&& rhs) noexcept;
     ~Genes();
     Genes& operator=(const Genes& rhs);
-    Genes& operator=(Genes&& rhs);
+    Genes& operator=(Genes&& rhs) noexcept;
 
 public:
     std::size_t End() const;

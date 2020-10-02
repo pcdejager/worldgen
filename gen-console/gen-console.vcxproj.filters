@@ -180,7 +180,7 @@
     <ClCompile Include="GeneticRaceOperator.cpp">
       <Filter>Source Files\Genes\Operators</Filter>
     </ClCompile>
-    <ClCompile Include="GeneticCrossoverOperator.cpp">
+    <ClCompile Include="GeneticDoubleOperator.cpp">
       <Filter>Source Files\Genes\Operators</Filter>
     </ClCompile>
   </ItemGroup>
@@ -329,7 +329,7 @@
     <ClInclude Include="IGeneticOperator.h">
       <Filter>Header Files\Genes\Operators</Filter>
     </ClInclude>
-    <ClInclude Include="GeneticCrossoverOperator.h">
+    <ClInclude Include="GeneticDoubleOperator.h">
       <Filter>Header Files\Genes\Operators</Filter>
     </ClInclude>
   </ItemGroup>

@@ -6,7 +6,7 @@
 #include "MathUtils.h"
 #include "IGeneticOperator.h"
 #include "GeneticRaceOperator.h"
-#include "GeneticCrossoverOperator.h"
+#include "GeneticDoubleOperator.h"
 #include "GenePositions.h"
 
 /*static*/ IndividualPtr Genetics::CreateChild(const IndividualPtr& father, const IndividualPtr& mother)
@@ -15,27 +15,34 @@
 
     // Race
     GeneticRaceOperator raceOperator;
-    raceOperator.Apply(father->genome.genes, mother->genome.genes, GenePositions::Race(), child->genome.genes);
+    raceOperator.Crossover(father->genome.genes, mother->genome.genes, GenePositions::Race(), child->genome.genes);
+    raceOperator.Mutate(GenePositions::Race(), child->genome.genes);
 
-    GeneticCrossoverOperator crossOperator;
+    GeneticDoubleOperator doubleOperator;
 
     // Sex
-    crossOperator.Apply(father->genome.genes, mother->genome.genes, GenePositions::Sex(), child->genome.genes);
+    doubleOperator.Crossover(father->genome.genes, mother->genome.genes, GenePositions::Sex(), child->genome.genes);
+    doubleOperator.Mutate(GenePositions::Sex(), child->genome.genes);
 
     // Period
-    crossOperator.Apply(father->genome.genes, mother->genome.genes, GenePositions::Period(), child->genome.genes);
+    doubleOperator.Crossover(father->genome.genes, mother->genome.genes, GenePositions::Period(), child->genome.genes);
+    doubleOperator.Mutate(GenePositions::Period(), child->genome.genes);
 
     // Fertility
-    crossOperator.Apply(father->genome.genes, mother->genome.genes, GenePositions::Fertility(), child->genome.genes);
+    doubleOperator.Crossover(father->genome.genes, mother->genome.genes, GenePositions::Fertility(), child->genome.genes);
+    doubleOperator.Mutate(GenePositions::Fertility(), child->genome.genes);
 
     // Height
-    crossOperator.Apply(father->genome.genes, mother->genome.genes, GenePositions::Height(), child->genome.genes);
+    doubleOperator.Crossover(father->genome.genes, mother->genome.genes, GenePositions::Height(), child->genome.genes);
+    doubleOperator.Mutate(GenePositions::Height(), child->genome.genes);
 
     // Weight
-    crossOperator.Apply(father->genome.genes, mother->genome.genes, GenePositions::Weight(), child->genome.genes);
+    doubleOperator.Crossover(father->genome.genes, mother->genome.genes, GenePositions::Weight(), child->genome.genes);
+    doubleOperator.Mutate(GenePositions::Weight(), child->genome.genes);
 
     // MaximumLife
-    crossOperator.Apply(father->genome.genes, mother->genome.genes, GenePositions::MaximumLife(), child->genome.genes);
+    doubleOperator.Crossover(father->genome.genes, mother->genome.genes, GenePositions::MaximumLife(), child->genome.genes);
+    doubleOperator.Mutate(GenePositions::MaximumLife(), child->genome.genes);
 
     return child;
 }

@@ -4,7 +4,7 @@
 #include "Races.h"
 #include "MathUtils.h"
 
-void GeneticRaceOperator::Apply(const Genes& father, const Genes& mother, const GenePosition& position, Genes& result)
+void GeneticRaceOperator::Crossover(const Genes& father, const Genes& mother, const GenePosition& position, Genes& result)
 {
     __int64 fatherGene = father.ReadInt(position);
     __int64 motherGene = mother.ReadInt(position);
@@ -21,5 +21,9 @@ void GeneticRaceOperator::Apply(const Genes& father, const Genes& mother, const 
     __int64 geneValue = MathUtils::RandomInt(0, possibleGenes);
 
     result.SetGenes(position, geneValue);
+}
 
+void GeneticRaceOperator::Mutate(const GenePosition& position, Genes& child)
+{
+    // Do nothing
 }

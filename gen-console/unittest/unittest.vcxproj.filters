@@ -194,7 +194,7 @@
     <ClCompile Include="..\GeneticRaceOperator.cpp">
       <Filter>External\Genes\Operators</Filter>
     </ClCompile>
-    <ClCompile Include="..\GeneticCrossoverOperator.cpp">
+    <ClCompile Include="..\GeneticDoubleOperator.cpp">
       <Filter>External\Genes\Operators</Filter>
     </ClCompile>
   </ItemGroup>
