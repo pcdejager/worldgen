@@ -156,6 +156,8 @@
     <ClCompile Include="ConfigLoader.cpp" />
     <ClCompile Include="gen-console.cpp" />
     <ClCompile Include="GeneGenerator.cpp" />
+    <ClCompile Include="GenePosition.cpp" />
+    <ClCompile Include="GenePositions.cpp" />
     <ClCompile Include="Genes.cpp" />
     <ClCompile Include="GeneticDoubleOperator.cpp" />
     <ClCompile Include="GeneticRaceOperator.cpp" />

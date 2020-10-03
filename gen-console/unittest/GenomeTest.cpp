@@ -14,7 +14,7 @@ TEST(GenomeTest, Constructor_genes)
 {
     Genes genes;
     Genes empty;
-    genes.SetGenes(GenePosition(0LL, 16LL), 123456LL);
+    genes.SetGenes(GenePosition(GeneType::DOUBLE, 0LL, 16LL), 123456LL);
 
     Genome test1;
     EXPECT_TRUE(test1.GetGenes() != genes);

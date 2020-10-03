@@ -183,6 +183,12 @@
     <ClCompile Include="GeneticDoubleOperator.cpp">
       <Filter>Source Files\Genes\Operators</Filter>
     </ClCompile>
+    <ClCompile Include="GenePositions.cpp">
+      <Filter>Source Files\Genes</Filter>
+    </ClCompile>
+    <ClCompile Include="GenePosition.cpp">
+      <Filter>Source Files\Genes</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="WorldBuilder.h">

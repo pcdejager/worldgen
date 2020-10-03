@@ -197,6 +197,18 @@
     <ClCompile Include="..\GeneticDoubleOperator.cpp">
       <Filter>External\Genes\Operators</Filter>
     </ClCompile>
+    <ClCompile Include="..\GenePositions.cpp">
+      <Filter>External\Genes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\GenePosition.cpp">
+      <Filter>External\Genes</Filter>
+    </ClCompile>
+    <ClCompile Include="GenePositionsTest.cpp">
+      <Filter>Genes</Filter>
+    </ClCompile>
+    <ClCompile Include="GenePositionTest.cpp">
+      <Filter>Genes</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h" />

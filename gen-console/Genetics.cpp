@@ -13,36 +13,24 @@
 {
     IndividualPtr child;
 
-    // Race
     GeneticRaceOperator raceOperator;
-    raceOperator.Crossover(father->genome.genes, mother->genome.genes, GenePositions::Race(), child->genome.genes);
-    raceOperator.Mutate(GenePositions::Race(), child->genome.genes);
-
     GeneticDoubleOperator doubleOperator;
 
-    // Sex
-    doubleOperator.Crossover(father->genome.genes, mother->genome.genes, GenePositions::Sex(), child->genome.genes);
-    doubleOperator.Mutate(GenePositions::Sex(), child->genome.genes);
-
-    // Period
-    doubleOperator.Crossover(father->genome.genes, mother->genome.genes, GenePositions::Period(), child->genome.genes);
-    doubleOperator.Mutate(GenePositions::Period(), child->genome.genes);
-
-    // Fertility
-    doubleOperator.Crossover(father->genome.genes, mother->genome.genes, GenePositions::Fertility(), child->genome.genes);
-    doubleOperator.Mutate(GenePositions::Fertility(), child->genome.genes);
-
-    // Height
-    doubleOperator.Crossover(father->genome.genes, mother->genome.genes, GenePositions::Height(), child->genome.genes);
-    doubleOperator.Mutate(GenePositions::Height(), child->genome.genes);
-
-    // Weight
-    doubleOperator.Crossover(father->genome.genes, mother->genome.genes, GenePositions::Weight(), child->genome.genes);
-    doubleOperator.Mutate(GenePositions::Weight(), child->genome.genes);
-
-    // MaximumLife
-    doubleOperator.Crossover(father->genome.genes, mother->genome.genes, GenePositions::MaximumLife(), child->genome.genes);
-    doubleOperator.Mutate(GenePositions::MaximumLife(), child->genome.genes);
+    // Race
+    const auto& genePositions = GenePositions::AllGenes();
+    for (const auto& position : genePositions)
+    {
+        if (position.Type() == GeneType::RACE)
+        {
+            raceOperator.Crossover(father->genome.genes, mother->genome.genes, position, child->genome.genes);
+            raceOperator.Mutate(position, child->genome.genes);
+        }
+        else if (position.Type() == GeneType::DOUBLE)
+        {
+            doubleOperator.Crossover(father->genome.genes, mother->genome.genes, position, child->genome.genes);
+            doubleOperator.Mutate(position, child->genome.genes);
+        }
+    }
 
     return child;
 }

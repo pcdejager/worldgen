@@ -42,6 +42,8 @@
     <ClCompile Include="..\AgeTraits.cpp" />
     <ClCompile Include="..\ConfigLoader.cpp" />
     <ClCompile Include="..\GeneGenerator.cpp" />
+    <ClCompile Include="..\GenePosition.cpp" />
+    <ClCompile Include="..\GenePositions.cpp" />
     <ClCompile Include="..\Genes.cpp" />
     <ClCompile Include="..\GeneticDoubleOperator.cpp" />
     <ClCompile Include="..\GeneticRaceOperator.cpp" />
@@ -79,6 +81,8 @@
     <ClCompile Include="AgeCategoryTest.cpp" />
     <ClCompile Include="AgeTraitsTest.cpp" />
     <ClCompile Include="ConfigLoaderTest.cpp" />
+    <ClCompile Include="GenePositionsTest.cpp" />
+    <ClCompile Include="GenePositionTest.cpp" />
     <ClCompile Include="GenesTest.cpp" />
     <ClCompile Include="GenomeTest.cpp" />
     <ClCompile Include="GrayCodeTest.cpp" />

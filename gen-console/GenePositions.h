@@ -11,11 +11,16 @@ class GenePositions
 {
 public:
     // Race
-    static constexpr GenePosition Race() { return GenePosition(0, 2); }
-    static constexpr GenePosition Sex() { return GenePosition(Race().End(), 8); }
-    static constexpr GenePosition Period() { return GenePosition(Sex().End(), 8); }
-    static constexpr GenePosition Fertility() { return GenePosition(Period().End(), 8); }
-    static constexpr GenePosition Height() { return GenePosition(Fertility().End(), 16); }
-    static constexpr GenePosition Weight() { return GenePosition(Height().End(), 16); }
-    static constexpr GenePosition MaximumLife() { return GenePosition(Weight().End(), 16); }
+    static constexpr GenePosition Race() { return GenePosition(GeneType::RACE, 0, 2); }
+    static constexpr GenePosition Sex() { return GenePosition(GeneType::DOUBLE, Race().End(), 8); }
+    static constexpr GenePosition Period() { return GenePosition(GeneType::DOUBLE, Sex().End(), 8); }
+    static constexpr GenePosition Fertility() { return GenePosition(GeneType::DOUBLE, Period().End(), 8); }
+    static constexpr GenePosition Height() { return GenePosition(GeneType::DOUBLE, Fertility().End(), 16); }
+    static constexpr GenePosition Weight() { return GenePosition(GeneType::DOUBLE, Height().End(), 16); }
+    static constexpr GenePosition MaximumLife() { return GenePosition(GeneType::DOUBLE, Weight().End(), 16); }
+
+    static const std::vector<GenePosition>& AllGenes();
+
+private:
+    static std::vector<GenePosition> genes;
 };
