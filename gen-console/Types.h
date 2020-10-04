@@ -2,6 +2,8 @@
 
 #include <memory>
 
+enum class GeneCategory { RACE, DOUBLE };
+
 class IPopulationFilter;
 class IPopulationVisitor;
 
@@ -34,3 +36,6 @@ typedef std::shared_ptr<Race> RacePtr;
 
 class Races;
 typedef std::shared_ptr<Races> RacesPtr;
+
+class IGeneticOperator;
+typedef std::shared_ptr<IGeneticOperator> IGeneticOperatorPtr;

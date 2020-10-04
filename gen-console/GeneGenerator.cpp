@@ -9,45 +9,45 @@
 
     // Race
     {
-        std::size_t raceMax = (1 << GenePositions::Race().Size()) - 1;
+        std::size_t raceMax = (1 << GenePositions::GetPosition(GeneType::Race).Size()) - 1;
         __int64 race = MathUtils::RandomInt(0, raceMax);
-        result.SetGenes(GenePositions::Race(), race);
+        result.SetGenes(GenePositions::GetPosition(GeneType::Race), race);
     }
 
     // Sex
     {
         double sex = MathUtils::RandomDouble();
-        result.SetGenes(GenePositions::Sex(), sex);
+        result.SetGenes(GenePositions::GetPosition(GeneType::Sex), sex);
     }
 
     // Period
     {
         double period = MathUtils::RandomDouble();
-        result.SetGenes(GenePositions::Period(), period);
+        result.SetGenes(GenePositions::GetPosition(GeneType::Period), period);
     }
 
     // Fertility
     {
         double fertility = MathUtils::RandomDouble();
-        result.SetGenes(GenePositions::Fertility(), fertility);
+        result.SetGenes(GenePositions::GetPosition(GeneType::Fertility), fertility);
     }
 
     // Height
     {
         double height = MathUtils::RandomDouble();
-        result.SetGenes(GenePositions::Height(), height);
+        result.SetGenes(GenePositions::GetPosition(GeneType::Height), height);
     }
 
     // Weight
     {
         double weight = MathUtils::RandomDouble();
-        result.SetGenes(GenePositions::Weight(), weight);
+        result.SetGenes(GenePositions::GetPosition(GeneType::Weight), weight);
     }
 
     // Maximum life
     {
         double max = MathUtils::RandomDouble();
-        result.SetGenes(GenePositions::MaximumLife(), max);
+        result.SetGenes(GenePositions::GetPosition(GeneType::MaximumLife), max);
     }
 
     return result;

@@ -13,4 +13,3 @@ public:
     virtual void Mutate(const GenePosition& position, Genes& child) = 0;
 };
 
-typedef std::shared_ptr<IGeneticOperator> IGeneticOperatorPtr;

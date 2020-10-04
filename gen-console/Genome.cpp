@@ -21,13 +21,13 @@ Genome::Genome(const Genes& inputGenes)
 
 RacePtr Genome::GetRace() const
 {
-    __int64 geneValue = genes.ReadInt(GenePositions::Race());
+    __int64 geneValue = genes.ReadInt(GenePositions::GetPosition(GeneType::Race));
     return Races::GetRaces()->FindRaceByGene(geneValue);
 }
 
 Sex Genome::GetSex() const
 {
-    double geneValue = genes.ReadDouble(GenePositions::Sex());
+    double geneValue = genes.ReadDouble(GenePositions::GetPosition(GeneType::Sex));
     if (geneValue < 0.5)
     {
         return Sex(true, false);
@@ -37,7 +37,7 @@ Sex Genome::GetSex() const
 
 double Genome::GetFertility() const
 {
-    return genes.ReadDouble(GenePositions::Fertility());
+    return genes.ReadDouble(GenePositions::GetPosition(GeneType::Fertility));
 }
 
 TimeSpan Genome::GetPeriodCycle() const
@@ -47,7 +47,7 @@ TimeSpan Genome::GetPeriodCycle() const
         return TimeSpan();
     }
     RacePtr race = GetRace();
-    double period = (genes.ReadDouble(GenePositions::Period()) * 2.0) - 1.0;
+    double period = (genes.ReadDouble(GenePositions::GetPosition(GeneType::Period)) * 2.0) - 1.0;
     __int64 ticks = race->GetTraits().period.Value(period);
     return TimeSpan(ticks);
 }
@@ -56,7 +56,7 @@ __int64 Genome::GetHeight(const TimeSpan& age) const
 {
     RacePtr race = GetRace();
     Sex sex = GetSex();
-    double geneValue = (genes.ReadDouble(GenePositions::Height()) * 2.0) - 1.0;
+    double geneValue = (genes.ReadDouble(GenePositions::GetPosition(GeneType::Height)) * 2.0) - 1.0;
     return race->GetTraits().height->Value(geneValue, age, sex);
 }
 
@@ -64,14 +64,14 @@ __int64 Genome::GetWeight(const TimeSpan& age) const
 {
     RacePtr race = GetRace();
     Sex sex = GetSex();
-    double geneValue = (genes.ReadDouble(GenePositions::Weight()) * 2.0) - 1.0;
+    double geneValue = (genes.ReadDouble(GenePositions::GetPosition(GeneType::Weight)) * 2.0) - 1.0;
     return race->GetTraits().weight->Value(geneValue, age, sex);
 }
 
 TimeSpan Genome::MaximumAge() const
 {
     RacePtr race = GetRace();
-    double geneValue = genes.ReadDouble(GenePositions::MaximumLife());
+    double geneValue = genes.ReadDouble(GenePositions::GetPosition(GeneType::MaximumLife));
     __int64 max = race->GetTraits().ageRanges->NextAgeStart(AgeCategory::Elder);
     __int64 min = race->GetTraits().ageRanges->AgeStart(AgeCategory::Elder);
     __int64 result = min + static_cast<__int64>((geneValue * static_cast<double>(max - min)));

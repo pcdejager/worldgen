@@ -9,8 +9,12 @@
 #include "GeneticDoubleOperator.h"
 #include "GenePositions.h"
 
+/*static*/ std::map<GeneCategory, IGeneticOperatorPtr> Genetics::operators;
+
 /*static*/ IndividualPtr Genetics::CreateChild(const IndividualPtr& father, const IndividualPtr& mother)
 {
+    Initialize();
+
     IndividualPtr child;
 
     GeneticRaceOperator raceOperator;
@@ -20,17 +24,22 @@
     const auto& genePositions = GenePositions::AllGenes();
     for (const auto& position : genePositions)
     {
-        if (position.Type() == GeneType::RACE)
-        {
-            raceOperator.Crossover(father->genome.genes, mother->genome.genes, position, child->genome.genes);
-            raceOperator.Mutate(position, child->genome.genes);
-        }
-        else if (position.Type() == GeneType::DOUBLE)
-        {
-            doubleOperator.Crossover(father->genome.genes, mother->genome.genes, position, child->genome.genes);
-            doubleOperator.Mutate(position, child->genome.genes);
-        }
+        operators[position.second.Type()]->Crossover(father->genome.genes, mother->genome.genes, position.second, child->genome.genes);
+        operators[position.second.Type()]->Mutate(position.second, child->genome.genes);
     }
 
     return child;
 }
+
+/*static*/ void Genetics::Initialize()
+{
+    if (operators.empty())
+    {
+        IGeneticOperatorPtr raceOpertor = IGeneticOperatorPtr(new GeneticRaceOperator());
+        operators.insert(std::make_pair(GeneCategory::RACE, raceOpertor));
+        IGeneticOperatorPtr doubleOperator = IGeneticOperatorPtr(new GeneticDoubleOperator());
+        operators.insert(std::make_pair(GeneCategory::DOUBLE, doubleOperator));
+    }
+}
+
+
